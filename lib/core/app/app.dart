@@ -1,5 +1,5 @@
+import 'package:drecipe/core/di/providers.dart';
 import 'package:drecipe/core/env/widget/environment.dart';
-import 'package:drecipe/pages/my_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,10 +8,14 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    final theme = ref.watch(themeProvider);
+    final router = ref.watch(routerProvider);
+    return MaterialApp.router(
+      theme: theme.lightTheme,
       title: E.of(context).env.appName,
-      home: const MyHomePage(),
+      debugShowCheckedModeBanner: false,
+      routerDelegate: router.delegate(),
+      routeInformationParser: router.defaultRouteParser(),
     );
   }
 }
