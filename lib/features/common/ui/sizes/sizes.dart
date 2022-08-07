@@ -10,4 +10,6 @@ abstract class Sizes {
   static const double iconSizes = 40;
 
   static const double s12 = 12;
+  static const double s38 = 38;
+  static const double s180 = 180;
 }

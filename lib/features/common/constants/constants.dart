@@ -1,7 +1,12 @@
+abstract class HeroConstants {
+  static const String logo = 'logo';
+}
+
 abstract class DurationConstants {
-  static int d1 = 1;
-  static int d2 = 2;
-  static int d3 = 3;
+  static const int d093 = 930;
+  static const int d1 = 1;
+  static const int d2 = 2;
+  static const int d3 = 3;
 }
 
 abstract class OpacityConstants {
