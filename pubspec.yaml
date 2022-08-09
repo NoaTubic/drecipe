@@ -16,7 +16,6 @@ dependencies:
   flutter_native_splash: ^2.2.7
   flutter_riverpod: ^1.0.4
 
-
 dev_dependencies:
   auto_route_generator: ^4.2.1
   build_runner: ^2.2.0
@@ -24,6 +23,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   loading_animation_widget: ^1.2.0+2
+  flutter_launcher_icons: ^0.10.0
 
 flutter:
   uses-material-design: true
@@ -49,6 +49,12 @@ flutter:
 flutter_native_splash:
   color: "#FFFFFF"
   image: assets/images/drecipe_splash_logo.png
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/launcher_icon/launcher_icon.png"
+  remove_alpha_ios: true
 
 flavorizr:
   app:
