@@ -19,6 +19,35 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation<double> animation;
 
   @override
+  void initState() {
+    super.initState();
+
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: DurationConstants.d093),
+    );
+
+    animation = Tween<double>(begin: 1, end: 0.97).animate(animationController);
+    animationController.forward();
+
+    animation.addStatusListener(
+      (status) {
+        if (status == AnimationStatus.completed) {
+          animationController.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          animationController.forward();
+        }
+      },
+    );
+  }
+
+  @override
+  dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
     Future.delayed(
@@ -26,10 +55,9 @@ class _SplashScreenState extends State<SplashScreen>
         seconds: DurationConstants.d2,
       ),
       () {
-        animationController.dispose();
         ScreenRouter.replaceScreen(
           context,
-          const ExploreRecipesScreenRoute(),
+          const SignInScreenRoute(),
         );
       },
     );
@@ -59,29 +87,6 @@ class _SplashScreenState extends State<SplashScreen>
           ),
         ],
       ),
-    );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: DurationConstants.d093),
-    );
-
-    animation = Tween<double>(begin: 1, end: 0.97).animate(animationController);
-    animationController.forward();
-
-    animation.addStatusListener(
-      (status) {
-        if (status == AnimationStatus.completed) {
-          animationController.reverse();
-        } else if (status == AnimationStatus.dismissed) {
-          animationController.forward();
-        }
-      },
     );
   }
 }

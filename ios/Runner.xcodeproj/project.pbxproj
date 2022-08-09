@@ -61,6 +61,7 @@
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A305750DF422710F3C663374 /* stagingDebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = stagingDebug.xcconfig; path = Flutter/stagingDebug.xcconfig; sourceTree = "<group>"; };
+		B5392D2982F360EFE803142D /* GoogleService-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Runner/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B663716EB8CA33D7FAB1C0FC /* devProfile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = devProfile.xcconfig; path = Flutter/devProfile.xcconfig; sourceTree = "<group>"; };
 		B7D37F5DADB4316C02456166 /* devDebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = devDebug.xcconfig; path = Flutter/devDebug.xcconfig; sourceTree = "<group>"; };
 		D22B8FD527E34FCDF2F13145 /* devRelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = devRelease.xcconfig; path = Flutter/devRelease.xcconfig; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 				1BA8497CF5FC5C19B944BE92 /* devLaunchScreen.storyboard */,
 				4D3E564A4CB0C2B9C23F0865 /* stagingLaunchScreen.storyboard */,
 				9685A2F3FEF3E5FB6D462436 /* prodLaunchScreen.storyboard */,
+				B5392D2982F360EFE803142D /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
