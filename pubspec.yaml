@@ -13,8 +13,14 @@ dependencies:
   firebase_core: ^1.20.0
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_native_splash: ^2.2.7
   flutter_riverpod: ^1.0.4
+  flutter_secure_storage: ^5.1.0
+  intl: ^0.17.0
+  loading_animation_widget: ^1.2.0+2
+
 
 dev_dependencies:
   auto_route_generator: ^4.2.1
@@ -22,7 +28,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  loading_animation_widget: ^1.2.0+2
   flutter_launcher_icons: ^0.10.0
 
 flutter:
@@ -45,6 +50,9 @@ flutter:
           weight: 400
         - asset: assets/fonts/Nunito-Light.ttf
           weight: 300
+
+flutter_intl:
+  enabled: true
 
 flutter_native_splash:
   color: "#FFFFFF"

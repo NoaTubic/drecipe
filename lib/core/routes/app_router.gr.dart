@@ -33,6 +33,14 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    SettingsScreenRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const SettingsScreen(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
     SignInScreenRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
@@ -55,6 +63,7 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(FirebaseInitScreenRoute.name, path: '/'),
         RouteConfig(SplashScreenRoute.name, path: '/splash-screen'),
+        RouteConfig(SettingsScreenRoute.name, path: '/settings-screen'),
         RouteConfig(SignInScreenRoute.name, path: '/sign-in-screen'),
         RouteConfig(ExploreRecipesScreenRoute.name,
             path: '/explore-recipes-screen')
@@ -77,6 +86,15 @@ class SplashScreenRoute extends PageRouteInfo<void> {
       : super(SplashScreenRoute.name, path: '/splash-screen');
 
   static const String name = 'SplashScreenRoute';
+}
+
+/// generated route for
+/// [SettingsScreen]
+class SettingsScreenRoute extends PageRouteInfo<void> {
+  const SettingsScreenRoute()
+      : super(SettingsScreenRoute.name, path: '/settings-screen');
+
+  static const String name = 'SettingsScreenRoute';
 }
 
 /// generated route for
