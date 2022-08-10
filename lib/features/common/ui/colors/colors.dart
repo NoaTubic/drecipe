@@ -20,6 +20,8 @@ abstract class AppColors {
   static Color darkGrey2 = HexColor.fromHex('#63666A');
 
   static Color error = HexColor.fromHex("#E61f34");
+
+  static Color googleButton = HexColor.fromHex("#DD4B39");
 }
 
 extension HexColor on Color {
