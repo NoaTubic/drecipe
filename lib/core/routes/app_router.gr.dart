@@ -49,6 +49,30 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    RegistrationScreenRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const RegistrationScreen(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    EmailVerificationScreenRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const EmailVerificationScreen(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    AccountRecoveryScreenRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const AccountRecoveryScreen(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
     ExploreRecipesScreenRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
@@ -65,6 +89,11 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(SplashScreenRoute.name, path: '/splash-screen'),
         RouteConfig(SettingsScreenRoute.name, path: '/settings-screen'),
         RouteConfig(SignInScreenRoute.name, path: '/sign-in-screen'),
+        RouteConfig(RegistrationScreenRoute.name, path: '/registration-screen'),
+        RouteConfig(EmailVerificationScreenRoute.name,
+            path: '/email-verification-screen'),
+        RouteConfig(AccountRecoveryScreenRoute.name,
+            path: '/account-recovery-screen'),
         RouteConfig(ExploreRecipesScreenRoute.name,
             path: '/explore-recipes-screen')
       ];
@@ -104,6 +133,35 @@ class SignInScreenRoute extends PageRouteInfo<void> {
       : super(SignInScreenRoute.name, path: '/sign-in-screen');
 
   static const String name = 'SignInScreenRoute';
+}
+
+/// generated route for
+/// [RegistrationScreen]
+class RegistrationScreenRoute extends PageRouteInfo<void> {
+  const RegistrationScreenRoute()
+      : super(RegistrationScreenRoute.name, path: '/registration-screen');
+
+  static const String name = 'RegistrationScreenRoute';
+}
+
+/// generated route for
+/// [EmailVerificationScreen]
+class EmailVerificationScreenRoute extends PageRouteInfo<void> {
+  const EmailVerificationScreenRoute()
+      : super(EmailVerificationScreenRoute.name,
+            path: '/email-verification-screen');
+
+  static const String name = 'EmailVerificationScreenRoute';
+}
+
+/// generated route for
+/// [AccountRecoveryScreen]
+class AccountRecoveryScreenRoute extends PageRouteInfo<void> {
+  const AccountRecoveryScreenRoute()
+      : super(AccountRecoveryScreenRoute.name,
+            path: '/account-recovery-screen');
+
+  static const String name = 'AccountRecoveryScreenRoute';
 }
 
 /// generated route for

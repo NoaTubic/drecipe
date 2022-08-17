@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class OrRow extends StatelessWidget {
@@ -13,20 +14,20 @@ class OrRow extends StatelessWidget {
       children: [
         Expanded(
           child: Divider(
-            indent: 4,
-            endIndent: 12,
-            thickness: 0.8,
-            height: 2,
+            indent: Sizes.s4,
+            endIndent: Sizes.s12,
+            thickness: Sizes.s08,
+            height: Sizes.s2,
             color: AppColors.lightGrey1,
           ),
         ),
-        const Text('OR'),
+        Text(S.of(context).label_or.toUpperCase()),
         Expanded(
           child: Divider(
-            indent: 12,
-            endIndent: 4,
-            thickness: 0.8,
-            height: 2,
+            indent: Sizes.s12,
+            endIndent: Sizes.s4,
+            thickness: Sizes.s08,
+            height: Sizes.s2,
             color: AppColors.lightGrey1,
           ),
         ),

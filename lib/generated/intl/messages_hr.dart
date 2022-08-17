@@ -22,6 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "test": MessageLookupByLibrary.simpleMessage("Hrvatska stranica")
+        "label_or": MessageLookupByLibrary.simpleMessage("ili"),
+        "sign_in_anonymous":
+            MessageLookupByLibrary.simpleMessage("Nastavak bez prijave"),
+        "sign_in_email_hint":
+            MessageLookupByLibrary.simpleMessage("Email adresa"),
+        "sign_in_forgot_password":
+            MessageLookupByLibrary.simpleMessage("Zaboravili ste lozinku?"),
+        "sign_in_helper": MessageLookupByLibrary.simpleMessage(
+            "Prijavite se s vašim korisničkim računom"),
+        "sign_in_label": MessageLookupByLibrary.simpleMessage("Prijava"),
+        "sign_in_password_hint":
+            MessageLookupByLibrary.simpleMessage("Lozinka"),
+        "sign_in_register": MessageLookupByLibrary.simpleMessage(
+            "Još nemate korisnički račun?  "),
+        "test": MessageLookupByLibrary.simpleMessage("Hrvatska Stranica")
       };
 }

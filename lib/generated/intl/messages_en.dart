@@ -22,6 +22,46 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "email_verification_helper": MessageLookupByLibrary.simpleMessage(
+            "Please check your inbox and verify your email address."),
+        "email_verification_resend_email":
+            MessageLookupByLibrary.simpleMessage("Didn\'t receive an email? "),
+        "email_verification_resend_email_btn":
+            MessageLookupByLibrary.simpleMessage("Resend email"),
+        "email_verification_subtitle": MessageLookupByLibrary.simpleMessage(
+            "Almost ready to start enjoying "),
+        "email_verification_title":
+            MessageLookupByLibrary.simpleMessage("Verify Email"),
+        "label_or": MessageLookupByLibrary.simpleMessage("or"),
+        "registration_email_hint":
+            MessageLookupByLibrary.simpleMessage("Email"),
+        "registration_have_an_account":
+            MessageLookupByLibrary.simpleMessage("Already have an account? "),
+        "registration_helper": MessageLookupByLibrary.simpleMessage(
+            "Please create an account to continue."),
+        "registration_password_confirm_hint":
+            MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "registration_password_hint":
+            MessageLookupByLibrary.simpleMessage("Password"),
+        "registration_sign_up_label":
+            MessageLookupByLibrary.simpleMessage("Sign up"),
+        "registration_subtitle":
+            MessageLookupByLibrary.simpleMessage("Welcome to "),
+        "registration_title": MessageLookupByLibrary.simpleMessage("Register"),
+        "registration_username_hint":
+            MessageLookupByLibrary.simpleMessage("Username"),
+        "sign_in_anonymous":
+            MessageLookupByLibrary.simpleMessage("Continue without signing in"),
+        "sign_in_email_hint": MessageLookupByLibrary.simpleMessage("Email"),
+        "sign_in_forgot_password":
+            MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "sign_in_helper": MessageLookupByLibrary.simpleMessage(
+            "Please sign in to your account"),
+        "sign_in_label": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "sign_in_password_hint":
+            MessageLookupByLibrary.simpleMessage("Password"),
+        "sign_in_register":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?  "),
         "test": MessageLookupByLibrary.simpleMessage("English Page")
       };
 }

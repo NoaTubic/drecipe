@@ -1,4 +1,26 @@
 {
   "@@locale": "en",
-  "test": "English Page"
+  "test": "English Page",
+  "label_or": "or",
+  "sign_in_helper": "Please sign in to your account",
+  "sign_in_email_hint": "Email",
+  "sign_in_password_hint": "Password",
+  "sign_in_forgot_password": "Forgot password?",
+  "sign_in_label": "Sign in",
+  "sign_in_anonymous": "Continue without signing in",
+  "sign_in_register": "Don't have an account?  ",
+  "registration_title": "Register",
+  "registration_subtitle": "Welcome to ",
+  "registration_helper": "Please create an account to continue.",
+  "registration_username_hint": "Username",
+  "registration_email_hint": "Email",
+  "registration_password_hint": "Password",
+  "registration_password_confirm_hint": "Confirm password",
+  "registration_sign_up_label": "Sign up",
+  "registration_have_an_account": "Already have an account? ",
+  "email_verification_title": "Verify Email",
+  "email_verification_subtitle": "Almost ready to start enjoying ",
+  "email_verification_helper": "Please check your inbox and verify your email address.",
+  "email_verification_resend_email": "Didn't receive an email? ",
+  "email_verification_resend_email_btn": "Resend email"
 }

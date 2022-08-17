@@ -14,6 +14,13 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
       elevation: Sizes.elevationMain,
+      shadowColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op04),
+      iconTheme: IconThemeData(
+        color: AppColors.primaryRed,
+        size: Sizes.iconSizeSmall,
+      ),
+      titleTextStyle:
+          TextStyles.bold(color: AppColors.primaryRed, fontSize: FontSizes.s24),
     ),
     textTheme: TextTheme(
       headline1:
@@ -21,9 +28,9 @@ class AppTheme {
       headline2:
           TextStyles.bold(color: AppColors.primaryRed, fontSize: FontSizes.s22),
       bodyText1:
-          TextStyles.bold(color: AppColors.black, fontSize: FontSizes.s16),
+          TextStyles.semiBold(color: AppColors.black, fontSize: FontSizes.s16),
       bodyText2:
-          TextStyles.bold(color: AppColors.black, fontSize: FontSizes.s16),
+          TextStyles.semiBold(color: AppColors.black, fontSize: FontSizes.s16),
       button: TextStyles.bold(color: AppColors.white, fontSize: FontSizes.s18),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -74,21 +81,21 @@ class AppTheme {
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(Sizes.circularRadius),
         borderSide: BorderSide(
-          color: AppColors.black.withOpacity(0.5),
+          color: AppColors.black.withOpacity(OpacityConstants.op05),
           width: Sizes.focusedBorderWidth,
         ),
       ),
       disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(Sizes.circularRadius),
         borderSide: BorderSide(
-          color: AppColors.black.withOpacity(0.2),
+          color: AppColors.black.withOpacity(OpacityConstants.op02),
           width: Sizes.borderWidth,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(Sizes.circularRadius),
         borderSide: BorderSide(
-          color: AppColors.black.withOpacity(0.2),
+          color: AppColors.black.withOpacity(OpacityConstants.op02),
           width: Sizes.borderWidth,
         ),
       ),

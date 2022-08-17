@@ -19,8 +19,8 @@ class SettingsButton extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              AppColors.secondaryLightRed1.withOpacity(0.2),
-              AppColors.lightGrey1.withOpacity(0.3)
+              AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op02),
+              AppColors.lightGrey1.withOpacity(OpacityConstants.op03)
             ],
           ),
         ),

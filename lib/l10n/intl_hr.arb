@@ -1,4 +1,13 @@
 {
   "@@locale": "hr",
-  "test": "Hrvatska stranica"
+  "test": "Hrvatska Stranica",
+  "label_or": "ili",
+  "sign_in_helper": "Prijavite se s vašim korisničkim računom",
+  "sign_in_email_hint": "Email adresa",
+  "sign_in_password_hint": "Lozinka",
+  "sign_in_forgot_password": "Zaboravili ste lozinku?",
+  "sign_in_label": "Prijava",
+  "sign_in_anonymous": "Nastavak bez prijave",
+  "sign_in_register": "Još nemate korisnički račun?  ",
+  "sign_in_register_label": "Prijava"
 }
