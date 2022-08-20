@@ -1,3 +1,8 @@
+abstract class Constants {
+  static int minPasswordLength = 6;
+  static int maxUsernameLength = 20;
+}
+
 abstract class HeroConstants {
   static const String logo = 'logo';
 }
@@ -16,4 +21,10 @@ abstract class OpacityConstants {
   static const double op05 = 0.5;
   static const double op06 = 0.6;
   static const double op08 = 0.8;
+}
+
+abstract class RegexConstants {
+  static const String email =
+      r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
+  static const String name = r"""^[a-zA-Z0-9.]+""";
 }

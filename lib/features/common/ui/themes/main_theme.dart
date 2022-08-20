@@ -1,6 +1,7 @@
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppTheme {
   final ThemeData lightTheme = ThemeData(
@@ -12,6 +13,8 @@ class AppTheme {
     fontFamily: FontConstants.fontFamily,
     scaffoldBackgroundColor: AppColors.white,
     appBarTheme: AppBarTheme(
+      centerTitle: true,
+      systemOverlayStyle: SystemUiOverlayStyle.light,
       backgroundColor: AppColors.white,
       elevation: Sizes.elevationMain,
       shadowColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op04),

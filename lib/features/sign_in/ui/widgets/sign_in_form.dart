@@ -23,6 +23,7 @@ class SignInForm extends StatelessWidget {
           ),
           DrecipePasswordTextFormField(
             hintText: s.sign_in_password_hint,
+            textInputAction: TextInputAction.done,
           ),
           DrecipeTextButtonPrimary(
             onPressed: () {},

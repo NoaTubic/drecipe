@@ -3,14 +3,16 @@ import 'package:drecipe/features/common/ui/widgets/drecipe_logo_label.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/text_button_row.dart';
+import 'package:drecipe/features/registration/di/providers.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class EmailVerificationScreen extends StatelessWidget {
+class EmailVerificationScreen extends ConsumerWidget {
   const EmailVerificationScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final s = S.of(context);
     return DrecipeScaffold(
       appBar: AppBar(
@@ -49,11 +51,18 @@ class EmailVerificationScreen extends StatelessWidget {
           TextButtonRow(
             text: s.email_verification_resend_email,
             buttonText: s.email_verification_resend_email_btn,
-            onPressed: () => showDrecipeSnackBar(
-              context: context,
-              text: 'Email resent!',
-              isError: false,
-            ),
+            onPressed: () {
+              ref
+                  .read(registrationNotifierProvider.notifier)
+                  .verifyEmail()
+                  .then(
+                    ((value) => showDrecipeSnackBar(
+                          context: context,
+                          text: 'Email resent!',
+                          isError: false,
+                        )),
+                  );
+            },
           )
         ],
       ),

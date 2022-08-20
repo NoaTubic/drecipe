@@ -2,6 +2,7 @@ import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_button.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/text_button_row.dart';
+import 'package:drecipe/features/sign_in/di/providers.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
@@ -11,13 +12,15 @@ import 'package:drecipe/features/common/ui/widgets/buttons/oauth_button.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/settings_button.dart';
 import 'package:drecipe/features/sign_in/ui/widgets/or_row.dart';
 import 'package:drecipe/features/sign_in/ui/widgets/sign_in_form.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends ConsumerWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final s = S.of(context);
+    final signInNotifier = ref.read(signInNotifierProvider.notifier);
     return DrecipeScaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -83,7 +86,7 @@ class SignInScreen extends StatelessWidget {
               height: Sizes.s24,
             ),
             DrecipeTextButtonPrimary(
-              onPressed: () {},
+              onPressed: () => signInNotifier.signInAnonymously(),
               text: s.sign_in_anonymous,
               textColor: AppColors.black,
             ),

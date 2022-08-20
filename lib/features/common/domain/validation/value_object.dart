@@ -3,7 +3,7 @@ import 'package:drecipe/features/common/domain/failures/failure.dart';
 
 abstract class ValueObject<T> {
   const ValueObject();
-  Either<Failure, T> get value;
+  Either<ValueFailure, T> get value;
 
   T getOrCrash() {
     return value.fold((failure) => throw UnexpectedValueError(failure), id);

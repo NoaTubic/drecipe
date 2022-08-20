@@ -7,12 +7,14 @@ class DrecipeTextFormField extends StatelessWidget {
     this.onChanged,
     this.validator,
     required this.textInputType,
+    this.textInputAction = TextInputAction.next,
     required this.hintText,
   }) : super(key: key);
 
   final void Function(String)? onChanged;
   final String? Function(String?)? validator;
   final TextInputType textInputType;
+  final TextInputAction textInputAction;
   final String hintText;
 
   @override

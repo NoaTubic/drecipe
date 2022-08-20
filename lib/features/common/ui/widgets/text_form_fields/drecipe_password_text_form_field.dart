@@ -8,6 +8,7 @@ class DrecipePasswordTextFormField extends StatefulWidget {
     this.onSaved,
     this.validator,
     this.hasShowPasswordButton = true,
+    this.textInputAction = TextInputAction.done,
     required this.hintText,
   }) : super(key: key);
 
@@ -16,6 +17,7 @@ class DrecipePasswordTextFormField extends StatefulWidget {
   final String? Function(String?)? validator;
   final String hintText;
   final bool hasShowPasswordButton;
+  final TextInputAction textInputAction;
 
   @override
   State<DrecipePasswordTextFormField> createState() =>
@@ -47,7 +49,8 @@ class _DrecipePasswordTextFormFieldState
                     ),
                   )
                 : null),
-        textInputAction: TextInputAction.next,
+        keyboardType: TextInputType.visiblePassword,
+        textInputAction: widget.textInputAction,
         cursorColor: AppColors.primaryRed,
         autocorrect: false,
       ),
