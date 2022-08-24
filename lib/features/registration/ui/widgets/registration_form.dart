@@ -37,11 +37,10 @@ class RegistrationForm extends ConsumerWidget {
     final s = S.of(context);
     final registrationNotifier =
         ref.read(registrationNotifierProvider.notifier);
-    final registrationProvider = ref.read(registrationNotifierProvider);
-    final registrationProviderListener =
-        ref.watch(registrationNotifierProvider);
+    final registrationState = ref.read(registrationNotifierProvider);
+    final registrationStateListener = ref.watch(registrationNotifierProvider);
     return Form(
-      autovalidateMode: registrationProviderListener.showErrorMessages
+      autovalidateMode: registrationStateListener.showErrorMessages
           ? AutovalidateMode.always
           : AutovalidateMode.disabled,
       child: Column(
@@ -49,7 +48,7 @@ class RegistrationForm extends ConsumerWidget {
           DrecipeTextFormField(
             onChanged: (username) =>
                 registrationNotifier.onUsernameChanged(username),
-            validator: (username) => registrationProvider.username.value.fold(
+            validator: (username) => registrationState.username.value.fold(
               (failure) => failure.getValueFailureMessage(),
               (_) => null,
             ),
@@ -58,7 +57,7 @@ class RegistrationForm extends ConsumerWidget {
           ),
           DrecipeTextFormField(
             onChanged: (email) => registrationNotifier.onEmailChanged(email),
-            validator: (username) => registrationProvider.email.value.fold(
+            validator: (username) => registrationState.email.value.fold(
               (failure) => failure.getValueFailureMessage(),
               (_) => null,
             ),
@@ -68,7 +67,7 @@ class RegistrationForm extends ConsumerWidget {
           DrecipePasswordTextFormField(
             onChanged: (password) =>
                 registrationNotifier.onPasswordChanged(password),
-            validator: (username) => registrationProvider.password.value.fold(
+            validator: (username) => registrationState.password.value.fold(
               (failure) => failure.getValueFailureMessage(),
               (_) => null,
             ),
@@ -79,7 +78,7 @@ class RegistrationForm extends ConsumerWidget {
             onChanged: (repeatedPassword) => registrationNotifier
                 .onPasswordRepeatedChanged(repeatedPassword),
             validator: (username) =>
-                registrationProvider.passwordRepeated.value.fold(
+                registrationState.passwordRepeated.value.fold(
               (failure) => failure.getValueFailureMessage(),
               (_) => null,
             ),
@@ -93,9 +92,13 @@ class RegistrationForm extends ConsumerWidget {
             onPressed: () => registrationNotifier.register(),
             text: s.registration_sign_up_label,
           ),
-          if (registrationProviderListener.isSubmitting) ...[
-            const DrecipeLinearProgressIndicator(),
-          ]
+          registrationStateListener.isSubmitting
+              ? const DrecipeLinearProgressIndicator(
+                  padding: Sizes.s13,
+                )
+              : const SizedBox(
+                  height: Sizes.s54,
+                ),
         ],
       ),
     );

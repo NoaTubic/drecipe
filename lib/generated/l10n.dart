@@ -279,6 +279,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Reset password`
+  String get account_recovery_title {
+    return Intl.message(
+      'Reset password',
+      name: 'account_recovery_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot your password?`
+  String get account_recovery_subtitle {
+    return Intl.message(
+      'Forgot your password?',
+      name: 'account_recovery_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email address to reset your password.`
+  String get account_recovery_helper {
+    return Intl.message(
+      'Please enter your email address to reset your password.',
+      name: 'account_recovery_helper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset`
+  String get account_recovery_reset {
+    return Intl.message(
+      'Reset',
+      name: 'account_recovery_reset',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset link sent!`
+  String get account_recovery_confirm_subtitle {
+    return Intl.message(
+      'Reset link sent!',
+      name: 'account_recovery_confirm_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your inbox and reset your password.`
+  String get account_recovery_confirm_helper {
+    return Intl.message(
+      'Please check your inbox and reset your password.',
+      name: 'account_recovery_confirm_helper',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

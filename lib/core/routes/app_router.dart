@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/features/account_recovery/ui/account_recovery_screen.dart';
+import 'package:drecipe/features/account_recovery/ui/account_recovery_reset_email_screen.dart';
 
 import 'package:drecipe/features/explore_recipes/ui/screens/explore_recipes.dart';
 import 'package:drecipe/features/registration/ui/email_verification_screen.dart';
@@ -41,6 +42,10 @@ part 'app_router.gr.dart';
     ),
     CustomRoute(
       page: AccountRecoveryScreen,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
+    CustomRoute(
+      page: AccountRecoveryResetEmailScreen,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(

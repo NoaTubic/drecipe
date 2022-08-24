@@ -22,5 +22,11 @@
   "email_verification_subtitle": "Almost ready to start enjoying ",
   "email_verification_helper": "Please check your inbox and verify your email address.",
   "email_verification_resend_email": "Didn't receive an email? ",
-  "email_verification_resend_email_btn": "Resend email"
+  "email_verification_resend_email_btn": "Resend email",
+  "account_recovery_title": "Reset password",
+  "account_recovery_subtitle": "Forgot your password?",
+  "account_recovery_helper": "Please enter your email address to reset your password.",
+  "account_recovery_reset": "Reset",
+  "account_recovery_confirm_subtitle": "Reset link sent!",
+  "account_recovery_confirm_helper": "Please check your inbox and reset your password."
 }

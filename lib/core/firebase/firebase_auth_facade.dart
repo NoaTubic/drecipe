@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:drecipe/core/firebase/firebase_constants.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/registration/domain/entities/drecipe_user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,17 +8,21 @@ import 'package:firebase_auth/firebase_auth.dart';
 abstract class IFirebaseAuthFacade {
   Future<Either<AuthFailure, Unit>> signInAnonymously();
   Future<Either<AuthFailure, Unit>> register(
-      {required String email, required String password});
+      {required String email,
+      required String password,
+      required String username});
+  Future<Either<Failure, Unit>> initializeUser();
   Future<Option<DrecipeUser>> getSignedInUser();
-
   Future<Either<AuthFailure, Unit>> verifyEmail();
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required String email, required String password});
+  Future<Either<AuthFailure, Unit>> resetPassword({required String email});
   Future<void> signOut();
 }
 
 class FirebaseAuthFacade implements IFirebaseAuthFacade {
   final _firebaseAuth = FirebaseAuth.instance;
+  final _firestore = FirebaseFirestore.instance;
 
   @override
   Future<Either<AuthFailure, Unit>> signInAnonymously() async {
@@ -30,12 +36,16 @@ class FirebaseAuthFacade implements IFirebaseAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> register(
-      {required String email, required String password}) async {
+      {required String email,
+      required String password,
+      required String username}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      await _firebaseAuth.currentUser!.updateDisplayName(username);
+
       return right(unit);
     } on FirebaseAuthException catch (exception) {
       if (exception.code == 'email-already-in-use') {
@@ -43,6 +53,32 @@ class FirebaseAuthFacade implements IFirebaseAuthFacade {
       } else {
         return left(const AuthFailure.serverError());
       }
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> initializeUser() async {
+    try {
+      final snapShot = await FirebaseFirestore.instance
+          .collection(Collections.users)
+          .doc(FirebaseAuth.instance.currentUser?.uid)
+          .get();
+      if (!snapShot.exists) {
+        // Document doesn't exist
+        _firestore
+            .collection(Collections.users)
+            .doc(FirebaseAuth.instance.currentUser?.uid)
+            .set(
+          {
+            "username": FirebaseAuth.instance.currentUser?.displayName,
+            "email": FirebaseAuth.instance.currentUser?.email,
+          },
+          SetOptions(merge: true),
+        );
+      }
+      return right(unit);
+    } on FirebaseException {
+      return left(const Failure.unexpectedError());
     }
   }
 
@@ -72,11 +108,27 @@ class FirebaseAuthFacade implements IFirebaseAuthFacade {
       if (!_firebaseAuth.currentUser!.emailVerified) {
         return left(const AuthFailure.emailNotVerified());
       }
+      initializeUser();
       return right(unit);
     } on FirebaseException catch (exception) {
       if (exception.code == 'wrong-password' ||
           exception.code == 'user-not-found') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> resetPassword(
+      {required String email}) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+      return right(unit);
+    } on FirebaseAuthException catch (exception) {
+      if (exception.code == 'user-not-found') {
+        return left(const AuthFailure.userNotFound());
       } else {
         return left(const AuthFailure.serverError());
       }

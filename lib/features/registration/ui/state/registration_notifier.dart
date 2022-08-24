@@ -37,11 +37,15 @@ class RegistrationNotifier extends StateNotifier<RegistrationState> {
 
   Future<void> register() async {
     Either<AuthFailure, Unit>? registrationResult;
+    final isUsernameValid = state.email.isValid();
     final isEmailValid = state.email.isValid();
     final isPasswordValid = state.password.isValid();
     final isPasswordRepeatedValid = state.passwordRepeated.isValid();
 
-    if (isEmailValid && isPasswordValid && isPasswordRepeatedValid) {
+    if (isUsernameValid &&
+        isEmailValid &&
+        isPasswordValid &&
+        isPasswordRepeatedValid) {
       state = state.copyWith(
         isSubmitting: true,
         registrationFailureOrSuccess: none(),
@@ -50,6 +54,7 @@ class RegistrationNotifier extends StateNotifier<RegistrationState> {
       registrationResult = await _authFacade.register(
         email: state.email.getOrCrash(),
         password: state.password.getOrCrash(),
+        username: state.username.getOrCrash(),
       );
 
       await _authFacade.verifyEmail();

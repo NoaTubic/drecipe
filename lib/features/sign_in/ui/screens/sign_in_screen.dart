@@ -1,8 +1,10 @@
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_button.dart';
+import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
+import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/text_button_row.dart';
 import 'package:drecipe/features/sign_in/di/providers.dart';
+import 'package:drecipe/features/sign_in/ui/state/sign_in_state.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
@@ -19,6 +21,21 @@ class SignInScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<SignInState>(signInNotifierProvider, (_, state) {
+      state.signInFailureOrSuccess.fold(
+        () => null,
+        (either) => either.fold(
+          (failure) => showDrecipeSnackBar(
+            context: context,
+            text: failure.getAuthFailureMessage(),
+          ),
+          (success) => ScreenRouter.pushScreen(
+            context,
+            const ExploreRecipesScreenRoute(),
+          ),
+        ),
+      );
+    });
     final s = S.of(context);
     final signInNotifier = ref.read(signInNotifierProvider.notifier);
     return DrecipeScaffold(
@@ -49,16 +66,6 @@ class SignInScreen extends ConsumerWidget {
               height: Sizes.s20,
             ),
             const SignInForm(),
-            const SizedBox(
-              height: Sizes.s20,
-            ),
-            DrecipePrimaryButton(
-              onPressed: () {},
-              text: s.sign_in_label,
-            ),
-            const SizedBox(
-              height: Sizes.s28,
-            ),
             const OrRow(),
             const SizedBox(
               height: Sizes.s20,

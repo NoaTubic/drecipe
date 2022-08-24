@@ -73,6 +73,14 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
+    AccountRecoveryResetEmailScreenRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const AccountRecoveryResetEmailScreen(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
     ExploreRecipesScreenRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
@@ -94,6 +102,8 @@ class _$AppRouter extends RootStackRouter {
             path: '/email-verification-screen'),
         RouteConfig(AccountRecoveryScreenRoute.name,
             path: '/account-recovery-screen'),
+        RouteConfig(AccountRecoveryResetEmailScreenRoute.name,
+            path: '/account-recovery-reset-email-screen'),
         RouteConfig(ExploreRecipesScreenRoute.name,
             path: '/explore-recipes-screen')
       ];
@@ -162,6 +172,16 @@ class AccountRecoveryScreenRoute extends PageRouteInfo<void> {
             path: '/account-recovery-screen');
 
   static const String name = 'AccountRecoveryScreenRoute';
+}
+
+/// generated route for
+/// [AccountRecoveryResetEmailScreen]
+class AccountRecoveryResetEmailScreenRoute extends PageRouteInfo<void> {
+  const AccountRecoveryResetEmailScreenRoute()
+      : super(AccountRecoveryResetEmailScreenRoute.name,
+            path: '/account-recovery-reset-email-screen');
+
+  static const String name = 'AccountRecoveryResetEmailScreenRoute';
 }
 
 /// generated route for

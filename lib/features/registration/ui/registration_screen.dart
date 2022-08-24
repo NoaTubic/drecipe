@@ -58,9 +58,6 @@ class RegistrationScreen extends StatelessWidget {
                 height: Sizes.s36,
               ),
               const RegistrationForm(),
-              const SizedBox(
-                height: Sizes.s54,
-              ),
               TextButtonRow(
                 text: s.registration_have_an_account,
                 buttonText: s.sign_in_label,

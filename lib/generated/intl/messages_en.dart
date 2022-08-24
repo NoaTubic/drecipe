@@ -22,6 +22,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account_recovery_confirm_helper": MessageLookupByLibrary.simpleMessage(
+            "Please check your inbox and reset your password."),
+        "account_recovery_confirm_subtitle":
+            MessageLookupByLibrary.simpleMessage("Reset link sent!"),
+        "account_recovery_helper": MessageLookupByLibrary.simpleMessage(
+            "Please enter your email address to reset your password."),
+        "account_recovery_reset": MessageLookupByLibrary.simpleMessage("Reset"),
+        "account_recovery_subtitle":
+            MessageLookupByLibrary.simpleMessage("Forgot your password?"),
+        "account_recovery_title":
+            MessageLookupByLibrary.simpleMessage("Reset password"),
         "email_verification_helper": MessageLookupByLibrary.simpleMessage(
             "Please check your inbox and verify your email address."),
         "email_verification_resend_email":
