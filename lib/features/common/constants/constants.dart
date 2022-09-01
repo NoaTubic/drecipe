@@ -15,12 +15,15 @@ abstract class DurationConstants {
 }
 
 abstract class OpacityConstants {
+  static const double op01 = 0.1;
   static const double op02 = 0.2;
   static const double op03 = 0.3;
   static const double op04 = 0.4;
   static const double op05 = 0.5;
   static const double op06 = 0.6;
+  static const double op07 = 0.7;
   static const double op08 = 0.8;
+  static const double op09 = 0.9;
 }
 
 abstract class RegexConstants {

@@ -22,28 +22,32 @@ class SettingsButton extends StatelessWidget {
         alignment: alignment,
         child: Ink(
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(Sizes.s8),
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op02),
-                AppColors.lightGrey1.withOpacity(OpacityConstants.op03)
+                AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op04),
+                AppColors.lightGrey1.withOpacity(OpacityConstants.op04)
               ],
             ),
           ),
-          child: InkWell(
-            onTap: () => ScreenRouter.pushScreen(
-              context,
-              const SettingsScreenRoute(),
-            ),
-            splashColor:
-                AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op04),
-            customBorder: const CircleBorder(),
-            child: Icon(
-              Icons.settings_rounded,
-              size: Sizes.iconSizeMedium,
-              color: AppColors.darkGrey1,
+          child: Padding(
+            padding: const EdgeInsets.all(Sizes.s2),
+            child: InkWell(
+              onTap: () => ScreenRouter.pushScreen(
+                context,
+                const SettingsScreenRoute(),
+              ),
+              splashColor: AppColors.secondaryLightRed1
+                  .withOpacity(OpacityConstants.op04),
+              customBorder: const CircleBorder(),
+              child: Icon(
+                Icons.settings_rounded,
+                size: Sizes.iconSizeMedium,
+                color: AppColors.darkGrey1,
+              ),
             ),
           ),
         ),

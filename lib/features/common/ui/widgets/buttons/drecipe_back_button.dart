@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter/material.dart';
@@ -18,18 +19,19 @@ class DrecipeBackButton extends StatelessWidget {
         alignment: Alignment.center,
         child: Ink(
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(Sizes.s8),
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op02),
-                AppColors.lightGrey1.withOpacity(OpacityConstants.op03)
+                AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op04),
+                AppColors.lightGrey1.withOpacity(OpacityConstants.op04)
               ],
             ),
           ),
           child: InkWell(
-            onTap: onTap,
+            onTap: onTap ?? () => AutoRouter.of(context).pop(),
             splashColor:
                 AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op04),
             customBorder: const CircleBorder(),
