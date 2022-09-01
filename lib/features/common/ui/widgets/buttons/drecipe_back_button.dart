@@ -1,25 +1,21 @@
-import 'package:flutter/material.dart';
-
-import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter/material.dart';
 
-class SettingsButton extends StatelessWidget {
-  const SettingsButton({
+class DrecipeBackButton extends StatelessWidget {
+  const DrecipeBackButton({
     Key? key,
-    this.alignment = Alignment.center,
-    this.padding = Sizes.s20,
+    this.onTap,
   }) : super(key: key);
 
-  final Alignment alignment;
-  final double padding;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: padding),
+      padding: const EdgeInsets.only(left: Sizes.s20),
       child: Align(
-        alignment: alignment,
+        alignment: Alignment.center,
         child: Ink(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
@@ -33,15 +29,12 @@ class SettingsButton extends StatelessWidget {
             ),
           ),
           child: InkWell(
-            onTap: () => ScreenRouter.pushScreen(
-              context,
-              const SettingsScreenRoute(),
-            ),
+            onTap: onTap,
             splashColor:
                 AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op04),
             customBorder: const CircleBorder(),
             child: Icon(
-              Icons.settings_rounded,
+              Icons.arrow_back_rounded,
               size: Sizes.iconSizeMedium,
               color: AppColors.darkGrey1,
             ),

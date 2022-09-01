@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/ui/sizes/sizes.dart';
+import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class DrecipeScaffold extends StatelessWidget {
@@ -8,7 +9,7 @@ class DrecipeScaffold extends StatelessWidget {
     required this.body,
   }) : super(key: key);
 
-  final AppBar? appBar;
+  final DrecipeAppBar? appBar;
   final Widget body;
 
   @override

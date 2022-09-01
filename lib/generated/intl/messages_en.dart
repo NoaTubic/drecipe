@@ -39,6 +39,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Didn\'t receive an email? "),
         "email_verification_resend_email_btn":
             MessageLookupByLibrary.simpleMessage("Resend email"),
+        "email_verification_resent_email_info":
+            MessageLookupByLibrary.simpleMessage(
+                "Email resent! Please check your inbox."),
         "email_verification_subtitle": MessageLookupByLibrary.simpleMessage(
             "Almost ready to start enjoying "),
         "email_verification_title":

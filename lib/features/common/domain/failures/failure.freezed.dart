@@ -20,18 +20,30 @@ mixin _$Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() offline,
     required TResult Function() unexpectedError,
+    required TResult Function() serverErrorGeneral,
+    required TResult Function() forbidden,
+    required TResult Function() unauthorizedAccess,
+    required TResult Function() unexpectedDataError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? offline,
     TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? offline,
     TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +51,30 @@ mixin _$Failure {
   TResult map<TResult extends Object?>({
     required TResult Function(_Offline value) offline,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_ServerErrorGeneral value) serverErrorGeneral,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_UnauthorizedAccess value) unauthorizedAccess,
+    required TResult Function(_UnexpectedDataError value) unexpectedDataError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Offline value)? offline,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Offline value)? offline,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,6 +136,10 @@ class _$_Offline implements _Offline {
   TResult when<TResult extends Object?>({
     required TResult Function() offline,
     required TResult Function() unexpectedError,
+    required TResult Function() serverErrorGeneral,
+    required TResult Function() forbidden,
+    required TResult Function() unauthorizedAccess,
+    required TResult Function() unexpectedDataError,
   }) {
     return offline();
   }
@@ -121,6 +149,10 @@ class _$_Offline implements _Offline {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? offline,
     TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
   }) {
     return offline?.call();
   }
@@ -130,6 +162,10 @@ class _$_Offline implements _Offline {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? offline,
     TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
     required TResult orElse(),
   }) {
     if (offline != null) {
@@ -143,6 +179,10 @@ class _$_Offline implements _Offline {
   TResult map<TResult extends Object?>({
     required TResult Function(_Offline value) offline,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_ServerErrorGeneral value) serverErrorGeneral,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_UnauthorizedAccess value) unauthorizedAccess,
+    required TResult Function(_UnexpectedDataError value) unexpectedDataError,
   }) {
     return offline(this);
   }
@@ -152,6 +192,10 @@ class _$_Offline implements _Offline {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Offline value)? offline,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
   }) {
     return offline?.call(this);
   }
@@ -161,6 +205,10 @@ class _$_Offline implements _Offline {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Offline value)? offline,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
     required TResult orElse(),
   }) {
     if (offline != null) {
@@ -216,6 +264,10 @@ class _$_UnexpectedError implements _UnexpectedError {
   TResult when<TResult extends Object?>({
     required TResult Function() offline,
     required TResult Function() unexpectedError,
+    required TResult Function() serverErrorGeneral,
+    required TResult Function() forbidden,
+    required TResult Function() unauthorizedAccess,
+    required TResult Function() unexpectedDataError,
   }) {
     return unexpectedError();
   }
@@ -225,6 +277,10 @@ class _$_UnexpectedError implements _UnexpectedError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? offline,
     TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
   }) {
     return unexpectedError?.call();
   }
@@ -234,6 +290,10 @@ class _$_UnexpectedError implements _UnexpectedError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? offline,
     TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
     required TResult orElse(),
   }) {
     if (unexpectedError != null) {
@@ -247,6 +307,10 @@ class _$_UnexpectedError implements _UnexpectedError {
   TResult map<TResult extends Object?>({
     required TResult Function(_Offline value) offline,
     required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_ServerErrorGeneral value) serverErrorGeneral,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_UnauthorizedAccess value) unauthorizedAccess,
+    required TResult Function(_UnexpectedDataError value) unexpectedDataError,
   }) {
     return unexpectedError(this);
   }
@@ -256,6 +320,10 @@ class _$_UnexpectedError implements _UnexpectedError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Offline value)? offline,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
   }) {
     return unexpectedError?.call(this);
   }
@@ -265,6 +333,10 @@ class _$_UnexpectedError implements _UnexpectedError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Offline value)? offline,
     TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
     required TResult orElse(),
   }) {
     if (unexpectedError != null) {
@@ -276,6 +348,521 @@ class _$_UnexpectedError implements _UnexpectedError {
 
 abstract class _UnexpectedError implements Failure {
   const factory _UnexpectedError() = _$_UnexpectedError;
+}
+
+/// @nodoc
+abstract class _$$_ServerErrorGeneralCopyWith<$Res> {
+  factory _$$_ServerErrorGeneralCopyWith(_$_ServerErrorGeneral value,
+          $Res Function(_$_ServerErrorGeneral) then) =
+      __$$_ServerErrorGeneralCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ServerErrorGeneralCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res>
+    implements _$$_ServerErrorGeneralCopyWith<$Res> {
+  __$$_ServerErrorGeneralCopyWithImpl(
+      _$_ServerErrorGeneral _value, $Res Function(_$_ServerErrorGeneral) _then)
+      : super(_value, (v) => _then(v as _$_ServerErrorGeneral));
+
+  @override
+  _$_ServerErrorGeneral get _value => super._value as _$_ServerErrorGeneral;
+}
+
+/// @nodoc
+
+class _$_ServerErrorGeneral implements _ServerErrorGeneral {
+  const _$_ServerErrorGeneral();
+
+  @override
+  String toString() {
+    return 'Failure.serverErrorGeneral()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ServerErrorGeneral);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() offline,
+    required TResult Function() unexpectedError,
+    required TResult Function() serverErrorGeneral,
+    required TResult Function() forbidden,
+    required TResult Function() unauthorizedAccess,
+    required TResult Function() unexpectedDataError,
+  }) {
+    return serverErrorGeneral();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? offline,
+    TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
+  }) {
+    return serverErrorGeneral?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? offline,
+    TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
+    required TResult orElse(),
+  }) {
+    if (serverErrorGeneral != null) {
+      return serverErrorGeneral();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Offline value) offline,
+    required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_ServerErrorGeneral value) serverErrorGeneral,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_UnauthorizedAccess value) unauthorizedAccess,
+    required TResult Function(_UnexpectedDataError value) unexpectedDataError,
+  }) {
+    return serverErrorGeneral(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Offline value)? offline,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+  }) {
+    return serverErrorGeneral?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Offline value)? offline,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    required TResult orElse(),
+  }) {
+    if (serverErrorGeneral != null) {
+      return serverErrorGeneral(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ServerErrorGeneral implements Failure {
+  const factory _ServerErrorGeneral() = _$_ServerErrorGeneral;
+}
+
+/// @nodoc
+abstract class _$$_ForbiddenCopyWith<$Res> {
+  factory _$$_ForbiddenCopyWith(
+          _$_Forbidden value, $Res Function(_$_Forbidden) then) =
+      __$$_ForbiddenCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ForbiddenCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+    implements _$$_ForbiddenCopyWith<$Res> {
+  __$$_ForbiddenCopyWithImpl(
+      _$_Forbidden _value, $Res Function(_$_Forbidden) _then)
+      : super(_value, (v) => _then(v as _$_Forbidden));
+
+  @override
+  _$_Forbidden get _value => super._value as _$_Forbidden;
+}
+
+/// @nodoc
+
+class _$_Forbidden implements _Forbidden {
+  const _$_Forbidden();
+
+  @override
+  String toString() {
+    return 'Failure.forbidden()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Forbidden);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() offline,
+    required TResult Function() unexpectedError,
+    required TResult Function() serverErrorGeneral,
+    required TResult Function() forbidden,
+    required TResult Function() unauthorizedAccess,
+    required TResult Function() unexpectedDataError,
+  }) {
+    return forbidden();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? offline,
+    TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
+  }) {
+    return forbidden?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? offline,
+    TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
+    required TResult orElse(),
+  }) {
+    if (forbidden != null) {
+      return forbidden();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Offline value) offline,
+    required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_ServerErrorGeneral value) serverErrorGeneral,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_UnauthorizedAccess value) unauthorizedAccess,
+    required TResult Function(_UnexpectedDataError value) unexpectedDataError,
+  }) {
+    return forbidden(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Offline value)? offline,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+  }) {
+    return forbidden?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Offline value)? offline,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    required TResult orElse(),
+  }) {
+    if (forbidden != null) {
+      return forbidden(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Forbidden implements Failure {
+  const factory _Forbidden() = _$_Forbidden;
+}
+
+/// @nodoc
+abstract class _$$_UnauthorizedAccessCopyWith<$Res> {
+  factory _$$_UnauthorizedAccessCopyWith(_$_UnauthorizedAccess value,
+          $Res Function(_$_UnauthorizedAccess) then) =
+      __$$_UnauthorizedAccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UnauthorizedAccessCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res>
+    implements _$$_UnauthorizedAccessCopyWith<$Res> {
+  __$$_UnauthorizedAccessCopyWithImpl(
+      _$_UnauthorizedAccess _value, $Res Function(_$_UnauthorizedAccess) _then)
+      : super(_value, (v) => _then(v as _$_UnauthorizedAccess));
+
+  @override
+  _$_UnauthorizedAccess get _value => super._value as _$_UnauthorizedAccess;
+}
+
+/// @nodoc
+
+class _$_UnauthorizedAccess implements _UnauthorizedAccess {
+  const _$_UnauthorizedAccess();
+
+  @override
+  String toString() {
+    return 'Failure.unauthorizedAccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UnauthorizedAccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() offline,
+    required TResult Function() unexpectedError,
+    required TResult Function() serverErrorGeneral,
+    required TResult Function() forbidden,
+    required TResult Function() unauthorizedAccess,
+    required TResult Function() unexpectedDataError,
+  }) {
+    return unauthorizedAccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? offline,
+    TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
+  }) {
+    return unauthorizedAccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? offline,
+    TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
+    required TResult orElse(),
+  }) {
+    if (unauthorizedAccess != null) {
+      return unauthorizedAccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Offline value) offline,
+    required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_ServerErrorGeneral value) serverErrorGeneral,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_UnauthorizedAccess value) unauthorizedAccess,
+    required TResult Function(_UnexpectedDataError value) unexpectedDataError,
+  }) {
+    return unauthorizedAccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Offline value)? offline,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+  }) {
+    return unauthorizedAccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Offline value)? offline,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    required TResult orElse(),
+  }) {
+    if (unauthorizedAccess != null) {
+      return unauthorizedAccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnauthorizedAccess implements Failure {
+  const factory _UnauthorizedAccess() = _$_UnauthorizedAccess;
+}
+
+/// @nodoc
+abstract class _$$_UnexpectedDataErrorCopyWith<$Res> {
+  factory _$$_UnexpectedDataErrorCopyWith(_$_UnexpectedDataError value,
+          $Res Function(_$_UnexpectedDataError) then) =
+      __$$_UnexpectedDataErrorCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_UnexpectedDataErrorCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res>
+    implements _$$_UnexpectedDataErrorCopyWith<$Res> {
+  __$$_UnexpectedDataErrorCopyWithImpl(_$_UnexpectedDataError _value,
+      $Res Function(_$_UnexpectedDataError) _then)
+      : super(_value, (v) => _then(v as _$_UnexpectedDataError));
+
+  @override
+  _$_UnexpectedDataError get _value => super._value as _$_UnexpectedDataError;
+}
+
+/// @nodoc
+
+class _$_UnexpectedDataError implements _UnexpectedDataError {
+  const _$_UnexpectedDataError();
+
+  @override
+  String toString() {
+    return 'Failure.unexpectedDataError()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_UnexpectedDataError);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() offline,
+    required TResult Function() unexpectedError,
+    required TResult Function() serverErrorGeneral,
+    required TResult Function() forbidden,
+    required TResult Function() unauthorizedAccess,
+    required TResult Function() unexpectedDataError,
+  }) {
+    return unexpectedDataError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? offline,
+    TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
+  }) {
+    return unexpectedDataError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? offline,
+    TResult Function()? unexpectedError,
+    TResult Function()? serverErrorGeneral,
+    TResult Function()? forbidden,
+    TResult Function()? unauthorizedAccess,
+    TResult Function()? unexpectedDataError,
+    required TResult orElse(),
+  }) {
+    if (unexpectedDataError != null) {
+      return unexpectedDataError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Offline value) offline,
+    required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_ServerErrorGeneral value) serverErrorGeneral,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_UnauthorizedAccess value) unauthorizedAccess,
+    required TResult Function(_UnexpectedDataError value) unexpectedDataError,
+  }) {
+    return unexpectedDataError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Offline value)? offline,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+  }) {
+    return unexpectedDataError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Offline value)? offline,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    required TResult orElse(),
+  }) {
+    if (unexpectedDataError != null) {
+      return unexpectedDataError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnexpectedDataError implements Failure {
+  const factory _UnexpectedDataError() = _$_UnexpectedDataError;
 }
 
 /// @nodoc

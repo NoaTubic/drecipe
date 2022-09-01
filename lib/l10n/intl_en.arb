@@ -23,6 +23,7 @@
   "email_verification_helper": "Please check your inbox and verify your email address.",
   "email_verification_resend_email": "Didn't receive an email? ",
   "email_verification_resend_email_btn": "Resend email",
+  "email_verification_resent_email_info": "Email resent! Please check your inbox.",
   "account_recovery_title": "Reset password",
   "account_recovery_subtitle": "Forgot your password?",
   "account_recovery_helper": "Please enter your email address to reset your password.",

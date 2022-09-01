@@ -55,7 +55,10 @@ class SignInScreen extends ConsumerWidget {
                     ),
                   ),
                 ),
-                const SettingsButton()
+                const SettingsButton(
+                  alignment: Alignment.topRight,
+                  padding: Sizes.s0,
+                )
               ],
             ),
             const SizedBox(

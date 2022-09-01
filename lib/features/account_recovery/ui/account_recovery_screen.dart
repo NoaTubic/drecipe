@@ -5,6 +5,7 @@ import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_button.dart';
+import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_linear_progress_indicator.dart';
@@ -41,7 +42,7 @@ class AccountRecoveryScreen extends ConsumerWidget {
         ref.watch(accountRecoveryNotifierProvider);
     final s = S.of(context);
     return DrecipeScaffold(
-      appBar: AppBar(title: Text(s.account_recovery_title)),
+      appBar: DrecipeAppBar(title: s.account_recovery_title),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

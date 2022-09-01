@@ -7,6 +7,10 @@ part 'failure.freezed.dart';
 class Failure with _$Failure {
   const factory Failure.offline() = _Offline;
   const factory Failure.unexpectedError() = _UnexpectedError;
+  const factory Failure.serverErrorGeneral() = _ServerErrorGeneral;
+  const factory Failure.forbidden() = _Forbidden;
+  const factory Failure.unauthorizedAccess() = _UnauthorizedAccess;
+  const factory Failure.unexpectedDataError() = _UnexpectedDataError;
 }
 
 @freezed

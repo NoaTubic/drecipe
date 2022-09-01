@@ -280,6 +280,16 @@ class S {
     );
   }
 
+  /// `Email resent! Please check your inbox.`
+  String get email_verification_resent_email_info {
+    return Intl.message(
+      'Email resent! Please check your inbox.',
+      name: 'email_verification_resent_email_info',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Reset password`
   String get account_recovery_title {
     return Intl.message(

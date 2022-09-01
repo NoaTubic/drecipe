@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_logo_label.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
@@ -15,8 +16,8 @@ class EmailVerificationScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final s = S.of(context);
     return DrecipeScaffold(
-      appBar: AppBar(
-        title: Text(s.email_verification_title),
+      appBar: DrecipeAppBar(
+        title: s.email_verification_title,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,7 +59,7 @@ class EmailVerificationScreen extends ConsumerWidget {
                   .then(
                     ((value) => showDrecipeSnackBar(
                           context: context,
-                          text: 'Email resent!',
+                          text: s.email_verification_resent_email_info,
                           isError: false,
                         )),
                   );

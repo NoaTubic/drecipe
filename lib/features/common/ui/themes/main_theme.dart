@@ -19,7 +19,7 @@ class AppTheme {
       elevation: Sizes.elevationMain,
       shadowColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op04),
       iconTheme: IconThemeData(
-        color: AppColors.primaryRed,
+        color: AppColors.darkGrey1,
         size: Sizes.iconSizeSmall,
       ),
       titleTextStyle:

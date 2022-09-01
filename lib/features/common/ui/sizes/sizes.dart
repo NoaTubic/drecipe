@@ -8,7 +8,8 @@ abstract class Sizes {
   static const double borderWidth = 1.5;
   static const double focusedBorderWidth = 2;
   static const double iconSizeSmall = 28;
-  static const double iconSizes = 40;
+  static const double iconSizeMedium = 32;
+  static const double iconSize = 40;
 
   static const double s0 = 0;
   static const double s08 = 0.8;

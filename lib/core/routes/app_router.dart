@@ -65,4 +65,8 @@ abstract class ScreenRouter {
   static void pushScreen(BuildContext context, PageRouteInfo<dynamic> route) {
     AutoRouter.of(context).push(route);
   }
+
+  static void popScreen(BuildContext context, PageRouteInfo<dynamic> route) {
+    AutoRouter.of(context).pop(route);
+  }
 }

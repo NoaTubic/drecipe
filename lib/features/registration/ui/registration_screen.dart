@@ -1,4 +1,4 @@
-import 'package:drecipe/features/common/ui/widgets/buttons/settings_button.dart';
+import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/registration/ui/widgets/registration_form.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/widgets/text_button_row.dart';
@@ -16,16 +16,10 @@ class RegistrationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = S.of(context);
     return DrecipeScaffold(
-      appBar: AppBar(
-        title: Text(
-          s.registration_title,
-        ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(Sizes.s8),
-            child: SettingsButton(),
-          ),
-        ],
+      appBar: DrecipeAppBar(
+        title: s.registration_title,
+        leftAction: () =>
+            ScreenRouter.popScreen(context, const SignInScreenRoute()),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -61,8 +55,10 @@ class RegistrationScreen extends StatelessWidget {
               TextButtonRow(
                 text: s.registration_have_an_account,
                 buttonText: s.sign_in_label,
-                onPressed: () =>
-                    ScreenRouter.pushScreen(context, const SignInScreenRoute()),
+                onPressed: () => ScreenRouter.pushScreen(
+                  context,
+                  const SignInScreenRoute(),
+                ),
               ),
             ],
           ),
