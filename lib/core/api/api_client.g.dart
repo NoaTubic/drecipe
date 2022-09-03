@@ -16,18 +16,19 @@ class _ApiClient implements ApiClient {
   String? baseUrl;
 
   @override
-  Future<String> getRandomRecipes(
+  Future<RecipesResponse> getRandomRecipes(
       {number = ApiConstants.numberOfRecipes}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'number': number};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<String>(_setStreamType<String>(
-        Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/recipes/random',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = _result.data!;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RecipesResponse>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/recipes/random',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RecipesResponse.fromJson(_result.data!);
     return value;
   }
 

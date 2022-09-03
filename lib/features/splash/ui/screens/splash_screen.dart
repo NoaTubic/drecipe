@@ -1,19 +1,22 @@
 import 'package:drecipe/core/routes/app_router.dart';
+import 'package:drecipe/features/auth/di/providers.dart';
+import 'package:drecipe/features/auth/ui/state/auth_state.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_animated_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 // ignore: depend_on_referenced_packages
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  SplashScreenState createState() => SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class SplashScreenState extends ConsumerState<SplashScreen>
     with TickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> animation;
@@ -21,7 +24,9 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.watch(initAuthProvider);
+    });
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: DurationConstants.d093),
@@ -56,9 +61,12 @@ class _SplashScreenState extends State<SplashScreen>
       ),
       () {
         ScreenRouter.replaceScreen(
-          context,
-          const SignInScreenRoute(),
-        );
+            context,
+            ref.watch<AuthState>(authNotifierProvider).when(
+                  initial: () => const SplashScreenRoute(),
+                  authenticated: () => const DrecipeBottomNavBarRoute(),
+                  unauthenticated: () => const SignInScreenRoute(),
+                ));
       },
     );
     return Scaffold(

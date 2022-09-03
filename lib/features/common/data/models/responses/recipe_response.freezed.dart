@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'recipe_details_response.dart';
+part of 'recipe_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,18 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RecipeDetailsResponse _$RecipeDetailsResponseFromJson(
-    Map<String, dynamic> json) {
-  return _RecipeDetailsResponse.fromJson(json);
+RecipeResponse _$RecipeResponseFromJson(Map<String, dynamic> json) {
+  return _RecipeResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RecipeDetailsResponse {
+mixin _$RecipeResponse {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   int get servings => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
-  String get readyInMinutes => throw _privateConstructorUsedError;
+  int get readyInMinutes => throw _privateConstructorUsedError;
   List<String> get dishTypes => throw _privateConstructorUsedError;
   bool get vegetarian => throw _privateConstructorUsedError;
   bool get vegan => throw _privateConstructorUsedError;
@@ -34,43 +33,41 @@ mixin _$RecipeDetailsResponse {
   String get instructions => throw _privateConstructorUsedError;
   List<IngredientResponse> get extendedIngredients =>
       throw _privateConstructorUsedError;
-  double get serving => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RecipeDetailsResponseCopyWith<RecipeDetailsResponse> get copyWith =>
+  $RecipeResponseCopyWith<RecipeResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RecipeDetailsResponseCopyWith<$Res> {
-  factory $RecipeDetailsResponseCopyWith(RecipeDetailsResponse value,
-          $Res Function(RecipeDetailsResponse) then) =
-      _$RecipeDetailsResponseCopyWithImpl<$Res>;
+abstract class $RecipeResponseCopyWith<$Res> {
+  factory $RecipeResponseCopyWith(
+          RecipeResponse value, $Res Function(RecipeResponse) then) =
+      _$RecipeResponseCopyWithImpl<$Res>;
   $Res call(
       {int id,
       String title,
       int servings,
       String image,
-      String readyInMinutes,
+      int readyInMinutes,
       List<String> dishTypes,
       bool vegetarian,
       bool vegan,
       bool glutenFree,
       bool veryPopular,
       String instructions,
-      List<IngredientResponse> extendedIngredients,
-      double serving});
+      List<IngredientResponse> extendedIngredients});
 }
 
 /// @nodoc
-class _$RecipeDetailsResponseCopyWithImpl<$Res>
-    implements $RecipeDetailsResponseCopyWith<$Res> {
-  _$RecipeDetailsResponseCopyWithImpl(this._value, this._then);
+class _$RecipeResponseCopyWithImpl<$Res>
+    implements $RecipeResponseCopyWith<$Res> {
+  _$RecipeResponseCopyWithImpl(this._value, this._then);
 
-  final RecipeDetailsResponse _value;
+  final RecipeResponse _value;
   // ignore: unused_field
-  final $Res Function(RecipeDetailsResponse) _then;
+  final $Res Function(RecipeResponse) _then;
 
   @override
   $Res call({
@@ -86,7 +83,6 @@ class _$RecipeDetailsResponseCopyWithImpl<$Res>
     Object? veryPopular = freezed,
     Object? instructions = freezed,
     Object? extendedIngredients = freezed,
-    Object? serving = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -108,7 +104,7 @@ class _$RecipeDetailsResponseCopyWithImpl<$Res>
       readyInMinutes: readyInMinutes == freezed
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       dishTypes: dishTypes == freezed
           ? _value.dishTypes
           : dishTypes // ignore: cast_nullable_to_non_nullable
@@ -137,48 +133,42 @@ class _$RecipeDetailsResponseCopyWithImpl<$Res>
           ? _value.extendedIngredients
           : extendedIngredients // ignore: cast_nullable_to_non_nullable
               as List<IngredientResponse>,
-      serving: serving == freezed
-          ? _value.serving
-          : serving // ignore: cast_nullable_to_non_nullable
-              as double,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$$_RecipeDetailsResponseCopyWith<$Res>
-    implements $RecipeDetailsResponseCopyWith<$Res> {
-  factory _$$_RecipeDetailsResponseCopyWith(_$_RecipeDetailsResponse value,
-          $Res Function(_$_RecipeDetailsResponse) then) =
-      __$$_RecipeDetailsResponseCopyWithImpl<$Res>;
+abstract class _$$_RecipeResponseCopyWith<$Res>
+    implements $RecipeResponseCopyWith<$Res> {
+  factory _$$_RecipeResponseCopyWith(
+          _$_RecipeResponse value, $Res Function(_$_RecipeResponse) then) =
+      __$$_RecipeResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
       String title,
       int servings,
       String image,
-      String readyInMinutes,
+      int readyInMinutes,
       List<String> dishTypes,
       bool vegetarian,
       bool vegan,
       bool glutenFree,
       bool veryPopular,
       String instructions,
-      List<IngredientResponse> extendedIngredients,
-      double serving});
+      List<IngredientResponse> extendedIngredients});
 }
 
 /// @nodoc
-class __$$_RecipeDetailsResponseCopyWithImpl<$Res>
-    extends _$RecipeDetailsResponseCopyWithImpl<$Res>
-    implements _$$_RecipeDetailsResponseCopyWith<$Res> {
-  __$$_RecipeDetailsResponseCopyWithImpl(_$_RecipeDetailsResponse _value,
-      $Res Function(_$_RecipeDetailsResponse) _then)
-      : super(_value, (v) => _then(v as _$_RecipeDetailsResponse));
+class __$$_RecipeResponseCopyWithImpl<$Res>
+    extends _$RecipeResponseCopyWithImpl<$Res>
+    implements _$$_RecipeResponseCopyWith<$Res> {
+  __$$_RecipeResponseCopyWithImpl(
+      _$_RecipeResponse _value, $Res Function(_$_RecipeResponse) _then)
+      : super(_value, (v) => _then(v as _$_RecipeResponse));
 
   @override
-  _$_RecipeDetailsResponse get _value =>
-      super._value as _$_RecipeDetailsResponse;
+  _$_RecipeResponse get _value => super._value as _$_RecipeResponse;
 
   @override
   $Res call({
@@ -194,9 +184,8 @@ class __$$_RecipeDetailsResponseCopyWithImpl<$Res>
     Object? veryPopular = freezed,
     Object? instructions = freezed,
     Object? extendedIngredients = freezed,
-    Object? serving = freezed,
   }) {
-    return _then(_$_RecipeDetailsResponse(
+    return _then(_$_RecipeResponse(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -216,7 +205,7 @@ class __$$_RecipeDetailsResponseCopyWithImpl<$Res>
       readyInMinutes: readyInMinutes == freezed
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       dishTypes: dishTypes == freezed
           ? _value._dishTypes
           : dishTypes // ignore: cast_nullable_to_non_nullable
@@ -245,18 +234,14 @@ class __$$_RecipeDetailsResponseCopyWithImpl<$Res>
           ? _value._extendedIngredients
           : extendedIngredients // ignore: cast_nullable_to_non_nullable
               as List<IngredientResponse>,
-      serving: serving == freezed
-          ? _value.serving
-          : serving // ignore: cast_nullable_to_non_nullable
-              as double,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_RecipeDetailsResponse implements _RecipeDetailsResponse {
-  const _$_RecipeDetailsResponse(
+class _$_RecipeResponse implements _RecipeResponse {
+  const _$_RecipeResponse(
       {required this.id,
       required this.title,
       required this.servings,
@@ -268,13 +253,12 @@ class _$_RecipeDetailsResponse implements _RecipeDetailsResponse {
       required this.glutenFree,
       required this.veryPopular,
       required this.instructions,
-      required final List<IngredientResponse> extendedIngredients,
-      required this.serving})
+      required final List<IngredientResponse> extendedIngredients})
       : _dishTypes = dishTypes,
         _extendedIngredients = extendedIngredients;
 
-  factory _$_RecipeDetailsResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_RecipeDetailsResponseFromJson(json);
+  factory _$_RecipeResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_RecipeResponseFromJson(json);
 
   @override
   final int id;
@@ -285,7 +269,7 @@ class _$_RecipeDetailsResponse implements _RecipeDetailsResponse {
   @override
   final String image;
   @override
-  final String readyInMinutes;
+  final int readyInMinutes;
   final List<String> _dishTypes;
   @override
   List<String> get dishTypes {
@@ -311,18 +295,15 @@ class _$_RecipeDetailsResponse implements _RecipeDetailsResponse {
   }
 
   @override
-  final double serving;
-
-  @override
   String toString() {
-    return 'RecipeDetailsResponse(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, dishTypes: $dishTypes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, instructions: $instructions, extendedIngredients: $extendedIngredients, serving: $serving)';
+    return 'RecipeResponse(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, dishTypes: $dishTypes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, instructions: $instructions, extendedIngredients: $extendedIngredients)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RecipeDetailsResponse &&
+            other is _$_RecipeResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.servings, servings) &&
@@ -341,8 +322,7 @@ class _$_RecipeDetailsResponse implements _RecipeDetailsResponse {
             const DeepCollectionEquality()
                 .equals(other.instructions, instructions) &&
             const DeepCollectionEquality()
-                .equals(other._extendedIngredients, _extendedIngredients) &&
-            const DeepCollectionEquality().equals(other.serving, serving));
+                .equals(other._extendedIngredients, _extendedIngredients));
   }
 
   @JsonKey(ignore: true)
@@ -360,41 +340,39 @@ class _$_RecipeDetailsResponse implements _RecipeDetailsResponse {
       const DeepCollectionEquality().hash(glutenFree),
       const DeepCollectionEquality().hash(veryPopular),
       const DeepCollectionEquality().hash(instructions),
-      const DeepCollectionEquality().hash(_extendedIngredients),
-      const DeepCollectionEquality().hash(serving));
+      const DeepCollectionEquality().hash(_extendedIngredients));
 
   @JsonKey(ignore: true)
   @override
-  _$$_RecipeDetailsResponseCopyWith<_$_RecipeDetailsResponse> get copyWith =>
-      __$$_RecipeDetailsResponseCopyWithImpl<_$_RecipeDetailsResponse>(
-          this, _$identity);
+  _$$_RecipeResponseCopyWith<_$_RecipeResponse> get copyWith =>
+      __$$_RecipeResponseCopyWithImpl<_$_RecipeResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecipeDetailsResponseToJson(
+    return _$$_RecipeResponseToJson(
       this,
     );
   }
 }
 
-abstract class _RecipeDetailsResponse implements RecipeDetailsResponse {
-  const factory _RecipeDetailsResponse(
-      {required final int id,
-      required final String title,
-      required final int servings,
-      required final String image,
-      required final String readyInMinutes,
-      required final List<String> dishTypes,
-      required final bool vegetarian,
-      required final bool vegan,
-      required final bool glutenFree,
-      required final bool veryPopular,
-      required final String instructions,
-      required final List<IngredientResponse> extendedIngredients,
-      required final double serving}) = _$_RecipeDetailsResponse;
+abstract class _RecipeResponse implements RecipeResponse {
+  const factory _RecipeResponse(
+          {required final int id,
+          required final String title,
+          required final int servings,
+          required final String image,
+          required final int readyInMinutes,
+          required final List<String> dishTypes,
+          required final bool vegetarian,
+          required final bool vegan,
+          required final bool glutenFree,
+          required final bool veryPopular,
+          required final String instructions,
+          required final List<IngredientResponse> extendedIngredients}) =
+      _$_RecipeResponse;
 
-  factory _RecipeDetailsResponse.fromJson(Map<String, dynamic> json) =
-      _$_RecipeDetailsResponse.fromJson;
+  factory _RecipeResponse.fromJson(Map<String, dynamic> json) =
+      _$_RecipeResponse.fromJson;
 
   @override
   int get id;
@@ -405,7 +383,7 @@ abstract class _RecipeDetailsResponse implements RecipeDetailsResponse {
   @override
   String get image;
   @override
-  String get readyInMinutes;
+  int get readyInMinutes;
   @override
   List<String> get dishTypes;
   @override
@@ -421,9 +399,7 @@ abstract class _RecipeDetailsResponse implements RecipeDetailsResponse {
   @override
   List<IngredientResponse> get extendedIngredients;
   @override
-  double get serving;
-  @override
   @JsonKey(ignore: true)
-  _$$_RecipeDetailsResponseCopyWith<_$_RecipeDetailsResponse> get copyWith =>
+  _$$_RecipeResponseCopyWith<_$_RecipeResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

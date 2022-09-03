@@ -81,10 +81,18 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
-    ExploreRecipesScreenRoute.name: (routeData) {
+    DiscoverRecipesScreenRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const ExploreRecipesScreen(),
+          child: const DiscoverRecipesScreen(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    DrecipeBottomNavBarRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const DrecipeBottomNavBar(),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -104,8 +112,10 @@ class _$AppRouter extends RootStackRouter {
             path: '/account-recovery-screen'),
         RouteConfig(AccountRecoveryResetEmailScreenRoute.name,
             path: '/account-recovery-reset-email-screen'),
-        RouteConfig(ExploreRecipesScreenRoute.name,
-            path: '/explore-recipes-screen')
+        RouteConfig(DiscoverRecipesScreenRoute.name,
+            path: '/discover-recipes-screen'),
+        RouteConfig(DrecipeBottomNavBarRoute.name,
+            path: '/drecipe-bottom-nav-bar')
       ];
 }
 
@@ -185,10 +195,20 @@ class AccountRecoveryResetEmailScreenRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [ExploreRecipesScreen]
-class ExploreRecipesScreenRoute extends PageRouteInfo<void> {
-  const ExploreRecipesScreenRoute()
-      : super(ExploreRecipesScreenRoute.name, path: '/explore-recipes-screen');
+/// [DiscoverRecipesScreen]
+class DiscoverRecipesScreenRoute extends PageRouteInfo<void> {
+  const DiscoverRecipesScreenRoute()
+      : super(DiscoverRecipesScreenRoute.name,
+            path: '/discover-recipes-screen');
 
-  static const String name = 'ExploreRecipesScreenRoute';
+  static const String name = 'DiscoverRecipesScreenRoute';
+}
+
+/// generated route for
+/// [DrecipeBottomNavBar]
+class DrecipeBottomNavBarRoute extends PageRouteInfo<void> {
+  const DrecipeBottomNavBarRoute()
+      : super(DrecipeBottomNavBarRoute.name, path: '/drecipe-bottom-nav-bar');
+
+  static const String name = 'DrecipeBottomNavBarRoute';
 }

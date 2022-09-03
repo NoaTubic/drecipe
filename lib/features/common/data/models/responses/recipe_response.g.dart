@@ -1,19 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'recipe_details_response.dart';
+part of 'recipe_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RecipeDetailsResponse _$$_RecipeDetailsResponseFromJson(
-        Map<String, dynamic> json) =>
-    _$_RecipeDetailsResponse(
+_$_RecipeResponse _$$_RecipeResponseFromJson(Map<String, dynamic> json) =>
+    _$_RecipeResponse(
       id: json['id'] as int,
       title: json['title'] as String,
       servings: json['servings'] as int,
       image: json['image'] as String,
-      readyInMinutes: json['readyInMinutes'] as String,
+      readyInMinutes: json['readyInMinutes'] as int,
       dishTypes:
           (json['dishTypes'] as List<dynamic>).map((e) => e as String).toList(),
       vegetarian: json['vegetarian'] as bool,
@@ -24,11 +23,9 @@ _$_RecipeDetailsResponse _$$_RecipeDetailsResponseFromJson(
       extendedIngredients: (json['extendedIngredients'] as List<dynamic>)
           .map((e) => IngredientResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      serving: (json['serving'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$_RecipeDetailsResponseToJson(
-        _$_RecipeDetailsResponse instance) =>
+Map<String, dynamic> _$$_RecipeResponseToJson(_$_RecipeResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
@@ -42,5 +39,4 @@ Map<String, dynamic> _$$_RecipeDetailsResponseToJson(
       'veryPopular': instance.veryPopular,
       'instructions': instance.instructions,
       'extendedIngredients': instance.extendedIngredients,
-      'serving': instance.serving,
     };

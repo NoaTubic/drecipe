@@ -12,4 +12,10 @@ abstract class ImageAssets {
 
   static const String icGoogle = '$iconPath/ic_google.png';
   static const String icApple = '$iconPath/ic_apple.png';
+  static const String icChefHatActive = '$iconPath/ic_chef_hat_active.png';
+  static const String icChefHatInactive = '$iconPath/ic_chef_hat_inactive.png';
+  static const String icIngredientActive =
+      '$iconPath/ic_ingredients_active.png';
+  static const String icIngredientInactive =
+      '$iconPath/ic_ingredients_inactive.png';
 }

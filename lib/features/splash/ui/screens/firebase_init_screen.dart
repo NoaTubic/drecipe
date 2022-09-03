@@ -10,7 +10,7 @@ class FirebaseInitScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final initializeFirebase = ref.watch(firebaseInitProvider);
     return initializeFirebase.when(
-      loading: () => const SplashScreen(),
+      loading: () => Container(),
       data: (data) => const SplashScreen(),
       error: (error, stackTrace) => const SplashScreen(),
     );

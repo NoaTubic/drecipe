@@ -9,6 +9,7 @@ abstract class HeroConstants {
 
 abstract class DurationConstants {
   static const int d093 = 930;
+  static const int d040 = 400;
   static const int d1 = 1;
   static const int d2 = 2;
   static const int d3 = 3;

@@ -31,7 +31,7 @@ class SignInScreen extends ConsumerWidget {
           ),
           (success) => ScreenRouter.pushScreen(
             context,
-            const ExploreRecipesScreenRoute(),
+            const DrecipeBottomNavBarRoute(),
           ),
         ),
       );

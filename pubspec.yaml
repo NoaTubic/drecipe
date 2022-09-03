@@ -27,8 +27,12 @@ dependencies:
   json_serializable: ^6.3.1
   json_annotation: ^4.6.0
   loading_animation_widget: ^1.2.0+2
+  persistent_bottom_nav_bar_v2: ^4.2.5
   pretty_dio_logger: ^1.1.1
   retrofit: ^3.0.1+1
+  scroll_snap_list: ^0.9.1
+  carousel_slider: ^4.1.1
+  shimmer: ^2.0.0
 
 dev_dependencies:
   auto_route_generator: ^4.2.1

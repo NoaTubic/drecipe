@@ -6,6 +6,10 @@ import 'package:flutter/services.dart';
 class AppTheme {
   final ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.primaryRed,
+    colorScheme: ColorScheme.fromSwatch(
+      accentColor:
+          AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op02),
+    ),
     splashColor:
         AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op02),
     highlightColor:
@@ -31,10 +35,15 @@ class AppTheme {
       headline2:
           TextStyles.bold(color: AppColors.primaryRed, fontSize: FontSizes.s22),
       bodyText1:
-          TextStyles.semiBold(color: AppColors.black, fontSize: FontSizes.s16),
+          TextStyles.bold(color: AppColors.black, fontSize: FontSizes.s16),
       bodyText2:
           TextStyles.semiBold(color: AppColors.black, fontSize: FontSizes.s16),
       button: TextStyles.bold(color: AppColors.white, fontSize: FontSizes.s18),
+    ),
+    scrollbarTheme: ScrollbarThemeData(
+      thumbColor: MaterialStateProperty.all(
+        AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op02),
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(

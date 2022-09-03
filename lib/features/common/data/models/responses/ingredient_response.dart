@@ -7,7 +7,7 @@ part 'ingredient_response.g.dart';
 class IngredientResponse with _$IngredientResponse {
   const factory IngredientResponse({
     required int id,
-    required String image,
+    // required String image,
     required String original,
     // required double amount,
     // required String unit,

@@ -1,21 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'random_recipes_response.dart';
+part of 'recipes_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RandomRecipesResponse _$$_RandomRecipesResponseFromJson(
-        Map<String, dynamic> json) =>
-    _$_RandomRecipesResponse(
+_$_RecipesResponse _$$_RecipesResponseFromJson(Map<String, dynamic> json) =>
+    _$_RecipesResponse(
       recipes: (json['recipes'] as List<dynamic>)
-          .map((e) => RecipeDetailsResponse.fromJson(e as Map<String, dynamic>))
+          .map((e) => RecipeResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_RandomRecipesResponseToJson(
-        _$_RandomRecipesResponse instance) =>
+Map<String, dynamic> _$$_RecipesResponseToJson(_$_RecipesResponse instance) =>
     <String, dynamic>{
       'recipes': instance.recipes,
     };
