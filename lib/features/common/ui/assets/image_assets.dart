@@ -18,4 +18,13 @@ abstract class ImageAssets {
       '$iconPath/ic_ingredients_active.png';
   static const String icIngredientInactive =
       '$iconPath/ic_ingredients_inactive.png';
+  static const String icVegan = '$iconPath/ic_vegan.png';
+  static const String icVege = '$iconPath/ic_vege.png';
+  static const String icGlutenFree = '$iconPath/ic_gluten_free.png';
+  static const String icBreakfast = '$iconPath/ic_breakfast.png';
+  static const String icLunch = '$iconPath/ic_lunch.png';
+  static const String icDinner = '$iconPath/ic_dinner.png';
+  static const String icSnack = '$iconPath/ic_snack.png';
+  static const String icBed = '$iconPath/ic_bed.png';
+  static const String icError = '$iconPath/ic_error.png';
 }

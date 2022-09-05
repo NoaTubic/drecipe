@@ -22,8 +22,8 @@ class SettingsButton extends StatelessWidget {
         alignment: alignment,
         child: Ink(
           decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.circular(Sizes.s8),
+            // shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(Sizes.circularRadiusMax),
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

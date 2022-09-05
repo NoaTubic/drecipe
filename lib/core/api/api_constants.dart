@@ -1,4 +1,4 @@
 abstract class ApiConstants {
-  static const String apiKey = '01088b458fcf49c18da608f3a524d41c';
+  static const String apiKey = 'f45087d34aad4ed28ed6b1170b88ddc9';
   static const int numberOfRecipes = 10;
 }

@@ -1,5 +1,5 @@
 import 'package:drecipe/features/discover_recipes/data/repositories/discover_recipes_repository.dart';
-import 'package:drecipe/features/discover_recipes/ui/state/recipes_state.dart';
+import 'package:drecipe/features/discover_recipes/ui/state/recipes/recipes_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RecipesNotifier extends StateNotifier<RecipesState> {
@@ -11,13 +11,13 @@ class RecipesNotifier extends StateNotifier<RecipesState> {
   Future<void> getRecipes() async {
     state = const RecipesState.loading();
 
-    final recipes = await _recipesRepository.getRandomRecipes();
+    final recipes = await _recipesRepository.getRecipes();
     recipes.fold(
       (failure) {
         return state = RecipesState.error(failure: failure);
       },
       (recipes) {
-        return state = RecipesState.loaded(recipe: recipes.recipes);
+        return state = RecipesState.loaded(recipes: recipes);
       },
     );
   }

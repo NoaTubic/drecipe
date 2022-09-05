@@ -26,6 +26,7 @@ extension NetworkHandler on DioError {
         return const Failure.forbidden();
       case 401:
         return const Failure.unauthorizedAccess();
+      //TODO: handle 402
       default:
         return const Failure.unexpectedDataError();
     }

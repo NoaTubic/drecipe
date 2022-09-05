@@ -10,17 +10,32 @@ class RecipeCardLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Shimmer.fromColors(
-      baseColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op07),
-      highlightColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op03),
-      child: Container(
-        height: Sizes.s160,
-        width: Sizes.s260,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Sizes.circularRadius),
-          color: AppColors.lightGrey1,
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(Sizes.circularRadius),
+            color: Colors.white,
+            boxShadow: shadowsLight,
+          ),
+          child: Shimmer.fromColors(
+            baseColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op07),
+            highlightColor:
+                AppColors.lightGrey1.withOpacity(OpacityConstants.op03),
+            child: Container(
+              height: Sizes.s160,
+              width: Sizes.s260,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                color: AppColors.lightGrey1,
+              ),
+            ),
+          ),
         ),
-      ),
+        const SizedBox(
+          height: Sizes.s8,
+        )
+      ],
     );
   }
 }

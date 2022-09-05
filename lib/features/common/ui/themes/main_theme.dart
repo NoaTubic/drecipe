@@ -34,6 +34,8 @@ class AppTheme {
           TextStyles.bold(color: AppColors.primaryRed, fontSize: FontSizes.s24),
       headline2:
           TextStyles.bold(color: AppColors.primaryRed, fontSize: FontSizes.s22),
+      headline3:
+          TextStyles.bold(color: AppColors.black, fontSize: FontSizes.s22),
       bodyText1:
           TextStyles.bold(color: AppColors.black, fontSize: FontSizes.s16),
       bodyText2:

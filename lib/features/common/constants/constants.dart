@@ -1,3 +1,6 @@
+import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter/material.dart';
+
 abstract class Constants {
   static int minPasswordLength = 6;
   static int maxUsernameLength = 20;
@@ -32,3 +35,45 @@ abstract class RegexConstants {
       r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
   static const String name = r"""^[a-zA-Z0-9.]+""";
 }
+
+List<BoxShadow> shadows = [
+  BoxShadow(
+    color: AppColors.black.withOpacity(OpacityConstants.op04),
+    spreadRadius: -Sizes.s16,
+    blurRadius: Sizes.s20,
+    offset: const Offset(Sizes.s0, Sizes.s8),
+  ),
+  BoxShadow(
+    color: AppColors.black.withOpacity(OpacityConstants.op04),
+    spreadRadius: -Sizes.s20,
+    blurRadius: Sizes.s20,
+    offset: const Offset(Sizes.s20, -Sizes.s0),
+  ),
+  BoxShadow(
+    color: AppColors.black.withOpacity(OpacityConstants.op04),
+    spreadRadius: -Sizes.s20,
+    blurRadius: Sizes.s20,
+    offset: const Offset(-Sizes.s20, -Sizes.s0),
+  )
+];
+
+List<BoxShadow> shadowsLight = [
+  BoxShadow(
+    color: AppColors.black.withOpacity(OpacityConstants.op04),
+    spreadRadius: -Sizes.s8,
+    blurRadius: Sizes.s8,
+    offset: const Offset(Sizes.s0, Sizes.s8),
+  ),
+  BoxShadow(
+    color: AppColors.black.withOpacity(OpacityConstants.op04),
+    spreadRadius: -Sizes.s8,
+    blurRadius: Sizes.s8,
+    offset: const Offset(Sizes.s8, -Sizes.s0),
+  ),
+  BoxShadow(
+    color: AppColors.black.withOpacity(OpacityConstants.op04),
+    spreadRadius: -Sizes.s8,
+    blurRadius: Sizes.s8,
+    offset: const Offset(-Sizes.s8, -Sizes.s0),
+  )
+];

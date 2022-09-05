@@ -17,7 +17,7 @@ class DrecipeCardSwiper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: Sizes.s12),
+      padding: const EdgeInsets.symmetric(vertical: Sizes.s4),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -35,11 +35,9 @@ class DrecipeCardSwiper extends StatelessWidget {
           DrecipeCarousel(
             itemCount: recipes.length,
             items: recipes,
-            builder: (context, item) {
+            builder: (context, recipe) {
               return RecipeCard(
-                imageUrl: item.image,
-                recipeName: item.title,
-                readyInMinutes: item.readyInMinutes,
+                recipe: recipe,
               );
             },
           ),
@@ -91,7 +89,7 @@ class _DrecipeCarouselState extends State<DrecipeCarousel> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Sizes.s160,
+      height: Sizes.s168,
       child: ListView.separated(
         controller: _controller,
         physics: widget.isScrollable

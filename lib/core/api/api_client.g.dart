@@ -16,8 +16,7 @@ class _ApiClient implements ApiClient {
   String? baseUrl;
 
   @override
-  Future<RecipesResponse> getRandomRecipes(
-      {number = ApiConstants.numberOfRecipes}) async {
+  Future<RecipesResponse> getRandomRecipes(number) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'number': number};
     final _headers = <String, dynamic>{};

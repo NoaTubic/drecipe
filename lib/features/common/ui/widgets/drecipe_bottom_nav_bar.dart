@@ -30,10 +30,10 @@ class DrecipeBottomNavBar extends StatelessWidget {
         duration: Duration(milliseconds: DurationConstants.d040),
         curve: Curves.ease,
       ),
-      margin: const EdgeInsets.all(20),
+      // padding: const NavBarPadding.only(
+      //     top: Sizes.s20, left: Sizes.s8, right: Sizes.s8),
       decoration: NavBarDecoration(
         colorBehindNavBar: AppColors.white,
-        borderRadius: BorderRadius.circular(Sizes.circularRadius),
         boxShadow: [
           BoxShadow(
             offset: const Offset(Sizes.s2, Sizes.s0),

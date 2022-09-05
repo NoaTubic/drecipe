@@ -13,6 +13,7 @@ abstract class FontWeights {
 }
 
 abstract class FontSizes {
+  static const double s10 = 10;
   static const double s12 = 12;
   static const double s14 = 14;
   static const double s16 = 16;

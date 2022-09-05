@@ -1,14 +1,16 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:drecipe/core/api/api_client.dart';
+import 'package:drecipe/core/api/api_helpers.dart';
 import 'package:drecipe/features/common/data/models/responses/recipe_response.dart';
 import 'package:drecipe/features/common/domain/entities/ingredient.dart';
 import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipes_response.dart';
-import 'package:drecipe/features/discover_recipes/domain/entities/recipes.dart';
+import 'package:drecipe/features/discover_recipes/domain/entities/discover_recipes.dart';
 
 abstract class IDiscoverRecipesRepository {
-  Future<Either<Failure, Recipes>> getRandomRecipes();
+  Future<Either<Failure, DiscoverRecipes>> getRecipes();
 }
 
 class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
@@ -17,27 +19,44 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
   DiscoverRecipesRepository(this._apiClient);
 
   @override
-  Future<Either<Failure, Recipes>> getRandomRecipes() async {
+  Future<Either<Failure, DiscoverRecipes>> getRecipes() async {
     try {
-      final randomRecipesResponse = await _apiClient.getRandomRecipes();
+      final List<Recipe> randomRecipes = [];
+      final List<Recipe> popularRecipes = [];
+      final List<Recipe> healthyRecipes = [];
 
-      final randomRecipes =
-          Recipes(recipes: randomRecipesResponse.convertRecipes());
-      return right(randomRecipes);
-    } catch (exception, stackTrace) {
-      print('aaa');
-      print(stackTrace);
-      print(exception);
-      return left(const Failure.serverErrorGeneral());
+      while (popularRecipes.length < 6 && healthyRecipes.length < 6) {
+        final randomRecipesResponse = await _apiClient.getRandomRecipes(30);
+        List<Recipe> recipesRandom = randomRecipesResponse.convertRecipes();
+        for (var recipe in recipesRandom) {
+          if (recipe.veryPopular == true) {
+            popularRecipes.add(recipe);
+          } else if (recipe.vertHealthy == true) {
+            healthyRecipes.add(recipe);
+          } else {
+            randomRecipes.add(recipe);
+          }
+        }
+      }
+
+      final recipes = DiscoverRecipes(
+        randomRecipes: randomRecipes,
+        popularRecipes: popularRecipes,
+        healthyRecipe: healthyRecipes,
+      );
+
+      return right(recipes);
+    } on DioError catch (exception) {
+      return left(exception.handleFailure());
     }
   }
 }
 
 extension RandomRecipesExtension on RecipesResponse {
   List<Recipe> convertRecipes() {
-    List<Recipe> recipeDetailsList = [];
+    List<Recipe> recipesList = [];
     for (var recipe in recipes) {
-      recipeDetailsList.add(
+      recipesList.add(
         Recipe(
           id: recipe.id,
           title: recipe.title,
@@ -49,12 +68,13 @@ extension RandomRecipesExtension on RecipesResponse {
           vegan: recipe.vegan,
           glutenFree: recipe.glutenFree,
           veryPopular: recipe.veryPopular,
+          vertHealthy: recipe.veryHealthy,
           instructions: recipe.instructions,
           extendedIngredients: recipe.convertIngredients(),
         ),
       );
     }
-    return recipeDetailsList;
+    return recipesList;
   }
 }
 

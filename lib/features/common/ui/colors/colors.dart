@@ -22,6 +22,7 @@ abstract class AppColors {
   static Color error = HexColor.fromHex("#E61f34");
 
   static Color googleButton = HexColor.fromHex("#DD4B39");
+  static Color wheat = HexColor.fromHex("#F6B756");
 }
 
 extension HexColor on Color {
@@ -34,4 +35,22 @@ extension HexColor on Color {
     }
     return Color(int.parse(hexColorString));
   }
+}
+
+LinearGradient recipeCardGradient() {
+  return LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        Colors.black.withOpacity(0.8),
+        Colors.black.withOpacity(0.7),
+        Colors.black.withOpacity(0.6),
+        Colors.black.withOpacity(0.5),
+        Colors.black.withOpacity(0.4),
+        Colors.black.withOpacity(0.3),
+        Colors.black.withOpacity(0.2),
+        Colors.black.withOpacity(0.1),
+        Colors.black.withOpacity(0.1),
+        Colors.transparent
+      ]);
 }

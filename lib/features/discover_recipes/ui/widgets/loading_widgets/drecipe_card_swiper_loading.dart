@@ -14,39 +14,47 @@ class DrecipeCardSwiperLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: Sizes.bodyHorizontalPadding),
-          child: Shimmer.fromColors(
-            baseColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op07),
-            highlightColor:
-                AppColors.lightGrey1.withOpacity(OpacityConstants.op03),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: Sizes.s12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: Sizes.bodyHorizontalPadding),
             child: Container(
-              height: Sizes.s22,
-              width: Sizes.s160,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Sizes.circularRadius),
-                color: AppColors.lightGrey1,
+                color: AppColors.white,
+                boxShadow: shadowsLight,
+              ),
+              child: Shimmer.fromColors(
+                baseColor:
+                    AppColors.lightGrey1.withOpacity(OpacityConstants.op07),
+                highlightColor:
+                    AppColors.lightGrey1.withOpacity(OpacityConstants.op03),
+                child: Container(
+                  height: Sizes.s28,
+                  width: Sizes.s160,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                    color: AppColors.lightGrey1,
+                  ),
+                ),
               ),
             ),
           ),
-        ),
-        const SizedBox(
-          height: Sizes.s12,
-        ),
-        DrecipeCarousel(
-          items: const [loadingRecipe, loadingRecipe, loadingRecipe],
-          itemCount: 3,
-          builder: (context, item) => const RecipeCardLoading(),
-          isScrollable: false,
-        ),
-        const SizedBox(
-          height: Sizes.s20,
-        ),
-      ],
+          const SizedBox(
+            height: Sizes.s12,
+          ),
+          DrecipeCarousel(
+            items: const [loadingRecipe, loadingRecipe, loadingRecipe],
+            itemCount: 3,
+            builder: (context, item) => const RecipeCardLoading(),
+            isScrollable: false,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -62,6 +70,7 @@ const Recipe loadingRecipe = Recipe(
   vegan: false,
   glutenFree: false,
   veryPopular: false,
+  vertHealthy: false,
   instructions: 'loading',
   extendedIngredients: [Ingredient(id: 1, original: 'loading')],
 );

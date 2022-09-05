@@ -96,6 +96,15 @@ class _$AppRouter extends RootStackRouter {
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
+    },
+    RecipeDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<RecipeDetailsRouteArgs>();
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: RecipeDetails(key: args.key, recipe: args.recipe),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
     }
   };
 
@@ -115,7 +124,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(DiscoverRecipesScreenRoute.name,
             path: '/discover-recipes-screen'),
         RouteConfig(DrecipeBottomNavBarRoute.name,
-            path: '/drecipe-bottom-nav-bar')
+            path: '/drecipe-bottom-nav-bar'),
+        RouteConfig(RecipeDetailsRoute.name, path: '/recipe-details')
       ];
 }
 
@@ -211,4 +221,28 @@ class DrecipeBottomNavBarRoute extends PageRouteInfo<void> {
       : super(DrecipeBottomNavBarRoute.name, path: '/drecipe-bottom-nav-bar');
 
   static const String name = 'DrecipeBottomNavBarRoute';
+}
+
+/// generated route for
+/// [RecipeDetails]
+class RecipeDetailsRoute extends PageRouteInfo<RecipeDetailsRouteArgs> {
+  RecipeDetailsRoute({Key? key, required Recipe recipe})
+      : super(RecipeDetailsRoute.name,
+            path: '/recipe-details',
+            args: RecipeDetailsRouteArgs(key: key, recipe: recipe));
+
+  static const String name = 'RecipeDetailsRoute';
+}
+
+class RecipeDetailsRouteArgs {
+  const RecipeDetailsRouteArgs({this.key, required this.recipe});
+
+  final Key? key;
+
+  final Recipe recipe;
+
+  @override
+  String toString() {
+    return 'RecipeDetailsRouteArgs{key: $key, recipe: $recipe}';
+  }
 }
