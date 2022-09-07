@@ -6,7 +6,7 @@ part 'ingredient.freezed.dart';
 class Ingredient with _$Ingredient {
   const factory Ingredient({
     required int id,
-    // required String image,
+    String? image,
     required String original,
   }) = _Ingredient;
 }

@@ -27,15 +27,17 @@ class MealTimeCard extends ConsumerWidget {
               child: Card(
                 elevation: Sizes.s0,
                 shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color:
+                        AppColors.lightGrey1.withOpacity(OpacityConstants.op05),
+                  ),
                   borderRadius: BorderRadius.circular(Sizes.s12),
                 ),
                 child: InkWell(
                   customBorder: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(Sizes.s12),
                   ),
-                  onTap: (() {
-                    print('tapped');
-                  }),
+                  onTap: (() {}),
                   child: Padding(
                     padding: const EdgeInsets.all(Sizes.s8),
                     child: Row(

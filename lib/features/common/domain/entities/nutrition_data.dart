@@ -8,7 +8,7 @@ class NutritionData with _$NutritionData {
     required double percentProtein,
     required double percentFat,
     required double percentCarbs,
-    required String weightPerServing,
+    String? weightPerServing,
   }) = _NutritionData;
 }
 
@@ -16,7 +16,6 @@ class NutritionData with _$NutritionData {
 class Nutrient with _$Nutrient {
   const factory Nutrient({
     required String name,
-    required double amount,
-    required String unit,
+    required String amount,
   }) = _Nutrient;
 }

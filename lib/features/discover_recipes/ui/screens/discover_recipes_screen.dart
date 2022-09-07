@@ -1,7 +1,6 @@
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_refresh_indicator.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/discover_recipes.dart';
-import 'package:drecipe/features/discover_recipes/ui/state/recipes/recipes_state.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/discover_recipes_body_error.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/meal_time_card.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +37,7 @@ class DiscoverRecipesScreen extends ConsumerWidget {
                   child: Column(
                     children: [
                       const MealTimeCard(),
-                      ref.watch<RecipesState>(recipesNotifierProvider).when(
+                      ref.watch(recipesNotifierProvider).when(
                             initial: () => const DiscoverRecipesBodyLoading(),
                             loading: () => const DiscoverRecipesBodyLoading(),
                             loaded: (recipes) =>

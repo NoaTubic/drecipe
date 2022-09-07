@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/domain/entities/ingredient.dart';
+import 'package:drecipe/features/common/domain/entities/instructions.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'recipe.freezed.dart';
@@ -18,6 +19,7 @@ class Recipe with _$Recipe {
     required bool veryPopular,
     required bool vertHealthy,
     required String instructions,
-    required List<Ingredient> extendedIngredients,
+    required List<Ingredient> ingredients,
+    List<Instructions>? instructionsDetailed,
   }) = _Recipe;
 }

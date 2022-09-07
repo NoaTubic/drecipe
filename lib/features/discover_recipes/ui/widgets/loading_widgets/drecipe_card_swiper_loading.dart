@@ -72,5 +72,5 @@ const Recipe loadingRecipe = Recipe(
   veryPopular: false,
   vertHealthy: false,
   instructions: 'loading',
-  extendedIngredients: [Ingredient(id: 1, original: 'loading')],
+  ingredients: [Ingredient(id: 1, image: '', original: 'loading')],
 );

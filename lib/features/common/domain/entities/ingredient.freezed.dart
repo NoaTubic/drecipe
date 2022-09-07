@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Ingredient {
-  int get id => throw _privateConstructorUsedError; // required String image,
+  int get id => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   String get original => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -29,7 +30,7 @@ abstract class $IngredientCopyWith<$Res> {
   factory $IngredientCopyWith(
           Ingredient value, $Res Function(Ingredient) then) =
       _$IngredientCopyWithImpl<$Res>;
-  $Res call({int id, String original});
+  $Res call({int id, String? image, String original});
 }
 
 /// @nodoc
@@ -43,6 +44,7 @@ class _$IngredientCopyWithImpl<$Res> implements $IngredientCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
+    Object? image = freezed,
     Object? original = freezed,
   }) {
     return _then(_value.copyWith(
@@ -50,6 +52,10 @@ class _$IngredientCopyWithImpl<$Res> implements $IngredientCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       original: original == freezed
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
@@ -65,7 +71,7 @@ abstract class _$$_IngredientCopyWith<$Res>
           _$_Ingredient value, $Res Function(_$_Ingredient) then) =
       __$$_IngredientCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String original});
+  $Res call({int id, String? image, String original});
 }
 
 /// @nodoc
@@ -81,6 +87,7 @@ class __$$_IngredientCopyWithImpl<$Res> extends _$IngredientCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? image = freezed,
     Object? original = freezed,
   }) {
     return _then(_$_Ingredient(
@@ -88,6 +95,10 @@ class __$$_IngredientCopyWithImpl<$Res> extends _$IngredientCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       original: original == freezed
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
@@ -99,17 +110,18 @@ class __$$_IngredientCopyWithImpl<$Res> extends _$IngredientCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Ingredient implements _Ingredient {
-  const _$_Ingredient({required this.id, required this.original});
+  const _$_Ingredient({required this.id, this.image, required this.original});
 
   @override
   final int id;
-// required String image,
+  @override
+  final String? image;
   @override
   final String original;
 
   @override
   String toString() {
-    return 'Ingredient(id: $id, original: $original)';
+    return 'Ingredient(id: $id, image: $image, original: $original)';
   }
 
   @override
@@ -118,6 +130,7 @@ class _$_Ingredient implements _Ingredient {
         (other.runtimeType == runtimeType &&
             other is _$_Ingredient &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality().equals(other.original, original));
   }
 
@@ -125,6 +138,7 @@ class _$_Ingredient implements _Ingredient {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(original));
 
   @JsonKey(ignore: true)
@@ -135,11 +149,15 @@ class _$_Ingredient implements _Ingredient {
 
 abstract class _Ingredient implements Ingredient {
   const factory _Ingredient(
-      {required final int id, required final String original}) = _$_Ingredient;
+      {required final int id,
+      final String? image,
+      required final String original}) = _$_Ingredient;
 
   @override
   int get id;
-  @override // required String image,
+  @override
+  String? get image;
+  @override
   String get original;
   @override
   @JsonKey(ignore: true)

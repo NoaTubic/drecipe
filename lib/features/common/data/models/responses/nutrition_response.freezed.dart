@@ -23,7 +23,7 @@ mixin _$NutritionResponse {
   List<NutrientResponse> get nutrients => throw _privateConstructorUsedError;
   CaloricBreakdownResponse get caloricBreakdown =>
       throw _privateConstructorUsedError;
-  WeightPerServingResponse get weightPerServingResponse =>
+  WeightPerServingResponse? get weightPerServingResponse =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,10 +40,10 @@ abstract class $NutritionResponseCopyWith<$Res> {
   $Res call(
       {List<NutrientResponse> nutrients,
       CaloricBreakdownResponse caloricBreakdown,
-      WeightPerServingResponse weightPerServingResponse});
+      WeightPerServingResponse? weightPerServingResponse});
 
   $CaloricBreakdownResponseCopyWith<$Res> get caloricBreakdown;
-  $WeightPerServingResponseCopyWith<$Res> get weightPerServingResponse;
+  $WeightPerServingResponseCopyWith<$Res>? get weightPerServingResponse;
 }
 
 /// @nodoc
@@ -73,7 +73,7 @@ class _$NutritionResponseCopyWithImpl<$Res>
       weightPerServingResponse: weightPerServingResponse == freezed
           ? _value.weightPerServingResponse
           : weightPerServingResponse // ignore: cast_nullable_to_non_nullable
-              as WeightPerServingResponse,
+              as WeightPerServingResponse?,
     ));
   }
 
@@ -86,9 +86,13 @@ class _$NutritionResponseCopyWithImpl<$Res>
   }
 
   @override
-  $WeightPerServingResponseCopyWith<$Res> get weightPerServingResponse {
+  $WeightPerServingResponseCopyWith<$Res>? get weightPerServingResponse {
+    if (_value.weightPerServingResponse == null) {
+      return null;
+    }
+
     return $WeightPerServingResponseCopyWith<$Res>(
-        _value.weightPerServingResponse, (value) {
+        _value.weightPerServingResponse!, (value) {
       return _then(_value.copyWith(weightPerServingResponse: value));
     });
   }
@@ -104,12 +108,12 @@ abstract class _$$_NutritionResponseCopyWith<$Res>
   $Res call(
       {List<NutrientResponse> nutrients,
       CaloricBreakdownResponse caloricBreakdown,
-      WeightPerServingResponse weightPerServingResponse});
+      WeightPerServingResponse? weightPerServingResponse});
 
   @override
   $CaloricBreakdownResponseCopyWith<$Res> get caloricBreakdown;
   @override
-  $WeightPerServingResponseCopyWith<$Res> get weightPerServingResponse;
+  $WeightPerServingResponseCopyWith<$Res>? get weightPerServingResponse;
 }
 
 /// @nodoc
@@ -141,7 +145,7 @@ class __$$_NutritionResponseCopyWithImpl<$Res>
       weightPerServingResponse: weightPerServingResponse == freezed
           ? _value.weightPerServingResponse
           : weightPerServingResponse // ignore: cast_nullable_to_non_nullable
-              as WeightPerServingResponse,
+              as WeightPerServingResponse?,
     ));
   }
 }
@@ -152,7 +156,7 @@ class _$_NutritionResponse implements _NutritionResponse {
   const _$_NutritionResponse(
       {required final List<NutrientResponse> nutrients,
       required this.caloricBreakdown,
-      required this.weightPerServingResponse})
+      this.weightPerServingResponse})
       : _nutrients = nutrients;
 
   factory _$_NutritionResponse.fromJson(Map<String, dynamic> json) =>
@@ -168,7 +172,7 @@ class _$_NutritionResponse implements _NutritionResponse {
   @override
   final CaloricBreakdownResponse caloricBreakdown;
   @override
-  final WeightPerServingResponse weightPerServingResponse;
+  final WeightPerServingResponse? weightPerServingResponse;
 
   @override
   String toString() {
@@ -214,7 +218,7 @@ abstract class _NutritionResponse implements NutritionResponse {
   const factory _NutritionResponse(
           {required final List<NutrientResponse> nutrients,
           required final CaloricBreakdownResponse caloricBreakdown,
-          required final WeightPerServingResponse weightPerServingResponse}) =
+          final WeightPerServingResponse? weightPerServingResponse}) =
       _$_NutritionResponse;
 
   factory _NutritionResponse.fromJson(Map<String, dynamic> json) =
@@ -225,7 +229,7 @@ abstract class _NutritionResponse implements NutritionResponse {
   @override
   CaloricBreakdownResponse get caloricBreakdown;
   @override
-  WeightPerServingResponse get weightPerServingResponse;
+  WeightPerServingResponse? get weightPerServingResponse;
   @override
   @JsonKey(ignore: true)
   _$$_NutritionResponseCopyWith<_$_NutritionResponse> get copyWith =>

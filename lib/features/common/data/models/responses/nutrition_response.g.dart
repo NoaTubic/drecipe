@@ -13,8 +13,10 @@ _$_NutritionResponse _$$_NutritionResponseFromJson(Map<String, dynamic> json) =>
           .toList(),
       caloricBreakdown: CaloricBreakdownResponse.fromJson(
           json['caloricBreakdown'] as Map<String, dynamic>),
-      weightPerServingResponse: WeightPerServingResponse.fromJson(
-          json['weightPerServingResponse'] as Map<String, dynamic>),
+      weightPerServingResponse: json['weightPerServingResponse'] == null
+          ? null
+          : WeightPerServingResponse.fromJson(
+              json['weightPerServingResponse'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_NutritionResponseToJson(

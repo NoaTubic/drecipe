@@ -1,12 +1,14 @@
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/recipe_card_text.dart';
+import 'package:drecipe/features/recipe_details/di/providers.dart';
 import 'package:flutter/material.dart';
 
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RecipeCard extends StatelessWidget {
+class RecipeCard extends ConsumerWidget {
   const RecipeCard({
     Key? key,
     required this.recipe,
@@ -15,46 +17,57 @@ class RecipeCard extends StatelessWidget {
   final Recipe recipe;
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(Sizes.circularRadius),
-              boxShadow: shadowsLight,
-            ),
-            child: Ink(
-              child: Container(
-                width: Sizes.s260,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Sizes.circularRadius),
-                  backgroundBlendMode: BlendMode.darken,
-                  gradient: recipeCardGradient(),
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(
-                        Colors.black.withOpacity(OpacityConstants.op02),
-                        BlendMode.darken),
-                    image: NetworkImage(recipe.image ?? ''),
-                  ),
-                ),
-                child: InkWell(
-                  onTap: () => ScreenRouter.pushScreen(
-                      context, RecipeDetailsRoute(recipe: recipe)),
-                  child: RecipeCardContent(
-                    recipe: recipe,
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Hero(
+      tag: recipe.title,
+      child: Column(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                boxShadow: shadowsLight,
+              ),
+              child: Material(
+                child: Ink(
+                  child: Container(
+                    width: Sizes.s260,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                      backgroundBlendMode: BlendMode.darken,
+                      gradient: recipeCardGradient(),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        colorFilter: ColorFilter.mode(
+                            Colors.black.withOpacity(OpacityConstants.op03),
+                            BlendMode.darken),
+                        image: NetworkImage(recipe.image ?? ''),
+                      ),
+                    ),
+                    child: InkWell(
+                      onTap: () async {
+                        Future.wait([
+                          ref
+                              .read(recipeDetailsNotifierProvider.notifier)
+                              .getRecipeDetails(id: recipe.id),
+                        ]).whenComplete(() => ScreenRouter.pushScreen(
+                            context, RecipeDetailsScreenRoute(recipe: recipe)));
+                      },
+                      child: RecipeCardContent(
+                        recipe: recipe,
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-        ),
-        const SizedBox(
-          height: Sizes.s6,
-        )
-      ],
+          const SizedBox(
+            height: Sizes.s6,
+          )
+        ],
+      ),
     );
   }
 }

@@ -33,7 +33,7 @@ class DiscoverRecipesHeader extends StatelessWidget {
             ],
           ),
           const SettingsButton(
-            padding: Sizes.s0,
+            withPadding: false,
           ),
         ],
       ),

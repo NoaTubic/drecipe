@@ -97,11 +97,30 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
-    RecipeDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<RecipeDetailsRouteArgs>();
+    RecipeDetailsScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<RecipeDetailsScreenRouteArgs>();
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: RecipeDetails(key: args.key, recipe: args.recipe),
+          child: RecipeDetailsScreen(key: args.key, recipe: args.recipe),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    DetailedInstructionsScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<DetailedInstructionsScreenRouteArgs>();
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: DetailedInstructionsScreen(
+              key: args.key, instructions: args.instructions),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    IngredientsScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<IngredientsScreenRouteArgs>();
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: IngredientsScreen(key: args.key, recipe: args.recipe),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -125,7 +144,11 @@ class _$AppRouter extends RootStackRouter {
             path: '/discover-recipes-screen'),
         RouteConfig(DrecipeBottomNavBarRoute.name,
             path: '/drecipe-bottom-nav-bar'),
-        RouteConfig(RecipeDetailsRoute.name, path: '/recipe-details')
+        RouteConfig(RecipeDetailsScreenRoute.name,
+            path: '/recipe-details-screen'),
+        RouteConfig(DetailedInstructionsScreenRoute.name,
+            path: '/detailed-instructions-screen'),
+        RouteConfig(IngredientsScreenRoute.name, path: '/ingredients-screen')
       ];
 }
 
@@ -224,18 +247,19 @@ class DrecipeBottomNavBarRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [RecipeDetails]
-class RecipeDetailsRoute extends PageRouteInfo<RecipeDetailsRouteArgs> {
-  RecipeDetailsRoute({Key? key, required Recipe recipe})
-      : super(RecipeDetailsRoute.name,
-            path: '/recipe-details',
-            args: RecipeDetailsRouteArgs(key: key, recipe: recipe));
+/// [RecipeDetailsScreen]
+class RecipeDetailsScreenRoute
+    extends PageRouteInfo<RecipeDetailsScreenRouteArgs> {
+  RecipeDetailsScreenRoute({Key? key, required Recipe recipe})
+      : super(RecipeDetailsScreenRoute.name,
+            path: '/recipe-details-screen',
+            args: RecipeDetailsScreenRouteArgs(key: key, recipe: recipe));
 
-  static const String name = 'RecipeDetailsRoute';
+  static const String name = 'RecipeDetailsScreenRoute';
 }
 
-class RecipeDetailsRouteArgs {
-  const RecipeDetailsRouteArgs({this.key, required this.recipe});
+class RecipeDetailsScreenRouteArgs {
+  const RecipeDetailsScreenRouteArgs({this.key, required this.recipe});
 
   final Key? key;
 
@@ -243,6 +267,58 @@ class RecipeDetailsRouteArgs {
 
   @override
   String toString() {
-    return 'RecipeDetailsRouteArgs{key: $key, recipe: $recipe}';
+    return 'RecipeDetailsScreenRouteArgs{key: $key, recipe: $recipe}';
+  }
+}
+
+/// generated route for
+/// [DetailedInstructionsScreen]
+class DetailedInstructionsScreenRoute
+    extends PageRouteInfo<DetailedInstructionsScreenRouteArgs> {
+  DetailedInstructionsScreenRoute(
+      {Key? key, required List<Instructions> instructions})
+      : super(DetailedInstructionsScreenRoute.name,
+            path: '/detailed-instructions-screen',
+            args: DetailedInstructionsScreenRouteArgs(
+                key: key, instructions: instructions));
+
+  static const String name = 'DetailedInstructionsScreenRoute';
+}
+
+class DetailedInstructionsScreenRouteArgs {
+  const DetailedInstructionsScreenRouteArgs(
+      {this.key, required this.instructions});
+
+  final Key? key;
+
+  final List<Instructions> instructions;
+
+  @override
+  String toString() {
+    return 'DetailedInstructionsScreenRouteArgs{key: $key, instructions: $instructions}';
+  }
+}
+
+/// generated route for
+/// [IngredientsScreen]
+class IngredientsScreenRoute extends PageRouteInfo<IngredientsScreenRouteArgs> {
+  IngredientsScreenRoute({Key? key, required Recipe recipe})
+      : super(IngredientsScreenRoute.name,
+            path: '/ingredients-screen',
+            args: IngredientsScreenRouteArgs(key: key, recipe: recipe));
+
+  static const String name = 'IngredientsScreenRoute';
+}
+
+class IngredientsScreenRouteArgs {
+  const IngredientsScreenRouteArgs({this.key, required this.recipe});
+
+  final Key? key;
+
+  final Recipe recipe;
+
+  @override
+  String toString() {
+    return 'IngredientsScreenRouteArgs{key: $key, recipe: $recipe}';
   }
 }

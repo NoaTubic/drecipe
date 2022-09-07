@@ -20,7 +20,7 @@ mixin _$NutritionData {
   double get percentProtein => throw _privateConstructorUsedError;
   double get percentFat => throw _privateConstructorUsedError;
   double get percentCarbs => throw _privateConstructorUsedError;
-  String get weightPerServing => throw _privateConstructorUsedError;
+  String? get weightPerServing => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NutritionDataCopyWith<NutritionData> get copyWith =>
@@ -37,7 +37,7 @@ abstract class $NutritionDataCopyWith<$Res> {
       double percentProtein,
       double percentFat,
       double percentCarbs,
-      String weightPerServing});
+      String? weightPerServing});
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ class _$NutritionDataCopyWithImpl<$Res>
       weightPerServing: weightPerServing == freezed
           ? _value.weightPerServing
           : weightPerServing // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -94,7 +94,7 @@ abstract class _$$_NutritionDataCopyWith<$Res>
       double percentProtein,
       double percentFat,
       double percentCarbs,
-      String weightPerServing});
+      String? weightPerServing});
 }
 
 /// @nodoc
@@ -136,7 +136,7 @@ class __$$_NutritionDataCopyWithImpl<$Res>
       weightPerServing: weightPerServing == freezed
           ? _value.weightPerServing
           : weightPerServing // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -149,7 +149,7 @@ class _$_NutritionData implements _NutritionData {
       required this.percentProtein,
       required this.percentFat,
       required this.percentCarbs,
-      required this.weightPerServing})
+      this.weightPerServing})
       : _nutrients = nutrients;
 
   final List<Nutrient> _nutrients;
@@ -166,7 +166,7 @@ class _$_NutritionData implements _NutritionData {
   @override
   final double percentCarbs;
   @override
-  final String weightPerServing;
+  final String? weightPerServing;
 
   @override
   String toString() {
@@ -211,7 +211,7 @@ abstract class _NutritionData implements NutritionData {
       required final double percentProtein,
       required final double percentFat,
       required final double percentCarbs,
-      required final String weightPerServing}) = _$_NutritionData;
+      final String? weightPerServing}) = _$_NutritionData;
 
   @override
   List<Nutrient> get nutrients;
@@ -222,7 +222,7 @@ abstract class _NutritionData implements NutritionData {
   @override
   double get percentCarbs;
   @override
-  String get weightPerServing;
+  String? get weightPerServing;
   @override
   @JsonKey(ignore: true)
   _$$_NutritionDataCopyWith<_$_NutritionData> get copyWith =>
@@ -232,8 +232,7 @@ abstract class _NutritionData implements NutritionData {
 /// @nodoc
 mixin _$Nutrient {
   String get name => throw _privateConstructorUsedError;
-  double get amount => throw _privateConstructorUsedError;
-  String get unit => throw _privateConstructorUsedError;
+  String get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NutrientCopyWith<Nutrient> get copyWith =>
@@ -244,7 +243,7 @@ mixin _$Nutrient {
 abstract class $NutrientCopyWith<$Res> {
   factory $NutrientCopyWith(Nutrient value, $Res Function(Nutrient) then) =
       _$NutrientCopyWithImpl<$Res>;
-  $Res call({String name, double amount, String unit});
+  $Res call({String name, String amount});
 }
 
 /// @nodoc
@@ -259,7 +258,6 @@ class _$NutrientCopyWithImpl<$Res> implements $NutrientCopyWith<$Res> {
   $Res call({
     Object? name = freezed,
     Object? amount = freezed,
-    Object? unit = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -269,10 +267,6 @@ class _$NutrientCopyWithImpl<$Res> implements $NutrientCopyWith<$Res> {
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double,
-      unit: unit == freezed
-          ? _value.unit
-          : unit // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -284,7 +278,7 @@ abstract class _$$_NutrientCopyWith<$Res> implements $NutrientCopyWith<$Res> {
           _$_Nutrient value, $Res Function(_$_Nutrient) then) =
       __$$_NutrientCopyWithImpl<$Res>;
   @override
-  $Res call({String name, double amount, String unit});
+  $Res call({String name, String amount});
 }
 
 /// @nodoc
@@ -301,7 +295,6 @@ class __$$_NutrientCopyWithImpl<$Res> extends _$NutrientCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? amount = freezed,
-    Object? unit = freezed,
   }) {
     return _then(_$_Nutrient(
       name: name == freezed
@@ -311,10 +304,6 @@ class __$$_NutrientCopyWithImpl<$Res> extends _$NutrientCopyWithImpl<$Res>
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double,
-      unit: unit == freezed
-          ? _value.unit
-          : unit // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -323,19 +312,16 @@ class __$$_NutrientCopyWithImpl<$Res> extends _$NutrientCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Nutrient implements _Nutrient {
-  const _$_Nutrient(
-      {required this.name, required this.amount, required this.unit});
+  const _$_Nutrient({required this.name, required this.amount});
 
   @override
   final String name;
   @override
-  final double amount;
-  @override
-  final String unit;
+  final String amount;
 
   @override
   String toString() {
-    return 'Nutrient(name: $name, amount: $amount, unit: $unit)';
+    return 'Nutrient(name: $name, amount: $amount)';
   }
 
   @override
@@ -344,16 +330,14 @@ class _$_Nutrient implements _Nutrient {
         (other.runtimeType == runtimeType &&
             other is _$_Nutrient &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.unit, unit));
+            const DeepCollectionEquality().equals(other.amount, amount));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(unit));
+      const DeepCollectionEquality().hash(amount));
 
   @JsonKey(ignore: true)
   @override
@@ -363,16 +347,12 @@ class _$_Nutrient implements _Nutrient {
 
 abstract class _Nutrient implements Nutrient {
   const factory _Nutrient(
-      {required final String name,
-      required final double amount,
-      required final String unit}) = _$_Nutrient;
+      {required final String name, required final String amount}) = _$_Nutrient;
 
   @override
   String get name;
   @override
-  double get amount;
-  @override
-  String get unit;
+  String get amount;
   @override
   @JsonKey(ignore: true)
   _$$_NutrientCopyWith<_$_Nutrient> get copyWith =>

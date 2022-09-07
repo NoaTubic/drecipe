@@ -8,7 +8,7 @@ class NutritionResponse with _$NutritionResponse {
   const factory NutritionResponse({
     required List<NutrientResponse> nutrients,
     required CaloricBreakdownResponse caloricBreakdown,
-    required WeightPerServingResponse weightPerServingResponse,
+    WeightPerServingResponse? weightPerServingResponse,
   }) = _NutritionResponse;
 
   factory NutritionResponse.fromJson(Map<String, dynamic> json) =>

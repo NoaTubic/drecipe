@@ -8,22 +8,23 @@ class SettingsButton extends StatelessWidget {
   const SettingsButton({
     Key? key,
     this.alignment = Alignment.center,
-    this.padding = Sizes.s20,
+    this.withPadding = true,
   }) : super(key: key);
 
   final Alignment alignment;
-  final double padding;
+  final bool withPadding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: padding),
+      padding: EdgeInsets.only(
+          right: withPadding ? Sizes.bodyHorizontalPadding : Sizes.s0),
       child: Align(
         alignment: alignment,
         child: Ink(
           decoration: BoxDecoration(
-            // shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.circular(Sizes.circularRadiusMax),
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(Sizes.s8),
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

@@ -1,10 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/features/account_recovery/ui/account_recovery_screen.dart';
 import 'package:drecipe/features/account_recovery/ui/account_recovery_reset_email_screen.dart';
+import 'package:drecipe/features/common/domain/entities/instructions.dart';
 import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_bottom_nav_bar.dart';
 import 'package:drecipe/features/discover_recipes/ui/screens/discover_recipes_screen.dart';
-import 'package:drecipe/features/recipe_details/ui/recipe_details_screen.dart';
+import 'package:drecipe/features/recipe_details/ui/screens/detailed_instructions_screen.dart';
+import 'package:drecipe/features/recipe_details/ui/screens/ingredients_screen.dart';
+import 'package:drecipe/features/recipe_details/ui/screens/recipe_details_screen.dart';
 import 'package:drecipe/features/registration/ui/email_verification_screen.dart';
 import 'package:drecipe/features/registration/ui/registration_screen.dart';
 import 'package:drecipe/features/settings/ui/settings_screen.dart';
@@ -59,7 +62,15 @@ part 'app_router.gr.dart';
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: RecipeDetails,
+      page: RecipeDetailsScreen,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
+    CustomRoute(
+      page: DetailedInstructionsScreen,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
+    CustomRoute(
+      page: IngredientsScreen,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
   ],

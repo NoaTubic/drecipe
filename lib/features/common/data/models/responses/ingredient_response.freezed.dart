@@ -20,7 +20,8 @@ IngredientResponse _$IngredientResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$IngredientResponse {
-  int get id => throw _privateConstructorUsedError; // required String image,
+  int get id => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   String get original => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +35,7 @@ abstract class $IngredientResponseCopyWith<$Res> {
   factory $IngredientResponseCopyWith(
           IngredientResponse value, $Res Function(IngredientResponse) then) =
       _$IngredientResponseCopyWithImpl<$Res>;
-  $Res call({int id, String original});
+  $Res call({int id, String? image, String original});
 }
 
 /// @nodoc
@@ -49,6 +50,7 @@ class _$IngredientResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? image = freezed,
     Object? original = freezed,
   }) {
     return _then(_value.copyWith(
@@ -56,6 +58,10 @@ class _$IngredientResponseCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       original: original == freezed
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
@@ -71,7 +77,7 @@ abstract class _$$_IngredientResponseCopyWith<$Res>
           $Res Function(_$_IngredientResponse) then) =
       __$$_IngredientResponseCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String original});
+  $Res call({int id, String? image, String original});
 }
 
 /// @nodoc
@@ -88,6 +94,7 @@ class __$$_IngredientResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? image = freezed,
     Object? original = freezed,
   }) {
     return _then(_$_IngredientResponse(
@@ -95,6 +102,10 @@ class __$$_IngredientResponseCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       original: original == freezed
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
@@ -106,20 +117,22 @@ class __$$_IngredientResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_IngredientResponse implements _IngredientResponse {
-  const _$_IngredientResponse({required this.id, required this.original});
+  const _$_IngredientResponse(
+      {required this.id, this.image, required this.original});
 
   factory _$_IngredientResponse.fromJson(Map<String, dynamic> json) =>
       _$$_IngredientResponseFromJson(json);
 
   @override
   final int id;
-// required String image,
+  @override
+  final String? image;
   @override
   final String original;
 
   @override
   String toString() {
-    return 'IngredientResponse(id: $id, original: $original)';
+    return 'IngredientResponse(id: $id, image: $image, original: $original)';
   }
 
   @override
@@ -128,6 +141,7 @@ class _$_IngredientResponse implements _IngredientResponse {
         (other.runtimeType == runtimeType &&
             other is _$_IngredientResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality().equals(other.original, original));
   }
 
@@ -136,6 +150,7 @@ class _$_IngredientResponse implements _IngredientResponse {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(original));
 
   @JsonKey(ignore: true)
@@ -155,6 +170,7 @@ class _$_IngredientResponse implements _IngredientResponse {
 abstract class _IngredientResponse implements IngredientResponse {
   const factory _IngredientResponse(
       {required final int id,
+      final String? image,
       required final String original}) = _$_IngredientResponse;
 
   factory _IngredientResponse.fromJson(Map<String, dynamic> json) =
@@ -162,7 +178,9 @@ abstract class _IngredientResponse implements IngredientResponse {
 
   @override
   int get id;
-  @override // required String image,
+  @override
+  String? get image;
+  @override
   String get original;
   @override
   @JsonKey(ignore: true)

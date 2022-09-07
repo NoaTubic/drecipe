@@ -9,6 +9,7 @@ abstract class ImageAssets {
   static const String accountRecoveryEmail =
       '$imagePath/password_email_sent.png';
   static const String snackBarGraphic = '$imagePath/snack_bar_graphic.png';
+  static const String imageError = '$imagePath/.png';
 
   static const String icGoogle = '$iconPath/ic_google.png';
   static const String icApple = '$iconPath/ic_apple.png';

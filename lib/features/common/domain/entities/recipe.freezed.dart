@@ -28,7 +28,8 @@ mixin _$Recipe {
   bool get veryPopular => throw _privateConstructorUsedError;
   bool get vertHealthy => throw _privateConstructorUsedError;
   String get instructions => throw _privateConstructorUsedError;
-  List<Ingredient> get extendedIngredients =>
+  List<Ingredient> get ingredients => throw _privateConstructorUsedError;
+  List<Instructions>? get instructionsDetailed =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -52,7 +53,8 @@ abstract class $RecipeCopyWith<$Res> {
       bool veryPopular,
       bool vertHealthy,
       String instructions,
-      List<Ingredient> extendedIngredients});
+      List<Ingredient> ingredients,
+      List<Instructions>? instructionsDetailed});
 }
 
 /// @nodoc
@@ -77,7 +79,8 @@ class _$RecipeCopyWithImpl<$Res> implements $RecipeCopyWith<$Res> {
     Object? veryPopular = freezed,
     Object? vertHealthy = freezed,
     Object? instructions = freezed,
-    Object? extendedIngredients = freezed,
+    Object? ingredients = freezed,
+    Object? instructionsDetailed = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -128,10 +131,14 @@ class _$RecipeCopyWithImpl<$Res> implements $RecipeCopyWith<$Res> {
           ? _value.instructions
           : instructions // ignore: cast_nullable_to_non_nullable
               as String,
-      extendedIngredients: extendedIngredients == freezed
-          ? _value.extendedIngredients
-          : extendedIngredients // ignore: cast_nullable_to_non_nullable
+      ingredients: ingredients == freezed
+          ? _value.ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
               as List<Ingredient>,
+      instructionsDetailed: instructionsDetailed == freezed
+          ? _value.instructionsDetailed
+          : instructionsDetailed // ignore: cast_nullable_to_non_nullable
+              as List<Instructions>?,
     ));
   }
 }
@@ -154,7 +161,8 @@ abstract class _$$_RecipeCopyWith<$Res> implements $RecipeCopyWith<$Res> {
       bool veryPopular,
       bool vertHealthy,
       String instructions,
-      List<Ingredient> extendedIngredients});
+      List<Ingredient> ingredients,
+      List<Instructions>? instructionsDetailed});
 }
 
 /// @nodoc
@@ -180,7 +188,8 @@ class __$$_RecipeCopyWithImpl<$Res> extends _$RecipeCopyWithImpl<$Res>
     Object? veryPopular = freezed,
     Object? vertHealthy = freezed,
     Object? instructions = freezed,
-    Object? extendedIngredients = freezed,
+    Object? ingredients = freezed,
+    Object? instructionsDetailed = freezed,
   }) {
     return _then(_$_Recipe(
       id: id == freezed
@@ -231,10 +240,14 @@ class __$$_RecipeCopyWithImpl<$Res> extends _$RecipeCopyWithImpl<$Res>
           ? _value.instructions
           : instructions // ignore: cast_nullable_to_non_nullable
               as String,
-      extendedIngredients: extendedIngredients == freezed
-          ? _value._extendedIngredients
-          : extendedIngredients // ignore: cast_nullable_to_non_nullable
+      ingredients: ingredients == freezed
+          ? _value._ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
               as List<Ingredient>,
+      instructionsDetailed: instructionsDetailed == freezed
+          ? _value._instructionsDetailed
+          : instructionsDetailed // ignore: cast_nullable_to_non_nullable
+              as List<Instructions>?,
     ));
   }
 }
@@ -255,9 +268,11 @@ class _$_Recipe implements _Recipe {
       required this.veryPopular,
       required this.vertHealthy,
       required this.instructions,
-      required final List<Ingredient> extendedIngredients})
+      required final List<Ingredient> ingredients,
+      final List<Instructions>? instructionsDetailed})
       : _dishTypes = dishTypes,
-        _extendedIngredients = extendedIngredients;
+        _ingredients = ingredients,
+        _instructionsDetailed = instructionsDetailed;
 
   @override
   final int id;
@@ -288,16 +303,25 @@ class _$_Recipe implements _Recipe {
   final bool vertHealthy;
   @override
   final String instructions;
-  final List<Ingredient> _extendedIngredients;
+  final List<Ingredient> _ingredients;
   @override
-  List<Ingredient> get extendedIngredients {
+  List<Ingredient> get ingredients {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_extendedIngredients);
+    return EqualUnmodifiableListView(_ingredients);
+  }
+
+  final List<Instructions>? _instructionsDetailed;
+  @override
+  List<Instructions>? get instructionsDetailed {
+    final value = _instructionsDetailed;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'Recipe(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, dishTypes: $dishTypes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, vertHealthy: $vertHealthy, instructions: $instructions, extendedIngredients: $extendedIngredients)';
+    return 'Recipe(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, dishTypes: $dishTypes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, vertHealthy: $vertHealthy, instructions: $instructions, ingredients: $ingredients, instructionsDetailed: $instructionsDetailed)';
   }
 
   @override
@@ -325,7 +349,9 @@ class _$_Recipe implements _Recipe {
             const DeepCollectionEquality()
                 .equals(other.instructions, instructions) &&
             const DeepCollectionEquality()
-                .equals(other._extendedIngredients, _extendedIngredients));
+                .equals(other._ingredients, _ingredients) &&
+            const DeepCollectionEquality()
+                .equals(other._instructionsDetailed, _instructionsDetailed));
   }
 
   @override
@@ -343,7 +369,8 @@ class _$_Recipe implements _Recipe {
       const DeepCollectionEquality().hash(veryPopular),
       const DeepCollectionEquality().hash(vertHealthy),
       const DeepCollectionEquality().hash(instructions),
-      const DeepCollectionEquality().hash(_extendedIngredients));
+      const DeepCollectionEquality().hash(_ingredients),
+      const DeepCollectionEquality().hash(_instructionsDetailed));
 
   @JsonKey(ignore: true)
   @override
@@ -365,7 +392,8 @@ abstract class _Recipe implements Recipe {
       required final bool veryPopular,
       required final bool vertHealthy,
       required final String instructions,
-      required final List<Ingredient> extendedIngredients}) = _$_Recipe;
+      required final List<Ingredient> ingredients,
+      final List<Instructions>? instructionsDetailed}) = _$_Recipe;
 
   @override
   int get id;
@@ -392,7 +420,9 @@ abstract class _Recipe implements Recipe {
   @override
   String get instructions;
   @override
-  List<Ingredient> get extendedIngredients;
+  List<Ingredient> get ingredients;
+  @override
+  List<Instructions>? get instructionsDetailed;
   @override
   @JsonKey(ignore: true)
   _$$_RecipeCopyWith<_$_Recipe> get copyWith =>

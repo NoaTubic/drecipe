@@ -40,7 +40,7 @@ class RecipeCardContent extends StatelessWidget {
           Row(
             children: [
               Icon(
-                Icons.timer,
+                Icons.access_time_rounded,
                 size: Sizes.s16,
                 color: AppColors.white,
               ),

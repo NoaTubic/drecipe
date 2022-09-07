@@ -70,7 +70,7 @@ extension RandomRecipesExtension on RecipesResponse {
           veryPopular: recipe.veryPopular,
           vertHealthy: recipe.veryHealthy,
           instructions: recipe.instructions,
-          extendedIngredients: recipe.convertIngredients(),
+          ingredients: recipe.convertIngredients(),
         ),
       );
     }
@@ -85,6 +85,7 @@ extension IngredientsExtension on RecipeResponse {
       ingredientsList.add(
         Ingredient(
           id: ingredient.id,
+          image: ingredient.image,
           original: ingredient.original,
         ),
       );

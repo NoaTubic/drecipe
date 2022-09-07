@@ -7,16 +7,21 @@ class DrecipeBackButton extends StatelessWidget {
   const DrecipeBackButton({
     Key? key,
     this.onTap,
-    this.alignment = Alignment.center,
+    this.alignment = Alignment.topLeft,
+    this.withPadding = true,
   }) : super(key: key);
 
   final void Function()? onTap;
   final Alignment alignment;
+  final bool withPadding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: Sizes.s20),
+      padding: withPadding
+          ? const EdgeInsets.only(
+              left: Sizes.bodyHorizontalPadding, top: Sizes.bodyVerticalPadding)
+          : EdgeInsets.zero,
       child: Align(
         alignment: alignment,
         child: Ink(
