@@ -16,9 +16,13 @@ class DiscoverRecipesBodyError extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            ImageAssets.icError,
-            width: Sizes.s80,
+          const SizedBox(
+            height: Sizes.s160,
+          ),
+          Icon(
+            Icons.error,
+            size: Sizes.s80,
+            color: AppColors.error,
           ),
           const SizedBox(
             height: Sizes.s12,

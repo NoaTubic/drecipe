@@ -1,6 +1,6 @@
+import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:flutter/material.dart';
 
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/diet_badge.dart';
 
@@ -10,7 +10,7 @@ class RecipeCardContent extends StatelessWidget {
     required this.recipe,
   }) : super(key: key);
 
-  final Recipe recipe;
+  final RecipeDiscover recipe;
   @override
   Widget build(BuildContext context) {
     return Padding(

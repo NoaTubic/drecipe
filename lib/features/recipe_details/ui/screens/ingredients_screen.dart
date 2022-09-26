@@ -26,12 +26,12 @@ class IngredientsScreen extends StatelessWidget {
         child: FadeMask(
           child: ListView.separated(
             itemBuilder: (context, index) => IngredientCard(
-              ingredient: recipe.ingredients[index],
+              ingredient: recipe.ingredients![index],
             ),
             separatorBuilder: (context, index) => const SizedBox(
               height: Sizes.s12,
             ),
-            itemCount: recipe.ingredients.length,
+            itemCount: recipe.ingredients!.length,
           ),
         ),
       ),

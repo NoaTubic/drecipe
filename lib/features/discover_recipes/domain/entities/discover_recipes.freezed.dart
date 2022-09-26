@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DiscoverRecipes {
-  List<Recipe> get randomRecipes => throw _privateConstructorUsedError;
-  List<Recipe> get popularRecipes => throw _privateConstructorUsedError;
-  List<Recipe> get healthyRecipe => throw _privateConstructorUsedError;
+  List<RecipeDiscover> get randomRecipes => throw _privateConstructorUsedError;
+  List<RecipeDiscover> get popularRecipes => throw _privateConstructorUsedError;
+  List<RecipeDiscover> get healthyRecipe => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DiscoverRecipesCopyWith<DiscoverRecipes> get copyWith =>
@@ -31,9 +31,9 @@ abstract class $DiscoverRecipesCopyWith<$Res> {
           DiscoverRecipes value, $Res Function(DiscoverRecipes) then) =
       _$DiscoverRecipesCopyWithImpl<$Res>;
   $Res call(
-      {List<Recipe> randomRecipes,
-      List<Recipe> popularRecipes,
-      List<Recipe> healthyRecipe});
+      {List<RecipeDiscover> randomRecipes,
+      List<RecipeDiscover> popularRecipes,
+      List<RecipeDiscover> healthyRecipe});
 }
 
 /// @nodoc
@@ -55,15 +55,15 @@ class _$DiscoverRecipesCopyWithImpl<$Res>
       randomRecipes: randomRecipes == freezed
           ? _value.randomRecipes
           : randomRecipes // ignore: cast_nullable_to_non_nullable
-              as List<Recipe>,
+              as List<RecipeDiscover>,
       popularRecipes: popularRecipes == freezed
           ? _value.popularRecipes
           : popularRecipes // ignore: cast_nullable_to_non_nullable
-              as List<Recipe>,
+              as List<RecipeDiscover>,
       healthyRecipe: healthyRecipe == freezed
           ? _value.healthyRecipe
           : healthyRecipe // ignore: cast_nullable_to_non_nullable
-              as List<Recipe>,
+              as List<RecipeDiscover>,
     ));
   }
 }
@@ -76,9 +76,9 @@ abstract class _$$_DiscoverRecipesCopyWith<$Res>
       __$$_DiscoverRecipesCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<Recipe> randomRecipes,
-      List<Recipe> popularRecipes,
-      List<Recipe> healthyRecipe});
+      {List<RecipeDiscover> randomRecipes,
+      List<RecipeDiscover> popularRecipes,
+      List<RecipeDiscover> healthyRecipe});
 }
 
 /// @nodoc
@@ -102,15 +102,15 @@ class __$$_DiscoverRecipesCopyWithImpl<$Res>
       randomRecipes: randomRecipes == freezed
           ? _value._randomRecipes
           : randomRecipes // ignore: cast_nullable_to_non_nullable
-              as List<Recipe>,
+              as List<RecipeDiscover>,
       popularRecipes: popularRecipes == freezed
           ? _value._popularRecipes
           : popularRecipes // ignore: cast_nullable_to_non_nullable
-              as List<Recipe>,
+              as List<RecipeDiscover>,
       healthyRecipe: healthyRecipe == freezed
           ? _value._healthyRecipe
           : healthyRecipe // ignore: cast_nullable_to_non_nullable
-              as List<Recipe>,
+              as List<RecipeDiscover>,
     ));
   }
 }
@@ -119,30 +119,30 @@ class __$$_DiscoverRecipesCopyWithImpl<$Res>
 
 class _$_DiscoverRecipes implements _DiscoverRecipes {
   const _$_DiscoverRecipes(
-      {required final List<Recipe> randomRecipes,
-      required final List<Recipe> popularRecipes,
-      required final List<Recipe> healthyRecipe})
+      {required final List<RecipeDiscover> randomRecipes,
+      required final List<RecipeDiscover> popularRecipes,
+      required final List<RecipeDiscover> healthyRecipe})
       : _randomRecipes = randomRecipes,
         _popularRecipes = popularRecipes,
         _healthyRecipe = healthyRecipe;
 
-  final List<Recipe> _randomRecipes;
+  final List<RecipeDiscover> _randomRecipes;
   @override
-  List<Recipe> get randomRecipes {
+  List<RecipeDiscover> get randomRecipes {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_randomRecipes);
   }
 
-  final List<Recipe> _popularRecipes;
+  final List<RecipeDiscover> _popularRecipes;
   @override
-  List<Recipe> get popularRecipes {
+  List<RecipeDiscover> get popularRecipes {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_popularRecipes);
   }
 
-  final List<Recipe> _healthyRecipe;
+  final List<RecipeDiscover> _healthyRecipe;
   @override
-  List<Recipe> get healthyRecipe {
+  List<RecipeDiscover> get healthyRecipe {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_healthyRecipe);
   }
@@ -180,16 +180,16 @@ class _$_DiscoverRecipes implements _DiscoverRecipes {
 
 abstract class _DiscoverRecipes implements DiscoverRecipes {
   const factory _DiscoverRecipes(
-      {required final List<Recipe> randomRecipes,
-      required final List<Recipe> popularRecipes,
-      required final List<Recipe> healthyRecipe}) = _$_DiscoverRecipes;
+      {required final List<RecipeDiscover> randomRecipes,
+      required final List<RecipeDiscover> popularRecipes,
+      required final List<RecipeDiscover> healthyRecipe}) = _$_DiscoverRecipes;
 
   @override
-  List<Recipe> get randomRecipes;
+  List<RecipeDiscover> get randomRecipes;
   @override
-  List<Recipe> get popularRecipes;
+  List<RecipeDiscover> get popularRecipes;
   @override
-  List<Recipe> get healthyRecipe;
+  List<RecipeDiscover> get healthyRecipe;
   @override
   @JsonKey(ignore: true)
   _$$_DiscoverRecipesCopyWith<_$_DiscoverRecipes> get copyWith =>

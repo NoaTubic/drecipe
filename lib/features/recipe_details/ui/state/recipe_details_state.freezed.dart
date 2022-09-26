@@ -20,7 +20,7 @@ mixin _$RecipeDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecipeDetails recipeDetails) loaded,
+    required TResult Function(Recipe recipe) loaded,
     required TResult Function(Failure failure) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$RecipeDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$RecipeDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) =>
@@ -127,7 +127,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecipeDetails recipeDetails) loaded,
+    required TResult Function(Recipe recipe) loaded,
     required TResult Function(Failure failure) error,
   }) {
     return initial();
@@ -138,7 +138,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
   }) {
     return initial?.call();
@@ -149,7 +149,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
@@ -243,7 +243,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecipeDetails recipeDetails) loaded,
+    required TResult Function(Recipe recipe) loaded,
     required TResult Function(Failure failure) error,
   }) {
     return loading();
@@ -254,7 +254,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
   }) {
     return loading?.call();
@@ -265,7 +265,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
@@ -321,9 +321,9 @@ abstract class _Loading implements RecipeDetailsState {
 abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
-  $Res call({RecipeDetails recipeDetails});
+  $Res call({Recipe recipe});
 
-  $RecipeDetailsCopyWith<$Res> get recipeDetails;
+  $RecipeCopyWith<$Res> get recipe;
 }
 
 /// @nodoc
@@ -338,20 +338,20 @@ class __$$_LoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? recipeDetails = freezed,
+    Object? recipe = freezed,
   }) {
     return _then(_$_Loaded(
-      recipeDetails: recipeDetails == freezed
-          ? _value.recipeDetails
-          : recipeDetails // ignore: cast_nullable_to_non_nullable
-              as RecipeDetails,
+      recipe: recipe == freezed
+          ? _value.recipe
+          : recipe // ignore: cast_nullable_to_non_nullable
+              as Recipe,
     ));
   }
 
   @override
-  $RecipeDetailsCopyWith<$Res> get recipeDetails {
-    return $RecipeDetailsCopyWith<$Res>(_value.recipeDetails, (value) {
-      return _then(_value.copyWith(recipeDetails: value));
+  $RecipeCopyWith<$Res> get recipe {
+    return $RecipeCopyWith<$Res>(_value.recipe, (value) {
+      return _then(_value.copyWith(recipe: value));
     });
   }
 }
@@ -359,14 +359,14 @@ class __$$_LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded({required this.recipeDetails});
+  const _$_Loaded({required this.recipe});
 
   @override
-  final RecipeDetails recipeDetails;
+  final Recipe recipe;
 
   @override
   String toString() {
-    return 'RecipeDetailsState.loaded(recipeDetails: $recipeDetails)';
+    return 'RecipeDetailsState.loaded(recipe: $recipe)';
   }
 
   @override
@@ -374,13 +374,12 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
-            const DeepCollectionEquality()
-                .equals(other.recipeDetails, recipeDetails));
+            const DeepCollectionEquality().equals(other.recipe, recipe));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(recipeDetails));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(recipe));
 
   @JsonKey(ignore: true)
   @override
@@ -392,10 +391,10 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecipeDetails recipeDetails) loaded,
+    required TResult Function(Recipe recipe) loaded,
     required TResult Function(Failure failure) error,
   }) {
-    return loaded(recipeDetails);
+    return loaded(recipe);
   }
 
   @override
@@ -403,10 +402,10 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
   }) {
-    return loaded?.call(recipeDetails);
+    return loaded?.call(recipe);
   }
 
   @override
@@ -414,12 +413,12 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(recipeDetails);
+      return loaded(recipe);
     }
     return orElse();
   }
@@ -463,10 +462,9 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements RecipeDetailsState {
-  const factory _Loaded({required final RecipeDetails recipeDetails}) =
-      _$_Loaded;
+  const factory _Loaded({required final Recipe recipe}) = _$_Loaded;
 
-  RecipeDetails get recipeDetails;
+  Recipe get recipe;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -546,7 +544,7 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(RecipeDetails recipeDetails) loaded,
+    required TResult Function(Recipe recipe) loaded,
     required TResult Function(Failure failure) error,
   }) {
     return error(failure);
@@ -557,7 +555,7 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
   }) {
     return error?.call(failure);
@@ -568,7 +566,7 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(RecipeDetails recipeDetails)? loaded,
+    TResult Function(Recipe recipe)? loaded,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {

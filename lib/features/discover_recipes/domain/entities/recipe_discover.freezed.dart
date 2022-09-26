@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'recipe.dart';
+part of 'recipe_discover.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,59 +15,49 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Recipe {
+mixin _$RecipeDiscover {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   int get servings => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   int get readyInMinutes => throw _privateConstructorUsedError;
-  List<String>? get dishTypes => throw _privateConstructorUsedError;
   bool get vegetarian => throw _privateConstructorUsedError;
   bool get vegan => throw _privateConstructorUsedError;
   bool get glutenFree => throw _privateConstructorUsedError;
   bool get veryPopular => throw _privateConstructorUsedError;
-  bool get vertHealthy =>
-      throw _privateConstructorUsedError; // required String instructions,
-  List<Ingredient>? get ingredients =>
-      throw _privateConstructorUsedError; // List<Instructions>? instructionsDetailed,
-  NutritionData? get nutritionData => throw _privateConstructorUsedError;
-  List<Instructions>? get instructionsDetailed =>
-      throw _privateConstructorUsedError;
+  bool get veryHealthy => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $RecipeCopyWith<Recipe> get copyWith => throw _privateConstructorUsedError;
+  $RecipeDiscoverCopyWith<RecipeDiscover> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RecipeCopyWith<$Res> {
-  factory $RecipeCopyWith(Recipe value, $Res Function(Recipe) then) =
-      _$RecipeCopyWithImpl<$Res>;
+abstract class $RecipeDiscoverCopyWith<$Res> {
+  factory $RecipeDiscoverCopyWith(
+          RecipeDiscover value, $Res Function(RecipeDiscover) then) =
+      _$RecipeDiscoverCopyWithImpl<$Res>;
   $Res call(
       {int id,
       String title,
       int servings,
       String? image,
       int readyInMinutes,
-      List<String>? dishTypes,
       bool vegetarian,
       bool vegan,
       bool glutenFree,
       bool veryPopular,
-      bool vertHealthy,
-      List<Ingredient>? ingredients,
-      NutritionData? nutritionData,
-      List<Instructions>? instructionsDetailed});
-
-  $NutritionDataCopyWith<$Res>? get nutritionData;
+      bool veryHealthy});
 }
 
 /// @nodoc
-class _$RecipeCopyWithImpl<$Res> implements $RecipeCopyWith<$Res> {
-  _$RecipeCopyWithImpl(this._value, this._then);
+class _$RecipeDiscoverCopyWithImpl<$Res>
+    implements $RecipeDiscoverCopyWith<$Res> {
+  _$RecipeDiscoverCopyWithImpl(this._value, this._then);
 
-  final Recipe _value;
+  final RecipeDiscover _value;
   // ignore: unused_field
-  final $Res Function(Recipe) _then;
+  final $Res Function(RecipeDiscover) _then;
 
   @override
   $Res call({
@@ -76,15 +66,11 @@ class _$RecipeCopyWithImpl<$Res> implements $RecipeCopyWith<$Res> {
     Object? servings = freezed,
     Object? image = freezed,
     Object? readyInMinutes = freezed,
-    Object? dishTypes = freezed,
     Object? vegetarian = freezed,
     Object? vegan = freezed,
     Object? glutenFree = freezed,
     Object? veryPopular = freezed,
-    Object? vertHealthy = freezed,
-    Object? ingredients = freezed,
-    Object? nutritionData = freezed,
-    Object? instructionsDetailed = freezed,
+    Object? veryHealthy = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -107,10 +93,6 @@ class _$RecipeCopyWithImpl<$Res> implements $RecipeCopyWith<$Res> {
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
               as int,
-      dishTypes: dishTypes == freezed
-          ? _value.dishTypes
-          : dishTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
       vegetarian: vegetarian == freezed
           ? _value.vegetarian
           : vegetarian // ignore: cast_nullable_to_non_nullable
@@ -127,41 +109,20 @@ class _$RecipeCopyWithImpl<$Res> implements $RecipeCopyWith<$Res> {
           ? _value.veryPopular
           : veryPopular // ignore: cast_nullable_to_non_nullable
               as bool,
-      vertHealthy: vertHealthy == freezed
-          ? _value.vertHealthy
-          : vertHealthy // ignore: cast_nullable_to_non_nullable
+      veryHealthy: veryHealthy == freezed
+          ? _value.veryHealthy
+          : veryHealthy // ignore: cast_nullable_to_non_nullable
               as bool,
-      ingredients: ingredients == freezed
-          ? _value.ingredients
-          : ingredients // ignore: cast_nullable_to_non_nullable
-              as List<Ingredient>?,
-      nutritionData: nutritionData == freezed
-          ? _value.nutritionData
-          : nutritionData // ignore: cast_nullable_to_non_nullable
-              as NutritionData?,
-      instructionsDetailed: instructionsDetailed == freezed
-          ? _value.instructionsDetailed
-          : instructionsDetailed // ignore: cast_nullable_to_non_nullable
-              as List<Instructions>?,
     ));
-  }
-
-  @override
-  $NutritionDataCopyWith<$Res>? get nutritionData {
-    if (_value.nutritionData == null) {
-      return null;
-    }
-
-    return $NutritionDataCopyWith<$Res>(_value.nutritionData!, (value) {
-      return _then(_value.copyWith(nutritionData: value));
-    });
   }
 }
 
 /// @nodoc
-abstract class _$$_RecipeCopyWith<$Res> implements $RecipeCopyWith<$Res> {
-  factory _$$_RecipeCopyWith(_$_Recipe value, $Res Function(_$_Recipe) then) =
-      __$$_RecipeCopyWithImpl<$Res>;
+abstract class _$$_RecipeDiscoverCopyWith<$Res>
+    implements $RecipeDiscoverCopyWith<$Res> {
+  factory _$$_RecipeDiscoverCopyWith(
+          _$_RecipeDiscover value, $Res Function(_$_RecipeDiscover) then) =
+      __$$_RecipeDiscoverCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -169,28 +130,23 @@ abstract class _$$_RecipeCopyWith<$Res> implements $RecipeCopyWith<$Res> {
       int servings,
       String? image,
       int readyInMinutes,
-      List<String>? dishTypes,
       bool vegetarian,
       bool vegan,
       bool glutenFree,
       bool veryPopular,
-      bool vertHealthy,
-      List<Ingredient>? ingredients,
-      NutritionData? nutritionData,
-      List<Instructions>? instructionsDetailed});
-
-  @override
-  $NutritionDataCopyWith<$Res>? get nutritionData;
+      bool veryHealthy});
 }
 
 /// @nodoc
-class __$$_RecipeCopyWithImpl<$Res> extends _$RecipeCopyWithImpl<$Res>
-    implements _$$_RecipeCopyWith<$Res> {
-  __$$_RecipeCopyWithImpl(_$_Recipe _value, $Res Function(_$_Recipe) _then)
-      : super(_value, (v) => _then(v as _$_Recipe));
+class __$$_RecipeDiscoverCopyWithImpl<$Res>
+    extends _$RecipeDiscoverCopyWithImpl<$Res>
+    implements _$$_RecipeDiscoverCopyWith<$Res> {
+  __$$_RecipeDiscoverCopyWithImpl(
+      _$_RecipeDiscover _value, $Res Function(_$_RecipeDiscover) _then)
+      : super(_value, (v) => _then(v as _$_RecipeDiscover));
 
   @override
-  _$_Recipe get _value => super._value as _$_Recipe;
+  _$_RecipeDiscover get _value => super._value as _$_RecipeDiscover;
 
   @override
   $Res call({
@@ -199,17 +155,13 @@ class __$$_RecipeCopyWithImpl<$Res> extends _$RecipeCopyWithImpl<$Res>
     Object? servings = freezed,
     Object? image = freezed,
     Object? readyInMinutes = freezed,
-    Object? dishTypes = freezed,
     Object? vegetarian = freezed,
     Object? vegan = freezed,
     Object? glutenFree = freezed,
     Object? veryPopular = freezed,
-    Object? vertHealthy = freezed,
-    Object? ingredients = freezed,
-    Object? nutritionData = freezed,
-    Object? instructionsDetailed = freezed,
+    Object? veryHealthy = freezed,
   }) {
-    return _then(_$_Recipe(
+    return _then(_$_RecipeDiscover(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -230,10 +182,6 @@ class __$$_RecipeCopyWithImpl<$Res> extends _$RecipeCopyWithImpl<$Res>
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
               as int,
-      dishTypes: dishTypes == freezed
-          ? _value._dishTypes
-          : dishTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
       vegetarian: vegetarian == freezed
           ? _value.vegetarian
           : vegetarian // ignore: cast_nullable_to_non_nullable
@@ -250,47 +198,28 @@ class __$$_RecipeCopyWithImpl<$Res> extends _$RecipeCopyWithImpl<$Res>
           ? _value.veryPopular
           : veryPopular // ignore: cast_nullable_to_non_nullable
               as bool,
-      vertHealthy: vertHealthy == freezed
-          ? _value.vertHealthy
-          : vertHealthy // ignore: cast_nullable_to_non_nullable
+      veryHealthy: veryHealthy == freezed
+          ? _value.veryHealthy
+          : veryHealthy // ignore: cast_nullable_to_non_nullable
               as bool,
-      ingredients: ingredients == freezed
-          ? _value._ingredients
-          : ingredients // ignore: cast_nullable_to_non_nullable
-              as List<Ingredient>?,
-      nutritionData: nutritionData == freezed
-          ? _value.nutritionData
-          : nutritionData // ignore: cast_nullable_to_non_nullable
-              as NutritionData?,
-      instructionsDetailed: instructionsDetailed == freezed
-          ? _value._instructionsDetailed
-          : instructionsDetailed // ignore: cast_nullable_to_non_nullable
-              as List<Instructions>?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Recipe implements _Recipe {
-  const _$_Recipe(
+class _$_RecipeDiscover implements _RecipeDiscover {
+  const _$_RecipeDiscover(
       {required this.id,
       required this.title,
       required this.servings,
       this.image,
       required this.readyInMinutes,
-      final List<String>? dishTypes,
       required this.vegetarian,
       required this.vegan,
       required this.glutenFree,
       required this.veryPopular,
-      required this.vertHealthy,
-      final List<Ingredient>? ingredients,
-      this.nutritionData,
-      final List<Instructions>? instructionsDetailed})
-      : _dishTypes = dishTypes,
-        _ingredients = ingredients,
-        _instructionsDetailed = instructionsDetailed;
+      required this.veryHealthy});
 
   @override
   final int id;
@@ -302,15 +231,6 @@ class _$_Recipe implements _Recipe {
   final String? image;
   @override
   final int readyInMinutes;
-  final List<String>? _dishTypes;
-  @override
-  List<String>? get dishTypes {
-    final value = _dishTypes;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
   @override
   final bool vegetarian;
   @override
@@ -320,48 +240,24 @@ class _$_Recipe implements _Recipe {
   @override
   final bool veryPopular;
   @override
-  final bool vertHealthy;
-// required String instructions,
-  final List<Ingredient>? _ingredients;
-// required String instructions,
-  @override
-  List<Ingredient>? get ingredients {
-    final value = _ingredients;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-// List<Instructions>? instructionsDetailed,
-  @override
-  final NutritionData? nutritionData;
-  final List<Instructions>? _instructionsDetailed;
-  @override
-  List<Instructions>? get instructionsDetailed {
-    final value = _instructionsDetailed;
-    if (value == null) return null;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final bool veryHealthy;
 
   @override
   String toString() {
-    return 'Recipe(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, dishTypes: $dishTypes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, vertHealthy: $vertHealthy, ingredients: $ingredients, nutritionData: $nutritionData, instructionsDetailed: $instructionsDetailed)';
+    return 'RecipeDiscover(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, veryHealthy: $veryHealthy)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Recipe &&
+            other is _$_RecipeDiscover &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.servings, servings) &&
             const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality()
                 .equals(other.readyInMinutes, readyInMinutes) &&
-            const DeepCollectionEquality()
-                .equals(other._dishTypes, _dishTypes) &&
             const DeepCollectionEquality()
                 .equals(other.vegetarian, vegetarian) &&
             const DeepCollectionEquality().equals(other.vegan, vegan) &&
@@ -370,13 +266,7 @@ class _$_Recipe implements _Recipe {
             const DeepCollectionEquality()
                 .equals(other.veryPopular, veryPopular) &&
             const DeepCollectionEquality()
-                .equals(other.vertHealthy, vertHealthy) &&
-            const DeepCollectionEquality()
-                .equals(other._ingredients, _ingredients) &&
-            const DeepCollectionEquality()
-                .equals(other.nutritionData, nutritionData) &&
-            const DeepCollectionEquality()
-                .equals(other._instructionsDetailed, _instructionsDetailed));
+                .equals(other.veryHealthy, veryHealthy));
   }
 
   @override
@@ -387,38 +277,30 @@ class _$_Recipe implements _Recipe {
       const DeepCollectionEquality().hash(servings),
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(readyInMinutes),
-      const DeepCollectionEquality().hash(_dishTypes),
       const DeepCollectionEquality().hash(vegetarian),
       const DeepCollectionEquality().hash(vegan),
       const DeepCollectionEquality().hash(glutenFree),
       const DeepCollectionEquality().hash(veryPopular),
-      const DeepCollectionEquality().hash(vertHealthy),
-      const DeepCollectionEquality().hash(_ingredients),
-      const DeepCollectionEquality().hash(nutritionData),
-      const DeepCollectionEquality().hash(_instructionsDetailed));
+      const DeepCollectionEquality().hash(veryHealthy));
 
   @JsonKey(ignore: true)
   @override
-  _$$_RecipeCopyWith<_$_Recipe> get copyWith =>
-      __$$_RecipeCopyWithImpl<_$_Recipe>(this, _$identity);
+  _$$_RecipeDiscoverCopyWith<_$_RecipeDiscover> get copyWith =>
+      __$$_RecipeDiscoverCopyWithImpl<_$_RecipeDiscover>(this, _$identity);
 }
 
-abstract class _Recipe implements Recipe {
-  const factory _Recipe(
+abstract class _RecipeDiscover implements RecipeDiscover {
+  const factory _RecipeDiscover(
       {required final int id,
       required final String title,
       required final int servings,
       final String? image,
       required final int readyInMinutes,
-      final List<String>? dishTypes,
       required final bool vegetarian,
       required final bool vegan,
       required final bool glutenFree,
       required final bool veryPopular,
-      required final bool vertHealthy,
-      final List<Ingredient>? ingredients,
-      final NutritionData? nutritionData,
-      final List<Instructions>? instructionsDetailed}) = _$_Recipe;
+      required final bool veryHealthy}) = _$_RecipeDiscover;
 
   @override
   int get id;
@@ -431,8 +313,6 @@ abstract class _Recipe implements Recipe {
   @override
   int get readyInMinutes;
   @override
-  List<String>? get dishTypes;
-  @override
   bool get vegetarian;
   @override
   bool get vegan;
@@ -441,15 +321,9 @@ abstract class _Recipe implements Recipe {
   @override
   bool get veryPopular;
   @override
-  bool get vertHealthy;
-  @override // required String instructions,
-  List<Ingredient>? get ingredients;
-  @override // List<Instructions>? instructionsDetailed,
-  NutritionData? get nutritionData;
-  @override
-  List<Instructions>? get instructionsDetailed;
+  bool get veryHealthy;
   @override
   @JsonKey(ignore: true)
-  _$$_RecipeCopyWith<_$_Recipe> get copyWith =>
+  _$$_RecipeDiscoverCopyWith<_$_RecipeDiscover> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,6 @@
 import 'package:drecipe/features/common/domain/entities/ingredient.dart';
 import 'package:drecipe/features/common/domain/entities/instructions.dart';
+import 'package:drecipe/features/common/domain/entities/nutrition_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'recipe.freezed.dart';
@@ -12,14 +13,16 @@ class Recipe with _$Recipe {
     required int servings,
     String? image,
     required int readyInMinutes,
-    required List<String> dishTypes,
+    List<String>? dishTypes,
     required bool vegetarian,
     required bool vegan,
     required bool glutenFree,
     required bool veryPopular,
     required bool vertHealthy,
-    required String instructions,
-    required List<Ingredient> ingredients,
+    // required String instructions,
+    List<Ingredient>? ingredients,
+    // List<Instructions>? instructionsDetailed,
+    NutritionData? nutritionData,
     List<Instructions>? instructionsDetailed,
   }) = _Recipe;
 }

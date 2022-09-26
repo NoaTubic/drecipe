@@ -15,8 +15,7 @@ class RecipeDetailsNotifier extends StateNotifier<RecipeDetailsState> {
 
     recipeDetails.fold(
       (failure) => state = RecipeDetailsState.error(failure: failure),
-      (recipeDetails) =>
-          state = RecipeDetailsState.loaded(recipeDetails: recipeDetails),
+      (recipe) => state = RecipeDetailsState.loaded(recipe: recipe),
     );
   }
 }

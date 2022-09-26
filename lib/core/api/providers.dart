@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:drecipe/core/api/api_client.dart';
+import 'package:drecipe/core/api/api_constants.dart';
 import 'package:drecipe/core/api/auth_interceptor.dart';
-import 'package:drecipe/core/env/env_constants.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 final dioProvider = Provider<Dio>((ref) {
   final dioInstance = Dio(
     BaseOptions(
-      baseUrl: EnvConstants.baseUrlDev,
+      baseUrl: ApiConstants.rapidApiBaseUrl,
       contentType: 'application/json',
     ),
   )

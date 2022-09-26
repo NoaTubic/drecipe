@@ -9,7 +9,8 @@ part of 'recipes_response.dart';
 _$_RecipesResponse _$$_RecipesResponseFromJson(Map<String, dynamic> json) =>
     _$_RecipesResponse(
       recipes: (json['recipes'] as List<dynamic>)
-          .map((e) => RecipeResponse.fromJson(e as Map<String, dynamic>))
+          .map(
+              (e) => RecipeDiscoverResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

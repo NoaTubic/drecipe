@@ -20,7 +20,8 @@ RecipesResponse _$RecipesResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecipesResponse {
-  List<RecipeResponse> get recipes => throw _privateConstructorUsedError;
+  List<RecipeDiscoverResponse> get recipes =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ abstract class $RecipesResponseCopyWith<$Res> {
   factory $RecipesResponseCopyWith(
           RecipesResponse value, $Res Function(RecipesResponse) then) =
       _$RecipesResponseCopyWithImpl<$Res>;
-  $Res call({List<RecipeResponse> recipes});
+  $Res call({List<RecipeDiscoverResponse> recipes});
 }
 
 /// @nodoc
@@ -53,7 +54,7 @@ class _$RecipesResponseCopyWithImpl<$Res>
       recipes: recipes == freezed
           ? _value.recipes
           : recipes // ignore: cast_nullable_to_non_nullable
-              as List<RecipeResponse>,
+              as List<RecipeDiscoverResponse>,
     ));
   }
 }
@@ -65,7 +66,7 @@ abstract class _$$_RecipesResponseCopyWith<$Res>
           _$_RecipesResponse value, $Res Function(_$_RecipesResponse) then) =
       __$$_RecipesResponseCopyWithImpl<$Res>;
   @override
-  $Res call({List<RecipeResponse> recipes});
+  $Res call({List<RecipeDiscoverResponse> recipes});
 }
 
 /// @nodoc
@@ -87,7 +88,7 @@ class __$$_RecipesResponseCopyWithImpl<$Res>
       recipes: recipes == freezed
           ? _value._recipes
           : recipes // ignore: cast_nullable_to_non_nullable
-              as List<RecipeResponse>,
+              as List<RecipeDiscoverResponse>,
     ));
   }
 }
@@ -95,15 +96,16 @@ class __$$_RecipesResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RecipesResponse implements _RecipesResponse {
-  const _$_RecipesResponse({required final List<RecipeResponse> recipes})
+  const _$_RecipesResponse(
+      {required final List<RecipeDiscoverResponse> recipes})
       : _recipes = recipes;
 
   factory _$_RecipesResponse.fromJson(Map<String, dynamic> json) =>
       _$$_RecipesResponseFromJson(json);
 
-  final List<RecipeResponse> _recipes;
+  final List<RecipeDiscoverResponse> _recipes;
   @override
-  List<RecipeResponse> get recipes {
+  List<RecipeDiscoverResponse> get recipes {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_recipes);
   }
@@ -141,13 +143,14 @@ class _$_RecipesResponse implements _RecipesResponse {
 
 abstract class _RecipesResponse implements RecipesResponse {
   const factory _RecipesResponse(
-      {required final List<RecipeResponse> recipes}) = _$_RecipesResponse;
+          {required final List<RecipeDiscoverResponse> recipes}) =
+      _$_RecipesResponse;
 
   factory _RecipesResponse.fromJson(Map<String, dynamic> json) =
       _$_RecipesResponse.fromJson;
 
   @override
-  List<RecipeResponse> get recipes;
+  List<RecipeDiscoverResponse> get recipes;
   @override
   @JsonKey(ignore: true)
   _$$_RecipesResponseCopyWith<_$_RecipesResponse> get copyWith =>

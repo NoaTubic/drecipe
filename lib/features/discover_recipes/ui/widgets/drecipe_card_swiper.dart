@@ -1,5 +1,5 @@
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/drecipe_custom_scroll_physics.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/recipe_card.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ class DrecipeCardSwiper extends StatelessWidget {
   }) : super(key: key);
 
   final String title;
-  final List<Recipe> recipes;
+  final List<RecipeDiscover> recipes;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class DrecipeCarousel extends StatefulWidget {
     this.isScrollable = true,
   }) : super(key: key);
 
-  final List<Recipe> items;
+  final List<RecipeDiscover> items;
   final int itemCount;
   final Function(BuildContext context, dynamic item) builder;
   final bool isScrollable;

@@ -27,7 +27,7 @@ class IngredientList extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               Text(
-                '${recipe.ingredients.length} items',
+                '${recipe.ingredients!.length} items',
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               DrecipeTextButtonPrimary(
@@ -49,12 +49,12 @@ class IngredientList extends StatelessWidget {
               child: FadeMask(
                 child: ListView.separated(
                   itemBuilder: (context, index) => IngredientCard(
-                    ingredient: recipe.ingredients[index],
+                    ingredient: recipe.ingredients![index],
                   ),
                   separatorBuilder: (context, index) => const SizedBox(
                     height: Sizes.s12,
                   ),
-                  itemCount: recipe.ingredients.length,
+                  itemCount: recipe.ingredients!.length,
                 ),
               ),
             ),

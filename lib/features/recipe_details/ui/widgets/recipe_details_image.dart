@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/ui/widgets/diet_badge.dart';
+import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_circular_progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/domain/entities/recipe.dart';
@@ -29,9 +30,12 @@ class RecipeDetailsImage extends StatelessWidget {
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(OpacityConstants.op01),
                 BlendMode.darken),
-            image: NetworkImage(
-              recipe.image ?? ImageAssets.imageError,
-            ),
+            image: Image.network(
+              recipe.image ?? 'https://wallpapercave.com/wp/wp10602501.jpg',
+              loadingBuilder: (context, widget, event) =>
+                  const Center(child: DrecipeCircularProgressIndicator()),
+              errorBuilder: (context, e, stackTrace) => const Icon(Icons.error),
+            ).image,
           ),
           boxShadow: shadows,
         ),

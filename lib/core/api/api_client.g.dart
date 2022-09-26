@@ -32,7 +32,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<RecipeDetailsResponse> getRecipeDetails(
+  Future<RecipeResponse> getRecipeDetails(
       {required id, includeNutrition = true}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -41,12 +41,12 @@ class _ApiClient implements ApiClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<RecipeDetailsResponse>(
+        _setStreamType<RecipeResponse>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/recipes/${id}/information',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = RecipeDetailsResponse.fromJson(_result.data!);
+    final value = RecipeResponse.fromJson(_result.data!);
     return value;
   }
 

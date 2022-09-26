@@ -1,7 +1,6 @@
 import 'package:drecipe/features/common/constants/constants.dart';
-import 'package:drecipe/features/common/domain/entities/ingredient.dart';
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/drecipe_card_swiper.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/loading_widgets/recipe_card_loading.dart';
 import 'package:flutter/material.dart';
@@ -59,18 +58,15 @@ class DrecipeCardSwiperLoading extends StatelessWidget {
   }
 }
 
-const Recipe loadingRecipe = Recipe(
+const RecipeDiscover loadingRecipe = RecipeDiscover(
   id: 1,
   title: 'loading',
   servings: 1,
   image: 'loading',
   readyInMinutes: 1,
-  dishTypes: ['loading'],
   vegetarian: false,
   vegan: false,
   glutenFree: false,
   veryPopular: false,
-  vertHealthy: false,
-  instructions: 'loading',
-  ingredients: [Ingredient(id: 1, image: '', original: 'loading')],
+  veryHealthy: false,
 );

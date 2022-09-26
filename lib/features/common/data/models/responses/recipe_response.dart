@@ -1,4 +1,6 @@
 import 'package:drecipe/features/common/data/models/responses/ingredient_response.dart';
+import 'package:drecipe/features/common/data/models/responses/instructions_response.dart';
+import 'package:drecipe/features/common/data/models/responses/nutrition_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'recipe_response.freezed.dart';
@@ -20,6 +22,8 @@ class RecipeResponse with _$RecipeResponse {
     required bool veryHealthy,
     required String instructions,
     required List<IngredientResponse> extendedIngredients,
+    required NutritionResponse nutrition,
+    required List<InstructionsResponse> analyzedInstructions,
   }) = _RecipeResponse;
 
   factory RecipeResponse.fromJson(Map<String, dynamic> json) =>

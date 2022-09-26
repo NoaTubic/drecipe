@@ -4,10 +4,10 @@ import 'package:drecipe/core/api/api_client.dart';
 import 'package:drecipe/core/api/api_helpers.dart';
 import 'package:drecipe/features/common/data/models/responses/recipe_response.dart';
 import 'package:drecipe/features/common/domain/entities/ingredient.dart';
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipes_response.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/discover_recipes.dart';
+import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 
 abstract class IDiscoverRecipesRepository {
   Future<Either<Failure, DiscoverRecipes>> getRecipes();
@@ -21,26 +21,36 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
   @override
   Future<Either<Failure, DiscoverRecipes>> getRecipes() async {
     try {
-      final List<Recipe> randomRecipes = [];
-      final List<Recipe> popularRecipes = [];
-      final List<Recipe> healthyRecipes = [];
+      final List<RecipeDiscover> randomRecipes = [];
+      final List<RecipeDiscover> popularRecipes = [];
+      final List<RecipeDiscover> healthyRecipes = [];
 
-      while (popularRecipes.length < 6 && healthyRecipes.length < 6) {
-        final randomRecipesResponse = await _apiClient.getRandomRecipes(30);
-        List<Recipe> recipesRandom = randomRecipesResponse.convertRecipes();
-        for (var recipe in recipesRandom) {
-          if (recipe.veryPopular == true) {
-            popularRecipes.add(recipe);
-          } else if (recipe.vertHealthy == true) {
-            healthyRecipes.add(recipe);
-          } else {
-            randomRecipes.add(recipe);
-          }
-        }
-      }
+      // while (popularRecipes.length < 6 && healthyRecipes.length < 6) {
+      //   final randomRecipesResponse = await _apiClient.getRandomRecipes(30);
+      //   List<Recipe> recipesRandom = randomRecipesResponse.convertRecipes();
+      //   for (var recipe in recipesRandom) {
+      //     if (recipe.veryPopular == true) {
+      //       popularRecipes.add(recipe);
+      //     } else if (recipe.vertHealthy == true) {
+      //       healthyRecipes.add(recipe);
+      //     } else {
+      //       randomRecipes.add(recipe);
+      //     }
+      //   }
+      // }
+
+      // final recipes = DiscoverRecipes(
+      //   randomRecipes: randomRecipes,
+      //   popularRecipes: popularRecipes,
+      //   healthyRecipe: healthyRecipes,
+      // );
+
+      final randomRecipesResponse = await _apiClient.getRandomRecipes(10);
+      List<RecipeDiscover> recipesRandom =
+          randomRecipesResponse.convertRecipes();
 
       final recipes = DiscoverRecipes(
-        randomRecipes: randomRecipes,
+        randomRecipes: recipesRandom,
         popularRecipes: popularRecipes,
         healthyRecipe: healthyRecipes,
       );
@@ -53,24 +63,21 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
 }
 
 extension RandomRecipesExtension on RecipesResponse {
-  List<Recipe> convertRecipes() {
-    List<Recipe> recipesList = [];
+  List<RecipeDiscover> convertRecipes() {
+    List<RecipeDiscover> recipesList = [];
     for (var recipe in recipes) {
       recipesList.add(
-        Recipe(
+        RecipeDiscover(
           id: recipe.id,
           title: recipe.title,
+          image: recipe.image ?? '',
           servings: recipe.servings,
-          image: recipe.image,
           readyInMinutes: recipe.readyInMinutes,
-          dishTypes: recipe.dishTypes,
           vegetarian: recipe.vegetarian,
           vegan: recipe.vegan,
           glutenFree: recipe.glutenFree,
           veryPopular: recipe.veryPopular,
-          vertHealthy: recipe.veryHealthy,
-          instructions: recipe.instructions,
-          ingredients: recipe.convertIngredients(),
+          veryHealthy: recipe.veryHealthy,
         ),
       );
     }

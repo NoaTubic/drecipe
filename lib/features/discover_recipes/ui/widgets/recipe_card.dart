@@ -1,5 +1,5 @@
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
+import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/recipe_card_text.dart';
 import 'package:drecipe/features/recipe_details/di/providers.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class RecipeCard extends ConsumerWidget {
     required this.recipe,
   }) : super(key: key);
 
-  final Recipe recipe;
+  final RecipeDiscover recipe;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -52,7 +52,7 @@ class RecipeCard extends ConsumerWidget {
                               .read(recipeDetailsNotifierProvider.notifier)
                               .getRecipeDetails(id: recipe.id),
                         ]).whenComplete(() => ScreenRouter.pushScreen(
-                            context, RecipeDetailsScreenRoute(recipe: recipe)));
+                            context, const RecipeDetailsScreenRoute()));
                       },
                       child: RecipeCardContent(
                         recipe: recipe,

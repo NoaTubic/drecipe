@@ -4,14 +4,15 @@ import 'package:drecipe/core/api/api_client.dart';
 import 'package:drecipe/core/api/api_helpers.dart';
 import 'package:drecipe/features/common/data/models/responses/instructions_response.dart';
 import 'package:drecipe/features/common/data/models/responses/nutrition_response.dart';
+import 'package:drecipe/features/common/data/models/responses/recipe_response.dart';
 import 'package:drecipe/features/common/domain/entities/instructions.dart';
 import 'package:drecipe/features/common/domain/entities/nutrition_data.dart';
+import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
-import 'package:drecipe/features/recipe_details/data/models/recipe_details_response.dart';
-import 'package:drecipe/features/recipe_details/domain/entities/recipe_details.dart';
+import 'package:drecipe/features/discover_recipes/data/repositories/discover_recipes_repository.dart';
 
 abstract class IRecipeDetailsRepository {
-  Future<Either<Failure, RecipeDetails>> getRecipeDetails({required int id});
+  Future<Either<Failure, Recipe>> getRecipeDetails({required int id});
 }
 
 class RecipeDetailsRepository implements IRecipeDetailsRepository {
@@ -20,15 +21,25 @@ class RecipeDetailsRepository implements IRecipeDetailsRepository {
   RecipeDetailsRepository(this._apiClient);
 
   @override
-  Future<Either<Failure, RecipeDetails>> getRecipeDetails(
-      {required int id}) async {
+  Future<Either<Failure, Recipe>> getRecipeDetails({required int id}) async {
     try {
-      final recipeDetailsResponse = await _apiClient.getRecipeDetails(id: id);
-      final recipeDetails = RecipeDetails(
-          nutritionData: recipeDetailsResponse.convertNutritionData(),
-          instructions: recipeDetailsResponse.convertInstructions());
-
-      return right(recipeDetails);
+      final recipeResponse = await _apiClient.getRecipeDetails(id: id);
+      final recipe = Recipe(
+        id: recipeResponse.id,
+        title: recipeResponse.title,
+        servings: recipeResponse.servings,
+        readyInMinutes: recipeResponse.readyInMinutes,
+        dishTypes: recipeResponse.dishTypes,
+        vegetarian: recipeResponse.vegetarian,
+        vegan: recipeResponse.vegan,
+        glutenFree: recipeResponse.glutenFree,
+        veryPopular: recipeResponse.veryPopular,
+        vertHealthy: recipeResponse.veryHealthy,
+        ingredients: recipeResponse.convertIngredients(),
+        nutritionData: recipeResponse.convertNutritionData(),
+        instructionsDetailed: recipeResponse.convertInstructions(),
+      );
+      return right(recipe);
     } on DioError catch (exception) {
       return left(
         exception.handleFailure(),
@@ -37,7 +48,7 @@ class RecipeDetailsRepository implements IRecipeDetailsRepository {
   }
 }
 
-extension NutritionDataExtension on RecipeDetailsResponse {
+extension NutritionDataExtension on RecipeResponse {
   NutritionData convertNutritionData() {
     final nutritionData = NutritionData(
       nutrients: nutrition.convertNutrients(),
@@ -63,7 +74,7 @@ extension NutrientsExtension on NutritionResponse {
   }
 }
 
-extension InstructionsExtension on RecipeDetailsResponse {
+extension InstructionsExtension on RecipeResponse {
   List<Instructions> convertInstructions() {
     List<Instructions> instructionsList = [];
     for (var instruction in analyzedInstructions) {
