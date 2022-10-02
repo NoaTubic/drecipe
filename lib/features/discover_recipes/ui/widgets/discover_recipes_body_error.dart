@@ -1,3 +1,4 @@
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import 'package:drecipe/features/common/ui/styles.dart';
@@ -32,7 +33,7 @@ class DiscoverRecipesBodyError extends StatelessWidget {
             style: Theme.of(context).textTheme.headline3,
           ),
           Text(
-            'Please try again later.',
+            S.of(context).label_try_again,
             style: Theme.of(context).textTheme.headline3,
           ),
         ],

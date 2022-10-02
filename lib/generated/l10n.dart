@@ -70,6 +70,16 @@ class S {
     );
   }
 
+  /// `Please try again later`
+  String get label_try_again {
+    return Intl.message(
+      'Please try again later',
+      name: 'label_try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please sign in to your account`
   String get sign_in_helper {
     return Intl.message(
@@ -345,6 +355,186 @@ class S {
     return Intl.message(
       'Please check your inbox and reset your password.',
       name: 'account_recovery_confirm_helper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discover`
+  String get bottom_nav_bar_discover {
+    return Intl.message(
+      'Discover',
+      name: 'bottom_nav_bar_discover',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get bottom_nav_bar_search {
+    return Intl.message(
+      'Search',
+      name: 'bottom_nav_bar_search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search by ingredients`
+  String get bottom_nav_bar_search_by_ingredients {
+    return Intl.message(
+      'Search by ingredients',
+      name: 'bottom_nav_bar_search_by_ingredients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorite`
+  String get bottom_nav_bar_favorite {
+    return Intl.message(
+      'Favorite',
+      name: 'bottom_nav_bar_favorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get bottom_nav_bar_profile {
+    return Intl.message(
+      'Profile',
+      name: 'bottom_nav_bar_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hello, chef!`
+  String get discover_recipes_welcome_a {
+    return Intl.message(
+      'Hello, chef!',
+      name: 'discover_recipes_welcome_a',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What are we cooking today?`
+  String get discover_recipes_welcome_b {
+    return Intl.message(
+      'What are we cooking today?',
+      name: 'discover_recipes_welcome_b',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Random`
+  String get discover_recipes_random {
+    return Intl.message(
+      'Random',
+      name: 'discover_recipes_random',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular`
+  String get discover_recipes_popular {
+    return Intl.message(
+      'Popular',
+      name: 'discover_recipes_popular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Healthy`
+  String get discover_recipes_healthy {
+    return Intl.message(
+      'Healthy',
+      name: 'discover_recipes_healthy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `min`
+  String get discover_recipes_card_text_time {
+    return Intl.message(
+      'min',
+      name: 'discover_recipes_card_text_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `servings`
+  String get discover_recipes_card_text_servings {
+    return Intl.message(
+      'servings',
+      name: 'discover_recipes_card_text_servings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It's`
+  String get discover_recipes_meal_card_time_a {
+    return Intl.message(
+      'It\'s',
+      name: 'discover_recipes_meal_card_time_a',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `time`
+  String get discover_recipes_meal_card_time_b {
+    return Intl.message(
+      'time',
+      name: 'discover_recipes_meal_card_time_b',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Instructions`
+  String get recipe_details_instructions_title {
+    return Intl.message(
+      'Instructions',
+      name: 'recipe_details_instructions_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Step`
+  String get recipe_details_instructions_step {
+    return Intl.message(
+      'Step',
+      name: 'recipe_details_instructions_step',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingredients`
+  String get recipe_details_instructions_ingredients {
+    return Intl.message(
+      'Ingredients',
+      name: 'recipe_details_instructions_ingredients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Equipment`
+  String get recipe_details_instructions_equipment {
+    return Intl.message(
+      'Equipment',
+      name: 'recipe_details_instructions_equipment',
       desc: '',
       args: [],
     );

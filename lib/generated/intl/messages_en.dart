@@ -33,6 +33,33 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot your password?"),
         "account_recovery_title":
             MessageLookupByLibrary.simpleMessage("Reset password"),
+        "bottom_nav_bar_discover":
+            MessageLookupByLibrary.simpleMessage("Discover"),
+        "bottom_nav_bar_favorite":
+            MessageLookupByLibrary.simpleMessage("Favorite"),
+        "bottom_nav_bar_profile":
+            MessageLookupByLibrary.simpleMessage("Profile"),
+        "bottom_nav_bar_search": MessageLookupByLibrary.simpleMessage("Search"),
+        "bottom_nav_bar_search_by_ingredients":
+            MessageLookupByLibrary.simpleMessage("Search by ingredients"),
+        "discover_recipes_card_text_servings":
+            MessageLookupByLibrary.simpleMessage("servings"),
+        "discover_recipes_card_text_time":
+            MessageLookupByLibrary.simpleMessage("min"),
+        "discover_recipes_healthy":
+            MessageLookupByLibrary.simpleMessage("Healthy"),
+        "discover_recipes_meal_card_time_a":
+            MessageLookupByLibrary.simpleMessage("It\'s"),
+        "discover_recipes_meal_card_time_b":
+            MessageLookupByLibrary.simpleMessage("time"),
+        "discover_recipes_popular":
+            MessageLookupByLibrary.simpleMessage("Popular"),
+        "discover_recipes_random":
+            MessageLookupByLibrary.simpleMessage("Random"),
+        "discover_recipes_welcome_a":
+            MessageLookupByLibrary.simpleMessage("Hello, chef!"),
+        "discover_recipes_welcome_b":
+            MessageLookupByLibrary.simpleMessage("What are we cooking today?"),
         "email_verification_helper": MessageLookupByLibrary.simpleMessage(
             "Please check your inbox and verify your email address."),
         "email_verification_resend_email":
@@ -47,6 +74,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "email_verification_title":
             MessageLookupByLibrary.simpleMessage("Verify Email"),
         "label_or": MessageLookupByLibrary.simpleMessage("or"),
+        "label_try_again":
+            MessageLookupByLibrary.simpleMessage("Please try again later"),
+        "recipe_details_instructions_equipment":
+            MessageLookupByLibrary.simpleMessage("Equipment"),
+        "recipe_details_instructions_ingredients":
+            MessageLookupByLibrary.simpleMessage("Ingredients"),
+        "recipe_details_instructions_step":
+            MessageLookupByLibrary.simpleMessage("Step"),
+        "recipe_details_instructions_title":
+            MessageLookupByLibrary.simpleMessage("Instructions"),
         "registration_email_hint":
             MessageLookupByLibrary.simpleMessage("Email"),
         "registration_have_an_account":

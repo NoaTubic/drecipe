@@ -22,7 +22,7 @@ class DrecipePrimaryButton extends StatelessWidget {
         style: !isDisabled
             ? null
             : ElevatedButton.styleFrom(
-                primary: AppColors.lightGrey1,
+                backgroundColor: AppColors.lightGrey1,
                 side: BorderSide(color: AppColors.lightGrey2),
               ),
         child: Text(text),

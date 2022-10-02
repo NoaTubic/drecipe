@@ -38,7 +38,7 @@ class _RecipeDetailsButtonsState extends State<RecipeDetailsButtons> {
                       : 'Removed from favorites.');
             },
             style: ElevatedButton.styleFrom(
-              primary: Colors.grey.shade200,
+              backgroundColor: Colors.grey.shade200,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(Sizes.circularRadius),
                 side: BorderSide(

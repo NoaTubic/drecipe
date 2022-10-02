@@ -98,7 +98,9 @@ extension StepExtension on InstructionsResponse {
         instruction: step.step,
         ingredients: step.convertIngredients(),
         equipment: step.convertEquipment(),
-        stepDuration: '${step.length?.number.toString()} ${step.length?.unit}',
+        stepDuration: step.length != null
+            ? '${step.length?.number.toString()} ${step.length?.unit}'
+            : null,
       ));
     }
     return stepsList;

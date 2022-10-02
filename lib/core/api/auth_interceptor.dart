@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:drecipe/core/api/api_constants.dart';
 
-//SPOONACULAR
+//SPOONACULAR API
 // class AuthInterceptor extends InterceptorsWrapper {
 //   @override
 //   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {

@@ -1,14 +1,12 @@
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_refresh_indicator.dart';
-import 'package:drecipe/features/discover_recipes/domain/entities/discover_recipes.dart';
+import 'package:drecipe/features/discover_recipes/ui/widgets/discover_recipes_body.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/discover_recipes_body_error.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/meal_time_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:drecipe/features/discover_recipes/di/providers.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/discover_recipes_header.dart';
-import 'package:drecipe/features/discover_recipes/ui/widgets/drecipe_card_swiper.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/loading_widgets/discover_recipes_body_loading.dart';
 
 class DiscoverRecipesScreen extends ConsumerWidget {
@@ -54,35 +52,6 @@ class DiscoverRecipesScreen extends ConsumerWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class DiscoverRecipesBody extends StatelessWidget {
-  const DiscoverRecipesBody({
-    Key? key,
-    required this.recipes,
-  }) : super(key: key);
-
-  final DiscoverRecipes recipes;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DrecipeCardSwiper(
-          title: 'Random',
-          recipes: recipes.randomRecipes,
-        ),
-        DrecipeCardSwiper(
-          title: 'Popular',
-          recipes: recipes.popularRecipes,
-        ),
-        DrecipeCardSwiper(
-          title: 'Healthy',
-          recipes: recipes.healthyRecipe,
-        ),
-      ],
     );
   }
 }

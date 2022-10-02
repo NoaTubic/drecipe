@@ -3,34 +3,39 @@ import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class MealTimeCardLoading extends StatelessWidget {
-  const MealTimeCardLoading({
+class BaseLoadingCard extends StatelessWidget {
+  const BaseLoadingCard({
     Key? key,
+    this.circularBorders = true,
+    required this.height,
+    required this.width,
+    this.bottomPadding = 0,
   }) : super(key: key);
 
+  final double height;
+  final double width;
+  final bool circularBorders;
+  final double bottomPadding;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: Sizes.bodyHorizontalPadding, vertical: Sizes.s16),
+      padding: EdgeInsets.only(bottom: bottomPadding),
       child: Container(
-        height: Sizes.s52,
         decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(Sizes.s12),
-            border: Border.all(
-              width: 1,
-              color: AppColors.lightGrey1.withOpacity(OpacityConstants.op05),
-            ),
-            boxShadow: shadows),
+          borderRadius: BorderRadius.circular(Sizes.circularRadius),
+          color: AppColors.white,
+          boxShadow: shadowsLight,
+        ),
         child: Shimmer.fromColors(
           baseColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op07),
           highlightColor:
               AppColors.lightGrey1.withOpacity(OpacityConstants.op03),
           child: Container(
-            height: Sizes.s52,
+            height: height,
+            width: width,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Sizes.s12),
+              borderRadius: BorderRadius.circular(
+                  circularBorders ? Sizes.circularRadius : Sizes.s0),
               color: AppColors.lightGrey1,
             ),
           ),

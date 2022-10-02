@@ -52,7 +52,9 @@ class RecipeCard extends ConsumerWidget {
                               .read(recipeDetailsNotifierProvider.notifier)
                               .getRecipeDetails(id: recipe.id),
                         ]).whenComplete(() => ScreenRouter.pushScreen(
-                            context, const RecipeDetailsScreenRoute()));
+                            context,
+                            RecipeDetailsScreenRoute(
+                                recipeId: recipe.id, imageUrl: recipe.image!)));
                       },
                       child: RecipeCardContent(
                         recipe: recipe,

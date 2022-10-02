@@ -3,6 +3,7 @@ import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/ingredient_card.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import 'package:drecipe/features/common/domain/entities/recipe.dart';
@@ -17,7 +18,8 @@ class IngredientsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DrecipeScaffold(
-      appBar: const DrecipeAppBar(title: 'Ingredients'),
+      appBar: DrecipeAppBar(
+          title: S.of(context).recipe_details_instructions_ingredients),
       body: Container(
         padding: const EdgeInsets.only(top: Sizes.s4),
         decoration: BoxDecoration(

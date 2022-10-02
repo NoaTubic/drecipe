@@ -1,6 +1,7 @@
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/settings_button.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverRecipesHeader extends StatelessWidget {
@@ -10,6 +11,7 @@ class DiscoverRecipesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(
           vertical: Sizes.s16, horizontal: Sizes.bodyHorizontalPadding),
@@ -27,9 +29,9 @@ class DiscoverRecipesHeader extends StatelessWidget {
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text('Hello, chef!'),
-              Text('What are we cooking today?'),
+            children: [
+              Text(s.discover_recipes_welcome_a),
+              Text(s.discover_recipes_welcome_b),
             ],
           ),
           const SettingsButton(

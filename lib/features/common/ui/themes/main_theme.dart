@@ -49,8 +49,8 @@ class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        onPrimary: AppColors.white,
-        primary: AppColors.primaryRed,
+        foregroundColor: AppColors.white,
+        backgroundColor: AppColors.primaryRed,
         elevation: Sizes.elevationMain,
         textStyle: TextStyles.bold(color: AppColors.white),
         shape: RoundedRectangleBorder(

@@ -9,9 +9,11 @@ class RecipeDetailsImage extends StatelessWidget {
   const RecipeDetailsImage({
     Key? key,
     required this.recipe,
+    required this.imageUrl,
   }) : super(key: key);
 
   final Recipe recipe;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class RecipeDetailsImage extends StatelessWidget {
                 Colors.black.withOpacity(OpacityConstants.op01),
                 BlendMode.darken),
             image: Image.network(
-              recipe.image ?? 'https://wallpapercave.com/wp/wp10602501.jpg',
+              imageUrl ?? 'https://wallpapercave.com/wp/wp10602501.jpg',
               loadingBuilder: (context, widget, event) =>
                   const Center(child: DrecipeCircularProgressIndicator()),
               errorBuilder: (context, e, stackTrace) => const Icon(Icons.error),

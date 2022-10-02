@@ -98,9 +98,11 @@ class _$AppRouter extends RootStackRouter {
           barrierDismissible: false);
     },
     RecipeDetailsScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<RecipeDetailsScreenRouteArgs>();
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const RecipeDetailsScreen(),
+          child: RecipeDetailsScreen(
+              recipeId: args.recipeId, imageUrl: args.imageUrl, key: args.key),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -247,11 +249,32 @@ class DrecipeBottomNavBarRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [RecipeDetailsScreen]
-class RecipeDetailsScreenRoute extends PageRouteInfo<void> {
-  const RecipeDetailsScreenRoute()
-      : super(RecipeDetailsScreenRoute.name, path: '/recipe-details-screen');
+class RecipeDetailsScreenRoute
+    extends PageRouteInfo<RecipeDetailsScreenRouteArgs> {
+  RecipeDetailsScreenRoute(
+      {required int recipeId, required String imageUrl, Key? key})
+      : super(RecipeDetailsScreenRoute.name,
+            path: '/recipe-details-screen',
+            args: RecipeDetailsScreenRouteArgs(
+                recipeId: recipeId, imageUrl: imageUrl, key: key));
 
   static const String name = 'RecipeDetailsScreenRoute';
+}
+
+class RecipeDetailsScreenRouteArgs {
+  const RecipeDetailsScreenRouteArgs(
+      {required this.recipeId, required this.imageUrl, this.key});
+
+  final int recipeId;
+
+  final String imageUrl;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'RecipeDetailsScreenRouteArgs{recipeId: $recipeId, imageUrl: $imageUrl, key: $key}';
+  }
 }
 
 /// generated route for

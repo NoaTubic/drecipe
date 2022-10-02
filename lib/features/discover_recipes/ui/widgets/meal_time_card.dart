@@ -2,6 +2,7 @@ import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/discover_recipes/di/providers.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/loading_widgets/meal_time_card_loading.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,6 +14,7 @@ class MealTimeCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(mealTimeNotifierProvider);
+    final s = S.of(context);
     return state.isLoading
         ? const MealTimeCardLoading()
         : Padding(
@@ -60,7 +62,7 @@ class MealTimeCard extends ConsumerWidget {
                           width: Sizes.s12,
                         ),
                         Text(
-                          'It\'s ${state.mealType} time!',
+                          '${s.discover_recipes_meal_card_time_a} ${state.mealType} ${s.discover_recipes_meal_card_time_b}',
                           style: Theme.of(context).textTheme.headline3,
                         ),
                         Expanded(

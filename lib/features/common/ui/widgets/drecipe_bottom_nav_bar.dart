@@ -1,10 +1,11 @@
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/discover_recipes/ui/screens/discover_recipes_screen.dart';
-import 'package:drecipe/features/favorite_recipes/ui/favorite_recipes_screen.dart';
-import 'package:drecipe/features/profile/ui/profile_screen.dart';
+import 'package:drecipe/features/favorite_recipes/ui/screens/favorite_recipes_screen.dart';
+import 'package:drecipe/features/profile/ui/screens/profile_screen.dart';
 import 'package:drecipe/features/search_by_ingredients/ui/search_by_ingredients_screen.dart';
 import 'package:drecipe/features/search_recipes/ui/search_recipes_screen.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
@@ -13,15 +14,16 @@ class DrecipeBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return PersistentTabView(
       context,
       screens: _buildScreens(),
       items: _navBarItems(
-        discoverRecipesLabel: 'Discover',
-        searchRecipesLabel: 'Search',
-        searchByIngredientsLabel: 'Search by Ingredients',
-        favoriteRecipesLabel: 'Favorite',
-        profileLabel: 'Profile',
+        discoverRecipesLabel: s.bottom_nav_bar_discover,
+        searchRecipesLabel: s.bottom_nav_bar_search,
+        searchByIngredientsLabel: s.bottom_nav_bar_search_by_ingredients,
+        favoriteRecipesLabel: s.bottom_nav_bar_favorite,
+        profileLabel: s.bottom_nav_bar_profile,
         context: context,
       ),
       navBarStyle: NavBarStyle.style6,
@@ -30,9 +32,13 @@ class DrecipeBottomNavBar extends StatelessWidget {
         duration: Duration(milliseconds: DurationConstants.d040),
         curve: Curves.ease,
       ),
-      // padding: const NavBarPadding.only(
-      //     top: Sizes.s20, left: Sizes.s8, right: Sizes.s8),
+      padding: const NavBarPadding.only(
+        top: Sizes.s20,
+        left: Sizes.s8,
+        right: Sizes.s8,
+      ),
       decoration: NavBarDecoration(
+        // adjustScreenBottomPaddingOnCurve: false,
         colorBehindNavBar: AppColors.white,
         boxShadow: [
           BoxShadow(

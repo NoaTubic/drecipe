@@ -20,7 +20,7 @@ class OAuthButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-            primary: color,
+            backgroundColor: color,
             side: BorderSide(
               color: color,
             )),

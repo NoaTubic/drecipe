@@ -1,6 +1,5 @@
 import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
-import 'package:drecipe/features/recipe_details/domain/entities/recipe_details.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'recipe_details_state.freezed.dart';
