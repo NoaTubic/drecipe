@@ -5,6 +5,19 @@ import 'package:drecipe/core/api/auth_interceptor.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+// @riverpod
+// Dio dio(DioRef ref) {
+//   final dioInstance = Dio(
+//     BaseOptions(
+//       baseUrl: ApiConstants.rapidApiBaseUrl,
+//       contentType: 'application/json',
+//     ),
+//   )
+//     ..interceptors.add(ref.read(authInterceptorProvider))
+//     ..interceptors.add(ref.read(prettyDioLoggerProvider));
+//   return dioInstance;
+// }
+
 final dioProvider = Provider<Dio>((ref) {
   final dioInstance = Dio(
     BaseOptions(

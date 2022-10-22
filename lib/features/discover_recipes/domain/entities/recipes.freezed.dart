@@ -25,28 +25,32 @@ mixin _$Recipes {
 /// @nodoc
 abstract class $RecipesCopyWith<$Res> {
   factory $RecipesCopyWith(Recipes value, $Res Function(Recipes) then) =
-      _$RecipesCopyWithImpl<$Res>;
+      _$RecipesCopyWithImpl<$Res, Recipes>;
+  @useResult
   $Res call({List<Recipe> recipes});
 }
 
 /// @nodoc
-class _$RecipesCopyWithImpl<$Res> implements $RecipesCopyWith<$Res> {
+class _$RecipesCopyWithImpl<$Res, $Val extends Recipes>
+    implements $RecipesCopyWith<$Res> {
   _$RecipesCopyWithImpl(this._value, this._then);
 
-  final Recipes _value;
   // ignore: unused_field
-  final $Res Function(Recipes) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recipes = freezed,
+    Object? recipes = null,
   }) {
     return _then(_value.copyWith(
-      recipes: recipes == freezed
+      recipes: null == recipes
           ? _value.recipes
           : recipes // ignore: cast_nullable_to_non_nullable
               as List<Recipe>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -56,24 +60,24 @@ abstract class _$$_RecipesCopyWith<$Res> implements $RecipesCopyWith<$Res> {
           _$_Recipes value, $Res Function(_$_Recipes) then) =
       __$$_RecipesCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<Recipe> recipes});
 }
 
 /// @nodoc
-class __$$_RecipesCopyWithImpl<$Res> extends _$RecipesCopyWithImpl<$Res>
+class __$$_RecipesCopyWithImpl<$Res>
+    extends _$RecipesCopyWithImpl<$Res, _$_Recipes>
     implements _$$_RecipesCopyWith<$Res> {
   __$$_RecipesCopyWithImpl(_$_Recipes _value, $Res Function(_$_Recipes) _then)
-      : super(_value, (v) => _then(v as _$_Recipes));
+      : super(_value, _then);
 
-  @override
-  _$_Recipes get _value => super._value as _$_Recipes;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recipes = freezed,
+    Object? recipes = null,
   }) {
     return _then(_$_Recipes(
-      recipes: recipes == freezed
+      recipes: null == recipes
           ? _value._recipes
           : recipes // ignore: cast_nullable_to_non_nullable
               as List<Recipe>,
@@ -112,6 +116,7 @@ class _$_Recipes implements _Recipes {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RecipesCopyWith<_$_Recipes> get copyWith =>
       __$$_RecipesCopyWithImpl<_$_Recipes>(this, _$identity);
 }

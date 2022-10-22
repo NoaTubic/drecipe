@@ -29,7 +29,8 @@ mixin _$DiscoverRecipes {
 abstract class $DiscoverRecipesCopyWith<$Res> {
   factory $DiscoverRecipesCopyWith(
           DiscoverRecipes value, $Res Function(DiscoverRecipes) then) =
-      _$DiscoverRecipesCopyWithImpl<$Res>;
+      _$DiscoverRecipesCopyWithImpl<$Res, DiscoverRecipes>;
+  @useResult
   $Res call(
       {List<RecipeDiscover> randomRecipes,
       List<RecipeDiscover> popularRecipes,
@@ -37,34 +38,36 @@ abstract class $DiscoverRecipesCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DiscoverRecipesCopyWithImpl<$Res>
+class _$DiscoverRecipesCopyWithImpl<$Res, $Val extends DiscoverRecipes>
     implements $DiscoverRecipesCopyWith<$Res> {
   _$DiscoverRecipesCopyWithImpl(this._value, this._then);
 
-  final DiscoverRecipes _value;
   // ignore: unused_field
-  final $Res Function(DiscoverRecipes) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? randomRecipes = freezed,
-    Object? popularRecipes = freezed,
-    Object? healthyRecipe = freezed,
+    Object? randomRecipes = null,
+    Object? popularRecipes = null,
+    Object? healthyRecipe = null,
   }) {
     return _then(_value.copyWith(
-      randomRecipes: randomRecipes == freezed
+      randomRecipes: null == randomRecipes
           ? _value.randomRecipes
           : randomRecipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
-      popularRecipes: popularRecipes == freezed
+      popularRecipes: null == popularRecipes
           ? _value.popularRecipes
           : popularRecipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
-      healthyRecipe: healthyRecipe == freezed
+      healthyRecipe: null == healthyRecipe
           ? _value.healthyRecipe
           : healthyRecipe // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_DiscoverRecipesCopyWith<$Res>
           _$_DiscoverRecipes value, $Res Function(_$_DiscoverRecipes) then) =
       __$$_DiscoverRecipesCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<RecipeDiscover> randomRecipes,
       List<RecipeDiscover> popularRecipes,
@@ -83,31 +87,29 @@ abstract class _$$_DiscoverRecipesCopyWith<$Res>
 
 /// @nodoc
 class __$$_DiscoverRecipesCopyWithImpl<$Res>
-    extends _$DiscoverRecipesCopyWithImpl<$Res>
+    extends _$DiscoverRecipesCopyWithImpl<$Res, _$_DiscoverRecipes>
     implements _$$_DiscoverRecipesCopyWith<$Res> {
   __$$_DiscoverRecipesCopyWithImpl(
       _$_DiscoverRecipes _value, $Res Function(_$_DiscoverRecipes) _then)
-      : super(_value, (v) => _then(v as _$_DiscoverRecipes));
+      : super(_value, _then);
 
-  @override
-  _$_DiscoverRecipes get _value => super._value as _$_DiscoverRecipes;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? randomRecipes = freezed,
-    Object? popularRecipes = freezed,
-    Object? healthyRecipe = freezed,
+    Object? randomRecipes = null,
+    Object? popularRecipes = null,
+    Object? healthyRecipe = null,
   }) {
     return _then(_$_DiscoverRecipes(
-      randomRecipes: randomRecipes == freezed
+      randomRecipes: null == randomRecipes
           ? _value._randomRecipes
           : randomRecipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
-      popularRecipes: popularRecipes == freezed
+      popularRecipes: null == popularRecipes
           ? _value._popularRecipes
           : popularRecipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
-      healthyRecipe: healthyRecipe == freezed
+      healthyRecipe: null == healthyRecipe
           ? _value._healthyRecipe
           : healthyRecipe // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
@@ -174,6 +176,7 @@ class _$_DiscoverRecipes implements _DiscoverRecipes {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DiscoverRecipesCopyWith<_$_DiscoverRecipes> get copyWith =>
       __$$_DiscoverRecipesCopyWithImpl<_$_DiscoverRecipes>(this, _$identity);
 }

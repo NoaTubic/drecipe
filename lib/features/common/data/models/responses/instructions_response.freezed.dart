@@ -33,34 +33,38 @@ mixin _$InstructionsResponse {
 abstract class $InstructionsResponseCopyWith<$Res> {
   factory $InstructionsResponseCopyWith(InstructionsResponse value,
           $Res Function(InstructionsResponse) then) =
-      _$InstructionsResponseCopyWithImpl<$Res>;
+      _$InstructionsResponseCopyWithImpl<$Res, InstructionsResponse>;
+  @useResult
   $Res call({String? name, List<StepResponse> steps});
 }
 
 /// @nodoc
-class _$InstructionsResponseCopyWithImpl<$Res>
+class _$InstructionsResponseCopyWithImpl<$Res,
+        $Val extends InstructionsResponse>
     implements $InstructionsResponseCopyWith<$Res> {
   _$InstructionsResponseCopyWithImpl(this._value, this._then);
 
-  final InstructionsResponse _value;
   // ignore: unused_field
-  final $Res Function(InstructionsResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
-    Object? steps = freezed,
+    Object? steps = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      steps: steps == freezed
+      steps: null == steps
           ? _value.steps
           : steps // ignore: cast_nullable_to_non_nullable
               as List<StepResponse>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +75,30 @@ abstract class _$$_InstructionsResponseCopyWith<$Res>
           $Res Function(_$_InstructionsResponse) then) =
       __$$_InstructionsResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? name, List<StepResponse> steps});
 }
 
 /// @nodoc
 class __$$_InstructionsResponseCopyWithImpl<$Res>
-    extends _$InstructionsResponseCopyWithImpl<$Res>
+    extends _$InstructionsResponseCopyWithImpl<$Res, _$_InstructionsResponse>
     implements _$$_InstructionsResponseCopyWith<$Res> {
   __$$_InstructionsResponseCopyWithImpl(_$_InstructionsResponse _value,
       $Res Function(_$_InstructionsResponse) _then)
-      : super(_value, (v) => _then(v as _$_InstructionsResponse));
+      : super(_value, _then);
 
-  @override
-  _$_InstructionsResponse get _value => super._value as _$_InstructionsResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = freezed,
-    Object? steps = freezed,
+    Object? steps = null,
   }) {
     return _then(_$_InstructionsResponse(
-      name: name == freezed
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      steps: steps == freezed
+      steps: null == steps
           ? _value._steps
           : steps // ignore: cast_nullable_to_non_nullable
               as List<StepResponse>,
@@ -132,19 +135,18 @@ class _$_InstructionsResponse implements _InstructionsResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InstructionsResponse &&
-            const DeepCollectionEquality().equals(other.name, name) &&
+            (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._steps, _steps));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(_steps));
+      runtimeType, name, const DeepCollectionEquality().hash(_steps));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InstructionsResponseCopyWith<_$_InstructionsResponse> get copyWith =>
       __$$_InstructionsResponseCopyWithImpl<_$_InstructionsResponse>(
           this, _$identity);
@@ -199,7 +201,8 @@ mixin _$StepResponse {
 abstract class $StepResponseCopyWith<$Res> {
   factory $StepResponseCopyWith(
           StepResponse value, $Res Function(StepResponse) then) =
-      _$StepResponseCopyWithImpl<$Res>;
+      _$StepResponseCopyWithImpl<$Res, StepResponse>;
+  @useResult
   $Res call(
       {int number,
       String step,
@@ -211,53 +214,57 @@ abstract class $StepResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StepResponseCopyWithImpl<$Res> implements $StepResponseCopyWith<$Res> {
+class _$StepResponseCopyWithImpl<$Res, $Val extends StepResponse>
+    implements $StepResponseCopyWith<$Res> {
   _$StepResponseCopyWithImpl(this._value, this._then);
 
-  final StepResponse _value;
   // ignore: unused_field
-  final $Res Function(StepResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? number = freezed,
-    Object? step = freezed,
+    Object? number = null,
+    Object? step = null,
     Object? ingredients = freezed,
     Object? equipment = freezed,
     Object? length = freezed,
   }) {
     return _then(_value.copyWith(
-      number: number == freezed
+      number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
-      step: step == freezed
+      step: null == step
           ? _value.step
           : step // ignore: cast_nullable_to_non_nullable
               as String,
-      ingredients: ingredients == freezed
+      ingredients: freezed == ingredients
           ? _value.ingredients
           : ingredients // ignore: cast_nullable_to_non_nullable
               as List<InstructionsEquipmentAndIngredientResponse>?,
-      equipment: equipment == freezed
+      equipment: freezed == equipment
           ? _value.equipment
           : equipment // ignore: cast_nullable_to_non_nullable
               as List<InstructionsEquipmentAndIngredientResponse>?,
-      length: length == freezed
+      length: freezed == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
               as LengthResponse?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $LengthResponseCopyWith<$Res>? get length {
     if (_value.length == null) {
       return null;
     }
 
     return $LengthResponseCopyWith<$Res>(_value.length!, (value) {
-      return _then(_value.copyWith(length: value));
+      return _then(_value.copyWith(length: value) as $Val);
     });
   }
 }
@@ -269,6 +276,7 @@ abstract class _$$_StepResponseCopyWith<$Res>
           _$_StepResponse value, $Res Function(_$_StepResponse) then) =
       __$$_StepResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int number,
       String step,
@@ -282,41 +290,39 @@ abstract class _$$_StepResponseCopyWith<$Res>
 
 /// @nodoc
 class __$$_StepResponseCopyWithImpl<$Res>
-    extends _$StepResponseCopyWithImpl<$Res>
+    extends _$StepResponseCopyWithImpl<$Res, _$_StepResponse>
     implements _$$_StepResponseCopyWith<$Res> {
   __$$_StepResponseCopyWithImpl(
       _$_StepResponse _value, $Res Function(_$_StepResponse) _then)
-      : super(_value, (v) => _then(v as _$_StepResponse));
+      : super(_value, _then);
 
-  @override
-  _$_StepResponse get _value => super._value as _$_StepResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? number = freezed,
-    Object? step = freezed,
+    Object? number = null,
+    Object? step = null,
     Object? ingredients = freezed,
     Object? equipment = freezed,
     Object? length = freezed,
   }) {
     return _then(_$_StepResponse(
-      number: number == freezed
+      number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
-      step: step == freezed
+      step: null == step
           ? _value.step
           : step // ignore: cast_nullable_to_non_nullable
               as String,
-      ingredients: ingredients == freezed
+      ingredients: freezed == ingredients
           ? _value._ingredients
           : ingredients // ignore: cast_nullable_to_non_nullable
               as List<InstructionsEquipmentAndIngredientResponse>?,
-      equipment: equipment == freezed
+      equipment: freezed == equipment
           ? _value._equipment
           : equipment // ignore: cast_nullable_to_non_nullable
               as List<InstructionsEquipmentAndIngredientResponse>?,
-      length: length == freezed
+      length: freezed == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
               as LengthResponse?,
@@ -374,27 +380,28 @@ class _$_StepResponse implements _StepResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StepResponse &&
-            const DeepCollectionEquality().equals(other.number, number) &&
-            const DeepCollectionEquality().equals(other.step, step) &&
+            (identical(other.number, number) || other.number == number) &&
+            (identical(other.step, step) || other.step == step) &&
             const DeepCollectionEquality()
                 .equals(other._ingredients, _ingredients) &&
             const DeepCollectionEquality()
                 .equals(other._equipment, _equipment) &&
-            const DeepCollectionEquality().equals(other.length, length));
+            (identical(other.length, length) || other.length == length));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(number),
-      const DeepCollectionEquality().hash(step),
+      number,
+      step,
       const DeepCollectionEquality().hash(_ingredients),
       const DeepCollectionEquality().hash(_equipment),
-      const DeepCollectionEquality().hash(length));
+      length);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StepResponseCopyWith<_$_StepResponse> get copyWith =>
       __$$_StepResponseCopyWithImpl<_$_StepResponse>(this, _$identity);
 
@@ -456,35 +463,40 @@ abstract class $InstructionsEquipmentAndIngredientResponseCopyWith<$Res> {
   factory $InstructionsEquipmentAndIngredientResponseCopyWith(
           InstructionsEquipmentAndIngredientResponse value,
           $Res Function(InstructionsEquipmentAndIngredientResponse) then) =
-      _$InstructionsEquipmentAndIngredientResponseCopyWithImpl<$Res>;
+      _$InstructionsEquipmentAndIngredientResponseCopyWithImpl<$Res,
+          InstructionsEquipmentAndIngredientResponse>;
+  @useResult
   $Res call({String name, String? image});
 }
 
 /// @nodoc
-class _$InstructionsEquipmentAndIngredientResponseCopyWithImpl<$Res>
+class _$InstructionsEquipmentAndIngredientResponseCopyWithImpl<$Res,
+        $Val extends InstructionsEquipmentAndIngredientResponse>
     implements $InstructionsEquipmentAndIngredientResponseCopyWith<$Res> {
   _$InstructionsEquipmentAndIngredientResponseCopyWithImpl(
       this._value, this._then);
 
-  final InstructionsEquipmentAndIngredientResponse _value;
   // ignore: unused_field
-  final $Res Function(InstructionsEquipmentAndIngredientResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? image = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -496,34 +508,32 @@ abstract class _$$_InstructionsEquipmentAndIngredientResponseCopyWith<$Res>
           $Res Function(_$_InstructionsEquipmentAndIngredientResponse) then) =
       __$$_InstructionsEquipmentAndIngredientResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String name, String? image});
 }
 
 /// @nodoc
 class __$$_InstructionsEquipmentAndIngredientResponseCopyWithImpl<$Res>
-    extends _$InstructionsEquipmentAndIngredientResponseCopyWithImpl<$Res>
+    extends _$InstructionsEquipmentAndIngredientResponseCopyWithImpl<$Res,
+        _$_InstructionsEquipmentAndIngredientResponse>
     implements _$$_InstructionsEquipmentAndIngredientResponseCopyWith<$Res> {
   __$$_InstructionsEquipmentAndIngredientResponseCopyWithImpl(
       _$_InstructionsEquipmentAndIngredientResponse _value,
       $Res Function(_$_InstructionsEquipmentAndIngredientResponse) _then)
-      : super(_value,
-            (v) => _then(v as _$_InstructionsEquipmentAndIngredientResponse));
+      : super(_value, _then);
 
-  @override
-  _$_InstructionsEquipmentAndIngredientResponse get _value =>
-      super._value as _$_InstructionsEquipmentAndIngredientResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? image = freezed,
   }) {
     return _then(_$_InstructionsEquipmentAndIngredientResponse(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -557,19 +567,17 @@ class _$_InstructionsEquipmentAndIngredientResponse
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InstructionsEquipmentAndIngredientResponse &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.image, image));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(image));
+  int get hashCode => Object.hash(runtimeType, name, image);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InstructionsEquipmentAndIngredientResponseCopyWith<
           _$_InstructionsEquipmentAndIngredientResponse>
       get copyWith =>
@@ -624,34 +632,37 @@ mixin _$LengthResponse {
 abstract class $LengthResponseCopyWith<$Res> {
   factory $LengthResponseCopyWith(
           LengthResponse value, $Res Function(LengthResponse) then) =
-      _$LengthResponseCopyWithImpl<$Res>;
+      _$LengthResponseCopyWithImpl<$Res, LengthResponse>;
+  @useResult
   $Res call({int number, String unit});
 }
 
 /// @nodoc
-class _$LengthResponseCopyWithImpl<$Res>
+class _$LengthResponseCopyWithImpl<$Res, $Val extends LengthResponse>
     implements $LengthResponseCopyWith<$Res> {
   _$LengthResponseCopyWithImpl(this._value, this._then);
 
-  final LengthResponse _value;
   // ignore: unused_field
-  final $Res Function(LengthResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? number = freezed,
-    Object? unit = freezed,
+    Object? number = null,
+    Object? unit = null,
   }) {
     return _then(_value.copyWith(
-      number: number == freezed
+      number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
-      unit: unit == freezed
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -662,31 +673,30 @@ abstract class _$$_LengthResponseCopyWith<$Res>
           _$_LengthResponse value, $Res Function(_$_LengthResponse) then) =
       __$$_LengthResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int number, String unit});
 }
 
 /// @nodoc
 class __$$_LengthResponseCopyWithImpl<$Res>
-    extends _$LengthResponseCopyWithImpl<$Res>
+    extends _$LengthResponseCopyWithImpl<$Res, _$_LengthResponse>
     implements _$$_LengthResponseCopyWith<$Res> {
   __$$_LengthResponseCopyWithImpl(
       _$_LengthResponse _value, $Res Function(_$_LengthResponse) _then)
-      : super(_value, (v) => _then(v as _$_LengthResponse));
+      : super(_value, _then);
 
-  @override
-  _$_LengthResponse get _value => super._value as _$_LengthResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? number = freezed,
-    Object? unit = freezed,
+    Object? number = null,
+    Object? unit = null,
   }) {
     return _then(_$_LengthResponse(
-      number: number == freezed
+      number: null == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
-      unit: unit == freezed
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as String,
@@ -717,19 +727,17 @@ class _$_LengthResponse implements _LengthResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LengthResponse &&
-            const DeepCollectionEquality().equals(other.number, number) &&
-            const DeepCollectionEquality().equals(other.unit, unit));
+            (identical(other.number, number) || other.number == number) &&
+            (identical(other.unit, unit) || other.unit == unit));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(number),
-      const DeepCollectionEquality().hash(unit));
+  int get hashCode => Object.hash(runtimeType, number, unit);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LengthResponseCopyWith<_$_LengthResponse> get copyWith =>
       __$$_LengthResponseCopyWithImpl<_$_LengthResponse>(this, _$identity);
 

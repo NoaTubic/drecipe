@@ -29,38 +29,42 @@ mixin _$DrecipeUser {
 abstract class $DrecipeUserCopyWith<$Res> {
   factory $DrecipeUserCopyWith(
           DrecipeUser value, $Res Function(DrecipeUser) then) =
-      _$DrecipeUserCopyWithImpl<$Res>;
+      _$DrecipeUserCopyWithImpl<$Res, DrecipeUser>;
+  @useResult
   $Res call({String id, String email, String username});
 }
 
 /// @nodoc
-class _$DrecipeUserCopyWithImpl<$Res> implements $DrecipeUserCopyWith<$Res> {
+class _$DrecipeUserCopyWithImpl<$Res, $Val extends DrecipeUser>
+    implements $DrecipeUserCopyWith<$Res> {
   _$DrecipeUserCopyWithImpl(this._value, this._then);
 
-  final DrecipeUser _value;
   // ignore: unused_field
-  final $Res Function(DrecipeUser) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? email = freezed,
-    Object? username = freezed,
+    Object? id = null,
+    Object? email = null,
+    Object? username = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,35 +75,35 @@ abstract class _$$_DrecipeUserCopyWith<$Res>
           _$_DrecipeUser value, $Res Function(_$_DrecipeUser) then) =
       __$$_DrecipeUserCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String id, String email, String username});
 }
 
 /// @nodoc
-class __$$_DrecipeUserCopyWithImpl<$Res> extends _$DrecipeUserCopyWithImpl<$Res>
+class __$$_DrecipeUserCopyWithImpl<$Res>
+    extends _$DrecipeUserCopyWithImpl<$Res, _$_DrecipeUser>
     implements _$$_DrecipeUserCopyWith<$Res> {
   __$$_DrecipeUserCopyWithImpl(
       _$_DrecipeUser _value, $Res Function(_$_DrecipeUser) _then)
-      : super(_value, (v) => _then(v as _$_DrecipeUser));
+      : super(_value, _then);
 
-  @override
-  _$_DrecipeUser get _value => super._value as _$_DrecipeUser;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? email = freezed,
-    Object? username = freezed,
+    Object? id = null,
+    Object? email = null,
+    Object? username = null,
   }) {
     return _then(_$_DrecipeUser(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
@@ -130,20 +134,18 @@ class _$_DrecipeUser implements _DrecipeUser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DrecipeUser &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.username, username));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.username, username) ||
+                other.username == username));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(username));
+  int get hashCode => Object.hash(runtimeType, id, email, username);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DrecipeUserCopyWith<_$_DrecipeUser> get copyWith =>
       __$$_DrecipeUserCopyWithImpl<_$_DrecipeUser>(this, _$identity);
 }

@@ -11,6 +11,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 final themeProvider = Provider<AppTheme>((ref) => AppTheme());
 
@@ -52,4 +53,8 @@ final firestoreProvider = Provider<FirebaseFirestore>((ref) {
 
 final authFacadeProvider = Provider<IFirebaseAuthFacade>(
   (ref) => FirebaseAuthFacade(),
+);
+
+final hiveInitProvider = FutureProvider(
+  (ref) => Hive.initFlutter,
 );

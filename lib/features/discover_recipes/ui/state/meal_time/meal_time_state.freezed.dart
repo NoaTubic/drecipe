@@ -30,7 +30,8 @@ mixin _$MealTimeState {
 abstract class $MealTimeStateCopyWith<$Res> {
   factory $MealTimeStateCopyWith(
           MealTimeState value, $Res Function(MealTimeState) then) =
-      _$MealTimeStateCopyWithImpl<$Res>;
+      _$MealTimeStateCopyWithImpl<$Res, MealTimeState>;
+  @useResult
   $Res call(
       {String currentTime,
       String mealTypeIcon,
@@ -39,39 +40,41 @@ abstract class $MealTimeStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MealTimeStateCopyWithImpl<$Res>
+class _$MealTimeStateCopyWithImpl<$Res, $Val extends MealTimeState>
     implements $MealTimeStateCopyWith<$Res> {
   _$MealTimeStateCopyWithImpl(this._value, this._then);
 
-  final MealTimeState _value;
   // ignore: unused_field
-  final $Res Function(MealTimeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentTime = freezed,
-    Object? mealTypeIcon = freezed,
-    Object? mealType = freezed,
-    Object? isLoading = freezed,
+    Object? currentTime = null,
+    Object? mealTypeIcon = null,
+    Object? mealType = null,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
-      currentTime: currentTime == freezed
+      currentTime: null == currentTime
           ? _value.currentTime
           : currentTime // ignore: cast_nullable_to_non_nullable
               as String,
-      mealTypeIcon: mealTypeIcon == freezed
+      mealTypeIcon: null == mealTypeIcon
           ? _value.mealTypeIcon
           : mealTypeIcon // ignore: cast_nullable_to_non_nullable
               as String,
-      mealType: mealType == freezed
+      mealType: null == mealType
           ? _value.mealType
           : mealType // ignore: cast_nullable_to_non_nullable
               as String,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,6 +85,7 @@ abstract class _$$_MealTimeStateCopyWith<$Res>
           _$_MealTimeState value, $Res Function(_$_MealTimeState) then) =
       __$$_MealTimeStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String currentTime,
       String mealTypeIcon,
@@ -91,36 +95,34 @@ abstract class _$$_MealTimeStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_MealTimeStateCopyWithImpl<$Res>
-    extends _$MealTimeStateCopyWithImpl<$Res>
+    extends _$MealTimeStateCopyWithImpl<$Res, _$_MealTimeState>
     implements _$$_MealTimeStateCopyWith<$Res> {
   __$$_MealTimeStateCopyWithImpl(
       _$_MealTimeState _value, $Res Function(_$_MealTimeState) _then)
-      : super(_value, (v) => _then(v as _$_MealTimeState));
+      : super(_value, _then);
 
-  @override
-  _$_MealTimeState get _value => super._value as _$_MealTimeState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentTime = freezed,
-    Object? mealTypeIcon = freezed,
-    Object? mealType = freezed,
-    Object? isLoading = freezed,
+    Object? currentTime = null,
+    Object? mealTypeIcon = null,
+    Object? mealType = null,
+    Object? isLoading = null,
   }) {
     return _then(_$_MealTimeState(
-      currentTime: currentTime == freezed
+      currentTime: null == currentTime
           ? _value.currentTime
           : currentTime // ignore: cast_nullable_to_non_nullable
               as String,
-      mealTypeIcon: mealTypeIcon == freezed
+      mealTypeIcon: null == mealTypeIcon
           ? _value.mealTypeIcon
           : mealTypeIcon // ignore: cast_nullable_to_non_nullable
               as String,
-      mealType: mealType == freezed
+      mealType: null == mealType
           ? _value.mealType
           : mealType // ignore: cast_nullable_to_non_nullable
               as String,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -156,24 +158,23 @@ class _$_MealTimeState implements _MealTimeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MealTimeState &&
-            const DeepCollectionEquality()
-                .equals(other.currentTime, currentTime) &&
-            const DeepCollectionEquality()
-                .equals(other.mealTypeIcon, mealTypeIcon) &&
-            const DeepCollectionEquality().equals(other.mealType, mealType) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading));
+            (identical(other.currentTime, currentTime) ||
+                other.currentTime == currentTime) &&
+            (identical(other.mealTypeIcon, mealTypeIcon) ||
+                other.mealTypeIcon == mealTypeIcon) &&
+            (identical(other.mealType, mealType) ||
+                other.mealType == mealType) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(currentTime),
-      const DeepCollectionEquality().hash(mealTypeIcon),
-      const DeepCollectionEquality().hash(mealType),
-      const DeepCollectionEquality().hash(isLoading));
+  int get hashCode =>
+      Object.hash(runtimeType, currentTime, mealTypeIcon, mealType, isLoading);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MealTimeStateCopyWith<_$_MealTimeState> get copyWith =>
       __$$_MealTimeStateCopyWithImpl<_$_MealTimeState>(this, _$identity);
 }

@@ -539,6 +539,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Favorites`
+  String get favorite_recipes_title {
+    return Intl.message(
+      'Favorites',
+      name: 'favorite_recipes_title',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

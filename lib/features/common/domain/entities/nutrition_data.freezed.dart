@@ -14,14 +14,24 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+NutritionData _$NutritionDataFromJson(Map<String, dynamic> json) {
+  return _NutritionData.fromJson(json);
+}
+
 /// @nodoc
 mixin _$NutritionData {
+  @HiveField(0)
   List<Nutrient> get nutrients => throw _privateConstructorUsedError;
+  @HiveField(1)
   double get percentProtein => throw _privateConstructorUsedError;
+  @HiveField(2)
   double get percentFat => throw _privateConstructorUsedError;
+  @HiveField(3)
   double get percentCarbs => throw _privateConstructorUsedError;
+  @HiveField(4)
   String? get weightPerServing => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NutritionDataCopyWith<NutritionData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -31,54 +41,57 @@ mixin _$NutritionData {
 abstract class $NutritionDataCopyWith<$Res> {
   factory $NutritionDataCopyWith(
           NutritionData value, $Res Function(NutritionData) then) =
-      _$NutritionDataCopyWithImpl<$Res>;
+      _$NutritionDataCopyWithImpl<$Res, NutritionData>;
+  @useResult
   $Res call(
-      {List<Nutrient> nutrients,
-      double percentProtein,
-      double percentFat,
-      double percentCarbs,
-      String? weightPerServing});
+      {@HiveField(0) List<Nutrient> nutrients,
+      @HiveField(1) double percentProtein,
+      @HiveField(2) double percentFat,
+      @HiveField(3) double percentCarbs,
+      @HiveField(4) String? weightPerServing});
 }
 
 /// @nodoc
-class _$NutritionDataCopyWithImpl<$Res>
+class _$NutritionDataCopyWithImpl<$Res, $Val extends NutritionData>
     implements $NutritionDataCopyWith<$Res> {
   _$NutritionDataCopyWithImpl(this._value, this._then);
 
-  final NutritionData _value;
   // ignore: unused_field
-  final $Res Function(NutritionData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nutrients = freezed,
-    Object? percentProtein = freezed,
-    Object? percentFat = freezed,
-    Object? percentCarbs = freezed,
+    Object? nutrients = null,
+    Object? percentProtein = null,
+    Object? percentFat = null,
+    Object? percentCarbs = null,
     Object? weightPerServing = freezed,
   }) {
     return _then(_value.copyWith(
-      nutrients: nutrients == freezed
+      nutrients: null == nutrients
           ? _value.nutrients
           : nutrients // ignore: cast_nullable_to_non_nullable
               as List<Nutrient>,
-      percentProtein: percentProtein == freezed
+      percentProtein: null == percentProtein
           ? _value.percentProtein
           : percentProtein // ignore: cast_nullable_to_non_nullable
               as double,
-      percentFat: percentFat == freezed
+      percentFat: null == percentFat
           ? _value.percentFat
           : percentFat // ignore: cast_nullable_to_non_nullable
               as double,
-      percentCarbs: percentCarbs == freezed
+      percentCarbs: null == percentCarbs
           ? _value.percentCarbs
           : percentCarbs // ignore: cast_nullable_to_non_nullable
               as double,
-      weightPerServing: weightPerServing == freezed
+      weightPerServing: freezed == weightPerServing
           ? _value.weightPerServing
           : weightPerServing // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -89,51 +102,50 @@ abstract class _$$_NutritionDataCopyWith<$Res>
           _$_NutritionData value, $Res Function(_$_NutritionData) then) =
       __$$_NutritionDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {List<Nutrient> nutrients,
-      double percentProtein,
-      double percentFat,
-      double percentCarbs,
-      String? weightPerServing});
+      {@HiveField(0) List<Nutrient> nutrients,
+      @HiveField(1) double percentProtein,
+      @HiveField(2) double percentFat,
+      @HiveField(3) double percentCarbs,
+      @HiveField(4) String? weightPerServing});
 }
 
 /// @nodoc
 class __$$_NutritionDataCopyWithImpl<$Res>
-    extends _$NutritionDataCopyWithImpl<$Res>
+    extends _$NutritionDataCopyWithImpl<$Res, _$_NutritionData>
     implements _$$_NutritionDataCopyWith<$Res> {
   __$$_NutritionDataCopyWithImpl(
       _$_NutritionData _value, $Res Function(_$_NutritionData) _then)
-      : super(_value, (v) => _then(v as _$_NutritionData));
+      : super(_value, _then);
 
-  @override
-  _$_NutritionData get _value => super._value as _$_NutritionData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nutrients = freezed,
-    Object? percentProtein = freezed,
-    Object? percentFat = freezed,
-    Object? percentCarbs = freezed,
+    Object? nutrients = null,
+    Object? percentProtein = null,
+    Object? percentFat = null,
+    Object? percentCarbs = null,
     Object? weightPerServing = freezed,
   }) {
     return _then(_$_NutritionData(
-      nutrients: nutrients == freezed
+      nutrients: null == nutrients
           ? _value._nutrients
           : nutrients // ignore: cast_nullable_to_non_nullable
               as List<Nutrient>,
-      percentProtein: percentProtein == freezed
+      percentProtein: null == percentProtein
           ? _value.percentProtein
           : percentProtein // ignore: cast_nullable_to_non_nullable
               as double,
-      percentFat: percentFat == freezed
+      percentFat: null == percentFat
           ? _value.percentFat
           : percentFat // ignore: cast_nullable_to_non_nullable
               as double,
-      percentCarbs: percentCarbs == freezed
+      percentCarbs: null == percentCarbs
           ? _value.percentCarbs
           : percentCarbs // ignore: cast_nullable_to_non_nullable
               as double,
-      weightPerServing: weightPerServing == freezed
+      weightPerServing: freezed == weightPerServing
           ? _value.weightPerServing
           : weightPerServing // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -143,29 +155,38 @@ class __$$_NutritionDataCopyWithImpl<$Res>
 
 /// @nodoc
 
+@JsonSerializable(explicitToJson: true)
 class _$_NutritionData implements _NutritionData {
   const _$_NutritionData(
-      {required final List<Nutrient> nutrients,
-      required this.percentProtein,
-      required this.percentFat,
-      required this.percentCarbs,
-      this.weightPerServing})
+      {@HiveField(0) required final List<Nutrient> nutrients,
+      @HiveField(1) required this.percentProtein,
+      @HiveField(2) required this.percentFat,
+      @HiveField(3) required this.percentCarbs,
+      @HiveField(4) this.weightPerServing})
       : _nutrients = nutrients;
+
+  factory _$_NutritionData.fromJson(Map<String, dynamic> json) =>
+      _$$_NutritionDataFromJson(json);
 
   final List<Nutrient> _nutrients;
   @override
+  @HiveField(0)
   List<Nutrient> get nutrients {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_nutrients);
   }
 
   @override
+  @HiveField(1)
   final double percentProtein;
   @override
+  @HiveField(2)
   final double percentFat;
   @override
+  @HiveField(3)
   final double percentCarbs;
   @override
+  @HiveField(4)
   final String? weightPerServing;
 
   @override
@@ -180,48 +201,65 @@ class _$_NutritionData implements _NutritionData {
             other is _$_NutritionData &&
             const DeepCollectionEquality()
                 .equals(other._nutrients, _nutrients) &&
-            const DeepCollectionEquality()
-                .equals(other.percentProtein, percentProtein) &&
-            const DeepCollectionEquality()
-                .equals(other.percentFat, percentFat) &&
-            const DeepCollectionEquality()
-                .equals(other.percentCarbs, percentCarbs) &&
-            const DeepCollectionEquality()
-                .equals(other.weightPerServing, weightPerServing));
+            (identical(other.percentProtein, percentProtein) ||
+                other.percentProtein == percentProtein) &&
+            (identical(other.percentFat, percentFat) ||
+                other.percentFat == percentFat) &&
+            (identical(other.percentCarbs, percentCarbs) ||
+                other.percentCarbs == percentCarbs) &&
+            (identical(other.weightPerServing, weightPerServing) ||
+                other.weightPerServing == weightPerServing));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_nutrients),
-      const DeepCollectionEquality().hash(percentProtein),
-      const DeepCollectionEquality().hash(percentFat),
-      const DeepCollectionEquality().hash(percentCarbs),
-      const DeepCollectionEquality().hash(weightPerServing));
+      percentProtein,
+      percentFat,
+      percentCarbs,
+      weightPerServing);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NutritionDataCopyWith<_$_NutritionData> get copyWith =>
       __$$_NutritionDataCopyWithImpl<_$_NutritionData>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_NutritionDataToJson(
+      this,
+    );
+  }
 }
 
 abstract class _NutritionData implements NutritionData {
   const factory _NutritionData(
-      {required final List<Nutrient> nutrients,
-      required final double percentProtein,
-      required final double percentFat,
-      required final double percentCarbs,
-      final String? weightPerServing}) = _$_NutritionData;
+      {@HiveField(0) required final List<Nutrient> nutrients,
+      @HiveField(1) required final double percentProtein,
+      @HiveField(2) required final double percentFat,
+      @HiveField(3) required final double percentCarbs,
+      @HiveField(4) final String? weightPerServing}) = _$_NutritionData;
+
+  factory _NutritionData.fromJson(Map<String, dynamic> json) =
+      _$_NutritionData.fromJson;
 
   @override
+  @HiveField(0)
   List<Nutrient> get nutrients;
   @override
+  @HiveField(1)
   double get percentProtein;
   @override
+  @HiveField(2)
   double get percentFat;
   @override
+  @HiveField(3)
   double get percentCarbs;
   @override
+  @HiveField(4)
   String? get weightPerServing;
   @override
   @JsonKey(ignore: true)
@@ -229,11 +267,18 @@ abstract class _NutritionData implements NutritionData {
       throw _privateConstructorUsedError;
 }
 
+Nutrient _$NutrientFromJson(Map<String, dynamic> json) {
+  return _Nutrient.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Nutrient {
+  @HiveField(0)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get amount => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NutrientCopyWith<Nutrient> get copyWith =>
       throw _privateConstructorUsedError;
@@ -242,33 +287,37 @@ mixin _$Nutrient {
 /// @nodoc
 abstract class $NutrientCopyWith<$Res> {
   factory $NutrientCopyWith(Nutrient value, $Res Function(Nutrient) then) =
-      _$NutrientCopyWithImpl<$Res>;
-  $Res call({String name, String amount});
+      _$NutrientCopyWithImpl<$Res, Nutrient>;
+  @useResult
+  $Res call({@HiveField(0) String name, @HiveField(1) String amount});
 }
 
 /// @nodoc
-class _$NutrientCopyWithImpl<$Res> implements $NutrientCopyWith<$Res> {
+class _$NutrientCopyWithImpl<$Res, $Val extends Nutrient>
+    implements $NutrientCopyWith<$Res> {
   _$NutrientCopyWithImpl(this._value, this._then);
 
-  final Nutrient _value;
   // ignore: unused_field
-  final $Res Function(Nutrient) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? amount = freezed,
+    Object? name = null,
+    Object? amount = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -278,30 +327,30 @@ abstract class _$$_NutrientCopyWith<$Res> implements $NutrientCopyWith<$Res> {
           _$_Nutrient value, $Res Function(_$_Nutrient) then) =
       __$$_NutrientCopyWithImpl<$Res>;
   @override
-  $Res call({String name, String amount});
+  @useResult
+  $Res call({@HiveField(0) String name, @HiveField(1) String amount});
 }
 
 /// @nodoc
-class __$$_NutrientCopyWithImpl<$Res> extends _$NutrientCopyWithImpl<$Res>
+class __$$_NutrientCopyWithImpl<$Res>
+    extends _$NutrientCopyWithImpl<$Res, _$_Nutrient>
     implements _$$_NutrientCopyWith<$Res> {
   __$$_NutrientCopyWithImpl(
       _$_Nutrient _value, $Res Function(_$_Nutrient) _then)
-      : super(_value, (v) => _then(v as _$_Nutrient));
+      : super(_value, _then);
 
-  @override
-  _$_Nutrient get _value => super._value as _$_Nutrient;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? amount = freezed,
+    Object? name = null,
+    Object? amount = null,
   }) {
     return _then(_$_Nutrient(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
@@ -311,12 +360,19 @@ class __$$_NutrientCopyWithImpl<$Res> extends _$NutrientCopyWithImpl<$Res>
 
 /// @nodoc
 
+@JsonSerializable(explicitToJson: true)
 class _$_Nutrient implements _Nutrient {
-  const _$_Nutrient({required this.name, required this.amount});
+  const _$_Nutrient(
+      {@HiveField(0) required this.name, @HiveField(1) required this.amount});
+
+  factory _$_Nutrient.fromJson(Map<String, dynamic> json) =>
+      _$$_NutrientFromJson(json);
 
   @override
+  @HiveField(0)
   final String name;
   @override
+  @HiveField(1)
   final String amount;
 
   @override
@@ -329,29 +385,40 @@ class _$_Nutrient implements _Nutrient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Nutrient &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.amount, amount));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(amount));
 
   @JsonKey(ignore: true)
   @override
+  int get hashCode => Object.hash(runtimeType, name, amount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
   _$$_NutrientCopyWith<_$_Nutrient> get copyWith =>
       __$$_NutrientCopyWithImpl<_$_Nutrient>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_NutrientToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Nutrient implements Nutrient {
   const factory _Nutrient(
-      {required final String name, required final String amount}) = _$_Nutrient;
+      {@HiveField(0) required final String name,
+      @HiveField(1) required final String amount}) = _$_Nutrient;
+
+  factory _Nutrient.fromJson(Map<String, dynamic> json) = _$_Nutrient.fromJson;
 
   @override
+  @HiveField(0)
   String get name;
   @override
+  @HiveField(1)
   String get amount;
   @override
   @JsonKey(ignore: true)

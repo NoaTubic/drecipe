@@ -33,29 +33,32 @@ mixin _$RecipesResponse {
 abstract class $RecipesResponseCopyWith<$Res> {
   factory $RecipesResponseCopyWith(
           RecipesResponse value, $Res Function(RecipesResponse) then) =
-      _$RecipesResponseCopyWithImpl<$Res>;
+      _$RecipesResponseCopyWithImpl<$Res, RecipesResponse>;
+  @useResult
   $Res call({List<RecipeDiscoverResponse> recipes});
 }
 
 /// @nodoc
-class _$RecipesResponseCopyWithImpl<$Res>
+class _$RecipesResponseCopyWithImpl<$Res, $Val extends RecipesResponse>
     implements $RecipesResponseCopyWith<$Res> {
   _$RecipesResponseCopyWithImpl(this._value, this._then);
 
-  final RecipesResponse _value;
   // ignore: unused_field
-  final $Res Function(RecipesResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recipes = freezed,
+    Object? recipes = null,
   }) {
     return _then(_value.copyWith(
-      recipes: recipes == freezed
+      recipes: null == recipes
           ? _value.recipes
           : recipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscoverResponse>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -66,26 +69,25 @@ abstract class _$$_RecipesResponseCopyWith<$Res>
           _$_RecipesResponse value, $Res Function(_$_RecipesResponse) then) =
       __$$_RecipesResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<RecipeDiscoverResponse> recipes});
 }
 
 /// @nodoc
 class __$$_RecipesResponseCopyWithImpl<$Res>
-    extends _$RecipesResponseCopyWithImpl<$Res>
+    extends _$RecipesResponseCopyWithImpl<$Res, _$_RecipesResponse>
     implements _$$_RecipesResponseCopyWith<$Res> {
   __$$_RecipesResponseCopyWithImpl(
       _$_RecipesResponse _value, $Res Function(_$_RecipesResponse) _then)
-      : super(_value, (v) => _then(v as _$_RecipesResponse));
+      : super(_value, _then);
 
-  @override
-  _$_RecipesResponse get _value => super._value as _$_RecipesResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recipes = freezed,
+    Object? recipes = null,
   }) {
     return _then(_$_RecipesResponse(
-      recipes: recipes == freezed
+      recipes: null == recipes
           ? _value._recipes
           : recipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscoverResponse>,
@@ -130,6 +132,7 @@ class _$_RecipesResponse implements _RecipesResponse {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RecipesResponseCopyWith<_$_RecipesResponse> get copyWith =>
       __$$_RecipesResponseCopyWithImpl<_$_RecipesResponse>(this, _$identity);
 

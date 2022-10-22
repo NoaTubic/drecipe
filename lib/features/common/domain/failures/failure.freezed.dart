@@ -28,12 +28,12 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? offline,
-    TResult Function()? unexpectedError,
-    TResult Function()? serverErrorGeneral,
-    TResult Function()? forbidden,
-    TResult Function()? unauthorizedAccess,
-    TResult Function()? unexpectedDataError,
+    TResult? Function()? offline,
+    TResult? Function()? unexpectedError,
+    TResult? Function()? serverErrorGeneral,
+    TResult? Function()? forbidden,
+    TResult? Function()? unauthorizedAccess,
+    TResult? Function()? unexpectedDataError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,12 +59,12 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Offline value)? offline,
-    TResult Function(_UnexpectedError value)? unexpectedError,
-    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
-    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    TResult? Function(_Offline value)? offline,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult? Function(_UnexpectedDataError value)? unexpectedDataError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,16 +83,18 @@ mixin _$Failure {
 /// @nodoc
 abstract class $FailureCopyWith<$Res> {
   factory $FailureCopyWith(Failure value, $Res Function(Failure) then) =
-      _$FailureCopyWithImpl<$Res>;
+      _$FailureCopyWithImpl<$Res, Failure>;
 }
 
 /// @nodoc
-class _$FailureCopyWithImpl<$Res> implements $FailureCopyWith<$Res> {
+class _$FailureCopyWithImpl<$Res, $Val extends Failure>
+    implements $FailureCopyWith<$Res> {
   _$FailureCopyWithImpl(this._value, this._then);
 
-  final Failure _value;
   // ignore: unused_field
-  final $Res Function(Failure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -103,13 +105,11 @@ abstract class _$$_OfflineCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_OfflineCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+class __$$_OfflineCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$_Offline>
     implements _$$_OfflineCopyWith<$Res> {
   __$$_OfflineCopyWithImpl(_$_Offline _value, $Res Function(_$_Offline) _then)
-      : super(_value, (v) => _then(v as _$_Offline));
-
-  @override
-  _$_Offline get _value => super._value as _$_Offline;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -147,12 +147,12 @@ class _$_Offline implements _Offline {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? offline,
-    TResult Function()? unexpectedError,
-    TResult Function()? serverErrorGeneral,
-    TResult Function()? forbidden,
-    TResult Function()? unauthorizedAccess,
-    TResult Function()? unexpectedDataError,
+    TResult? Function()? offline,
+    TResult? Function()? unexpectedError,
+    TResult? Function()? serverErrorGeneral,
+    TResult? Function()? forbidden,
+    TResult? Function()? unauthorizedAccess,
+    TResult? Function()? unexpectedDataError,
   }) {
     return offline?.call();
   }
@@ -190,12 +190,12 @@ class _$_Offline implements _Offline {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Offline value)? offline,
-    TResult Function(_UnexpectedError value)? unexpectedError,
-    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
-    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    TResult? Function(_Offline value)? offline,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult? Function(_UnexpectedDataError value)? unexpectedDataError,
   }) {
     return offline?.call(this);
   }
@@ -230,14 +230,12 @@ abstract class _$$_UnexpectedErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UnexpectedErrorCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+class __$$_UnexpectedErrorCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$_UnexpectedError>
     implements _$$_UnexpectedErrorCopyWith<$Res> {
   __$$_UnexpectedErrorCopyWithImpl(
       _$_UnexpectedError _value, $Res Function(_$_UnexpectedError) _then)
-      : super(_value, (v) => _then(v as _$_UnexpectedError));
-
-  @override
-  _$_UnexpectedError get _value => super._value as _$_UnexpectedError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -275,12 +273,12 @@ class _$_UnexpectedError implements _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? offline,
-    TResult Function()? unexpectedError,
-    TResult Function()? serverErrorGeneral,
-    TResult Function()? forbidden,
-    TResult Function()? unauthorizedAccess,
-    TResult Function()? unexpectedDataError,
+    TResult? Function()? offline,
+    TResult? Function()? unexpectedError,
+    TResult? Function()? serverErrorGeneral,
+    TResult? Function()? forbidden,
+    TResult? Function()? unauthorizedAccess,
+    TResult? Function()? unexpectedDataError,
   }) {
     return unexpectedError?.call();
   }
@@ -318,12 +316,12 @@ class _$_UnexpectedError implements _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Offline value)? offline,
-    TResult Function(_UnexpectedError value)? unexpectedError,
-    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
-    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    TResult? Function(_Offline value)? offline,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult? Function(_UnexpectedDataError value)? unexpectedDataError,
   }) {
     return unexpectedError?.call(this);
   }
@@ -359,14 +357,11 @@ abstract class _$$_ServerErrorGeneralCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ServerErrorGeneralCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$_ServerErrorGeneral>
     implements _$$_ServerErrorGeneralCopyWith<$Res> {
   __$$_ServerErrorGeneralCopyWithImpl(
       _$_ServerErrorGeneral _value, $Res Function(_$_ServerErrorGeneral) _then)
-      : super(_value, (v) => _then(v as _$_ServerErrorGeneral));
-
-  @override
-  _$_ServerErrorGeneral get _value => super._value as _$_ServerErrorGeneral;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -404,12 +399,12 @@ class _$_ServerErrorGeneral implements _ServerErrorGeneral {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? offline,
-    TResult Function()? unexpectedError,
-    TResult Function()? serverErrorGeneral,
-    TResult Function()? forbidden,
-    TResult Function()? unauthorizedAccess,
-    TResult Function()? unexpectedDataError,
+    TResult? Function()? offline,
+    TResult? Function()? unexpectedError,
+    TResult? Function()? serverErrorGeneral,
+    TResult? Function()? forbidden,
+    TResult? Function()? unauthorizedAccess,
+    TResult? Function()? unexpectedDataError,
   }) {
     return serverErrorGeneral?.call();
   }
@@ -447,12 +442,12 @@ class _$_ServerErrorGeneral implements _ServerErrorGeneral {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Offline value)? offline,
-    TResult Function(_UnexpectedError value)? unexpectedError,
-    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
-    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    TResult? Function(_Offline value)? offline,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult? Function(_UnexpectedDataError value)? unexpectedDataError,
   }) {
     return serverErrorGeneral?.call(this);
   }
@@ -487,14 +482,12 @@ abstract class _$$_ForbiddenCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ForbiddenCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+class __$$_ForbiddenCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$_Forbidden>
     implements _$$_ForbiddenCopyWith<$Res> {
   __$$_ForbiddenCopyWithImpl(
       _$_Forbidden _value, $Res Function(_$_Forbidden) _then)
-      : super(_value, (v) => _then(v as _$_Forbidden));
-
-  @override
-  _$_Forbidden get _value => super._value as _$_Forbidden;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -532,12 +525,12 @@ class _$_Forbidden implements _Forbidden {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? offline,
-    TResult Function()? unexpectedError,
-    TResult Function()? serverErrorGeneral,
-    TResult Function()? forbidden,
-    TResult Function()? unauthorizedAccess,
-    TResult Function()? unexpectedDataError,
+    TResult? Function()? offline,
+    TResult? Function()? unexpectedError,
+    TResult? Function()? serverErrorGeneral,
+    TResult? Function()? forbidden,
+    TResult? Function()? unauthorizedAccess,
+    TResult? Function()? unexpectedDataError,
   }) {
     return forbidden?.call();
   }
@@ -575,12 +568,12 @@ class _$_Forbidden implements _Forbidden {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Offline value)? offline,
-    TResult Function(_UnexpectedError value)? unexpectedError,
-    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
-    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    TResult? Function(_Offline value)? offline,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult? Function(_UnexpectedDataError value)? unexpectedDataError,
   }) {
     return forbidden?.call(this);
   }
@@ -616,14 +609,11 @@ abstract class _$$_UnauthorizedAccessCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnauthorizedAccessCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$_UnauthorizedAccess>
     implements _$$_UnauthorizedAccessCopyWith<$Res> {
   __$$_UnauthorizedAccessCopyWithImpl(
       _$_UnauthorizedAccess _value, $Res Function(_$_UnauthorizedAccess) _then)
-      : super(_value, (v) => _then(v as _$_UnauthorizedAccess));
-
-  @override
-  _$_UnauthorizedAccess get _value => super._value as _$_UnauthorizedAccess;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -661,12 +651,12 @@ class _$_UnauthorizedAccess implements _UnauthorizedAccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? offline,
-    TResult Function()? unexpectedError,
-    TResult Function()? serverErrorGeneral,
-    TResult Function()? forbidden,
-    TResult Function()? unauthorizedAccess,
-    TResult Function()? unexpectedDataError,
+    TResult? Function()? offline,
+    TResult? Function()? unexpectedError,
+    TResult? Function()? serverErrorGeneral,
+    TResult? Function()? forbidden,
+    TResult? Function()? unauthorizedAccess,
+    TResult? Function()? unexpectedDataError,
   }) {
     return unauthorizedAccess?.call();
   }
@@ -704,12 +694,12 @@ class _$_UnauthorizedAccess implements _UnauthorizedAccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Offline value)? offline,
-    TResult Function(_UnexpectedError value)? unexpectedError,
-    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
-    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    TResult? Function(_Offline value)? offline,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult? Function(_UnexpectedDataError value)? unexpectedDataError,
   }) {
     return unauthorizedAccess?.call(this);
   }
@@ -745,14 +735,11 @@ abstract class _$$_UnexpectedDataErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnexpectedDataErrorCopyWithImpl<$Res>
-    extends _$FailureCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$_UnexpectedDataError>
     implements _$$_UnexpectedDataErrorCopyWith<$Res> {
   __$$_UnexpectedDataErrorCopyWithImpl(_$_UnexpectedDataError _value,
       $Res Function(_$_UnexpectedDataError) _then)
-      : super(_value, (v) => _then(v as _$_UnexpectedDataError));
-
-  @override
-  _$_UnexpectedDataError get _value => super._value as _$_UnexpectedDataError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -790,12 +777,12 @@ class _$_UnexpectedDataError implements _UnexpectedDataError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? offline,
-    TResult Function()? unexpectedError,
-    TResult Function()? serverErrorGeneral,
-    TResult Function()? forbidden,
-    TResult Function()? unauthorizedAccess,
-    TResult Function()? unexpectedDataError,
+    TResult? Function()? offline,
+    TResult? Function()? unexpectedError,
+    TResult? Function()? serverErrorGeneral,
+    TResult? Function()? forbidden,
+    TResult? Function()? unauthorizedAccess,
+    TResult? Function()? unexpectedDataError,
   }) {
     return unexpectedDataError?.call();
   }
@@ -833,12 +820,12 @@ class _$_UnexpectedDataError implements _UnexpectedDataError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Offline value)? offline,
-    TResult Function(_UnexpectedError value)? unexpectedError,
-    TResult Function(_ServerErrorGeneral value)? serverErrorGeneral,
-    TResult Function(_Forbidden value)? forbidden,
-    TResult Function(_UnauthorizedAccess value)? unauthorizedAccess,
-    TResult Function(_UnexpectedDataError value)? unexpectedDataError,
+    TResult? Function(_Offline value)? offline,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_ServerErrorGeneral value)? serverErrorGeneral,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_UnauthorizedAccess value)? unauthorizedAccess,
+    TResult? Function(_UnexpectedDataError value)? unexpectedDataError,
   }) {
     return unexpectedDataError?.call(this);
   }
@@ -881,14 +868,14 @@ mixin _$ValueFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyEmailField,
-    TResult Function()? invalidEmail,
-    TResult Function()? emptyPasswordField,
-    TResult Function()? shortPassword,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emptyUsernameField,
-    TResult Function()? invalidUsername,
-    TResult Function()? longUsername,
+    TResult? Function()? emptyEmailField,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? emptyPasswordField,
+    TResult? Function()? shortPassword,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emptyUsernameField,
+    TResult? Function()? invalidUsername,
+    TResult? Function()? longUsername,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -918,14 +905,14 @@ mixin _$ValueFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmptyEmailField value)? emptyEmailField,
-    TResult Function(_InvalidEmail value)? invalidEmail,
-    TResult Function(_EmptyPasscodField value)? emptyPasswordField,
-    TResult Function(_ShortPassword value)? shortPassword,
-    TResult Function(_PasswordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmptyUsernameField value)? emptyUsernameField,
-    TResult Function(_InvalidUsername value)? invalidUsername,
-    TResult Function(_LongUsername value)? longUsername,
+    TResult? Function(_EmptyEmailField value)? emptyEmailField,
+    TResult? Function(_InvalidEmail value)? invalidEmail,
+    TResult? Function(_EmptyPasscodField value)? emptyPasswordField,
+    TResult? Function(_ShortPassword value)? shortPassword,
+    TResult? Function(_PasswordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmptyUsernameField value)? emptyUsernameField,
+    TResult? Function(_InvalidUsername value)? invalidUsername,
+    TResult? Function(_LongUsername value)? longUsername,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -947,16 +934,18 @@ mixin _$ValueFailure {
 abstract class $ValueFailureCopyWith<$Res> {
   factory $ValueFailureCopyWith(
           ValueFailure value, $Res Function(ValueFailure) then) =
-      _$ValueFailureCopyWithImpl<$Res>;
+      _$ValueFailureCopyWithImpl<$Res, ValueFailure>;
 }
 
 /// @nodoc
-class _$ValueFailureCopyWithImpl<$Res> implements $ValueFailureCopyWith<$Res> {
+class _$ValueFailureCopyWithImpl<$Res, $Val extends ValueFailure>
+    implements $ValueFailureCopyWith<$Res> {
   _$ValueFailureCopyWithImpl(this._value, this._then);
 
-  final ValueFailure _value;
   // ignore: unused_field
-  final $Res Function(ValueFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -968,14 +957,11 @@ abstract class _$$_EmptyEmailFieldCopyWith<$Res> {
 
 /// @nodoc
 class __$$_EmptyEmailFieldCopyWithImpl<$Res>
-    extends _$ValueFailureCopyWithImpl<$Res>
+    extends _$ValueFailureCopyWithImpl<$Res, _$_EmptyEmailField>
     implements _$$_EmptyEmailFieldCopyWith<$Res> {
   __$$_EmptyEmailFieldCopyWithImpl(
       _$_EmptyEmailField _value, $Res Function(_$_EmptyEmailField) _then)
-      : super(_value, (v) => _then(v as _$_EmptyEmailField));
-
-  @override
-  _$_EmptyEmailField get _value => super._value as _$_EmptyEmailField;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1015,14 +1001,14 @@ class _$_EmptyEmailField implements _EmptyEmailField {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyEmailField,
-    TResult Function()? invalidEmail,
-    TResult Function()? emptyPasswordField,
-    TResult Function()? shortPassword,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emptyUsernameField,
-    TResult Function()? invalidUsername,
-    TResult Function()? longUsername,
+    TResult? Function()? emptyEmailField,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? emptyPasswordField,
+    TResult? Function()? shortPassword,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emptyUsernameField,
+    TResult? Function()? invalidUsername,
+    TResult? Function()? longUsername,
   }) {
     return emptyEmailField?.call();
   }
@@ -1064,14 +1050,14 @@ class _$_EmptyEmailField implements _EmptyEmailField {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmptyEmailField value)? emptyEmailField,
-    TResult Function(_InvalidEmail value)? invalidEmail,
-    TResult Function(_EmptyPasscodField value)? emptyPasswordField,
-    TResult Function(_ShortPassword value)? shortPassword,
-    TResult Function(_PasswordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmptyUsernameField value)? emptyUsernameField,
-    TResult Function(_InvalidUsername value)? invalidUsername,
-    TResult Function(_LongUsername value)? longUsername,
+    TResult? Function(_EmptyEmailField value)? emptyEmailField,
+    TResult? Function(_InvalidEmail value)? invalidEmail,
+    TResult? Function(_EmptyPasscodField value)? emptyPasswordField,
+    TResult? Function(_ShortPassword value)? shortPassword,
+    TResult? Function(_PasswordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmptyUsernameField value)? emptyUsernameField,
+    TResult? Function(_InvalidUsername value)? invalidUsername,
+    TResult? Function(_LongUsername value)? longUsername,
   }) {
     return emptyEmailField?.call(this);
   }
@@ -1109,14 +1095,11 @@ abstract class _$$_InvalidEmailCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InvalidEmailCopyWithImpl<$Res>
-    extends _$ValueFailureCopyWithImpl<$Res>
+    extends _$ValueFailureCopyWithImpl<$Res, _$_InvalidEmail>
     implements _$$_InvalidEmailCopyWith<$Res> {
   __$$_InvalidEmailCopyWithImpl(
       _$_InvalidEmail _value, $Res Function(_$_InvalidEmail) _then)
-      : super(_value, (v) => _then(v as _$_InvalidEmail));
-
-  @override
-  _$_InvalidEmail get _value => super._value as _$_InvalidEmail;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1156,14 +1139,14 @@ class _$_InvalidEmail implements _InvalidEmail {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyEmailField,
-    TResult Function()? invalidEmail,
-    TResult Function()? emptyPasswordField,
-    TResult Function()? shortPassword,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emptyUsernameField,
-    TResult Function()? invalidUsername,
-    TResult Function()? longUsername,
+    TResult? Function()? emptyEmailField,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? emptyPasswordField,
+    TResult? Function()? shortPassword,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emptyUsernameField,
+    TResult? Function()? invalidUsername,
+    TResult? Function()? longUsername,
   }) {
     return invalidEmail?.call();
   }
@@ -1205,14 +1188,14 @@ class _$_InvalidEmail implements _InvalidEmail {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmptyEmailField value)? emptyEmailField,
-    TResult Function(_InvalidEmail value)? invalidEmail,
-    TResult Function(_EmptyPasscodField value)? emptyPasswordField,
-    TResult Function(_ShortPassword value)? shortPassword,
-    TResult Function(_PasswordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmptyUsernameField value)? emptyUsernameField,
-    TResult Function(_InvalidUsername value)? invalidUsername,
-    TResult Function(_LongUsername value)? longUsername,
+    TResult? Function(_EmptyEmailField value)? emptyEmailField,
+    TResult? Function(_InvalidEmail value)? invalidEmail,
+    TResult? Function(_EmptyPasscodField value)? emptyPasswordField,
+    TResult? Function(_ShortPassword value)? shortPassword,
+    TResult? Function(_PasswordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmptyUsernameField value)? emptyUsernameField,
+    TResult? Function(_InvalidUsername value)? invalidUsername,
+    TResult? Function(_LongUsername value)? longUsername,
   }) {
     return invalidEmail?.call(this);
   }
@@ -1250,14 +1233,11 @@ abstract class _$$_EmptyPasscodFieldCopyWith<$Res> {
 
 /// @nodoc
 class __$$_EmptyPasscodFieldCopyWithImpl<$Res>
-    extends _$ValueFailureCopyWithImpl<$Res>
+    extends _$ValueFailureCopyWithImpl<$Res, _$_EmptyPasscodField>
     implements _$$_EmptyPasscodFieldCopyWith<$Res> {
   __$$_EmptyPasscodFieldCopyWithImpl(
       _$_EmptyPasscodField _value, $Res Function(_$_EmptyPasscodField) _then)
-      : super(_value, (v) => _then(v as _$_EmptyPasscodField));
-
-  @override
-  _$_EmptyPasscodField get _value => super._value as _$_EmptyPasscodField;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1297,14 +1277,14 @@ class _$_EmptyPasscodField implements _EmptyPasscodField {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyEmailField,
-    TResult Function()? invalidEmail,
-    TResult Function()? emptyPasswordField,
-    TResult Function()? shortPassword,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emptyUsernameField,
-    TResult Function()? invalidUsername,
-    TResult Function()? longUsername,
+    TResult? Function()? emptyEmailField,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? emptyPasswordField,
+    TResult? Function()? shortPassword,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emptyUsernameField,
+    TResult? Function()? invalidUsername,
+    TResult? Function()? longUsername,
   }) {
     return emptyPasswordField?.call();
   }
@@ -1346,14 +1326,14 @@ class _$_EmptyPasscodField implements _EmptyPasscodField {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmptyEmailField value)? emptyEmailField,
-    TResult Function(_InvalidEmail value)? invalidEmail,
-    TResult Function(_EmptyPasscodField value)? emptyPasswordField,
-    TResult Function(_ShortPassword value)? shortPassword,
-    TResult Function(_PasswordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmptyUsernameField value)? emptyUsernameField,
-    TResult Function(_InvalidUsername value)? invalidUsername,
-    TResult Function(_LongUsername value)? longUsername,
+    TResult? Function(_EmptyEmailField value)? emptyEmailField,
+    TResult? Function(_InvalidEmail value)? invalidEmail,
+    TResult? Function(_EmptyPasscodField value)? emptyPasswordField,
+    TResult? Function(_ShortPassword value)? shortPassword,
+    TResult? Function(_PasswordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmptyUsernameField value)? emptyUsernameField,
+    TResult? Function(_InvalidUsername value)? invalidUsername,
+    TResult? Function(_LongUsername value)? longUsername,
   }) {
     return emptyPasswordField?.call(this);
   }
@@ -1391,14 +1371,11 @@ abstract class _$$_ShortPasswordCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ShortPasswordCopyWithImpl<$Res>
-    extends _$ValueFailureCopyWithImpl<$Res>
+    extends _$ValueFailureCopyWithImpl<$Res, _$_ShortPassword>
     implements _$$_ShortPasswordCopyWith<$Res> {
   __$$_ShortPasswordCopyWithImpl(
       _$_ShortPassword _value, $Res Function(_$_ShortPassword) _then)
-      : super(_value, (v) => _then(v as _$_ShortPassword));
-
-  @override
-  _$_ShortPassword get _value => super._value as _$_ShortPassword;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1438,14 +1415,14 @@ class _$_ShortPassword implements _ShortPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyEmailField,
-    TResult Function()? invalidEmail,
-    TResult Function()? emptyPasswordField,
-    TResult Function()? shortPassword,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emptyUsernameField,
-    TResult Function()? invalidUsername,
-    TResult Function()? longUsername,
+    TResult? Function()? emptyEmailField,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? emptyPasswordField,
+    TResult? Function()? shortPassword,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emptyUsernameField,
+    TResult? Function()? invalidUsername,
+    TResult? Function()? longUsername,
   }) {
     return shortPassword?.call();
   }
@@ -1487,14 +1464,14 @@ class _$_ShortPassword implements _ShortPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmptyEmailField value)? emptyEmailField,
-    TResult Function(_InvalidEmail value)? invalidEmail,
-    TResult Function(_EmptyPasscodField value)? emptyPasswordField,
-    TResult Function(_ShortPassword value)? shortPassword,
-    TResult Function(_PasswordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmptyUsernameField value)? emptyUsernameField,
-    TResult Function(_InvalidUsername value)? invalidUsername,
-    TResult Function(_LongUsername value)? longUsername,
+    TResult? Function(_EmptyEmailField value)? emptyEmailField,
+    TResult? Function(_InvalidEmail value)? invalidEmail,
+    TResult? Function(_EmptyPasscodField value)? emptyPasswordField,
+    TResult? Function(_ShortPassword value)? shortPassword,
+    TResult? Function(_PasswordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmptyUsernameField value)? emptyUsernameField,
+    TResult? Function(_InvalidUsername value)? invalidUsername,
+    TResult? Function(_LongUsername value)? longUsername,
   }) {
     return shortPassword?.call(this);
   }
@@ -1532,14 +1509,11 @@ abstract class _$$_PasswordsDontMatchCopyWith<$Res> {
 
 /// @nodoc
 class __$$_PasswordsDontMatchCopyWithImpl<$Res>
-    extends _$ValueFailureCopyWithImpl<$Res>
+    extends _$ValueFailureCopyWithImpl<$Res, _$_PasswordsDontMatch>
     implements _$$_PasswordsDontMatchCopyWith<$Res> {
   __$$_PasswordsDontMatchCopyWithImpl(
       _$_PasswordsDontMatch _value, $Res Function(_$_PasswordsDontMatch) _then)
-      : super(_value, (v) => _then(v as _$_PasswordsDontMatch));
-
-  @override
-  _$_PasswordsDontMatch get _value => super._value as _$_PasswordsDontMatch;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1579,14 +1553,14 @@ class _$_PasswordsDontMatch implements _PasswordsDontMatch {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyEmailField,
-    TResult Function()? invalidEmail,
-    TResult Function()? emptyPasswordField,
-    TResult Function()? shortPassword,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emptyUsernameField,
-    TResult Function()? invalidUsername,
-    TResult Function()? longUsername,
+    TResult? Function()? emptyEmailField,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? emptyPasswordField,
+    TResult? Function()? shortPassword,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emptyUsernameField,
+    TResult? Function()? invalidUsername,
+    TResult? Function()? longUsername,
   }) {
     return passwordsDontMatch?.call();
   }
@@ -1628,14 +1602,14 @@ class _$_PasswordsDontMatch implements _PasswordsDontMatch {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmptyEmailField value)? emptyEmailField,
-    TResult Function(_InvalidEmail value)? invalidEmail,
-    TResult Function(_EmptyPasscodField value)? emptyPasswordField,
-    TResult Function(_ShortPassword value)? shortPassword,
-    TResult Function(_PasswordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmptyUsernameField value)? emptyUsernameField,
-    TResult Function(_InvalidUsername value)? invalidUsername,
-    TResult Function(_LongUsername value)? longUsername,
+    TResult? Function(_EmptyEmailField value)? emptyEmailField,
+    TResult? Function(_InvalidEmail value)? invalidEmail,
+    TResult? Function(_EmptyPasscodField value)? emptyPasswordField,
+    TResult? Function(_ShortPassword value)? shortPassword,
+    TResult? Function(_PasswordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmptyUsernameField value)? emptyUsernameField,
+    TResult? Function(_InvalidUsername value)? invalidUsername,
+    TResult? Function(_LongUsername value)? longUsername,
   }) {
     return passwordsDontMatch?.call(this);
   }
@@ -1673,14 +1647,11 @@ abstract class _$$_EmptyUsernameFieldCopyWith<$Res> {
 
 /// @nodoc
 class __$$_EmptyUsernameFieldCopyWithImpl<$Res>
-    extends _$ValueFailureCopyWithImpl<$Res>
+    extends _$ValueFailureCopyWithImpl<$Res, _$_EmptyUsernameField>
     implements _$$_EmptyUsernameFieldCopyWith<$Res> {
   __$$_EmptyUsernameFieldCopyWithImpl(
       _$_EmptyUsernameField _value, $Res Function(_$_EmptyUsernameField) _then)
-      : super(_value, (v) => _then(v as _$_EmptyUsernameField));
-
-  @override
-  _$_EmptyUsernameField get _value => super._value as _$_EmptyUsernameField;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1720,14 +1691,14 @@ class _$_EmptyUsernameField implements _EmptyUsernameField {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyEmailField,
-    TResult Function()? invalidEmail,
-    TResult Function()? emptyPasswordField,
-    TResult Function()? shortPassword,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emptyUsernameField,
-    TResult Function()? invalidUsername,
-    TResult Function()? longUsername,
+    TResult? Function()? emptyEmailField,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? emptyPasswordField,
+    TResult? Function()? shortPassword,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emptyUsernameField,
+    TResult? Function()? invalidUsername,
+    TResult? Function()? longUsername,
   }) {
     return emptyUsernameField?.call();
   }
@@ -1769,14 +1740,14 @@ class _$_EmptyUsernameField implements _EmptyUsernameField {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmptyEmailField value)? emptyEmailField,
-    TResult Function(_InvalidEmail value)? invalidEmail,
-    TResult Function(_EmptyPasscodField value)? emptyPasswordField,
-    TResult Function(_ShortPassword value)? shortPassword,
-    TResult Function(_PasswordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmptyUsernameField value)? emptyUsernameField,
-    TResult Function(_InvalidUsername value)? invalidUsername,
-    TResult Function(_LongUsername value)? longUsername,
+    TResult? Function(_EmptyEmailField value)? emptyEmailField,
+    TResult? Function(_InvalidEmail value)? invalidEmail,
+    TResult? Function(_EmptyPasscodField value)? emptyPasswordField,
+    TResult? Function(_ShortPassword value)? shortPassword,
+    TResult? Function(_PasswordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmptyUsernameField value)? emptyUsernameField,
+    TResult? Function(_InvalidUsername value)? invalidUsername,
+    TResult? Function(_LongUsername value)? longUsername,
   }) {
     return emptyUsernameField?.call(this);
   }
@@ -1814,14 +1785,11 @@ abstract class _$$_InvalidUsernameCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InvalidUsernameCopyWithImpl<$Res>
-    extends _$ValueFailureCopyWithImpl<$Res>
+    extends _$ValueFailureCopyWithImpl<$Res, _$_InvalidUsername>
     implements _$$_InvalidUsernameCopyWith<$Res> {
   __$$_InvalidUsernameCopyWithImpl(
       _$_InvalidUsername _value, $Res Function(_$_InvalidUsername) _then)
-      : super(_value, (v) => _then(v as _$_InvalidUsername));
-
-  @override
-  _$_InvalidUsername get _value => super._value as _$_InvalidUsername;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1861,14 +1829,14 @@ class _$_InvalidUsername implements _InvalidUsername {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyEmailField,
-    TResult Function()? invalidEmail,
-    TResult Function()? emptyPasswordField,
-    TResult Function()? shortPassword,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emptyUsernameField,
-    TResult Function()? invalidUsername,
-    TResult Function()? longUsername,
+    TResult? Function()? emptyEmailField,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? emptyPasswordField,
+    TResult? Function()? shortPassword,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emptyUsernameField,
+    TResult? Function()? invalidUsername,
+    TResult? Function()? longUsername,
   }) {
     return invalidUsername?.call();
   }
@@ -1910,14 +1878,14 @@ class _$_InvalidUsername implements _InvalidUsername {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmptyEmailField value)? emptyEmailField,
-    TResult Function(_InvalidEmail value)? invalidEmail,
-    TResult Function(_EmptyPasscodField value)? emptyPasswordField,
-    TResult Function(_ShortPassword value)? shortPassword,
-    TResult Function(_PasswordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmptyUsernameField value)? emptyUsernameField,
-    TResult Function(_InvalidUsername value)? invalidUsername,
-    TResult Function(_LongUsername value)? longUsername,
+    TResult? Function(_EmptyEmailField value)? emptyEmailField,
+    TResult? Function(_InvalidEmail value)? invalidEmail,
+    TResult? Function(_EmptyPasscodField value)? emptyPasswordField,
+    TResult? Function(_ShortPassword value)? shortPassword,
+    TResult? Function(_PasswordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmptyUsernameField value)? emptyUsernameField,
+    TResult? Function(_InvalidUsername value)? invalidUsername,
+    TResult? Function(_LongUsername value)? longUsername,
   }) {
     return invalidUsername?.call(this);
   }
@@ -1955,14 +1923,11 @@ abstract class _$$_LongUsernameCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LongUsernameCopyWithImpl<$Res>
-    extends _$ValueFailureCopyWithImpl<$Res>
+    extends _$ValueFailureCopyWithImpl<$Res, _$_LongUsername>
     implements _$$_LongUsernameCopyWith<$Res> {
   __$$_LongUsernameCopyWithImpl(
       _$_LongUsername _value, $Res Function(_$_LongUsername) _then)
-      : super(_value, (v) => _then(v as _$_LongUsername));
-
-  @override
-  _$_LongUsername get _value => super._value as _$_LongUsername;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2002,14 +1967,14 @@ class _$_LongUsername implements _LongUsername {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? emptyEmailField,
-    TResult Function()? invalidEmail,
-    TResult Function()? emptyPasswordField,
-    TResult Function()? shortPassword,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emptyUsernameField,
-    TResult Function()? invalidUsername,
-    TResult Function()? longUsername,
+    TResult? Function()? emptyEmailField,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? emptyPasswordField,
+    TResult? Function()? shortPassword,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emptyUsernameField,
+    TResult? Function()? invalidUsername,
+    TResult? Function()? longUsername,
   }) {
     return longUsername?.call();
   }
@@ -2051,14 +2016,14 @@ class _$_LongUsername implements _LongUsername {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmptyEmailField value)? emptyEmailField,
-    TResult Function(_InvalidEmail value)? invalidEmail,
-    TResult Function(_EmptyPasscodField value)? emptyPasswordField,
-    TResult Function(_ShortPassword value)? shortPassword,
-    TResult Function(_PasswordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmptyUsernameField value)? emptyUsernameField,
-    TResult Function(_InvalidUsername value)? invalidUsername,
-    TResult Function(_LongUsername value)? longUsername,
+    TResult? Function(_EmptyEmailField value)? emptyEmailField,
+    TResult? Function(_InvalidEmail value)? invalidEmail,
+    TResult? Function(_EmptyPasscodField value)? emptyPasswordField,
+    TResult? Function(_ShortPassword value)? shortPassword,
+    TResult? Function(_PasswordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmptyUsernameField value)? emptyUsernameField,
+    TResult? Function(_InvalidUsername value)? invalidUsername,
+    TResult? Function(_LongUsername value)? longUsername,
   }) {
     return longUsername?.call(this);
   }
@@ -2102,13 +2067,13 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? userNotFound,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emailNotVerified,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emailNotVerified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2137,14 +2102,14 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_passwordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmailNotVerified value)? emailNotVerified,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_passwordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmailNotVerified value)? emailNotVerified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2166,16 +2131,18 @@ mixin _$AuthFailure {
 abstract class $AuthFailureCopyWith<$Res> {
   factory $AuthFailureCopyWith(
           AuthFailure value, $Res Function(AuthFailure) then) =
-      _$AuthFailureCopyWithImpl<$Res>;
+      _$AuthFailureCopyWithImpl<$Res, AuthFailure>;
 }
 
 /// @nodoc
-class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
+class _$AuthFailureCopyWithImpl<$Res, $Val extends AuthFailure>
+    implements $AuthFailureCopyWith<$Res> {
   _$AuthFailureCopyWithImpl(this._value, this._then);
 
-  final AuthFailure _value;
   // ignore: unused_field
-  final $Res Function(AuthFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -2187,14 +2154,11 @@ abstract class _$$_CancelledByUserCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CancelledByUserCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_CancelledByUser>
     implements _$$_CancelledByUserCopyWith<$Res> {
   __$$_CancelledByUserCopyWithImpl(
       _$_CancelledByUser _value, $Res Function(_$_CancelledByUser) _then)
-      : super(_value, (v) => _then(v as _$_CancelledByUser));
-
-  @override
-  _$_CancelledByUser get _value => super._value as _$_CancelledByUser;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2233,13 +2197,13 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? userNotFound,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emailNotVerified,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emailNotVerified,
   }) {
     return cancelledByUser?.call();
   }
@@ -2280,14 +2244,14 @@ class _$_CancelledByUser implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_passwordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmailNotVerified value)? emailNotVerified,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_passwordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmailNotVerified value)? emailNotVerified,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -2324,14 +2288,12 @@ abstract class _$$_ServerErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+class __$$_ServerErrorCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_ServerError>
     implements _$$_ServerErrorCopyWith<$Res> {
   __$$_ServerErrorCopyWithImpl(
       _$_ServerError _value, $Res Function(_$_ServerError) _then)
-      : super(_value, (v) => _then(v as _$_ServerError));
-
-  @override
-  _$_ServerError get _value => super._value as _$_ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2370,13 +2332,13 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? userNotFound,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emailNotVerified,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emailNotVerified,
   }) {
     return serverError?.call();
   }
@@ -2417,14 +2379,14 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_passwordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmailNotVerified value)? emailNotVerified,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_passwordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmailNotVerified value)? emailNotVerified,
   }) {
     return serverError?.call(this);
   }
@@ -2462,14 +2424,11 @@ abstract class _$$_EmailAlreadyInUseCopyWith<$Res> {
 
 /// @nodoc
 class __$$_EmailAlreadyInUseCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_EmailAlreadyInUse>
     implements _$$_EmailAlreadyInUseCopyWith<$Res> {
   __$$_EmailAlreadyInUseCopyWithImpl(
       _$_EmailAlreadyInUse _value, $Res Function(_$_EmailAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as _$_EmailAlreadyInUse));
-
-  @override
-  _$_EmailAlreadyInUse get _value => super._value as _$_EmailAlreadyInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2508,13 +2467,13 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? userNotFound,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emailNotVerified,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emailNotVerified,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -2555,14 +2514,14 @@ class _$_EmailAlreadyInUse implements _EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_passwordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmailNotVerified value)? emailNotVerified,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_passwordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmailNotVerified value)? emailNotVerified,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -2601,16 +2560,13 @@ abstract class _$$_InvalidEmailAndPasswordCombinationCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InvalidEmailAndPasswordCombinationCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res,
+        _$_InvalidEmailAndPasswordCombination>
     implements _$$_InvalidEmailAndPasswordCombinationCopyWith<$Res> {
   __$$_InvalidEmailAndPasswordCombinationCopyWithImpl(
       _$_InvalidEmailAndPasswordCombination _value,
       $Res Function(_$_InvalidEmailAndPasswordCombination) _then)
-      : super(_value, (v) => _then(v as _$_InvalidEmailAndPasswordCombination));
-
-  @override
-  _$_InvalidEmailAndPasswordCombination get _value =>
-      super._value as _$_InvalidEmailAndPasswordCombination;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2651,13 +2607,13 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? userNotFound,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emailNotVerified,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emailNotVerified,
   }) {
     return invalidEmailAndPasswordCombination?.call();
   }
@@ -2698,14 +2654,14 @@ class _$_InvalidEmailAndPasswordCombination
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_passwordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmailNotVerified value)? emailNotVerified,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_passwordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmailNotVerified value)? emailNotVerified,
   }) {
     return invalidEmailAndPasswordCombination?.call(this);
   }
@@ -2744,14 +2700,11 @@ abstract class _$$_UserNotFoundCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UserNotFoundCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_UserNotFound>
     implements _$$_UserNotFoundCopyWith<$Res> {
   __$$_UserNotFoundCopyWithImpl(
       _$_UserNotFound _value, $Res Function(_$_UserNotFound) _then)
-      : super(_value, (v) => _then(v as _$_UserNotFound));
-
-  @override
-  _$_UserNotFound get _value => super._value as _$_UserNotFound;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2790,13 +2743,13 @@ class _$_UserNotFound implements _UserNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? userNotFound,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emailNotVerified,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emailNotVerified,
   }) {
     return userNotFound?.call();
   }
@@ -2837,14 +2790,14 @@ class _$_UserNotFound implements _UserNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_passwordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmailNotVerified value)? emailNotVerified,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_passwordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmailNotVerified value)? emailNotVerified,
   }) {
     return userNotFound?.call(this);
   }
@@ -2882,14 +2835,11 @@ abstract class _$$_passwordsDontMatchCopyWith<$Res> {
 
 /// @nodoc
 class __$$_passwordsDontMatchCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_passwordsDontMatch>
     implements _$$_passwordsDontMatchCopyWith<$Res> {
   __$$_passwordsDontMatchCopyWithImpl(
       _$_passwordsDontMatch _value, $Res Function(_$_passwordsDontMatch) _then)
-      : super(_value, (v) => _then(v as _$_passwordsDontMatch));
-
-  @override
-  _$_passwordsDontMatch get _value => super._value as _$_passwordsDontMatch;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -2928,13 +2878,13 @@ class _$_passwordsDontMatch implements _passwordsDontMatch {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? userNotFound,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emailNotVerified,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emailNotVerified,
   }) {
     return passwordsDontMatch?.call();
   }
@@ -2975,14 +2925,14 @@ class _$_passwordsDontMatch implements _passwordsDontMatch {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_passwordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmailNotVerified value)? emailNotVerified,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_passwordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmailNotVerified value)? emailNotVerified,
   }) {
     return passwordsDontMatch?.call(this);
   }
@@ -3020,14 +2970,11 @@ abstract class _$$_EmailNotVerifiedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_EmailNotVerifiedCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$_EmailNotVerified>
     implements _$$_EmailNotVerifiedCopyWith<$Res> {
   __$$_EmailNotVerifiedCopyWithImpl(
       _$_EmailNotVerified _value, $Res Function(_$_EmailNotVerified) _then)
-      : super(_value, (v) => _then(v as _$_EmailNotVerified));
-
-  @override
-  _$_EmailNotVerified get _value => super._value as _$_EmailNotVerified;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -3066,13 +3013,13 @@ class _$_EmailNotVerified implements _EmailNotVerified {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? invalidEmailAndPasswordCombination,
-    TResult Function()? userNotFound,
-    TResult Function()? passwordsDontMatch,
-    TResult Function()? emailNotVerified,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? passwordsDontMatch,
+    TResult? Function()? emailNotVerified,
   }) {
     return emailNotVerified?.call();
   }
@@ -3113,14 +3060,14 @@ class _$_EmailNotVerified implements _EmailNotVerified {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CancelledByUser value)? cancelledByUser,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(_InvalidEmailAndPasswordCombination value)?
+    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(_InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_passwordsDontMatch value)? passwordsDontMatch,
-    TResult Function(_EmailNotVerified value)? emailNotVerified,
+    TResult? Function(_UserNotFound value)? userNotFound,
+    TResult? Function(_passwordsDontMatch value)? passwordsDontMatch,
+    TResult? Function(_EmailNotVerified value)? emailNotVerified,
   }) {
     return emailNotVerified?.call(this);
   }

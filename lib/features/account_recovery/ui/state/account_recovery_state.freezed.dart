@@ -31,7 +31,8 @@ mixin _$AccountRecoveryState {
 abstract class $AccountRecoveryStateCopyWith<$Res> {
   factory $AccountRecoveryStateCopyWith(AccountRecoveryState value,
           $Res Function(AccountRecoveryState) then) =
-      _$AccountRecoveryStateCopyWithImpl<$Res>;
+      _$AccountRecoveryStateCopyWithImpl<$Res, AccountRecoveryState>;
+  @useResult
   $Res call(
       {EmailValueObject email,
       bool isSubmitting,
@@ -40,39 +41,42 @@ abstract class $AccountRecoveryStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountRecoveryStateCopyWithImpl<$Res>
+class _$AccountRecoveryStateCopyWithImpl<$Res,
+        $Val extends AccountRecoveryState>
     implements $AccountRecoveryStateCopyWith<$Res> {
   _$AccountRecoveryStateCopyWithImpl(this._value, this._then);
 
-  final AccountRecoveryState _value;
   // ignore: unused_field
-  final $Res Function(AccountRecoveryState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? isSubmitting = freezed,
-    Object? showFailureMessages = freezed,
-    Object? recoverySuccessOrFailure = freezed,
+    Object? email = null,
+    Object? isSubmitting = null,
+    Object? showFailureMessages = null,
+    Object? recoverySuccessOrFailure = null,
   }) {
     return _then(_value.copyWith(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailValueObject,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      showFailureMessages: showFailureMessages == freezed
+      showFailureMessages: null == showFailureMessages
           ? _value.showFailureMessages
           : showFailureMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      recoverySuccessOrFailure: recoverySuccessOrFailure == freezed
+      recoverySuccessOrFailure: null == recoverySuccessOrFailure
           ? _value.recoverySuccessOrFailure
           : recoverySuccessOrFailure // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,6 +87,7 @@ abstract class _$$_AccountRecoveryStateCopyWith<$Res>
           $Res Function(_$_AccountRecoveryState) then) =
       __$$_AccountRecoveryStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {EmailValueObject email,
       bool isSubmitting,
@@ -92,36 +97,34 @@ abstract class _$$_AccountRecoveryStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_AccountRecoveryStateCopyWithImpl<$Res>
-    extends _$AccountRecoveryStateCopyWithImpl<$Res>
+    extends _$AccountRecoveryStateCopyWithImpl<$Res, _$_AccountRecoveryState>
     implements _$$_AccountRecoveryStateCopyWith<$Res> {
   __$$_AccountRecoveryStateCopyWithImpl(_$_AccountRecoveryState _value,
       $Res Function(_$_AccountRecoveryState) _then)
-      : super(_value, (v) => _then(v as _$_AccountRecoveryState));
+      : super(_value, _then);
 
-  @override
-  _$_AccountRecoveryState get _value => super._value as _$_AccountRecoveryState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? isSubmitting = freezed,
-    Object? showFailureMessages = freezed,
-    Object? recoverySuccessOrFailure = freezed,
+    Object? email = null,
+    Object? isSubmitting = null,
+    Object? showFailureMessages = null,
+    Object? recoverySuccessOrFailure = null,
   }) {
     return _then(_$_AccountRecoveryState(
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailValueObject,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      showFailureMessages: showFailureMessages == freezed
+      showFailureMessages: null == showFailureMessages
           ? _value.showFailureMessages
           : showFailureMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      recoverySuccessOrFailure: recoverySuccessOrFailure == freezed
+      recoverySuccessOrFailure: null == recoverySuccessOrFailure
           ? _value.recoverySuccessOrFailure
           : recoverySuccessOrFailure // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
@@ -157,25 +160,23 @@ class _$_AccountRecoveryState implements _AccountRecoveryState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AccountRecoveryState &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality()
-                .equals(other.showFailureMessages, showFailureMessages) &&
-            const DeepCollectionEquality().equals(
-                other.recoverySuccessOrFailure, recoverySuccessOrFailure));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.showFailureMessages, showFailureMessages) ||
+                other.showFailureMessages == showFailureMessages) &&
+            (identical(
+                    other.recoverySuccessOrFailure, recoverySuccessOrFailure) ||
+                other.recoverySuccessOrFailure == recoverySuccessOrFailure));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(showFailureMessages),
-      const DeepCollectionEquality().hash(recoverySuccessOrFailure));
+  int get hashCode => Object.hash(runtimeType, email, isSubmitting,
+      showFailureMessages, recoverySuccessOrFailure);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AccountRecoveryStateCopyWith<_$_AccountRecoveryState> get copyWith =>
       __$$_AccountRecoveryStateCopyWithImpl<_$_AccountRecoveryState>(
           this, _$identity);

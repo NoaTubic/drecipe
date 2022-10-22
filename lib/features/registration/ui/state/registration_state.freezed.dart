@@ -35,7 +35,8 @@ mixin _$RegistrationState {
 abstract class $RegistrationStateCopyWith<$Res> {
   factory $RegistrationStateCopyWith(
           RegistrationState value, $Res Function(RegistrationState) then) =
-      _$RegistrationStateCopyWithImpl<$Res>;
+      _$RegistrationStateCopyWithImpl<$Res, RegistrationState>;
+  @useResult
   $Res call(
       {UsernameValueObject username,
       EmailValueObject email,
@@ -47,54 +48,56 @@ abstract class $RegistrationStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RegistrationStateCopyWithImpl<$Res>
+class _$RegistrationStateCopyWithImpl<$Res, $Val extends RegistrationState>
     implements $RegistrationStateCopyWith<$Res> {
   _$RegistrationStateCopyWithImpl(this._value, this._then);
 
-  final RegistrationState _value;
   // ignore: unused_field
-  final $Res Function(RegistrationState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? passwordRepeated = freezed,
-    Object? isSubmitting = freezed,
-    Object? showErrorMessages = freezed,
-    Object? registrationFailureOrSuccess = freezed,
+    Object? username = null,
+    Object? email = null,
+    Object? password = null,
+    Object? passwordRepeated = null,
+    Object? isSubmitting = null,
+    Object? showErrorMessages = null,
+    Object? registrationFailureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as UsernameValueObject,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailValueObject,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as PasswordValueObject,
-      passwordRepeated: passwordRepeated == freezed
+      passwordRepeated: null == passwordRepeated
           ? _value.passwordRepeated
           : passwordRepeated // ignore: cast_nullable_to_non_nullable
               as PasswordValueObject,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      registrationFailureOrSuccess: registrationFailureOrSuccess == freezed
+      registrationFailureOrSuccess: null == registrationFailureOrSuccess
           ? _value.registrationFailureOrSuccess
           : registrationFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -105,6 +108,7 @@ abstract class _$$_RegistrationStateCopyWith<$Res>
           $Res Function(_$_RegistrationState) then) =
       __$$_RegistrationStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {UsernameValueObject username,
       EmailValueObject email,
@@ -117,51 +121,49 @@ abstract class _$$_RegistrationStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_RegistrationStateCopyWithImpl<$Res>
-    extends _$RegistrationStateCopyWithImpl<$Res>
+    extends _$RegistrationStateCopyWithImpl<$Res, _$_RegistrationState>
     implements _$$_RegistrationStateCopyWith<$Res> {
   __$$_RegistrationStateCopyWithImpl(
       _$_RegistrationState _value, $Res Function(_$_RegistrationState) _then)
-      : super(_value, (v) => _then(v as _$_RegistrationState));
+      : super(_value, _then);
 
-  @override
-  _$_RegistrationState get _value => super._value as _$_RegistrationState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? passwordRepeated = freezed,
-    Object? isSubmitting = freezed,
-    Object? showErrorMessages = freezed,
-    Object? registrationFailureOrSuccess = freezed,
+    Object? username = null,
+    Object? email = null,
+    Object? password = null,
+    Object? passwordRepeated = null,
+    Object? isSubmitting = null,
+    Object? showErrorMessages = null,
+    Object? registrationFailureOrSuccess = null,
   }) {
     return _then(_$_RegistrationState(
-      username: username == freezed
+      username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as UsernameValueObject,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailValueObject,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as PasswordValueObject,
-      passwordRepeated: passwordRepeated == freezed
+      passwordRepeated: null == passwordRepeated
           ? _value.passwordRepeated
           : passwordRepeated // ignore: cast_nullable_to_non_nullable
               as PasswordValueObject,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      registrationFailureOrSuccess: registrationFailureOrSuccess == freezed
+      registrationFailureOrSuccess: null == registrationFailureOrSuccess
           ? _value.registrationFailureOrSuccess
           : registrationFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
@@ -206,33 +208,37 @@ class _$_RegistrationState implements _RegistrationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegistrationState &&
-            const DeepCollectionEquality().equals(other.username, username) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.passwordRepeated, passwordRepeated) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality()
-                .equals(other.showErrorMessages, showErrorMessages) &&
-            const DeepCollectionEquality().equals(
-                other.registrationFailureOrSuccess,
-                registrationFailureOrSuccess));
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.passwordRepeated, passwordRepeated) ||
+                other.passwordRepeated == passwordRepeated) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.showErrorMessages, showErrorMessages) ||
+                other.showErrorMessages == showErrorMessages) &&
+            (identical(other.registrationFailureOrSuccess,
+                    registrationFailureOrSuccess) ||
+                other.registrationFailureOrSuccess ==
+                    registrationFailureOrSuccess));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(username),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(passwordRepeated),
-      const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(showErrorMessages),
-      const DeepCollectionEquality().hash(registrationFailureOrSuccess));
+      username,
+      email,
+      password,
+      passwordRepeated,
+      isSubmitting,
+      showErrorMessages,
+      registrationFailureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RegistrationStateCopyWith<_$_RegistrationState> get copyWith =>
       __$$_RegistrationStateCopyWithImpl<_$_RegistrationState>(
           this, _$identity);

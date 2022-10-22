@@ -32,11 +32,6 @@ class DrecipeBottomNavBar extends StatelessWidget {
         duration: Duration(milliseconds: DurationConstants.d040),
         curve: Curves.ease,
       ),
-      padding: const NavBarPadding.only(
-        top: Sizes.s20,
-        left: Sizes.s8,
-        right: Sizes.s8,
-      ),
       decoration: NavBarDecoration(
         // adjustScreenBottomPaddingOnCurve: false,
         colorBehindNavBar: AppColors.white,
@@ -81,7 +76,7 @@ List<PersistentBottomNavBarItem> _navBarItems({
       inactiveIcon: Image.asset(
         ImageAssets.icChefHatInactive,
         color: AppColors.lightGrey1,
-        width: Sizes.s24,
+        width: Sizes.s28,
       ),
       activeIcon: Image.asset(
         ImageAssets.icChefHatActive,
@@ -109,7 +104,7 @@ List<PersistentBottomNavBarItem> _navBarItems({
       inactiveIcon: Image.asset(
         ImageAssets.icIngredientInactive,
         color: AppColors.lightGrey1,
-        width: Sizes.s32,
+        width: Sizes.s30,
       ),
       activeIcon: Image.asset(
         ImageAssets.icIngredientActive,
@@ -137,7 +132,7 @@ List<PersistentBottomNavBarItem> _navBarItems({
       inactiveIcon: Icon(
         Icons.person_outline_rounded,
         color: AppColors.lightGrey1,
-        size: Sizes.s36,
+        size: Sizes.s32,
       ),
       activeIcon: Icon(
         Icons.person,
@@ -156,8 +151,14 @@ PersistentBottomNavBarItem _navBarItem({
   required String label,
 }) {
   return PersistentBottomNavBarItem(
-      inactiveIcon: inactiveIcon,
-      icon: activeIcon,
+      inactiveIcon: Padding(
+        padding: const EdgeInsets.only(bottom: Sizes.s8),
+        child: inactiveIcon,
+      ),
+      icon: Padding(
+        padding: const EdgeInsets.only(bottom: Sizes.s4),
+        child: activeIcon,
+      ),
       // title: label,
       textStyle: Theme.of(context)
           .textTheme

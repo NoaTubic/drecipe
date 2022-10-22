@@ -73,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Almost ready to start enjoying "),
         "email_verification_title":
             MessageLookupByLibrary.simpleMessage("Verify Email"),
+        "favorite_recipes_title":
+            MessageLookupByLibrary.simpleMessage("Favorites"),
         "label_or": MessageLookupByLibrary.simpleMessage("or"),
         "label_try_again":
             MessageLookupByLibrary.simpleMessage("Please try again later"),

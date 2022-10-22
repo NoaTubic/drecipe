@@ -34,39 +34,42 @@ mixin _$IngredientResponse {
 abstract class $IngredientResponseCopyWith<$Res> {
   factory $IngredientResponseCopyWith(
           IngredientResponse value, $Res Function(IngredientResponse) then) =
-      _$IngredientResponseCopyWithImpl<$Res>;
+      _$IngredientResponseCopyWithImpl<$Res, IngredientResponse>;
+  @useResult
   $Res call({int id, String? image, String original});
 }
 
 /// @nodoc
-class _$IngredientResponseCopyWithImpl<$Res>
+class _$IngredientResponseCopyWithImpl<$Res, $Val extends IngredientResponse>
     implements $IngredientResponseCopyWith<$Res> {
   _$IngredientResponseCopyWithImpl(this._value, this._then);
 
-  final IngredientResponse _value;
   // ignore: unused_field
-  final $Res Function(IngredientResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? image = freezed,
-    Object? original = freezed,
+    Object? original = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      original: original == freezed
+      original: null == original
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_IngredientResponseCopyWith<$Res>
           $Res Function(_$_IngredientResponse) then) =
       __$$_IngredientResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int id, String? image, String original});
 }
 
 /// @nodoc
 class __$$_IngredientResponseCopyWithImpl<$Res>
-    extends _$IngredientResponseCopyWithImpl<$Res>
+    extends _$IngredientResponseCopyWithImpl<$Res, _$_IngredientResponse>
     implements _$$_IngredientResponseCopyWith<$Res> {
   __$$_IngredientResponseCopyWithImpl(
       _$_IngredientResponse _value, $Res Function(_$_IngredientResponse) _then)
-      : super(_value, (v) => _then(v as _$_IngredientResponse));
+      : super(_value, _then);
 
-  @override
-  _$_IngredientResponse get _value => super._value as _$_IngredientResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? image = freezed,
-    Object? original = freezed,
+    Object? original = null,
   }) {
     return _then(_$_IngredientResponse(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      original: original == freezed
+      original: null == original
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
               as String,
@@ -140,21 +142,19 @@ class _$_IngredientResponse implements _IngredientResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IngredientResponse &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality().equals(other.original, original));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.original, original) ||
+                other.original == original));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(original));
+  int get hashCode => Object.hash(runtimeType, id, image, original);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_IngredientResponseCopyWith<_$_IngredientResponse> get copyWith =>
       __$$_IngredientResponseCopyWithImpl<_$_IngredientResponse>(
           this, _$identity);

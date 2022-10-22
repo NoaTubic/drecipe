@@ -48,5 +48,6 @@
   "recipe_details_instructions_title": "Instructions",
   "recipe_details_instructions_step": "Step",
   "recipe_details_instructions_ingredients": "Ingredients",
-  "recipe_details_instructions_equipment": "Equipment"
+  "recipe_details_instructions_equipment": "Equipment",
+  "favorite_recipes_title": "Favorites"
 }

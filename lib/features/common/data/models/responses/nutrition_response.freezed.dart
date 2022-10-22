@@ -36,7 +36,8 @@ mixin _$NutritionResponse {
 abstract class $NutritionResponseCopyWith<$Res> {
   factory $NutritionResponseCopyWith(
           NutritionResponse value, $Res Function(NutritionResponse) then) =
-      _$NutritionResponseCopyWithImpl<$Res>;
+      _$NutritionResponseCopyWithImpl<$Res, NutritionResponse>;
+  @useResult
   $Res call(
       {List<NutrientResponse> nutrients,
       CaloricBreakdownResponse caloricBreakdown,
@@ -47,45 +48,49 @@ abstract class $NutritionResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NutritionResponseCopyWithImpl<$Res>
+class _$NutritionResponseCopyWithImpl<$Res, $Val extends NutritionResponse>
     implements $NutritionResponseCopyWith<$Res> {
   _$NutritionResponseCopyWithImpl(this._value, this._then);
 
-  final NutritionResponse _value;
   // ignore: unused_field
-  final $Res Function(NutritionResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nutrients = freezed,
-    Object? caloricBreakdown = freezed,
+    Object? nutrients = null,
+    Object? caloricBreakdown = null,
     Object? weightPerServingResponse = freezed,
   }) {
     return _then(_value.copyWith(
-      nutrients: nutrients == freezed
+      nutrients: null == nutrients
           ? _value.nutrients
           : nutrients // ignore: cast_nullable_to_non_nullable
               as List<NutrientResponse>,
-      caloricBreakdown: caloricBreakdown == freezed
+      caloricBreakdown: null == caloricBreakdown
           ? _value.caloricBreakdown
           : caloricBreakdown // ignore: cast_nullable_to_non_nullable
               as CaloricBreakdownResponse,
-      weightPerServingResponse: weightPerServingResponse == freezed
+      weightPerServingResponse: freezed == weightPerServingResponse
           ? _value.weightPerServingResponse
           : weightPerServingResponse // ignore: cast_nullable_to_non_nullable
               as WeightPerServingResponse?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CaloricBreakdownResponseCopyWith<$Res> get caloricBreakdown {
     return $CaloricBreakdownResponseCopyWith<$Res>(_value.caloricBreakdown,
         (value) {
-      return _then(_value.copyWith(caloricBreakdown: value));
+      return _then(_value.copyWith(caloricBreakdown: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WeightPerServingResponseCopyWith<$Res>? get weightPerServingResponse {
     if (_value.weightPerServingResponse == null) {
       return null;
@@ -93,7 +98,7 @@ class _$NutritionResponseCopyWithImpl<$Res>
 
     return $WeightPerServingResponseCopyWith<$Res>(
         _value.weightPerServingResponse!, (value) {
-      return _then(_value.copyWith(weightPerServingResponse: value));
+      return _then(_value.copyWith(weightPerServingResponse: value) as $Val);
     });
   }
 }
@@ -105,6 +110,7 @@ abstract class _$$_NutritionResponseCopyWith<$Res>
           $Res Function(_$_NutritionResponse) then) =
       __$$_NutritionResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<NutrientResponse> nutrients,
       CaloricBreakdownResponse caloricBreakdown,
@@ -118,31 +124,29 @@ abstract class _$$_NutritionResponseCopyWith<$Res>
 
 /// @nodoc
 class __$$_NutritionResponseCopyWithImpl<$Res>
-    extends _$NutritionResponseCopyWithImpl<$Res>
+    extends _$NutritionResponseCopyWithImpl<$Res, _$_NutritionResponse>
     implements _$$_NutritionResponseCopyWith<$Res> {
   __$$_NutritionResponseCopyWithImpl(
       _$_NutritionResponse _value, $Res Function(_$_NutritionResponse) _then)
-      : super(_value, (v) => _then(v as _$_NutritionResponse));
+      : super(_value, _then);
 
-  @override
-  _$_NutritionResponse get _value => super._value as _$_NutritionResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nutrients = freezed,
-    Object? caloricBreakdown = freezed,
+    Object? nutrients = null,
+    Object? caloricBreakdown = null,
     Object? weightPerServingResponse = freezed,
   }) {
     return _then(_$_NutritionResponse(
-      nutrients: nutrients == freezed
+      nutrients: null == nutrients
           ? _value._nutrients
           : nutrients // ignore: cast_nullable_to_non_nullable
               as List<NutrientResponse>,
-      caloricBreakdown: caloricBreakdown == freezed
+      caloricBreakdown: null == caloricBreakdown
           ? _value.caloricBreakdown
           : caloricBreakdown // ignore: cast_nullable_to_non_nullable
               as CaloricBreakdownResponse,
-      weightPerServingResponse: weightPerServingResponse == freezed
+      weightPerServingResponse: freezed == weightPerServingResponse
           ? _value.weightPerServingResponse
           : weightPerServingResponse // ignore: cast_nullable_to_non_nullable
               as WeightPerServingResponse?,
@@ -186,10 +190,11 @@ class _$_NutritionResponse implements _NutritionResponse {
             other is _$_NutritionResponse &&
             const DeepCollectionEquality()
                 .equals(other._nutrients, _nutrients) &&
-            const DeepCollectionEquality()
-                .equals(other.caloricBreakdown, caloricBreakdown) &&
-            const DeepCollectionEquality().equals(
-                other.weightPerServingResponse, weightPerServingResponse));
+            (identical(other.caloricBreakdown, caloricBreakdown) ||
+                other.caloricBreakdown == caloricBreakdown) &&
+            (identical(
+                    other.weightPerServingResponse, weightPerServingResponse) ||
+                other.weightPerServingResponse == weightPerServingResponse));
   }
 
   @JsonKey(ignore: true)
@@ -197,11 +202,12 @@ class _$_NutritionResponse implements _NutritionResponse {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_nutrients),
-      const DeepCollectionEquality().hash(caloricBreakdown),
-      const DeepCollectionEquality().hash(weightPerServingResponse));
+      caloricBreakdown,
+      weightPerServingResponse);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NutritionResponseCopyWith<_$_NutritionResponse> get copyWith =>
       __$$_NutritionResponseCopyWithImpl<_$_NutritionResponse>(
           this, _$identity);
@@ -256,39 +262,42 @@ mixin _$NutrientResponse {
 abstract class $NutrientResponseCopyWith<$Res> {
   factory $NutrientResponseCopyWith(
           NutrientResponse value, $Res Function(NutrientResponse) then) =
-      _$NutrientResponseCopyWithImpl<$Res>;
+      _$NutrientResponseCopyWithImpl<$Res, NutrientResponse>;
+  @useResult
   $Res call({String name, double amount, String unit});
 }
 
 /// @nodoc
-class _$NutrientResponseCopyWithImpl<$Res>
+class _$NutrientResponseCopyWithImpl<$Res, $Val extends NutrientResponse>
     implements $NutrientResponseCopyWith<$Res> {
   _$NutrientResponseCopyWithImpl(this._value, this._then);
 
-  final NutrientResponse _value;
   // ignore: unused_field
-  final $Res Function(NutrientResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? amount = freezed,
-    Object? unit = freezed,
+    Object? name = null,
+    Object? amount = null,
+    Object? unit = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      unit: unit == freezed
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -299,36 +308,35 @@ abstract class _$$_NutrientResponseCopyWith<$Res>
           _$_NutrientResponse value, $Res Function(_$_NutrientResponse) then) =
       __$$_NutrientResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String name, double amount, String unit});
 }
 
 /// @nodoc
 class __$$_NutrientResponseCopyWithImpl<$Res>
-    extends _$NutrientResponseCopyWithImpl<$Res>
+    extends _$NutrientResponseCopyWithImpl<$Res, _$_NutrientResponse>
     implements _$$_NutrientResponseCopyWith<$Res> {
   __$$_NutrientResponseCopyWithImpl(
       _$_NutrientResponse _value, $Res Function(_$_NutrientResponse) _then)
-      : super(_value, (v) => _then(v as _$_NutrientResponse));
+      : super(_value, _then);
 
-  @override
-  _$_NutrientResponse get _value => super._value as _$_NutrientResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? amount = freezed,
-    Object? unit = freezed,
+    Object? name = null,
+    Object? amount = null,
+    Object? unit = null,
   }) {
     return _then(_$_NutrientResponse(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      unit: unit == freezed
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as String,
@@ -362,21 +370,18 @@ class _$_NutrientResponse implements _NutrientResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NutrientResponse &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.unit, unit));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.unit, unit) || other.unit == unit));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(unit));
+  int get hashCode => Object.hash(runtimeType, name, amount, unit);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NutrientResponseCopyWith<_$_NutrientResponse> get copyWith =>
       __$$_NutrientResponseCopyWithImpl<_$_NutrientResponse>(this, _$identity);
 
@@ -430,39 +435,43 @@ mixin _$CaloricBreakdownResponse {
 abstract class $CaloricBreakdownResponseCopyWith<$Res> {
   factory $CaloricBreakdownResponseCopyWith(CaloricBreakdownResponse value,
           $Res Function(CaloricBreakdownResponse) then) =
-      _$CaloricBreakdownResponseCopyWithImpl<$Res>;
+      _$CaloricBreakdownResponseCopyWithImpl<$Res, CaloricBreakdownResponse>;
+  @useResult
   $Res call({double percentProtein, double percentFat, double percentCarbs});
 }
 
 /// @nodoc
-class _$CaloricBreakdownResponseCopyWithImpl<$Res>
+class _$CaloricBreakdownResponseCopyWithImpl<$Res,
+        $Val extends CaloricBreakdownResponse>
     implements $CaloricBreakdownResponseCopyWith<$Res> {
   _$CaloricBreakdownResponseCopyWithImpl(this._value, this._then);
 
-  final CaloricBreakdownResponse _value;
   // ignore: unused_field
-  final $Res Function(CaloricBreakdownResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? percentProtein = freezed,
-    Object? percentFat = freezed,
-    Object? percentCarbs = freezed,
+    Object? percentProtein = null,
+    Object? percentFat = null,
+    Object? percentCarbs = null,
   }) {
     return _then(_value.copyWith(
-      percentProtein: percentProtein == freezed
+      percentProtein: null == percentProtein
           ? _value.percentProtein
           : percentProtein // ignore: cast_nullable_to_non_nullable
               as double,
-      percentFat: percentFat == freezed
+      percentFat: null == percentFat
           ? _value.percentFat
           : percentFat // ignore: cast_nullable_to_non_nullable
               as double,
-      percentCarbs: percentCarbs == freezed
+      percentCarbs: null == percentCarbs
           ? _value.percentCarbs
           : percentCarbs // ignore: cast_nullable_to_non_nullable
               as double,
-    ));
+    ) as $Val);
   }
 }
 
@@ -474,37 +483,36 @@ abstract class _$$_CaloricBreakdownResponseCopyWith<$Res>
           $Res Function(_$_CaloricBreakdownResponse) then) =
       __$$_CaloricBreakdownResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({double percentProtein, double percentFat, double percentCarbs});
 }
 
 /// @nodoc
 class __$$_CaloricBreakdownResponseCopyWithImpl<$Res>
-    extends _$CaloricBreakdownResponseCopyWithImpl<$Res>
+    extends _$CaloricBreakdownResponseCopyWithImpl<$Res,
+        _$_CaloricBreakdownResponse>
     implements _$$_CaloricBreakdownResponseCopyWith<$Res> {
   __$$_CaloricBreakdownResponseCopyWithImpl(_$_CaloricBreakdownResponse _value,
       $Res Function(_$_CaloricBreakdownResponse) _then)
-      : super(_value, (v) => _then(v as _$_CaloricBreakdownResponse));
+      : super(_value, _then);
 
-  @override
-  _$_CaloricBreakdownResponse get _value =>
-      super._value as _$_CaloricBreakdownResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? percentProtein = freezed,
-    Object? percentFat = freezed,
-    Object? percentCarbs = freezed,
+    Object? percentProtein = null,
+    Object? percentFat = null,
+    Object? percentCarbs = null,
   }) {
     return _then(_$_CaloricBreakdownResponse(
-      percentProtein: percentProtein == freezed
+      percentProtein: null == percentProtein
           ? _value.percentProtein
           : percentProtein // ignore: cast_nullable_to_non_nullable
               as double,
-      percentFat: percentFat == freezed
+      percentFat: null == percentFat
           ? _value.percentFat
           : percentFat // ignore: cast_nullable_to_non_nullable
               as double,
-      percentCarbs: percentCarbs == freezed
+      percentCarbs: null == percentCarbs
           ? _value.percentCarbs
           : percentCarbs // ignore: cast_nullable_to_non_nullable
               as double,
@@ -540,24 +548,22 @@ class _$_CaloricBreakdownResponse implements _CaloricBreakdownResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CaloricBreakdownResponse &&
-            const DeepCollectionEquality()
-                .equals(other.percentProtein, percentProtein) &&
-            const DeepCollectionEquality()
-                .equals(other.percentFat, percentFat) &&
-            const DeepCollectionEquality()
-                .equals(other.percentCarbs, percentCarbs));
+            (identical(other.percentProtein, percentProtein) ||
+                other.percentProtein == percentProtein) &&
+            (identical(other.percentFat, percentFat) ||
+                other.percentFat == percentFat) &&
+            (identical(other.percentCarbs, percentCarbs) ||
+                other.percentCarbs == percentCarbs));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(percentProtein),
-      const DeepCollectionEquality().hash(percentFat),
-      const DeepCollectionEquality().hash(percentCarbs));
+  int get hashCode =>
+      Object.hash(runtimeType, percentProtein, percentFat, percentCarbs);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CaloricBreakdownResponseCopyWith<_$_CaloricBreakdownResponse>
       get copyWith => __$$_CaloricBreakdownResponseCopyWithImpl<
           _$_CaloricBreakdownResponse>(this, _$identity);
@@ -611,34 +617,38 @@ mixin _$WeightPerServingResponse {
 abstract class $WeightPerServingResponseCopyWith<$Res> {
   factory $WeightPerServingResponseCopyWith(WeightPerServingResponse value,
           $Res Function(WeightPerServingResponse) then) =
-      _$WeightPerServingResponseCopyWithImpl<$Res>;
+      _$WeightPerServingResponseCopyWithImpl<$Res, WeightPerServingResponse>;
+  @useResult
   $Res call({double amount, String unit});
 }
 
 /// @nodoc
-class _$WeightPerServingResponseCopyWithImpl<$Res>
+class _$WeightPerServingResponseCopyWithImpl<$Res,
+        $Val extends WeightPerServingResponse>
     implements $WeightPerServingResponseCopyWith<$Res> {
   _$WeightPerServingResponseCopyWithImpl(this._value, this._then);
 
-  final WeightPerServingResponse _value;
   // ignore: unused_field
-  final $Res Function(WeightPerServingResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? amount = freezed,
-    Object? unit = freezed,
+    Object? amount = null,
+    Object? unit = null,
   }) {
     return _then(_value.copyWith(
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      unit: unit == freezed
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -650,32 +660,31 @@ abstract class _$$_WeightPerServingResponseCopyWith<$Res>
           $Res Function(_$_WeightPerServingResponse) then) =
       __$$_WeightPerServingResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({double amount, String unit});
 }
 
 /// @nodoc
 class __$$_WeightPerServingResponseCopyWithImpl<$Res>
-    extends _$WeightPerServingResponseCopyWithImpl<$Res>
+    extends _$WeightPerServingResponseCopyWithImpl<$Res,
+        _$_WeightPerServingResponse>
     implements _$$_WeightPerServingResponseCopyWith<$Res> {
   __$$_WeightPerServingResponseCopyWithImpl(_$_WeightPerServingResponse _value,
       $Res Function(_$_WeightPerServingResponse) _then)
-      : super(_value, (v) => _then(v as _$_WeightPerServingResponse));
+      : super(_value, _then);
 
-  @override
-  _$_WeightPerServingResponse get _value =>
-      super._value as _$_WeightPerServingResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? amount = freezed,
-    Object? unit = freezed,
+    Object? amount = null,
+    Object? unit = null,
   }) {
     return _then(_$_WeightPerServingResponse(
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      unit: unit == freezed
+      unit: null == unit
           ? _value.unit
           : unit // ignore: cast_nullable_to_non_nullable
               as String,
@@ -706,19 +715,17 @@ class _$_WeightPerServingResponse implements _WeightPerServingResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WeightPerServingResponse &&
-            const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.unit, unit));
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.unit, unit) || other.unit == unit));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(unit));
+  int get hashCode => Object.hash(runtimeType, amount, unit);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WeightPerServingResponseCopyWith<_$_WeightPerServingResponse>
       get copyWith => __$$_WeightPerServingResponseCopyWithImpl<
           _$_WeightPerServingResponse>(this, _$identity);

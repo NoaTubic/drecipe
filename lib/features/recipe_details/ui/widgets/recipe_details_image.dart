@@ -33,7 +33,7 @@ class RecipeDetailsImage extends StatelessWidget {
                 Colors.black.withOpacity(OpacityConstants.op01),
                 BlendMode.darken),
             image: Image.network(
-              imageUrl ?? 'https://wallpapercave.com/wp/wp10602501.jpg',
+              imageUrl,
               loadingBuilder: (context, widget, event) =>
                   const Center(child: DrecipeCircularProgressIndicator()),
               errorBuilder: (context, e, stackTrace) => const Icon(Icons.error),

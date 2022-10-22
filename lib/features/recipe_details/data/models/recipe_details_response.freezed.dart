@@ -35,7 +35,8 @@ mixin _$RecipeDetailsResponse {
 abstract class $RecipeDetailsResponseCopyWith<$Res> {
   factory $RecipeDetailsResponseCopyWith(RecipeDetailsResponse value,
           $Res Function(RecipeDetailsResponse) then) =
-      _$RecipeDetailsResponseCopyWithImpl<$Res>;
+      _$RecipeDetailsResponseCopyWithImpl<$Res, RecipeDetailsResponse>;
+  @useResult
   $Res call(
       {NutritionResponse nutrition,
       List<InstructionsResponse> analyzedInstructions});
@@ -44,35 +45,39 @@ abstract class $RecipeDetailsResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RecipeDetailsResponseCopyWithImpl<$Res>
+class _$RecipeDetailsResponseCopyWithImpl<$Res,
+        $Val extends RecipeDetailsResponse>
     implements $RecipeDetailsResponseCopyWith<$Res> {
   _$RecipeDetailsResponseCopyWithImpl(this._value, this._then);
 
-  final RecipeDetailsResponse _value;
   // ignore: unused_field
-  final $Res Function(RecipeDetailsResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nutrition = freezed,
-    Object? analyzedInstructions = freezed,
+    Object? nutrition = null,
+    Object? analyzedInstructions = null,
   }) {
     return _then(_value.copyWith(
-      nutrition: nutrition == freezed
+      nutrition: null == nutrition
           ? _value.nutrition
           : nutrition // ignore: cast_nullable_to_non_nullable
               as NutritionResponse,
-      analyzedInstructions: analyzedInstructions == freezed
+      analyzedInstructions: null == analyzedInstructions
           ? _value.analyzedInstructions
           : analyzedInstructions // ignore: cast_nullable_to_non_nullable
               as List<InstructionsResponse>,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $NutritionResponseCopyWith<$Res> get nutrition {
     return $NutritionResponseCopyWith<$Res>(_value.nutrition, (value) {
-      return _then(_value.copyWith(nutrition: value));
+      return _then(_value.copyWith(nutrition: value) as $Val);
     });
   }
 }
@@ -84,6 +89,7 @@ abstract class _$$_RecipeDetailsResponseCopyWith<$Res>
           $Res Function(_$_RecipeDetailsResponse) then) =
       __$$_RecipeDetailsResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {NutritionResponse nutrition,
       List<InstructionsResponse> analyzedInstructions});
@@ -94,27 +100,24 @@ abstract class _$$_RecipeDetailsResponseCopyWith<$Res>
 
 /// @nodoc
 class __$$_RecipeDetailsResponseCopyWithImpl<$Res>
-    extends _$RecipeDetailsResponseCopyWithImpl<$Res>
+    extends _$RecipeDetailsResponseCopyWithImpl<$Res, _$_RecipeDetailsResponse>
     implements _$$_RecipeDetailsResponseCopyWith<$Res> {
   __$$_RecipeDetailsResponseCopyWithImpl(_$_RecipeDetailsResponse _value,
       $Res Function(_$_RecipeDetailsResponse) _then)
-      : super(_value, (v) => _then(v as _$_RecipeDetailsResponse));
+      : super(_value, _then);
 
-  @override
-  _$_RecipeDetailsResponse get _value =>
-      super._value as _$_RecipeDetailsResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nutrition = freezed,
-    Object? analyzedInstructions = freezed,
+    Object? nutrition = null,
+    Object? analyzedInstructions = null,
   }) {
     return _then(_$_RecipeDetailsResponse(
-      nutrition: nutrition == freezed
+      nutrition: null == nutrition
           ? _value.nutrition
           : nutrition // ignore: cast_nullable_to_non_nullable
               as NutritionResponse,
-      analyzedInstructions: analyzedInstructions == freezed
+      analyzedInstructions: null == analyzedInstructions
           ? _value._analyzedInstructions
           : analyzedInstructions // ignore: cast_nullable_to_non_nullable
               as List<InstructionsResponse>,
@@ -152,20 +155,20 @@ class _$_RecipeDetailsResponse implements _RecipeDetailsResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RecipeDetailsResponse &&
-            const DeepCollectionEquality().equals(other.nutrition, nutrition) &&
+            (identical(other.nutrition, nutrition) ||
+                other.nutrition == nutrition) &&
             const DeepCollectionEquality()
                 .equals(other._analyzedInstructions, _analyzedInstructions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(nutrition),
+  int get hashCode => Object.hash(runtimeType, nutrition,
       const DeepCollectionEquality().hash(_analyzedInstructions));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RecipeDetailsResponseCopyWith<_$_RecipeDetailsResponse> get copyWith =>
       __$$_RecipeDetailsResponseCopyWithImpl<_$_RecipeDetailsResponse>(
           this, _$identity);

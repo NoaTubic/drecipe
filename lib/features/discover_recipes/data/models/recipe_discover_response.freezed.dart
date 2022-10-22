@@ -42,7 +42,8 @@ mixin _$RecipeDiscoverResponse {
 abstract class $RecipeDiscoverResponseCopyWith<$Res> {
   factory $RecipeDiscoverResponseCopyWith(RecipeDiscoverResponse value,
           $Res Function(RecipeDiscoverResponse) then) =
-      _$RecipeDiscoverResponseCopyWithImpl<$Res>;
+      _$RecipeDiscoverResponseCopyWithImpl<$Res, RecipeDiscoverResponse>;
+  @useResult
   $Res call(
       {int id,
       String title,
@@ -57,69 +58,72 @@ abstract class $RecipeDiscoverResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RecipeDiscoverResponseCopyWithImpl<$Res>
+class _$RecipeDiscoverResponseCopyWithImpl<$Res,
+        $Val extends RecipeDiscoverResponse>
     implements $RecipeDiscoverResponseCopyWith<$Res> {
   _$RecipeDiscoverResponseCopyWithImpl(this._value, this._then);
 
-  final RecipeDiscoverResponse _value;
   // ignore: unused_field
-  final $Res Function(RecipeDiscoverResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? servings = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? servings = null,
     Object? image = freezed,
-    Object? readyInMinutes = freezed,
-    Object? vegetarian = freezed,
-    Object? vegan = freezed,
-    Object? glutenFree = freezed,
-    Object? veryPopular = freezed,
-    Object? veryHealthy = freezed,
+    Object? readyInMinutes = null,
+    Object? vegetarian = null,
+    Object? vegan = null,
+    Object? glutenFree = null,
+    Object? veryPopular = null,
+    Object? veryHealthy = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      servings: servings == freezed
+      servings: null == servings
           ? _value.servings
           : servings // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      readyInMinutes: readyInMinutes == freezed
+      readyInMinutes: null == readyInMinutes
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
               as int,
-      vegetarian: vegetarian == freezed
+      vegetarian: null == vegetarian
           ? _value.vegetarian
           : vegetarian // ignore: cast_nullable_to_non_nullable
               as bool,
-      vegan: vegan == freezed
+      vegan: null == vegan
           ? _value.vegan
           : vegan // ignore: cast_nullable_to_non_nullable
               as bool,
-      glutenFree: glutenFree == freezed
+      glutenFree: null == glutenFree
           ? _value.glutenFree
           : glutenFree // ignore: cast_nullable_to_non_nullable
               as bool,
-      veryPopular: veryPopular == freezed
+      veryPopular: null == veryPopular
           ? _value.veryPopular
           : veryPopular // ignore: cast_nullable_to_non_nullable
               as bool,
-      veryHealthy: veryHealthy == freezed
+      veryHealthy: null == veryHealthy
           ? _value.veryHealthy
           : veryHealthy // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -130,6 +134,7 @@ abstract class _$$_RecipeDiscoverResponseCopyWith<$Res>
           $Res Function(_$_RecipeDiscoverResponse) then) =
       __$$_RecipeDiscoverResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       String title,
@@ -145,67 +150,65 @@ abstract class _$$_RecipeDiscoverResponseCopyWith<$Res>
 
 /// @nodoc
 class __$$_RecipeDiscoverResponseCopyWithImpl<$Res>
-    extends _$RecipeDiscoverResponseCopyWithImpl<$Res>
+    extends _$RecipeDiscoverResponseCopyWithImpl<$Res,
+        _$_RecipeDiscoverResponse>
     implements _$$_RecipeDiscoverResponseCopyWith<$Res> {
   __$$_RecipeDiscoverResponseCopyWithImpl(_$_RecipeDiscoverResponse _value,
       $Res Function(_$_RecipeDiscoverResponse) _then)
-      : super(_value, (v) => _then(v as _$_RecipeDiscoverResponse));
+      : super(_value, _then);
 
-  @override
-  _$_RecipeDiscoverResponse get _value =>
-      super._value as _$_RecipeDiscoverResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? servings = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? servings = null,
     Object? image = freezed,
-    Object? readyInMinutes = freezed,
-    Object? vegetarian = freezed,
-    Object? vegan = freezed,
-    Object? glutenFree = freezed,
-    Object? veryPopular = freezed,
-    Object? veryHealthy = freezed,
+    Object? readyInMinutes = null,
+    Object? vegetarian = null,
+    Object? vegan = null,
+    Object? glutenFree = null,
+    Object? veryPopular = null,
+    Object? veryHealthy = null,
   }) {
     return _then(_$_RecipeDiscoverResponse(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      servings: servings == freezed
+      servings: null == servings
           ? _value.servings
           : servings // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      readyInMinutes: readyInMinutes == freezed
+      readyInMinutes: null == readyInMinutes
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
               as int,
-      vegetarian: vegetarian == freezed
+      vegetarian: null == vegetarian
           ? _value.vegetarian
           : vegetarian // ignore: cast_nullable_to_non_nullable
               as bool,
-      vegan: vegan == freezed
+      vegan: null == vegan
           ? _value.vegan
           : vegan // ignore: cast_nullable_to_non_nullable
               as bool,
-      glutenFree: glutenFree == freezed
+      glutenFree: null == glutenFree
           ? _value.glutenFree
           : glutenFree // ignore: cast_nullable_to_non_nullable
               as bool,
-      veryPopular: veryPopular == freezed
+      veryPopular: null == veryPopular
           ? _value.veryPopular
           : veryPopular // ignore: cast_nullable_to_non_nullable
               as bool,
-      veryHealthy: veryHealthy == freezed
+      veryHealthy: null == veryHealthy
           ? _value.veryHealthy
           : veryHealthy // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -262,40 +265,32 @@ class _$_RecipeDiscoverResponse implements _RecipeDiscoverResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RecipeDiscoverResponse &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.servings, servings) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality()
-                .equals(other.readyInMinutes, readyInMinutes) &&
-            const DeepCollectionEquality()
-                .equals(other.vegetarian, vegetarian) &&
-            const DeepCollectionEquality().equals(other.vegan, vegan) &&
-            const DeepCollectionEquality()
-                .equals(other.glutenFree, glutenFree) &&
-            const DeepCollectionEquality()
-                .equals(other.veryPopular, veryPopular) &&
-            const DeepCollectionEquality()
-                .equals(other.veryHealthy, veryHealthy));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.servings, servings) ||
+                other.servings == servings) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.readyInMinutes, readyInMinutes) ||
+                other.readyInMinutes == readyInMinutes) &&
+            (identical(other.vegetarian, vegetarian) ||
+                other.vegetarian == vegetarian) &&
+            (identical(other.vegan, vegan) || other.vegan == vegan) &&
+            (identical(other.glutenFree, glutenFree) ||
+                other.glutenFree == glutenFree) &&
+            (identical(other.veryPopular, veryPopular) ||
+                other.veryPopular == veryPopular) &&
+            (identical(other.veryHealthy, veryHealthy) ||
+                other.veryHealthy == veryHealthy));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(servings),
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(readyInMinutes),
-      const DeepCollectionEquality().hash(vegetarian),
-      const DeepCollectionEquality().hash(vegan),
-      const DeepCollectionEquality().hash(glutenFree),
-      const DeepCollectionEquality().hash(veryPopular),
-      const DeepCollectionEquality().hash(veryHealthy));
+  int get hashCode => Object.hash(runtimeType, id, title, servings, image,
+      readyInMinutes, vegetarian, vegan, glutenFree, veryPopular, veryHealthy);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RecipeDiscoverResponseCopyWith<_$_RecipeDiscoverResponse> get copyWith =>
       __$$_RecipeDiscoverResponseCopyWithImpl<_$_RecipeDiscoverResponse>(
           this, _$identity);

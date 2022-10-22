@@ -25,40 +25,42 @@ class RecipeCard extends ConsumerWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                color: AppColors.white,
                 borderRadius: BorderRadius.circular(Sizes.circularRadius),
                 boxShadow: shadowsLight,
               ),
-              child: Material(
-                child: Ink(
-                  child: Container(
-                    width: Sizes.s260,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Sizes.circularRadius),
-                      backgroundBlendMode: BlendMode.darken,
-                      gradient: recipeCardGradient(),
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        colorFilter: ColorFilter.mode(
-                            Colors.black.withOpacity(OpacityConstants.op03),
-                            BlendMode.darken),
-                        image: NetworkImage(recipe.image ?? ''),
-                      ),
-                    ),
-                    child: InkWell(
-                      onTap: () async {
-                        Future.wait([
-                          ref
-                              .read(recipeDetailsNotifierProvider.notifier)
-                              .getRecipeDetails(id: recipe.id),
-                        ]).whenComplete(() => ScreenRouter.pushScreen(
-                            context,
-                            RecipeDetailsScreenRoute(
-                                recipeId: recipe.id, imageUrl: recipe.image!)));
-                      },
-                      child: RecipeCardContent(
-                        recipe: recipe,
-                      ),
+              child: Container(
+                width: Sizes.s260,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                  backgroundBlendMode: BlendMode.darken,
+                  gradient: recipeCardGradient(),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        Colors.black.withOpacity(OpacityConstants.op03),
+                        BlendMode.darken),
+                    image: NetworkImage(recipe.image ?? ''),
+                  ),
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                    onTap: () async {
+                      Future.wait([
+                        ref
+                            .read(recipeDetailsNotifierProvider.notifier)
+                            .getRecipeDetails(id: recipe.id),
+                      ]).whenComplete(
+                        () => ScreenRouter.pushScreen(
+                          context,
+                          RecipeDetailsScreenRoute(
+                              recipeId: recipe.id, imageUrl: recipe.image!),
+                        ),
+                      );
+                    },
+                    child: RecipeCardContent(
+                      recipe: recipe,
                     ),
                   ),
                 ),

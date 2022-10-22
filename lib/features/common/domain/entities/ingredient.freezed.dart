@@ -14,12 +14,20 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Ingredient _$IngredientFromJson(Map<String, dynamic> json) {
+  return _Ingredient.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Ingredient {
+  @HiveField(0)
   int get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String? get image => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get original => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $IngredientCopyWith<Ingredient> get copyWith =>
       throw _privateConstructorUsedError;
@@ -29,38 +37,45 @@ mixin _$Ingredient {
 abstract class $IngredientCopyWith<$Res> {
   factory $IngredientCopyWith(
           Ingredient value, $Res Function(Ingredient) then) =
-      _$IngredientCopyWithImpl<$Res>;
-  $Res call({int id, String? image, String original});
+      _$IngredientCopyWithImpl<$Res, Ingredient>;
+  @useResult
+  $Res call(
+      {@HiveField(0) int id,
+      @HiveField(1) String? image,
+      @HiveField(2) String original});
 }
 
 /// @nodoc
-class _$IngredientCopyWithImpl<$Res> implements $IngredientCopyWith<$Res> {
+class _$IngredientCopyWithImpl<$Res, $Val extends Ingredient>
+    implements $IngredientCopyWith<$Res> {
   _$IngredientCopyWithImpl(this._value, this._then);
 
-  final Ingredient _value;
   // ignore: unused_field
-  final $Res Function(Ingredient) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? image = freezed,
-    Object? original = freezed,
+    Object? original = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      original: original == freezed
+      original: null == original
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,35 +86,38 @@ abstract class _$$_IngredientCopyWith<$Res>
           _$_Ingredient value, $Res Function(_$_Ingredient) then) =
       __$$_IngredientCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String? image, String original});
+  @useResult
+  $Res call(
+      {@HiveField(0) int id,
+      @HiveField(1) String? image,
+      @HiveField(2) String original});
 }
 
 /// @nodoc
-class __$$_IngredientCopyWithImpl<$Res> extends _$IngredientCopyWithImpl<$Res>
+class __$$_IngredientCopyWithImpl<$Res>
+    extends _$IngredientCopyWithImpl<$Res, _$_Ingredient>
     implements _$$_IngredientCopyWith<$Res> {
   __$$_IngredientCopyWithImpl(
       _$_Ingredient _value, $Res Function(_$_Ingredient) _then)
-      : super(_value, (v) => _then(v as _$_Ingredient));
+      : super(_value, _then);
 
-  @override
-  _$_Ingredient get _value => super._value as _$_Ingredient;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? image = freezed,
-    Object? original = freezed,
+    Object? original = null,
   }) {
     return _then(_$_Ingredient(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      original: original == freezed
+      original: null == original
           ? _value.original
           : original // ignore: cast_nullable_to_non_nullable
               as String,
@@ -109,14 +127,24 @@ class __$$_IngredientCopyWithImpl<$Res> extends _$IngredientCopyWithImpl<$Res>
 
 /// @nodoc
 
+@JsonSerializable(explicitToJson: true)
 class _$_Ingredient implements _Ingredient {
-  const _$_Ingredient({required this.id, this.image, required this.original});
+  const _$_Ingredient(
+      {@HiveField(0) required this.id,
+      @HiveField(1) this.image,
+      @HiveField(2) required this.original});
+
+  factory _$_Ingredient.fromJson(Map<String, dynamic> json) =>
+      _$$_IngredientFromJson(json);
 
   @override
+  @HiveField(0)
   final int id;
   @override
+  @HiveField(1)
   final String? image;
   @override
+  @HiveField(2)
   final String original;
 
   @override
@@ -129,35 +157,47 @@ class _$_Ingredient implements _Ingredient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Ingredient &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality().equals(other.original, original));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.original, original) ||
+                other.original == original));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(original));
 
   @JsonKey(ignore: true)
   @override
+  int get hashCode => Object.hash(runtimeType, id, image, original);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
   _$$_IngredientCopyWith<_$_Ingredient> get copyWith =>
       __$$_IngredientCopyWithImpl<_$_Ingredient>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_IngredientToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Ingredient implements Ingredient {
   const factory _Ingredient(
-      {required final int id,
-      final String? image,
-      required final String original}) = _$_Ingredient;
+      {@HiveField(0) required final int id,
+      @HiveField(1) final String? image,
+      @HiveField(2) required final String original}) = _$_Ingredient;
+
+  factory _Ingredient.fromJson(Map<String, dynamic> json) =
+      _$_Ingredient.fromJson;
 
   @override
+  @HiveField(0)
   int get id;
   @override
+  @HiveField(1)
   String? get image;
   @override
+  @HiveField(2)
   String get original;
   @override
   @JsonKey(ignore: true)
