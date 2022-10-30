@@ -4,8 +4,9 @@ import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_butto
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RecipeDetailsButtons extends StatefulWidget {
+class RecipeDetailsButtons extends ConsumerStatefulWidget {
   const RecipeDetailsButtons({
     Key? key,
     required this.instructions,
@@ -14,10 +15,10 @@ class RecipeDetailsButtons extends StatefulWidget {
   final List<Instructions> instructions;
 
   @override
-  State<RecipeDetailsButtons> createState() => _RecipeDetailsButtonsState();
+  RecipeDetailsButtonsState createState() => RecipeDetailsButtonsState();
 }
 
-class _RecipeDetailsButtonsState extends State<RecipeDetailsButtons> {
+class RecipeDetailsButtonsState extends ConsumerState<RecipeDetailsButtons> {
   bool isFavorite = false;
 
   @override
@@ -35,7 +36,8 @@ class _RecipeDetailsButtonsState extends State<RecipeDetailsButtons> {
                   context: context,
                   text: isFavorite
                       ? 'Added to favorites.'
-                      : 'Removed from favorites.');
+                      : 'Removed from favorites.',
+                  isError: false);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.grey.shade200,

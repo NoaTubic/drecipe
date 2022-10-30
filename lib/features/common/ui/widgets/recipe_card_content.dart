@@ -8,9 +8,16 @@ class RecipeCardContent extends StatelessWidget {
   const RecipeCardContent({
     Key? key,
     required this.recipe,
+    this.withDietBadges = true,
+    this.withIngredientNumber = false,
+    this.titleFontSize = FontSizes.s24,
   }) : super(key: key);
 
   final RecipeDiscover recipe;
+  final bool withDietBadges;
+  final double titleFontSize;
+  final bool withIngredientNumber;
+
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
@@ -20,23 +27,28 @@ class RecipeCardContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: DietBadgesRow(
-              isVege: recipe.vegan,
-              isVegan: recipe.vegetarian,
-              isGlutenFree: recipe.glutenFree,
+          if (withDietBadges) ...[
+            Align(
+              alignment: Alignment.topRight,
+              child: DietBadgesRow(
+                isVege: recipe.vegan,
+                isVegan: recipe.vegetarian,
+                isGlutenFree: recipe.glutenFree,
+              ),
             ),
-          ),
-          Expanded(child: Container()),
+            Expanded(child: Container()),
+          ],
           Text(
             recipe.title,
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
-            style: Theme.of(context)
-                .textTheme
-                .headline5!
-                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.headline5!.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: titleFontSize),
+          ),
+          const SizedBox(
+            height: Sizes.s4,
           ),
           Row(
             children: [
@@ -74,7 +86,31 @@ class RecipeCardContent extends StatelessWidget {
                     .copyWith(color: Colors.white),
               ),
             ],
-          )
+          ),
+          if (withIngredientNumber) ...[
+            const SizedBox(
+              height: Sizes.s8,
+            ),
+            Row(
+              children: [
+                Icon(
+                  Icons.list_alt,
+                  size: Sizes.s16,
+                  color: AppColors.white,
+                ),
+                const SizedBox(
+                  width: Sizes.s2,
+                ),
+                Text(
+                  '${recipe.servings} ${s.discover_recipes_card_text_ingredients}',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodySmall!
+                      .copyWith(color: Colors.white),
+                ),
+              ],
+            ),
+          ],
         ],
       ),
     );

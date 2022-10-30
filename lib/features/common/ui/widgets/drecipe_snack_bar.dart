@@ -10,6 +10,7 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showDrecipeSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
+      padding: const EdgeInsets.only(bottom: Sizes.s20),
       elevation: Sizes.s0,
       content: DrecipeSnackBar(
         text: text,
@@ -23,7 +24,7 @@ class DrecipeSnackBar extends StatelessWidget {
   const DrecipeSnackBar({
     Key? key,
     required this.text,
-    required this.isError,
+    this.isError = false,
   }) : super(key: key);
 
   final String text;
@@ -34,26 +35,35 @@ class DrecipeSnackBar extends StatelessWidget {
     return Container(
       height: Sizes.s68,
       decoration: BoxDecoration(
-          color: AppColors.primaryRed.withOpacity(OpacityConstants.op08),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(Sizes.circularRadius),
+        color: AppColors.white,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(Sizes.circularRadius),
+        ),
+        border:
+            Border.all(color: AppColors.primaryRed, width: Sizes.borderWidth),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(Sizes.s0, Sizes.s4),
+            blurRadius: Sizes.s4,
+            color: AppColors.primaryRed.withOpacity(OpacityConstants.op05),
           ),
-          boxShadow: [
-            BoxShadow(
-                offset: const Offset(Sizes.s0, Sizes.s8),
-                blurRadius: Sizes.s16,
-                color: AppColors.lightGrey2),
-            BoxShadow(
-                offset: const Offset(Sizes.s2, Sizes.s0),
-                blurRadius: Sizes.s8,
-                color: AppColors.lightGrey2),
-          ]),
+          BoxShadow(
+            offset: const Offset(Sizes.s4, Sizes.s0),
+            blurRadius: Sizes.s4,
+            color: AppColors.primaryRed.withOpacity(OpacityConstants.op05),
+          ),
+        ],
+      ),
       child: Stack(
         children: [
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Image.asset(
-              ImageAssets.snackBarGraphic,
+          Padding(
+            padding: const EdgeInsets.only(top: Sizes.s20),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Image.asset(
+                ImageAssets.snackBarGraphic,
+                color: AppColors.primaryRed,
+              ),
             ),
           ),
           Center(
@@ -63,17 +73,17 @@ class DrecipeSnackBar extends StatelessWidget {
                 isError
                     ? Icon(
                         Icons.warning_amber_rounded,
-                        color: AppColors.white,
+                        color: AppColors.primaryRed,
                       )
                     : Icon(
                         Icons.info_outline_rounded,
-                        color: AppColors.white,
+                        color: AppColors.darkGrey2,
                       ),
                 const SizedBox(width: Sizes.s12),
                 Text(
                   text,
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                      color: AppColors.white, fontSize: FontSizes.s16),
+                      color: AppColors.darkGrey2, fontSize: FontSizes.s16),
                 ),
               ],
             ),

@@ -1,7 +1,7 @@
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/drecipe_custom_scroll_physics.dart';
-import 'package:drecipe/features/discover_recipes/ui/widgets/recipe_card.dart';
+import 'package:drecipe/features/discover_recipes/ui/widgets/recipe_image_card.dart';
 import 'package:flutter/material.dart';
 
 class DrecipeCardSwiper extends StatelessWidget {
@@ -36,7 +36,7 @@ class DrecipeCardSwiper extends StatelessWidget {
             itemCount: recipes.length,
             items: recipes,
             builder: (context, recipe) {
-              return RecipeCard(
+              return RecipeImageCard(
                 recipe: recipe,
               );
             },

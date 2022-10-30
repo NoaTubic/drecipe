@@ -480,6 +480,16 @@ class S {
     );
   }
 
+  /// `ingredients`
+  String get discover_recipes_card_text_ingredients {
+    return Intl.message(
+      'ingredients',
+      name: 'discover_recipes_card_text_ingredients',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `It's`
   String get discover_recipes_meal_card_time_a {
     return Intl.message(

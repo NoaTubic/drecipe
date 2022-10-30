@@ -43,6 +43,7 @@
   "discover_recipes_healthy": "Healthy",
   "discover_recipes_card_text_time": "min",
   "discover_recipes_card_text_servings": "servings",
+  "discover_recipes_card_text_ingredients": "ingredients",
   "discover_recipes_meal_card_time_a": "It's",
   "discover_recipes_meal_card_time_b": "time",
   "recipe_details_instructions_title": "Instructions",

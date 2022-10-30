@@ -1,6 +1,6 @@
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
-import 'package:drecipe/features/discover_recipes/ui/widgets/recipe_card_text.dart';
+import 'package:drecipe/features/common/ui/widgets/recipe_card_content.dart';
 import 'package:drecipe/features/recipe_details/di/providers.dart';
 import 'package:flutter/material.dart';
 
@@ -8,8 +8,8 @@ import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RecipeCard extends ConsumerWidget {
-  const RecipeCard({
+class RecipeImageCard extends ConsumerWidget {
+  const RecipeImageCard({
     Key? key,
     required this.recipe,
   }) : super(key: key);

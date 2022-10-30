@@ -7,10 +7,14 @@ class DrecipeScaffold extends StatelessWidget {
     Key? key,
     this.appBar,
     required this.body,
+    this.safeAreaTop = true,
+    this.safeAreaBottom = true,
   }) : super(key: key);
 
   final DrecipeAppBar? appBar;
   final Widget body;
+  final bool safeAreaTop;
+  final bool safeAreaBottom;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +22,8 @@ class DrecipeScaffold extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       appBar: appBar,
       body: SafeArea(
+        top: safeAreaTop,
+        bottom: safeAreaBottom,
         child: Padding(
           padding: const EdgeInsets.symmetric(
               vertical: Sizes.bodyVerticalPadding,

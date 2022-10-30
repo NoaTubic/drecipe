@@ -31,4 +31,9 @@ class FavoriteRecipesLocalDataSource
     final favoriteRecipes = favoriteRecipesBox.values.toList();
     return favoriteRecipes;
   }
+
+  @override
+  Future<bool> checkIfFavorite({required Recipe recipe}) async {
+    return false;
+  }
 }

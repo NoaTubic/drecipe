@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottom_nav_bar_search": MessageLookupByLibrary.simpleMessage("Search"),
         "bottom_nav_bar_search_by_ingredients":
             MessageLookupByLibrary.simpleMessage("Search by ingredients"),
+        "discover_recipes_card_text_ingredients":
+            MessageLookupByLibrary.simpleMessage("ingredients"),
         "discover_recipes_card_text_servings":
             MessageLookupByLibrary.simpleMessage("servings"),
         "discover_recipes_card_text_time":
