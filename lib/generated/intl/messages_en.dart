@@ -75,6 +75,48 @@ class MessageLookup extends MessageLookupByLibrary {
             "Almost ready to start enjoying "),
         "email_verification_title":
             MessageLookupByLibrary.simpleMessage("Verify Email"),
+        "failure_cancelled_by_user":
+            MessageLookupByLibrary.simpleMessage("Cancelled"),
+        "failure_email_already_in_user":
+            MessageLookupByLibrary.simpleMessage("Email already in use"),
+        "failure_email_not_verified": MessageLookupByLibrary.simpleMessage(
+            "Please verify your email address"),
+        "failure_empty_email_field":
+            MessageLookupByLibrary.simpleMessage("Please enter your email"),
+        "failure_empty_password_field":
+            MessageLookupByLibrary.simpleMessage("Please enter your passcode"),
+        "failure_empty_username_field":
+            MessageLookupByLibrary.simpleMessage("Please pick an username."),
+        "failure_forbidden":
+            MessageLookupByLibrary.simpleMessage("Forbidden access"),
+        "failure_invalid_email":
+            MessageLookupByLibrary.simpleMessage("Invalid email format"),
+        "failure_invalid_email_and_password_combination":
+            MessageLookupByLibrary.simpleMessage(
+                "Invalid email and password combination"),
+        "failure_invalid_passwords_dont_match":
+            MessageLookupByLibrary.simpleMessage("Passwords don\'t match."),
+        "failure_invalid_user_not_found": MessageLookupByLibrary.simpleMessage(
+            "No account linked with this email."),
+        "failure_invalid_username":
+            MessageLookupByLibrary.simpleMessage("Invalid username format."),
+        "failure_long_username": MessageLookupByLibrary.simpleMessage(
+            "Username must have less than 20 characters."),
+        "failure_offline": MessageLookupByLibrary.simpleMessage("Offline"),
+        "failure_passwords_dont_match":
+            MessageLookupByLibrary.simpleMessage("Passwords don\'t match."),
+        "failure_server_error":
+            MessageLookupByLibrary.simpleMessage("Server error"),
+        "failure_server_error_general":
+            MessageLookupByLibrary.simpleMessage("Server error has occurred"),
+        "failure_short_password": MessageLookupByLibrary.simpleMessage(
+            "Password must have at least 6 digits."),
+        "failure_unauthorized_access":
+            MessageLookupByLibrary.simpleMessage("Unauthorized access"),
+        "failure_unexpected_data_error":
+            MessageLookupByLibrary.simpleMessage("Unexpected data error"),
+        "failure_unexpected_error":
+            MessageLookupByLibrary.simpleMessage("Unexpected error"),
         "favorite_recipes_title":
             MessageLookupByLibrary.simpleMessage("Favorites"),
         "label_or": MessageLookupByLibrary.simpleMessage("or"),

@@ -559,6 +559,216 @@ class S {
       args: [],
     );
   }
+
+  /// `Offline`
+  String get failure_offline {
+    return Intl.message(
+      'Offline',
+      name: 'failure_offline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unexpected error`
+  String get failure_unexpected_error {
+    return Intl.message(
+      'Unexpected error',
+      name: 'failure_unexpected_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unauthorized access`
+  String get failure_unauthorized_access {
+    return Intl.message(
+      'Unauthorized access',
+      name: 'failure_unauthorized_access',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forbidden access`
+  String get failure_forbidden {
+    return Intl.message(
+      'Forbidden access',
+      name: 'failure_forbidden',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unexpected data error`
+  String get failure_unexpected_data_error {
+    return Intl.message(
+      'Unexpected data error',
+      name: 'failure_unexpected_data_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Server error has occurred`
+  String get failure_server_error_general {
+    return Intl.message(
+      'Server error has occurred',
+      name: 'failure_server_error_general',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancelled`
+  String get failure_cancelled_by_user {
+    return Intl.message(
+      'Cancelled',
+      name: 'failure_cancelled_by_user',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Server error`
+  String get failure_server_error {
+    return Intl.message(
+      'Server error',
+      name: 'failure_server_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email already in use`
+  String get failure_email_already_in_user {
+    return Intl.message(
+      'Email already in use',
+      name: 'failure_email_already_in_user',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email and password combination`
+  String get failure_invalid_email_and_password_combination {
+    return Intl.message(
+      'Invalid email and password combination',
+      name: 'failure_invalid_email_and_password_combination',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No account linked with this email.`
+  String get failure_invalid_user_not_found {
+    return Intl.message(
+      'No account linked with this email.',
+      name: 'failure_invalid_user_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords don't match.`
+  String get failure_invalid_passwords_dont_match {
+    return Intl.message(
+      'Passwords don\'t match.',
+      name: 'failure_invalid_passwords_dont_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please verify your email address`
+  String get failure_email_not_verified {
+    return Intl.message(
+      'Please verify your email address',
+      name: 'failure_email_not_verified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email`
+  String get failure_empty_email_field {
+    return Intl.message(
+      'Please enter your email',
+      name: 'failure_empty_email_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email format`
+  String get failure_invalid_email {
+    return Intl.message(
+      'Invalid email format',
+      name: 'failure_invalid_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your passcode`
+  String get failure_empty_password_field {
+    return Intl.message(
+      'Please enter your passcode',
+      name: 'failure_empty_password_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must have at least 6 digits.`
+  String get failure_short_password {
+    return Intl.message(
+      'Password must have at least 6 digits.',
+      name: 'failure_short_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords don't match.`
+  String get failure_passwords_dont_match {
+    return Intl.message(
+      'Passwords don\'t match.',
+      name: 'failure_passwords_dont_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please pick an username.`
+  String get failure_empty_username_field {
+    return Intl.message(
+      'Please pick an username.',
+      name: 'failure_empty_username_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid username format.`
+  String get failure_invalid_username {
+    return Intl.message(
+      'Invalid username format.',
+      name: 'failure_invalid_username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username must have less than 20 characters.`
+  String get failure_long_username {
+    return Intl.message(
+      'Username must have less than 20 characters.',
+      name: 'failure_long_username',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

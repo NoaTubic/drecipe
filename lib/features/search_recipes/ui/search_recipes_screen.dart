@@ -7,7 +7,9 @@ class SearchRecipesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DrecipeScaffold(
-      body: Container(),
+      body: Column(
+          // children: MaterialFloatingSearchBar(),
+          ),
     );
   }
 }

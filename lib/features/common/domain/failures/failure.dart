@@ -1,3 +1,4 @@
+import 'package:drecipe/generated/l10n.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'failure_messages.dart';

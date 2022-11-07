@@ -20,4 +20,6 @@ abstract class ApiClient {
     @Path() required int id,
     @Query('includeNutrition') bool includeNutrition = true,
   });
+
+  // @GET('/recipes/autocomplete')
 }
