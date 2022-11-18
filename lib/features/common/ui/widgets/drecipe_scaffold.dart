@@ -9,12 +9,16 @@ class DrecipeScaffold extends StatelessWidget {
     required this.body,
     this.safeAreaTop = true,
     this.safeAreaBottom = true,
+    this.padding = const EdgeInsets.symmetric(
+        vertical: Sizes.bodyVerticalPadding,
+        horizontal: Sizes.bodyHorizontalPadding),
   }) : super(key: key);
 
   final DrecipeAppBar? appBar;
   final Widget body;
   final bool safeAreaTop;
   final bool safeAreaBottom;
+  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +29,7 @@ class DrecipeScaffold extends StatelessWidget {
         top: safeAreaTop,
         bottom: safeAreaBottom,
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-              vertical: Sizes.bodyVerticalPadding,
-              horizontal: Sizes.bodyHorizontalPadding),
+          padding: padding,
           child: body,
         ),
       ),

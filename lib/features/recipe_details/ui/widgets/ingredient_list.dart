@@ -16,6 +16,7 @@ class IngredientList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scrollController = ScrollController();
     return Expanded(
       child: Column(
         children: [
@@ -47,7 +48,9 @@ class IngredientList extends StatelessWidget {
                 borderRadius: BorderRadius.circular(Sizes.circularRadius),
               ),
               child: FadeMask(
+                scrollController: scrollController,
                 child: ListView.separated(
+                  controller: scrollController,
                   itemBuilder: (context, index) => IngredientCard(
                     ingredient: recipe.ingredients![index],
                   ),

@@ -48,7 +48,8 @@ class RecipeDetailsBody extends StatelessWidget {
               ),
               DrecipeChip(
                 icon: Icons.food_bank_rounded,
-                text: recipe.dishTypes![0],
+                text:
+                    recipe.dishTypes!.isNotEmpty ? recipe.dishTypes![0] : null,
               ),
             ],
           ),

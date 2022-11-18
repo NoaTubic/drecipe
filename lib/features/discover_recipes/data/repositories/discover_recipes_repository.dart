@@ -25,20 +25,20 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
       final List<RecipeDiscover> popularRecipes = [];
       final List<RecipeDiscover> healthyRecipes = [];
 
-      while (popularRecipes.length < 6 && healthyRecipes.length < 6) {
-        final randomRecipesResponse = await _apiClient.getRandomRecipes(30);
-        List<RecipeDiscover> recipesRandom =
-            randomRecipesResponse.convertRecipes();
-        for (var recipe in recipesRandom) {
-          if (recipe.veryPopular == true) {
-            popularRecipes.add(recipe);
-          } else if (recipe.veryHealthy == true) {
-            healthyRecipes.add(recipe);
-          } else {
-            randomRecipes.add(recipe);
-          }
-        }
-      }
+      // while (popularRecipes.length < 6 && healthyRecipes.length < 6) {
+      //   final randomRecipesResponse = await _apiClient.getRandomRecipes(30);
+      //   List<RecipeDiscover> recipesRandom =
+      //       randomRecipesResponse.convertRecipes();
+      //   for (var recipe in recipesRandom) {
+      //     if (recipe.veryPopular == true) {
+      //       popularRecipes.add(recipe);
+      //     } else if (recipe.veryHealthy == true) {
+      //       healthyRecipes.add(recipe);
+      //     } else {
+      //       randomRecipes.add(recipe);
+      //     }
+      //   }
+      // }
 
       // final recipes = DiscoverRecipes(
       //   randomRecipes: randomRecipes,
@@ -46,14 +46,14 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
       //   healthyRecipe: healthyRecipes,
       // );
 
-      // final randomRecipesResponse = await _apiClient.getRandomRecipes(10);
-      // List<RecipeDiscover> recipesRandom =
-      //     randomRecipesResponse.convertRecipes();
+      final randomRecipesResponse = await _apiClient.getRandomRecipes(10);
+      List<RecipeDiscover> recipesRandom =
+          randomRecipesResponse.convertRecipes();
 
       final recipes = DiscoverRecipes(
-        randomRecipes: randomRecipes,
-        popularRecipes: popularRecipes,
-        healthyRecipe: healthyRecipes,
+        randomRecipes: recipesRandom,
+        popularRecipes: recipesRandom,
+        healthyRecipe: recipesRandom,
       );
 
       return right(recipes);

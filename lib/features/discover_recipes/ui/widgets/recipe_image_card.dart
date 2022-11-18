@@ -39,7 +39,15 @@ class RecipeImageCard extends ConsumerWidget {
                     colorFilter: ColorFilter.mode(
                         Colors.black.withOpacity(OpacityConstants.op03),
                         BlendMode.darken),
-                    image: NetworkImage(recipe.image ?? ''),
+                    image: Image.network(
+                      recipe.image ?? '',
+                      loadingBuilder: ((context, child, loadingProgress) =>
+                          Container(
+                            color: AppColors.lightGrey1,
+                          )),
+                      errorBuilder: (context, e, stackTrace) =>
+                          const Icon(Icons.error),
+                    ).image,
                   ),
                 ),
                 child: Material(
