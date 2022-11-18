@@ -7,10 +7,16 @@ class FadeMask extends StatefulWidget {
     Key? key,
     required this.child,
     this.scrollController,
+    this.enabled = true,
+    this.begin = Alignment.topCenter,
+    this.end = Alignment.bottomCenter,
   }) : super(key: key);
 
   final Widget child;
   final ScrollController? scrollController;
+  final bool enabled;
+  final Alignment begin;
+  final Alignment end;
 
   @override
   State<FadeMask> createState() => _FadeMaskState();
@@ -25,7 +31,7 @@ class _FadeMaskState extends State<FadeMask> {
       onNotification: (notification) {
         if (widget.scrollController != null) {
           if (widget.scrollController!.position.pixels ==
-              (widget.scrollController!.position.maxScrollExtent)) {
+              widget.scrollController!.position.maxScrollExtent) {
             setState(
               () => isScrollEnd = true,
             );
@@ -40,20 +46,27 @@ class _FadeMaskState extends State<FadeMask> {
       child: ShaderMask(
         shaderCallback: (Rect rect) {
           return LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: isScrollEnd
-                ? [
+            begin: widget.begin,
+            end: widget.end,
+            colors: widget.enabled
+                ? isScrollEnd
+                    ? [
+                        Colors.transparent,
+                        Colors.transparent,
+                        Colors.transparent,
+                        Colors.transparent
+                      ]
+                    : [
+                        AppColors.black,
+                        Colors.transparent,
+                        Colors.transparent,
+                        AppColors.black
+                      ]
+                : [
                     Colors.transparent,
                     Colors.transparent,
                     Colors.transparent,
                     Colors.transparent
-                  ]
-                : [
-                    AppColors.black,
-                    Colors.transparent,
-                    Colors.transparent,
-                    AppColors.black
                   ],
             stops: const [0.0, 0.0, 0.9, 1.0],
           ).createShader(rect);

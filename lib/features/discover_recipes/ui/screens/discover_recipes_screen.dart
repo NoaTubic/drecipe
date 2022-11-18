@@ -32,6 +32,7 @@ class DiscoverRecipesScreen extends ConsumerWidget {
               const DiscoverRecipesHeader(),
               Expanded(
                 child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
                   child: Column(
                     children: [
                       const MealTimeCard(),

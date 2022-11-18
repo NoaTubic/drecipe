@@ -52,11 +52,11 @@ class DetailedInstructionsScreen extends StatelessWidget {
           : FadeMask(
               scrollController: scrollController,
               child: ListView.separated(
-                physics: const ClampingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 controller: scrollController,
                 itemBuilder: (context, index) => Column(
                   children: [
-                    Text(instructions[index].name ?? 'asasdasd'),
+                    Text(instructions[index].name ?? ''),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: Sizes.bodyHorizontalPadding,
@@ -117,9 +117,6 @@ class DetailedInstructionsScreen extends StatelessWidget {
                                         : Container(),
                                   ],
                                 ),
-                                const SizedBox(
-                                  height: Sizes.s4,
-                                ),
                                 Text(instructions[index]
                                     .steps[indexStep]
                                     .instruction),
@@ -146,9 +143,6 @@ class DetailedInstructionsScreen extends StatelessWidget {
                                             .recipe_details_instructions_ingredients,
                                       )
                                     : Container(),
-                                const SizedBox(
-                                  height: Sizes.s20,
-                                ),
                                 instructions[index]
                                         .steps[indexStep]
                                         .equipment!

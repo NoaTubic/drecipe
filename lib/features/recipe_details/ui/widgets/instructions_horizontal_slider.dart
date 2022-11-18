@@ -1,6 +1,7 @@
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/domain/entities/instructions.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
 import 'package:flutter/material.dart';
 
 class InstructionsHorizontalSlider extends StatelessWidget {
@@ -17,6 +18,8 @@ class InstructionsHorizontalSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController scrollController = ScrollController();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -24,46 +27,53 @@ class InstructionsHorizontalSlider extends StatelessWidget {
           title,
           style: Theme.of(context).textTheme.bodyText1,
         ),
-        const SizedBox(
-          height: Sizes.s4,
-        ),
         SizedBox(
-          height: 90,
-          child: ListView.separated(
-            itemBuilder: (context, indexIngredients) => Container(
-              padding: const EdgeInsets.all(Sizes.s8),
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                border: Border.all(color: AppColors.lightGrey1),
-                borderRadius: BorderRadius.circular(Sizes.circularRadius),
-                boxShadow: shadowsLight,
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    width: Sizes.s68,
-                    height: Sizes.s48,
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(Sizes.circularRadius),
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            '$urlPrefix${equipmentAndIngredients![indexIngredients].image}'),
-                      ),
-                    ),
+          height: 104,
+          child: FadeMask(
+            enabled: equipmentAndIngredients!.length > 3 ? true : false,
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            child: ListView.separated(
+              controller: scrollController,
+              itemBuilder: (context, indexIngredients) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Container(
+                  padding: const EdgeInsets.all(Sizes.s8),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    border: Border.all(color: AppColors.lightGrey1),
+                    borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                    boxShadow: shadowsLight,
                   ),
-                  const SizedBox(height: Sizes.s2),
-                  Text(equipmentAndIngredients![indexIngredients].name)
-                ],
+                  child: Column(
+                    children: [
+                      Container(
+                        width: Sizes.s68,
+                        height: Sizes.s48,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius:
+                              BorderRadius.circular(Sizes.circularRadius),
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: NetworkImage(
+                                '$urlPrefix${equipmentAndIngredients![indexIngredients].image}'),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: Sizes.s2),
+                      Text(equipmentAndIngredients![indexIngredients].name)
+                    ],
+                  ),
+                ),
               ),
-            ),
-            scrollDirection: Axis.horizontal,
-            shrinkWrap: true,
-            physics: const ClampingScrollPhysics(),
-            itemCount: equipmentAndIngredients!.length,
-            separatorBuilder: (context, index) => const SizedBox(
-              width: Sizes.s16,
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemCount: equipmentAndIngredients!.length,
+              separatorBuilder: (context, index) => const SizedBox(
+                width: Sizes.s16,
+              ),
             ),
           ),
         ),

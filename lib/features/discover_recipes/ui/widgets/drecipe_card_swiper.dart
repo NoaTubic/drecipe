@@ -94,7 +94,7 @@ class _DrecipeCarouselState extends State<DrecipeCarousel> {
         clipBehavior: Clip.none,
         controller: _controller,
         physics: widget.isScrollable
-            ? _scrollPhysics
+            ? const BouncingScrollPhysics()
             : const NeverScrollableScrollPhysics(),
         separatorBuilder: (context, index) => const Divider(
           indent: Sizes.s24,

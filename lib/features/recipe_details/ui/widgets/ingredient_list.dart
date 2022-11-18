@@ -51,6 +51,7 @@ class IngredientList extends StatelessWidget {
                 scrollController: scrollController,
                 child: ListView.separated(
                   controller: scrollController,
+                  physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) => IngredientCard(
                     ingredient: recipe.ingredients![index],
                   ),
