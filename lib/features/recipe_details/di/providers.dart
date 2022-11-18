@@ -1,7 +1,8 @@
 import 'package:drecipe/core/api/providers.dart';
 import 'package:drecipe/features/recipe_details/data/repositories/recipe_details_repository.dart';
-import 'package:drecipe/features/recipe_details/ui/state/recipe_details_notifier.dart';
-import 'package:drecipe/features/recipe_details/ui/state/recipe_details_state.dart';
+import 'package:drecipe/features/recipe_details/ui/state/recipe_details/recipe_details_notifier.dart';
+import 'package:drecipe/features/recipe_details/ui/state/recipe_details/recipe_details_state.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final recipeDetailsRepositoryProvider = Provider<IRecipeDetailsRepository>(

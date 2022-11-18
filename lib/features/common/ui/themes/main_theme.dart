@@ -65,7 +65,7 @@ class AppTheme {
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(EdgeInsets.zero),
+        padding: MaterialStateProperty.all(const EdgeInsets.all(Sizes.s4)),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: MaterialStateProperty.all(Size.zero),
         overlayColor: MaterialStateProperty.all(

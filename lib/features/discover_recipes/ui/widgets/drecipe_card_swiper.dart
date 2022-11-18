@@ -89,8 +89,9 @@ class _DrecipeCarouselState extends State<DrecipeCarousel> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Sizes.s168,
+      height: Sizes.s160,
       child: ListView.separated(
+        clipBehavior: Clip.none,
         controller: _controller,
         physics: widget.isScrollable
             ? _scrollPhysics

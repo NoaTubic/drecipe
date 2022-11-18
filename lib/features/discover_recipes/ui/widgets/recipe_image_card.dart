@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/common/ui/widgets/recipe_card_content.dart';
+import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
+import 'package:drecipe/features/discover_recipes/ui/widgets/loading_widgets/recipe_card_loading.dart';
 import 'package:drecipe/features/recipe_details/di/providers.dart';
 import 'package:flutter/material.dart';
 
@@ -24,60 +26,57 @@ class RecipeImageCard extends ConsumerWidget {
         children: [
           Expanded(
             child: Container(
+              width: Sizes.s260,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Sizes.circularRadius),
                 boxShadow: shadowsLight,
               ),
-              child: Container(
-                width: Sizes.s260,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Sizes.circularRadius),
-                  backgroundBlendMode: BlendMode.darken,
-                  gradient: recipeCardGradient(),
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(
-                        Colors.black.withOpacity(OpacityConstants.op03),
-                        BlendMode.darken),
-                    image: Image.network(
-                      recipe.image ?? '',
-                      loadingBuilder: ((context, child, loadingProgress) =>
-                          Container(
-                            color: AppColors.lightGrey1,
-                          )),
-                      errorBuilder: (context, e, stackTrace) =>
-                          const Icon(Icons.error),
-                    ).image,
-                  ),
+              child: CachedNetworkImage(
+                fit: BoxFit.cover,
+                imageUrl: recipe.image!,
+                placeholder: (context, url) => const RecipeCardLoading(),
+                errorWidget: (context, url, error) => Container(
+                  color: AppColors.lightGrey1,
+                  child: const Icon(Icons.error),
                 ),
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Sizes.circularRadius),
-                    onTap: () async {
-                      Future.wait([
-                        ref
-                            .read(recipeDetailsNotifierProvider.notifier)
-                            .getRecipeDetails(id: recipe.id),
-                      ]).whenComplete(
-                        () => ScreenRouter.pushScreen(
-                          context,
-                          RecipeDetailsScreenRoute(
-                              recipeId: recipe.id, imageUrl: recipe.image!),
-                        ),
-                      );
-                    },
-                    child: RecipeCardContent(
-                      recipe: recipe,
+                    gradient: recipeCardGradient(),
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        colorFilter: ColorFilter.mode(
+                            Colors.black.withOpacity(OpacityConstants.op03),
+                            BlendMode.darken),
+                        image: imageProvider),
+                  ),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                      onTap: () async {
+                        Future.wait([
+                          ref
+                              .read(recipeDetailsNotifierProvider.notifier)
+                              .getRecipeDetails(id: recipe.id),
+                        ]).whenComplete(
+                          () => ScreenRouter.pushScreen(
+                            context,
+                            RecipeDetailsScreenRoute(
+                                recipeId: recipe.id, imageUrl: recipe.image!),
+                          ),
+                        );
+                      },
+                      child: RecipeCardContent(
+                        recipe: recipe,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
           ),
-          const SizedBox(
-            height: Sizes.s6,
-          )
         ],
       ),
     );

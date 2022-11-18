@@ -17,6 +17,8 @@ class IngredientsScreen extends StatelessWidget {
   final Recipe recipe;
   @override
   Widget build(BuildContext context) {
+    final scrollController = ScrollController();
+
     return DrecipeScaffold(
       appBar: DrecipeAppBar(
           title: S.of(context).recipe_details_instructions_ingredients),
@@ -27,6 +29,8 @@ class IngredientsScreen extends StatelessWidget {
         ),
         child: FadeMask(
           child: ListView.separated(
+            controller: scrollController,
+            clipBehavior: Clip.none,
             itemBuilder: (context, index) => IngredientCard(
               ingredient: recipe.ingredients![index],
             ),

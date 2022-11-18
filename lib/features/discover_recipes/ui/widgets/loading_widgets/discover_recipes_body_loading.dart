@@ -7,17 +7,14 @@ class DiscoverRecipesBodyLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      child: FadeMask(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            DrecipeCardSwiperLoading(),
-            DrecipeCardSwiperLoading(),
-            DrecipeCardSwiperLoading(),
-          ],
-        ),
+    return FadeMask(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          DrecipeCardSwiperLoading(),
+          DrecipeCardSwiperLoading(),
+          DrecipeCardSwiperLoading(),
+        ],
       ),
     );
   }

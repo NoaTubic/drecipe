@@ -14,7 +14,6 @@ class RecipeCardLoading extends StatelessWidget {
         BaseLoadingCard(
           height: Sizes.s160,
           width: Sizes.s260,
-          bottomPadding: Sizes.s8,
         ),
       ],
     );

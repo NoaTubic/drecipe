@@ -21,14 +21,14 @@ class DiscoverRecipesBody extends StatelessWidget {
           title: s.discover_recipes_random,
           recipes: recipes.randomRecipes,
         ),
-        DrecipeCardSwiper(
-          title: s.discover_recipes_popular,
-          recipes: recipes.popularRecipes,
-        ),
-        DrecipeCardSwiper(
-          title: s.discover_recipes_healthy,
-          recipes: recipes.healthyRecipe,
-        ),
+        // DrecipeCardSwiper(
+        //   title: s.discover_recipes_popular,
+        //   recipes: recipes.popularRecipes,
+        // ),
+        // DrecipeCardSwiper(
+        //   title: s.discover_recipes_healthy,
+        //   recipes: recipes.healthyRecipe,
+        // ),
       ],
     );
   }

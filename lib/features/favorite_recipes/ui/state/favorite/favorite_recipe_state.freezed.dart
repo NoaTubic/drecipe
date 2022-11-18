@@ -483,6 +483,8 @@ abstract class _$$_ErrorCopyWith<$Res> {
       __$$_ErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure error});
+
+  $FailureCopyWith<$Res> get error;
 }
 
 /// @nodoc
@@ -504,6 +506,14 @@ class __$$_ErrorCopyWithImpl<$Res>
               as Failure,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FailureCopyWith<$Res> get error {
+    return $FailureCopyWith<$Res>(_value.error, (value) {
+      return _then(_value.copyWith(error: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -524,12 +534,11 @@ class _$_Error implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Error &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override

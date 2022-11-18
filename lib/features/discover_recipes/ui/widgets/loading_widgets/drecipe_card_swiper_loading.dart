@@ -14,7 +14,7 @@ class DrecipeCardSwiperLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: Sizes.s12),
+      padding: const EdgeInsets.symmetric(vertical: Sizes.s4),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -33,7 +33,7 @@ class DrecipeCardSwiperLoading extends StatelessWidget {
                 highlightColor:
                     AppColors.lightGrey1.withOpacity(OpacityConstants.op03),
                 child: Container(
-                  height: Sizes.s28,
+                  height: Sizes.s24,
                   width: Sizes.s160,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Sizes.circularRadius),
@@ -44,7 +44,7 @@ class DrecipeCardSwiperLoading extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: Sizes.s12,
+            height: Sizes.s8,
           ),
           DrecipeCarousel(
             items: const [loadingRecipe, loadingRecipe, loadingRecipe],
