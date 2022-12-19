@@ -1,7 +1,7 @@
 import 'package:drecipe/core/database/database_constants.dart';
-import 'package:drecipe/features/common/domain/entities/ingredient.dart';
-import 'package:drecipe/features/common/domain/entities/instructions.dart';
-import 'package:drecipe/features/common/domain/entities/nutrition_data.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/ingredient.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/nutrition_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -23,7 +23,7 @@ class Recipe with _$Recipe {
     @HiveField(7) required bool vegan,
     @HiveField(8) required bool glutenFree,
     @HiveField(9) required bool veryPopular,
-    @HiveField(10) required bool vertHealthy,
+    @HiveField(10) required bool veryHealthy,
     // required String instructions,
     @HiveField(11) List<Ingredient>? ingredients,
     // List<Instructions>? instructionsDetailed,

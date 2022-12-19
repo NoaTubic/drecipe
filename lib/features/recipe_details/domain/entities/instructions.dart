@@ -1,4 +1,6 @@
 import 'package:drecipe/core/database/database_constants.dart';
+import 'package:drecipe/features/recipe_details/data/models/responses/instructions_response.dart';
+import 'package:drecipe/features/recipe_details/data/models/responses/recipe_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
@@ -50,4 +52,57 @@ class EquipmentAndIngredients with _$EquipmentAndIngredients {
 
   factory EquipmentAndIngredients.fromJson(Map<String, dynamic> json) =>
       _$EquipmentAndIngredientsFromJson(json);
+}
+
+extension InstructionsExtension on RecipeResponse {
+  List<Instructions> convertInstructions() {
+    List<Instructions> instructionsList = [];
+    for (var instruction in analyzedInstructions) {
+      instructionsList.add(
+        Instructions(
+          name: instruction.name,
+          steps: instruction.convertSteps(),
+        ),
+      );
+    }
+    return instructionsList;
+  }
+}
+
+extension StepExtension on InstructionsResponse {
+  List<InstructionStep> convertSteps() {
+    List<InstructionStep> stepsList = [];
+    for (var step in steps) {
+      stepsList.add(InstructionStep(
+        number: step.number.toString(),
+        instruction: step.step,
+        ingredients: step.convertIngredients(),
+        equipment: step.convertEquipment(),
+        stepDuration: step.length != null
+            ? '${step.length?.number.toString()} ${step.length?.unit}'
+            : null,
+      ));
+    }
+    return stepsList;
+  }
+}
+
+extension EquipmentAndIngredientsExtension on StepResponse {
+  List<EquipmentAndIngredients> convertIngredients() {
+    List<EquipmentAndIngredients> list = [];
+    for (var element in ingredients!) {
+      list.add(
+          EquipmentAndIngredients(name: element.name, image: element.image));
+    }
+    return list;
+  }
+
+  List<EquipmentAndIngredients> convertEquipment() {
+    List<EquipmentAndIngredients> list = [];
+    for (var element in equipment!) {
+      list.add(
+          EquipmentAndIngredients(name: element.name, image: element.image));
+    }
+    return list;
+  }
 }

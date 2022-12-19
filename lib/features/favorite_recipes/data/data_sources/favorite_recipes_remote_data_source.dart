@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class IFavoriteRecipesRemoteDataSource {

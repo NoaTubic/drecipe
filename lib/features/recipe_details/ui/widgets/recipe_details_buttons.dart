@@ -1,7 +1,7 @@
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/common/domain/entities/instructions.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_button.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

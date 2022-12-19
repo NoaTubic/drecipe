@@ -27,7 +27,7 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
       vegan: fields[7] as bool,
       glutenFree: fields[8] as bool,
       veryPopular: fields[9] as bool,
-      vertHealthy: fields[10] as bool,
+      veryHealthy: fields[10] as bool,
       ingredients: (fields[11] as List?)?.cast<Ingredient>(),
       nutritionData: fields[12] as NutritionData?,
       instructionsDetailed: (fields[13] as List?)?.cast<Instructions>(),
@@ -59,7 +59,7 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
       ..writeByte(9)
       ..write(obj.veryPopular)
       ..writeByte(10)
-      ..write(obj.vertHealthy)
+      ..write(obj.veryHealthy)
       ..writeByte(11)
       ..write(obj.ingredients)
       ..writeByte(12)
@@ -96,7 +96,7 @@ _$_Recipe _$$_RecipeFromJson(Map<String, dynamic> json) => _$_Recipe(
       vegan: json['vegan'] as bool,
       glutenFree: json['glutenFree'] as bool,
       veryPopular: json['veryPopular'] as bool,
-      vertHealthy: json['vertHealthy'] as bool,
+      veryHealthy: json['veryHealthy'] as bool,
       ingredients: (json['ingredients'] as List<dynamic>?)
           ?.map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -120,7 +120,7 @@ Map<String, dynamic> _$$_RecipeToJson(_$_Recipe instance) => <String, dynamic>{
       'vegan': instance.vegan,
       'glutenFree': instance.glutenFree,
       'veryPopular': instance.veryPopular,
-      'vertHealthy': instance.vertHealthy,
+      'veryHealthy': instance.veryHealthy,
       'ingredients': instance.ingredients?.map((e) => e.toJson()).toList(),
       'nutritionData': instance.nutritionData?.toJson(),
       'instructionsDetailed':

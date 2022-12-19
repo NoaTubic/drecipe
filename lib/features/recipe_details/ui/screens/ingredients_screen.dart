@@ -2,11 +2,10 @@ import 'package:drecipe/features/common/ui/sizes/sizes.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/ingredient_card.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
-
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 
 class IngredientsScreen extends StatelessWidget {
   const IngredientsScreen({

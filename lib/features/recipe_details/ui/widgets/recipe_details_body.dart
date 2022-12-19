@@ -1,6 +1,6 @@
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_chip.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/ingredient_list.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/nutrition_card.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/recipe_details_buttons.dart';

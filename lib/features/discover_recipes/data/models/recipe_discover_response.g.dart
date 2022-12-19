@@ -6,6 +6,21 @@ part of 'recipe_discover_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$_RecipesDiscoverResponse _$$_RecipesDiscoverResponseFromJson(
+        Map<String, dynamic> json) =>
+    _$_RecipesDiscoverResponse(
+      results: (json['results'] as List<dynamic>)
+          .map(
+              (e) => RecipeDiscoverResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_RecipesDiscoverResponseToJson(
+        _$_RecipesDiscoverResponse instance) =>
+    <String, dynamic>{
+      'results': instance.results,
+    };
+
 _$_RecipeDiscoverResponse _$$_RecipeDiscoverResponseFromJson(
         Map<String, dynamic> json) =>
     _$_RecipeDiscoverResponse(

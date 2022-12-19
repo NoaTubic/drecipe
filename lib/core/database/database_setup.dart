@@ -1,7 +1,7 @@
-import 'package:drecipe/features/common/domain/entities/ingredient.dart';
-import 'package:drecipe/features/common/domain/entities/instructions.dart';
-import 'package:drecipe/features/common/domain/entities/nutrition_data.dart';
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/ingredient.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/nutrition_data.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:hive_flutter/adapters.dart';
 
 Future<void> configureDatabase({String path = ''}) async {

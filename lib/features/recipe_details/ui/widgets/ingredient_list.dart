@@ -1,9 +1,9 @@
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_text_button_primary.dart';
 import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/ingredient_card.dart';
 import 'package:flutter/material.dart';
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 
 class IngredientList extends StatelessWidget {

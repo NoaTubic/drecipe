@@ -23,10 +23,9 @@ class MealTimeCard extends ConsumerWidget {
             child: Container(
               height: Sizes.s60,
               width: double.infinity,
-              decoration: BoxDecoration(
-                boxShadow: shadows,
-              ),
+              decoration: BoxDecoration(boxShadow: shadows),
               child: Card(
+                color: AppColors.white,
                 elevation: Sizes.s0,
                 shape: RoundedRectangleBorder(
                   side: BorderSide(

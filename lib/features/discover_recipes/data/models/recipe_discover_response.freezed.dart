@@ -14,6 +14,157 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+RecipesDiscoverResponse _$RecipesDiscoverResponseFromJson(
+    Map<String, dynamic> json) {
+  return _RecipesDiscoverResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$RecipesDiscoverResponse {
+  List<RecipeDiscoverResponse> get results =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RecipesDiscoverResponseCopyWith<RecipesDiscoverResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RecipesDiscoverResponseCopyWith<$Res> {
+  factory $RecipesDiscoverResponseCopyWith(RecipesDiscoverResponse value,
+          $Res Function(RecipesDiscoverResponse) then) =
+      _$RecipesDiscoverResponseCopyWithImpl<$Res, RecipesDiscoverResponse>;
+  @useResult
+  $Res call({List<RecipeDiscoverResponse> results});
+}
+
+/// @nodoc
+class _$RecipesDiscoverResponseCopyWithImpl<$Res,
+        $Val extends RecipesDiscoverResponse>
+    implements $RecipesDiscoverResponseCopyWith<$Res> {
+  _$RecipesDiscoverResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? results = null,
+  }) {
+    return _then(_value.copyWith(
+      results: null == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<RecipeDiscoverResponse>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_RecipesDiscoverResponseCopyWith<$Res>
+    implements $RecipesDiscoverResponseCopyWith<$Res> {
+  factory _$$_RecipesDiscoverResponseCopyWith(_$_RecipesDiscoverResponse value,
+          $Res Function(_$_RecipesDiscoverResponse) then) =
+      __$$_RecipesDiscoverResponseCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<RecipeDiscoverResponse> results});
+}
+
+/// @nodoc
+class __$$_RecipesDiscoverResponseCopyWithImpl<$Res>
+    extends _$RecipesDiscoverResponseCopyWithImpl<$Res,
+        _$_RecipesDiscoverResponse>
+    implements _$$_RecipesDiscoverResponseCopyWith<$Res> {
+  __$$_RecipesDiscoverResponseCopyWithImpl(_$_RecipesDiscoverResponse _value,
+      $Res Function(_$_RecipesDiscoverResponse) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? results = null,
+  }) {
+    return _then(_$_RecipesDiscoverResponse(
+      results: null == results
+          ? _value._results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<RecipeDiscoverResponse>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_RecipesDiscoverResponse implements _RecipesDiscoverResponse {
+  const _$_RecipesDiscoverResponse(
+      {required final List<RecipeDiscoverResponse> results})
+      : _results = results;
+
+  factory _$_RecipesDiscoverResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_RecipesDiscoverResponseFromJson(json);
+
+  final List<RecipeDiscoverResponse> _results;
+  @override
+  List<RecipeDiscoverResponse> get results {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_results);
+  }
+
+  @override
+  String toString() {
+    return 'RecipesDiscoverResponse(results: $results)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RecipesDiscoverResponse &&
+            const DeepCollectionEquality().equals(other._results, _results));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_results));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RecipesDiscoverResponseCopyWith<_$_RecipesDiscoverResponse>
+      get copyWith =>
+          __$$_RecipesDiscoverResponseCopyWithImpl<_$_RecipesDiscoverResponse>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RecipesDiscoverResponseToJson(
+      this,
+    );
+  }
+}
+
+abstract class _RecipesDiscoverResponse implements RecipesDiscoverResponse {
+  const factory _RecipesDiscoverResponse(
+          {required final List<RecipeDiscoverResponse> results}) =
+      _$_RecipesDiscoverResponse;
+
+  factory _RecipesDiscoverResponse.fromJson(Map<String, dynamic> json) =
+      _$_RecipesDiscoverResponse.fromJson;
+
+  @override
+  List<RecipeDiscoverResponse> get results;
+  @override
+  @JsonKey(ignore: true)
+  _$$_RecipesDiscoverResponseCopyWith<_$_RecipesDiscoverResponse>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 RecipeDiscoverResponse _$RecipeDiscoverResponseFromJson(
     Map<String, dynamic> json) {
   return _RecipeDiscoverResponse.fromJson(json);

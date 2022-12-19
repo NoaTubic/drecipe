@@ -14,8 +14,8 @@ class DiscoverRecipesScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(initRecipesProvider);
-    ref.read(initMealTimeProvider);
+    ref.watch(recipesNotifierProvider);
+    ref.watch(mealTimeNotifierProvider);
     Future<void> refreshScreen() async {
       ref.read(recipesNotifierProvider.notifier).getRecipes();
       ref.read(mealTimeNotifierProvider.notifier).getMealTypeAndTime();

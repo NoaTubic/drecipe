@@ -6,6 +6,18 @@ part of 'recipe_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$_RecipesResponse _$$_RecipesResponseFromJson(Map<String, dynamic> json) =>
+    _$_RecipesResponse(
+      results: (json['results'] as List<dynamic>)
+          .map((e) => RecipeResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_RecipesResponseToJson(_$_RecipesResponse instance) =>
+    <String, dynamic>{
+      'results': instance.results,
+    };
+
 _$_RecipeResponse _$$_RecipeResponseFromJson(Map<String, dynamic> json) =>
     _$_RecipeResponse(
       id: json['id'] as int,
@@ -20,7 +32,6 @@ _$_RecipeResponse _$$_RecipeResponseFromJson(Map<String, dynamic> json) =>
       glutenFree: json['glutenFree'] as bool,
       veryPopular: json['veryPopular'] as bool,
       veryHealthy: json['veryHealthy'] as bool,
-      instructions: json['instructions'] as String,
       extendedIngredients: (json['extendedIngredients'] as List<dynamic>)
           .map((e) => IngredientResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -44,7 +55,6 @@ Map<String, dynamic> _$$_RecipeResponseToJson(_$_RecipeResponse instance) =>
       'glutenFree': instance.glutenFree,
       'veryPopular': instance.veryPopular,
       'veryHealthy': instance.veryHealthy,
-      'instructions': instance.instructions,
       'extendedIngredients': instance.extendedIngredients,
       'nutrition': instance.nutrition,
       'analyzedInstructions': instance.analyzedInstructions,

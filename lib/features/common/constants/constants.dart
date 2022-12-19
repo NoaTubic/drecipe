@@ -2,8 +2,12 @@ import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter/material.dart';
 
 abstract class Constants {
-  static int minPasswordLength = 6;
-  static int maxUsernameLength = 20;
+  static const int minPasswordLength = 6;
+  static const int maxUsernameLength = 20;
+  static const int numberOfRecipes = 10;
+  static const String randomRecipes = 'random';
+  static const String popularRecipes = 'popularity';
+  static const String healthyRecipes = 'healthiness';
 }
 
 abstract class HeroConstants {
@@ -38,22 +42,22 @@ abstract class RegexConstants {
 
 List<BoxShadow> shadows = [
   BoxShadow(
-    color: AppColors.black.withOpacity(OpacityConstants.op04),
-    spreadRadius: -Sizes.s16,
-    blurRadius: Sizes.s20,
-    offset: const Offset(Sizes.s0, Sizes.s8),
+    color: AppColors.black.withOpacity(OpacityConstants.op02),
+    spreadRadius: -Sizes.s8,
+    blurRadius: Sizes.s8,
+    offset: const Offset(Sizes.s0, Sizes.s4),
   ),
   BoxShadow(
-    color: AppColors.black.withOpacity(OpacityConstants.op04),
-    spreadRadius: -Sizes.s20,
-    blurRadius: Sizes.s20,
-    offset: const Offset(Sizes.s20, -Sizes.s0),
+    color: AppColors.black.withOpacity(OpacityConstants.op02),
+    spreadRadius: -Sizes.s8,
+    blurRadius: Sizes.s8,
+    offset: const Offset(Sizes.s4, -Sizes.s0),
   ),
   BoxShadow(
-    color: AppColors.black.withOpacity(OpacityConstants.op04),
-    spreadRadius: -Sizes.s20,
-    blurRadius: Sizes.s20,
-    offset: const Offset(-Sizes.s20, -Sizes.s0),
+    color: AppColors.black.withOpacity(OpacityConstants.op02),
+    spreadRadius: -Sizes.s8,
+    blurRadius: Sizes.s8,
+    offset: const Offset(-Sizes.s4, -Sizes.s0),
   )
 ];
 

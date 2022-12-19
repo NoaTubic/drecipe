@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drecipe/features/common/ui/widgets/diet_badge.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 
 class RecipeDetailsImage extends StatelessWidget {

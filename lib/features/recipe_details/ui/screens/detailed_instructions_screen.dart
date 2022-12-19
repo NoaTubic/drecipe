@@ -1,10 +1,10 @@
 import 'package:drecipe/core/api/api_constants.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
-import 'package:drecipe/features/common/domain/entities/instructions.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/instructions_horizontal_slider.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';

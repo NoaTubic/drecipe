@@ -1,7 +1,7 @@
 import 'package:drecipe/features/common/constants/constants.dart';
-import 'package:drecipe/features/common/domain/entities/instructions.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:flutter/material.dart';
 
 class InstructionsHorizontalSlider extends StatelessWidget {

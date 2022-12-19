@@ -31,6 +31,7 @@ abstract class Sizes {
   static const double s36 = 36;
   static const double s38 = 38;
   static const double s40 = 40;
+  static const double s46 = 46;
   static const double s48 = 48;
   static const double s50 = 50;
   static const double s52 = 52;

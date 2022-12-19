@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/features/account_recovery/ui/screens/account_recovery_screen.dart';
 import 'package:drecipe/features/account_recovery/ui/screens/account_recovery_reset_email_screen.dart';
-import 'package:drecipe/features/common/domain/entities/instructions.dart';
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_bottom_nav_bar.dart';
 import 'package:drecipe/features/discover_recipes/ui/screens/discover_recipes_screen.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:drecipe/features/recipe_details/ui/screens/detailed_instructions_screen.dart';
 import 'package:drecipe/features/recipe_details/ui/screens/ingredients_screen.dart';
 import 'package:drecipe/features/recipe_details/ui/screens/recipe_details_screen.dart';

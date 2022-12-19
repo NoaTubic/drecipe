@@ -1,6 +1,6 @@
 abstract class ApiConstants {
   static const String apiKey = '01088b458fcf49c18da608f3a524d41c';
-  static const int numberOfRecipes = 10;
+  static const String recipeImageUrl = 'https://spoonacular.com/recipeImages/';
   static const String ingredientImageUrl =
       'https://spoonacular.com/cdn/ingredients_100x100/';
   static const String equipmentImageUrl =

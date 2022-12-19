@@ -1,8 +1,7 @@
 import 'package:awesome_circular_chart/awesome_circular_chart.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/nutrition_data.dart';
 import 'package:flutter/material.dart';
-
 import 'package:drecipe/features/common/constants/constants.dart';
-import 'package:drecipe/features/common/domain/entities/nutrition_data.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 
 class NutritionCard extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:drecipe/core/api/api_helpers.dart';
-import 'package:drecipe/features/common/domain/entities/recipe.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/favorite_recipes/data/data_sources/favorite_recipes_local_data_source.dart';
 import 'package:drecipe/features/favorite_recipes/data/data_sources/favorite_recipes_remote_data_source.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 
 abstract class IFavoriteRecipesRepository {
   Future<Either<Failure, Recipe>> addFavoriteRecipe({required Recipe recipe});

@@ -1,4 +1,5 @@
 import 'package:drecipe/core/database/database_constants.dart';
+import 'package:drecipe/features/recipe_details/data/models/responses/recipe_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
@@ -18,4 +19,20 @@ class Ingredient with _$Ingredient {
 
   factory Ingredient.fromJson(Map<String, dynamic> json) =>
       _$IngredientFromJson(json);
+}
+
+extension IngredientsExtension on RecipeResponse {
+  List<Ingredient> convertIngredients() {
+    List<Ingredient> ingredientsList = [];
+    for (var ingredient in extendedIngredients) {
+      ingredientsList.add(
+        Ingredient(
+          id: ingredient.id,
+          image: ingredient.image,
+          original: ingredient.original,
+        ),
+      );
+    }
+    return ingredientsList;
+  }
 }

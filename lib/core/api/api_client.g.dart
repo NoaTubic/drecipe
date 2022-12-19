@@ -19,25 +19,33 @@ class _ApiClient implements ApiClient {
   String? baseUrl;
 
   @override
-  Future<RecipesResponse> getRandomRecipes(number) async {
+  Future<RecipesDiscoverResponse> getRandomRecipes({
+    required sort,
+    addRecipeInformation = 'true',
+    number = Constants.numberOfRecipes,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'number': number};
+    final queryParameters = <String, dynamic>{
+      r'sort': sort,
+      r'addRecipeInformation': addRecipeInformation,
+      r'number': number,
+    };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<RecipesResponse>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RecipesDiscoverResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/recipes/random',
+              '/recipes/complexSearch',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = RecipesResponse.fromJson(_result.data!);
+    final value = RecipesDiscoverResponse.fromJson(_result.data!);
     return value;
   }
 
@@ -66,6 +74,87 @@ class _ApiClient implements ApiClient {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RecipeResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<SearchRecipesSuggestionResponse>> autocompleteRecipeSearch({
+    required searchQuery,
+    numberOfRecipes = Constants.numberOfRecipes,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'query': searchQuery,
+      r'number': numberOfRecipes,
+    };
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<SearchRecipesSuggestionResponse>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/recipes/autocomplete',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            SearchRecipesSuggestionResponse.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<RecipesDiscoverResponse> searchRecipes({
+    required cuisine,
+    required mealType,
+    required diet,
+    required intolerances,
+    required maxReadyTime,
+    required sort,
+    required sortDirection,
+    required minCalories,
+    required maxCalories,
+    required query,
+    addRecipeInformation = 'true',
+    number = Constants.numberOfRecipes,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'query': cuisine,
+      r'query': mealType,
+      r'query': diet,
+      r'query': intolerances,
+      r'query': maxReadyTime,
+      r'query': sort,
+      r'query': sortDirection,
+      r'query': minCalories,
+      r'query': maxCalories,
+      r'query': query,
+      r'addRecipeInformation': addRecipeInformation,
+      r'number': number,
+    };
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RecipesDiscoverResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/recipes/complexSearch',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RecipesDiscoverResponse.fromJson(_result.data!);
     return value;
   }
 

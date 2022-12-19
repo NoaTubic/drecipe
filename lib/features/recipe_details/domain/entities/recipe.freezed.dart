@@ -41,7 +41,7 @@ mixin _$Recipe {
   @HiveField(9)
   bool get veryPopular => throw _privateConstructorUsedError;
   @HiveField(10)
-  bool get vertHealthy =>
+  bool get veryHealthy =>
       throw _privateConstructorUsedError; // required String instructions,
   @HiveField(11)
   List<Ingredient>? get ingredients =>
@@ -73,7 +73,7 @@ abstract class $RecipeCopyWith<$Res> {
       @HiveField(7) bool vegan,
       @HiveField(8) bool glutenFree,
       @HiveField(9) bool veryPopular,
-      @HiveField(10) bool vertHealthy,
+      @HiveField(10) bool veryHealthy,
       @HiveField(11) List<Ingredient>? ingredients,
       @HiveField(12) NutritionData? nutritionData,
       @HiveField(13) List<Instructions>? instructionsDetailed});
@@ -104,7 +104,7 @@ class _$RecipeCopyWithImpl<$Res, $Val extends Recipe>
     Object? vegan = null,
     Object? glutenFree = null,
     Object? veryPopular = null,
-    Object? vertHealthy = null,
+    Object? veryHealthy = null,
     Object? ingredients = freezed,
     Object? nutritionData = freezed,
     Object? instructionsDetailed = freezed,
@@ -150,9 +150,9 @@ class _$RecipeCopyWithImpl<$Res, $Val extends Recipe>
           ? _value.veryPopular
           : veryPopular // ignore: cast_nullable_to_non_nullable
               as bool,
-      vertHealthy: null == vertHealthy
-          ? _value.vertHealthy
-          : vertHealthy // ignore: cast_nullable_to_non_nullable
+      veryHealthy: null == veryHealthy
+          ? _value.veryHealthy
+          : veryHealthy // ignore: cast_nullable_to_non_nullable
               as bool,
       ingredients: freezed == ingredients
           ? _value.ingredients
@@ -199,7 +199,7 @@ abstract class _$$_RecipeCopyWith<$Res> implements $RecipeCopyWith<$Res> {
       @HiveField(7) bool vegan,
       @HiveField(8) bool glutenFree,
       @HiveField(9) bool veryPopular,
-      @HiveField(10) bool vertHealthy,
+      @HiveField(10) bool veryHealthy,
       @HiveField(11) List<Ingredient>? ingredients,
       @HiveField(12) NutritionData? nutritionData,
       @HiveField(13) List<Instructions>? instructionsDetailed});
@@ -228,7 +228,7 @@ class __$$_RecipeCopyWithImpl<$Res>
     Object? vegan = null,
     Object? glutenFree = null,
     Object? veryPopular = null,
-    Object? vertHealthy = null,
+    Object? veryHealthy = null,
     Object? ingredients = freezed,
     Object? nutritionData = freezed,
     Object? instructionsDetailed = freezed,
@@ -274,9 +274,9 @@ class __$$_RecipeCopyWithImpl<$Res>
           ? _value.veryPopular
           : veryPopular // ignore: cast_nullable_to_non_nullable
               as bool,
-      vertHealthy: null == vertHealthy
-          ? _value.vertHealthy
-          : vertHealthy // ignore: cast_nullable_to_non_nullable
+      veryHealthy: null == veryHealthy
+          ? _value.veryHealthy
+          : veryHealthy // ignore: cast_nullable_to_non_nullable
               as bool,
       ingredients: freezed == ingredients
           ? _value._ingredients
@@ -309,7 +309,7 @@ class _$_Recipe implements _Recipe {
       @HiveField(7) required this.vegan,
       @HiveField(8) required this.glutenFree,
       @HiveField(9) required this.veryPopular,
-      @HiveField(10) required this.vertHealthy,
+      @HiveField(10) required this.veryHealthy,
       @HiveField(11) final List<Ingredient>? ingredients,
       @HiveField(12) this.nutritionData,
       @HiveField(13) final List<Instructions>? instructionsDetailed})
@@ -359,7 +359,7 @@ class _$_Recipe implements _Recipe {
   final bool veryPopular;
   @override
   @HiveField(10)
-  final bool vertHealthy;
+  final bool veryHealthy;
 // required String instructions,
   final List<Ingredient>? _ingredients;
 // required String instructions,
@@ -388,7 +388,7 @@ class _$_Recipe implements _Recipe {
 
   @override
   String toString() {
-    return 'Recipe(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, dishTypes: $dishTypes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, vertHealthy: $vertHealthy, ingredients: $ingredients, nutritionData: $nutritionData, instructionsDetailed: $instructionsDetailed)';
+    return 'Recipe(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, dishTypes: $dishTypes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, veryHealthy: $veryHealthy, ingredients: $ingredients, nutritionData: $nutritionData, instructionsDetailed: $instructionsDetailed)';
   }
 
   @override
@@ -412,8 +412,8 @@ class _$_Recipe implements _Recipe {
                 other.glutenFree == glutenFree) &&
             (identical(other.veryPopular, veryPopular) ||
                 other.veryPopular == veryPopular) &&
-            (identical(other.vertHealthy, vertHealthy) ||
-                other.vertHealthy == vertHealthy) &&
+            (identical(other.veryHealthy, veryHealthy) ||
+                other.veryHealthy == veryHealthy) &&
             const DeepCollectionEquality()
                 .equals(other._ingredients, _ingredients) &&
             (identical(other.nutritionData, nutritionData) ||
@@ -436,7 +436,7 @@ class _$_Recipe implements _Recipe {
       vegan,
       glutenFree,
       veryPopular,
-      vertHealthy,
+      veryHealthy,
       const DeepCollectionEquality().hash(_ingredients),
       nutritionData,
       const DeepCollectionEquality().hash(_instructionsDetailed));
@@ -467,7 +467,7 @@ abstract class _Recipe implements Recipe {
           @HiveField(7) required final bool vegan,
           @HiveField(8) required final bool glutenFree,
           @HiveField(9) required final bool veryPopular,
-          @HiveField(10) required final bool vertHealthy,
+          @HiveField(10) required final bool veryHealthy,
           @HiveField(11) final List<Ingredient>? ingredients,
           @HiveField(12) final NutritionData? nutritionData,
           @HiveField(13) final List<Instructions>? instructionsDetailed}) =
@@ -507,7 +507,7 @@ abstract class _Recipe implements Recipe {
   bool get veryPopular;
   @override
   @HiveField(10)
-  bool get vertHealthy;
+  bool get veryHealthy;
   @override // required String instructions,
   @HiveField(11)
   List<Ingredient>? get ingredients;

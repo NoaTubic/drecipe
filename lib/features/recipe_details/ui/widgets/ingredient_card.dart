@@ -1,6 +1,6 @@
 import 'package:drecipe/core/api/api_constants.dart';
-import 'package:drecipe/features/common/domain/entities/ingredient.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_circular_progress_indicator.dart';
+import 'package:drecipe/features/recipe_details/domain/entities/ingredient.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';

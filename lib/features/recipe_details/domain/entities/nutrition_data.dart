@@ -1,4 +1,6 @@
 import 'package:drecipe/core/database/database_constants.dart';
+import 'package:drecipe/features/recipe_details/data/models/responses/nutrition_response.dart';
+import 'package:drecipe/features/recipe_details/data/models/responses/recipe_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
@@ -34,4 +36,30 @@ class Nutrient with _$Nutrient {
 
   factory Nutrient.fromJson(Map<String, dynamic> json) =>
       _$NutrientFromJson(json);
+}
+
+extension NutritionDataExtension on RecipeResponse {
+  NutritionData convertNutritionData() {
+    final nutritionData = NutritionData(
+      nutrients: nutrition.convertNutrients(),
+      percentProtein: nutrition.caloricBreakdown.percentProtein,
+      percentFat: nutrition.caloricBreakdown.percentFat,
+      percentCarbs: nutrition.caloricBreakdown.percentCarbs,
+      weightPerServing:
+          '${nutrition.weightPerServingResponse?.amount} + ${nutrition.weightPerServingResponse?.unit}',
+    );
+    return nutritionData;
+  }
+}
+
+extension NutrientsExtension on NutritionResponse {
+  List<Nutrient> convertNutrients() {
+    List<Nutrient> nutrientsList = [];
+    for (var nutrient in nutrients) {
+      nutrientsList.add(Nutrient(
+          name: nutrient.name,
+          amount: '${nutrient.amount.round()} ${nutrient.unit}'));
+    }
+    return nutrientsList;
+  }
 }
