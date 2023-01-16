@@ -39,9 +39,9 @@ class Nutrient with _$Nutrient {
 }
 
 extension NutritionDataExtension on RecipeResponse {
-  NutritionData convertNutritionData() {
+  NutritionData convertNutritionData({required int numberOfServings}) {
     final nutritionData = NutritionData(
-      nutrients: nutrition.convertNutrients(),
+      nutrients: nutrition.convertNutrients(numberOfServings: numberOfServings),
       percentProtein: nutrition.caloricBreakdown.percentProtein,
       percentFat: nutrition.caloricBreakdown.percentFat,
       percentCarbs: nutrition.caloricBreakdown.percentCarbs,
@@ -53,12 +53,13 @@ extension NutritionDataExtension on RecipeResponse {
 }
 
 extension NutrientsExtension on NutritionResponse {
-  List<Nutrient> convertNutrients() {
+  List<Nutrient> convertNutrients({required int numberOfServings}) {
     List<Nutrient> nutrientsList = [];
     for (var nutrient in nutrients) {
       nutrientsList.add(Nutrient(
           name: nutrient.name,
-          amount: '${nutrient.amount.round()} ${nutrient.unit}'));
+          amount:
+              '${nutrient.amount.round() * numberOfServings} ${nutrient.unit}'));
     }
     return nutrientsList;
   }

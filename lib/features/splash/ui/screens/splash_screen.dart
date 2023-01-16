@@ -24,9 +24,11 @@ class SplashScreenState extends ConsumerState<SplashScreen>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.watch(initAuthProvider);
-    });
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        ref.watch(authNotifierProvider);
+      },
+    );
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: DurationConstants.d093),

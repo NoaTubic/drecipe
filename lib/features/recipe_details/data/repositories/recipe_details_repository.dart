@@ -33,7 +33,8 @@ class RecipeDetailsRepository implements IRecipeDetailsRepository {
         veryPopular: recipeResponse.veryPopular,
         veryHealthy: recipeResponse.veryHealthy,
         ingredients: recipeResponse.convertIngredients(),
-        nutritionData: recipeResponse.convertNutritionData(),
+        nutritionData: recipeResponse.convertNutritionData(
+            numberOfServings: recipeResponse.servings),
         instructionsDetailed: recipeResponse.convertInstructions(),
       );
       return right(recipe);

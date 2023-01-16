@@ -17,7 +17,7 @@ class DrecipeCardSwiper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: Sizes.s4),
+      padding: const EdgeInsets.symmetric(vertical: Sizes.s8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

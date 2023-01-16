@@ -22,14 +22,14 @@ class IngredientsScreen extends StatelessWidget {
       appBar: DrecipeAppBar(
           title: S.of(context).recipe_details_instructions_ingredients),
       body: Container(
-        padding: const EdgeInsets.only(top: Sizes.s4),
+        // padding: const EdgeInsets.only(top: Sizes.s4),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Sizes.circularRadius),
         ),
         child: FadeMask(
+          scrollController: scrollController,
           child: ListView.separated(
             controller: scrollController,
-            clipBehavior: Clip.none,
             itemBuilder: (context, index) => IngredientCard(
               ingredient: recipe.ingredients![index],
             ),

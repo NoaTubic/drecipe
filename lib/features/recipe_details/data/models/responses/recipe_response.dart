@@ -60,7 +60,8 @@ extension RecipesExtension on RecipesResponse {
           veryPopular: recipe.veryPopular,
           veryHealthy: recipe.veryHealthy,
           ingredients: recipe.convertIngredients(),
-          nutritionData: recipe.convertNutritionData(),
+          nutritionData:
+              recipe.convertNutritionData(numberOfServings: recipe.servings),
           instructionsDetailed: recipe.convertInstructions(),
         ),
       );
