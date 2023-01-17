@@ -21,6 +21,7 @@ mixin _$RecipeDiscover {
   int get servings => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   int get readyInMinutes => throw _privateConstructorUsedError;
+  int? get numberOfIngredients => throw _privateConstructorUsedError;
   bool get vegetarian => throw _privateConstructorUsedError;
   bool get vegan => throw _privateConstructorUsedError;
   bool get glutenFree => throw _privateConstructorUsedError;
@@ -44,6 +45,7 @@ abstract class $RecipeDiscoverCopyWith<$Res> {
       int servings,
       String? image,
       int readyInMinutes,
+      int? numberOfIngredients,
       bool vegetarian,
       bool vegan,
       bool glutenFree,
@@ -69,6 +71,7 @@ class _$RecipeDiscoverCopyWithImpl<$Res, $Val extends RecipeDiscover>
     Object? servings = null,
     Object? image = freezed,
     Object? readyInMinutes = null,
+    Object? numberOfIngredients = freezed,
     Object? vegetarian = null,
     Object? vegan = null,
     Object? glutenFree = null,
@@ -96,6 +99,10 @@ class _$RecipeDiscoverCopyWithImpl<$Res, $Val extends RecipeDiscover>
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
               as int,
+      numberOfIngredients: freezed == numberOfIngredients
+          ? _value.numberOfIngredients
+          : numberOfIngredients // ignore: cast_nullable_to_non_nullable
+              as int?,
       vegetarian: null == vegetarian
           ? _value.vegetarian
           : vegetarian // ignore: cast_nullable_to_non_nullable
@@ -134,6 +141,7 @@ abstract class _$$_RecipeDiscoverCopyWith<$Res>
       int servings,
       String? image,
       int readyInMinutes,
+      int? numberOfIngredients,
       bool vegetarian,
       bool vegan,
       bool glutenFree,
@@ -157,6 +165,7 @@ class __$$_RecipeDiscoverCopyWithImpl<$Res>
     Object? servings = null,
     Object? image = freezed,
     Object? readyInMinutes = null,
+    Object? numberOfIngredients = freezed,
     Object? vegetarian = null,
     Object? vegan = null,
     Object? glutenFree = null,
@@ -184,6 +193,10 @@ class __$$_RecipeDiscoverCopyWithImpl<$Res>
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
               as int,
+      numberOfIngredients: freezed == numberOfIngredients
+          ? _value.numberOfIngredients
+          : numberOfIngredients // ignore: cast_nullable_to_non_nullable
+              as int?,
       vegetarian: null == vegetarian
           ? _value.vegetarian
           : vegetarian // ignore: cast_nullable_to_non_nullable
@@ -217,6 +230,7 @@ class _$_RecipeDiscover implements _RecipeDiscover {
       required this.servings,
       this.image,
       required this.readyInMinutes,
+      this.numberOfIngredients,
       required this.vegetarian,
       required this.vegan,
       required this.glutenFree,
@@ -234,6 +248,8 @@ class _$_RecipeDiscover implements _RecipeDiscover {
   @override
   final int readyInMinutes;
   @override
+  final int? numberOfIngredients;
+  @override
   final bool vegetarian;
   @override
   final bool vegan;
@@ -246,7 +262,7 @@ class _$_RecipeDiscover implements _RecipeDiscover {
 
   @override
   String toString() {
-    return 'RecipeDiscover(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, veryHealthy: $veryHealthy)';
+    return 'RecipeDiscover(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, numberOfIngredients: $numberOfIngredients, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, veryHealthy: $veryHealthy)';
   }
 
   @override
@@ -261,6 +277,8 @@ class _$_RecipeDiscover implements _RecipeDiscover {
             (identical(other.image, image) || other.image == image) &&
             (identical(other.readyInMinutes, readyInMinutes) ||
                 other.readyInMinutes == readyInMinutes) &&
+            (identical(other.numberOfIngredients, numberOfIngredients) ||
+                other.numberOfIngredients == numberOfIngredients) &&
             (identical(other.vegetarian, vegetarian) ||
                 other.vegetarian == vegetarian) &&
             (identical(other.vegan, vegan) || other.vegan == vegan) &&
@@ -273,8 +291,19 @@ class _$_RecipeDiscover implements _RecipeDiscover {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, servings, image,
-      readyInMinutes, vegetarian, vegan, glutenFree, veryPopular, veryHealthy);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      servings,
+      image,
+      readyInMinutes,
+      numberOfIngredients,
+      vegetarian,
+      vegan,
+      glutenFree,
+      veryPopular,
+      veryHealthy);
 
   @JsonKey(ignore: true)
   @override
@@ -290,6 +319,7 @@ abstract class _RecipeDiscover implements RecipeDiscover {
       required final int servings,
       final String? image,
       required final int readyInMinutes,
+      final int? numberOfIngredients,
       required final bool vegetarian,
       required final bool vegan,
       required final bool glutenFree,
@@ -306,6 +336,8 @@ abstract class _RecipeDiscover implements RecipeDiscover {
   String? get image;
   @override
   int get readyInMinutes;
+  @override
+  int? get numberOfIngredients;
   @override
   bool get vegetarian;
   @override

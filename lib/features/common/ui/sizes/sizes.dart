@@ -45,6 +45,7 @@ abstract class Sizes {
   static const double s58 = 58;
   static const double s60 = 60;
   static const double s68 = 68;
+  static const double s72 = 72;
   static const double s76 = 76;
   static const double s80 = 80;
   static const double s88 = 88;
@@ -60,6 +61,8 @@ abstract class Sizes {
   static const double s228 = 228;
   static const double s255 = 255;
   static const double s230 = 230;
+  static const double s240 = 240;
   static const double s260 = 260;
+  static const double s284 = 284;
   static const double s300 = 300;
 }

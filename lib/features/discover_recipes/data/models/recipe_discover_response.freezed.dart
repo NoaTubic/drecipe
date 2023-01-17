@@ -177,6 +177,8 @@ mixin _$RecipeDiscoverResponse {
   int get servings => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   int get readyInMinutes => throw _privateConstructorUsedError;
+  List<IngredientResponse>? get extendedIngredients =>
+      throw _privateConstructorUsedError;
   bool get vegetarian => throw _privateConstructorUsedError;
   bool get vegan => throw _privateConstructorUsedError;
   bool get glutenFree => throw _privateConstructorUsedError;
@@ -201,6 +203,7 @@ abstract class $RecipeDiscoverResponseCopyWith<$Res> {
       int servings,
       String? image,
       int readyInMinutes,
+      List<IngredientResponse>? extendedIngredients,
       bool vegetarian,
       bool vegan,
       bool glutenFree,
@@ -227,6 +230,7 @@ class _$RecipeDiscoverResponseCopyWithImpl<$Res,
     Object? servings = null,
     Object? image = freezed,
     Object? readyInMinutes = null,
+    Object? extendedIngredients = freezed,
     Object? vegetarian = null,
     Object? vegan = null,
     Object? glutenFree = null,
@@ -254,6 +258,10 @@ class _$RecipeDiscoverResponseCopyWithImpl<$Res,
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
               as int,
+      extendedIngredients: freezed == extendedIngredients
+          ? _value.extendedIngredients
+          : extendedIngredients // ignore: cast_nullable_to_non_nullable
+              as List<IngredientResponse>?,
       vegetarian: null == vegetarian
           ? _value.vegetarian
           : vegetarian // ignore: cast_nullable_to_non_nullable
@@ -292,6 +300,7 @@ abstract class _$$_RecipeDiscoverResponseCopyWith<$Res>
       int servings,
       String? image,
       int readyInMinutes,
+      List<IngredientResponse>? extendedIngredients,
       bool vegetarian,
       bool vegan,
       bool glutenFree,
@@ -316,6 +325,7 @@ class __$$_RecipeDiscoverResponseCopyWithImpl<$Res>
     Object? servings = null,
     Object? image = freezed,
     Object? readyInMinutes = null,
+    Object? extendedIngredients = freezed,
     Object? vegetarian = null,
     Object? vegan = null,
     Object? glutenFree = null,
@@ -343,6 +353,10 @@ class __$$_RecipeDiscoverResponseCopyWithImpl<$Res>
           ? _value.readyInMinutes
           : readyInMinutes // ignore: cast_nullable_to_non_nullable
               as int,
+      extendedIngredients: freezed == extendedIngredients
+          ? _value._extendedIngredients
+          : extendedIngredients // ignore: cast_nullable_to_non_nullable
+              as List<IngredientResponse>?,
       vegetarian: null == vegetarian
           ? _value.vegetarian
           : vegetarian // ignore: cast_nullable_to_non_nullable
@@ -376,11 +390,13 @@ class _$_RecipeDiscoverResponse implements _RecipeDiscoverResponse {
       required this.servings,
       this.image,
       required this.readyInMinutes,
+      final List<IngredientResponse>? extendedIngredients,
       required this.vegetarian,
       required this.vegan,
       required this.glutenFree,
       required this.veryPopular,
-      required this.veryHealthy});
+      required this.veryHealthy})
+      : _extendedIngredients = extendedIngredients;
 
   factory _$_RecipeDiscoverResponse.fromJson(Map<String, dynamic> json) =>
       _$$_RecipeDiscoverResponseFromJson(json);
@@ -395,6 +411,15 @@ class _$_RecipeDiscoverResponse implements _RecipeDiscoverResponse {
   final String? image;
   @override
   final int readyInMinutes;
+  final List<IngredientResponse>? _extendedIngredients;
+  @override
+  List<IngredientResponse>? get extendedIngredients {
+    final value = _extendedIngredients;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final bool vegetarian;
   @override
@@ -408,7 +433,7 @@ class _$_RecipeDiscoverResponse implements _RecipeDiscoverResponse {
 
   @override
   String toString() {
-    return 'RecipeDiscoverResponse(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, veryHealthy: $veryHealthy)';
+    return 'RecipeDiscoverResponse(id: $id, title: $title, servings: $servings, image: $image, readyInMinutes: $readyInMinutes, extendedIngredients: $extendedIngredients, vegetarian: $vegetarian, vegan: $vegan, glutenFree: $glutenFree, veryPopular: $veryPopular, veryHealthy: $veryHealthy)';
   }
 
   @override
@@ -423,6 +448,8 @@ class _$_RecipeDiscoverResponse implements _RecipeDiscoverResponse {
             (identical(other.image, image) || other.image == image) &&
             (identical(other.readyInMinutes, readyInMinutes) ||
                 other.readyInMinutes == readyInMinutes) &&
+            const DeepCollectionEquality()
+                .equals(other._extendedIngredients, _extendedIngredients) &&
             (identical(other.vegetarian, vegetarian) ||
                 other.vegetarian == vegetarian) &&
             (identical(other.vegan, vegan) || other.vegan == vegan) &&
@@ -436,8 +463,19 @@ class _$_RecipeDiscoverResponse implements _RecipeDiscoverResponse {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, servings, image,
-      readyInMinutes, vegetarian, vegan, glutenFree, veryPopular, veryHealthy);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      servings,
+      image,
+      readyInMinutes,
+      const DeepCollectionEquality().hash(_extendedIngredients),
+      vegetarian,
+      vegan,
+      glutenFree,
+      veryPopular,
+      veryHealthy);
 
   @JsonKey(ignore: true)
   @override
@@ -461,6 +499,7 @@ abstract class _RecipeDiscoverResponse implements RecipeDiscoverResponse {
       required final int servings,
       final String? image,
       required final int readyInMinutes,
+      final List<IngredientResponse>? extendedIngredients,
       required final bool vegetarian,
       required final bool vegan,
       required final bool glutenFree,
@@ -480,6 +519,8 @@ abstract class _RecipeDiscoverResponse implements RecipeDiscoverResponse {
   String? get image;
   @override
   int get readyInMinutes;
+  @override
+  List<IngredientResponse>? get extendedIngredients;
   @override
   bool get vegetarian;
   @override

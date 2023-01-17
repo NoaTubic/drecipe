@@ -64,6 +64,7 @@ const RecipeDiscover loadingRecipe = RecipeDiscover(
   servings: 1,
   image: 'loading',
   readyInMinutes: 1,
+  numberOfIngredients: 1,
   vegetarian: false,
   vegan: false,
   glutenFree: false,

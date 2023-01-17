@@ -122,6 +122,7 @@ class _ApiClient implements ApiClient {
     required maxCalories,
     required query,
     addRecipeInformation = 'true',
+    fillIngredients = 'true',
     number = Constants.numberOfRecipes,
   }) async {
     const _extra = <String, dynamic>{};
@@ -137,6 +138,7 @@ class _ApiClient implements ApiClient {
       r'query': maxCalories,
       r'query': query,
       r'addRecipeInformation': addRecipeInformation,
+      r'fillIngredients': fillIngredients,
       r'number': number,
     };
     final _headers = <String, dynamic>{};

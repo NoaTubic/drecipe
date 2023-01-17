@@ -49,6 +49,7 @@ abstract class ApiClient {
     @Query('query') required String maxCalories,
     @Query('query') required String query,
     @Query('addRecipeInformation') String addRecipeInformation = 'true',
+    @Query('fillIngredients') String fillIngredients = 'true',
     @Query('number') int number = Constants.numberOfRecipes,
   });
 }

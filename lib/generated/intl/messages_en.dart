@@ -36,7 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottom_nav_bar_discover":
             MessageLookupByLibrary.simpleMessage("Discover"),
         "bottom_nav_bar_favorite":
-            MessageLookupByLibrary.simpleMessage("Favorite"),
+            MessageLookupByLibrary.simpleMessage("Favorites"),
         "bottom_nav_bar_profile":
             MessageLookupByLibrary.simpleMessage("Profile"),
         "bottom_nav_bar_search": MessageLookupByLibrary.simpleMessage("Search"),

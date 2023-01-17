@@ -3,11 +3,11 @@ import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_ci
 import 'package:drecipe/features/search_recipes/di/providers.dart';
 import 'package:flutter/material.dart';
 
-import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/base_loading_card.dart';
 import 'package:drecipe/features/search_recipes/domain/search_recipes_suggestion.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class SearchSuggestionsList extends ConsumerWidget {
@@ -27,7 +27,7 @@ class SearchSuggestionsList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
       child: Material(
         color: Colors.white,
         elevation: Sizes.elevationMain,
@@ -36,12 +36,14 @@ class SearchSuggestionsList extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (isLoading) ...[
-              const Center(child: DrecipeCircularProgressIndicator())
+              const Center(
+                child: DrecipeCircularProgressIndicator(),
+              )
             ],
             suggestions.isEmpty && searchQuery.isNotEmpty
                 ? Container(
-                    height: Sizes.s46,
-                    padding: const EdgeInsets.all(Sizes.s12),
+                    height: Sizes.s46.h,
+                    padding: EdgeInsets.all(Sizes.s12.w),
                     child: const Text(
                       'No matching results.',
                       textAlign: TextAlign.left,
@@ -58,25 +60,24 @@ class SearchSuggestionsList extends ConsumerWidget {
                       },
                       child: Padding(
                         padding: EdgeInsets.only(
-                          left: Sizes.s12,
-                          right: Sizes.s12,
-                          top: index == 0 ? Sizes.s12 : Sizes.s6,
+                          left: Sizes.s12.w,
+                          right: Sizes.s12.w,
+                          top: index == 0 ? Sizes.s12.h : Sizes.s6.h,
                           bottom: index == suggestions.length - 1
-                              ? Sizes.s12
-                              : Sizes.s6,
+                              ? Sizes.s12.h
+                              : Sizes.s6.h,
                         ),
                         child: Row(
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(Sizes.s20),
-                                boxShadow: shadowsLight,
+                                borderRadius: BorderRadius.circular(
+                                    Sizes.circularRadius.r),
                               ),
                               child: CachedNetworkImage(
-                                placeholder: (context, url) =>
-                                    const BaseLoadingCard(
-                                  width: Sizes.s48,
-                                  height: Sizes.s48,
+                                placeholder: (context, url) => BaseLoadingCard(
+                                  width: Sizes.s48.w,
+                                  height: Sizes.s48.h,
                                 ),
                                 errorWidget: (context, url, error) => Container(
                                   color: AppColors.lightGrey1,
@@ -85,11 +86,12 @@ class SearchSuggestionsList extends ConsumerWidget {
                                 imageUrl: suggestions[index].image,
                                 imageBuilder: (context, imageProvider) =>
                                     Container(
-                                  width: Sizes.s48,
-                                  height: Sizes.s48,
+                                  width: Sizes.s48.w,
+                                  height: Sizes.s48.h,
                                   decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(Sizes.s8)),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(Sizes.s8.r),
+                                    ),
                                     image: DecorationImage(
                                       image: imageProvider,
                                       fit: BoxFit.cover,
@@ -98,10 +100,16 @@ class SearchSuggestionsList extends ConsumerWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              width: Sizes.s12,
+                            SizedBox(
+                              width: Sizes.s12.w,
                             ),
-                            Text(suggestions[index].title),
+                            Flexible(
+                              child: Text(
+                                suggestions[index].title,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                              ),
+                            ),
                           ],
                         ),
                       ),

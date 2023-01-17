@@ -50,7 +50,7 @@ class SearchRecipesNotifier extends StateNotifier<SearchRecipesState> {
       state.sort,
       state.sortDirection,
     );
-
+    await Future.delayed(const Duration(seconds: 1));
     results.fold(
       (failure) => state = state.copyWith(
         isLoading: false,

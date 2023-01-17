@@ -12,18 +12,22 @@ class RecipeCardContent extends StatelessWidget {
     this.withDietBadges = true,
     this.withIngredientNumber = false,
     this.titleFontSize = FontSizes.s24,
+    this.fontColor = Colors.white,
+    this.padding,
   }) : super(key: key);
 
   final RecipeDiscover recipe;
   final bool withDietBadges;
   final double titleFontSize;
   final bool withIngredientNumber;
+  final Color fontColor;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
     return Padding(
-      padding: EdgeInsets.all(Sizes.s12.w),
+      padding: padding ?? EdgeInsets.all(Sizes.s12.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,14 +41,16 @@ class RecipeCardContent extends StatelessWidget {
                 isGlutenFree: recipe.glutenFree,
               ),
             ),
-            Expanded(child: Container()),
+            Expanded(
+              child: Container(),
+            ),
           ],
           Text(
             recipe.title,
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
-            style: Theme.of(context).textTheme.headline5!.copyWith(
-                color: Colors.white,
+            style: Theme.of(context).textTheme.headline2!.copyWith(
+                color: fontColor,
                 fontWeight: FontWeight.bold,
                 fontSize: titleFontSize.sp),
           ),
@@ -56,7 +62,7 @@ class RecipeCardContent extends StatelessWidget {
               Icon(
                 Icons.access_time_rounded,
                 size: Sizes.s16.w,
-                color: AppColors.white,
+                color: fontColor,
               ),
               const SizedBox(
                 width: Sizes.s2,
@@ -66,7 +72,7 @@ class RecipeCardContent extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall!
-                    .copyWith(color: Colors.white),
+                    .copyWith(color: fontColor),
               ),
               SizedBox(
                 width: Sizes.s8.w,
@@ -74,7 +80,7 @@ class RecipeCardContent extends StatelessWidget {
               Icon(
                 Icons.person,
                 size: Sizes.s16.w,
-                color: AppColors.white,
+                color: fontColor,
               ),
               SizedBox(
                 width: Sizes.s2.w,
@@ -84,7 +90,7 @@ class RecipeCardContent extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall!
-                    .copyWith(color: Colors.white),
+                    .copyWith(color: fontColor),
               ),
             ],
           ),
@@ -97,7 +103,7 @@ class RecipeCardContent extends StatelessWidget {
                 Icon(
                   Icons.list_alt,
                   size: Sizes.s16.w,
-                  color: AppColors.white,
+                  color: fontColor,
                 ),
                 SizedBox(
                   width: Sizes.s2.w,
@@ -107,7 +113,7 @@ class RecipeCardContent extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall!
-                      .copyWith(color: Colors.white),
+                      .copyWith(color: fontColor),
                 ),
               ],
             ),

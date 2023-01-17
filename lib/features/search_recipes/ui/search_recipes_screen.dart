@@ -1,15 +1,16 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
-import 'package:drecipe/features/common/ui/widgets/diet_badge.dart';
+import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
+import 'package:drecipe/features/common/ui/widgets/loading_indicators/base_loading_card.dart';
+import 'package:drecipe/features/common/ui/widgets/recipe_card.dart';
 import 'package:drecipe/features/search_recipes/di/providers.dart';
-import 'package:drecipe/features/search_recipes/ui/widgets/search_suggestions_list.dart';
+import 'package:drecipe/features/search_recipes/ui/widgets/drecipe_search_bar.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class SearchRecipesScreen extends ConsumerStatefulWidget {
   const SearchRecipesScreen({Key? key}) : super(key: key);
@@ -51,6 +52,9 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+    final searchRecipesStateListener = ref.watch(searchRecipesNotifierProvider);
+
     return Scaffold(
       backgroundColor: AppColors.black,
       body: ScaleTransition(
@@ -68,7 +72,7 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                   alignment: Alignment.topRight,
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(top: Sizes.s8, right: Sizes.s12),
+                        EdgeInsets.only(top: Sizes.s8.h, right: Sizes.s12.w),
                     child: IconButton(
                       onPressed: () async {
                         showCupertinoModalPopup(
@@ -110,110 +114,22 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    top: 72,
-                    left: Sizes.bodyHorizontalPadding,
-                    right: Sizes.bodyHorizontalPadding,
+                  padding: EdgeInsets.only(
+                    top: Sizes.s72.h,
                   ),
-                  child: ListView.separated(
-                    itemBuilder: (context, index) => Container(
-                      height: 240,
-                      width: 380,
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(Sizes.circularRadius.r),
-                        // boxShadow: shadowsLight,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CachedNetworkImage(
-                            width: 120,
-                            height: 100,
-                            fit: BoxFit.fitHeight,
-                            imageUrl: ref
-                                .watch(searchRecipesNotifierProvider)
-                                .recipes[index]
-                                .image!,
-                            imageBuilder: (context, imageProvider) => Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    Sizes.circularRadius.r),
-                                gradient: recipeCardGradient(),
-                                image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  // colorFilter: ColorFilter.mode(
-                                  //   Colors.black
-                                  //       .withOpacity(OpacityConstants.op03),
-                                  //   BlendMode.darken,
-                                  // ),
-                                  image: imageProvider,
-                                ),
-                              ),
-                              child: InkWell(
-                                onTap: () {},
-                                child: Column(children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(Sizes.s12),
-                                    child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: DietBadgesRow(
-                                        isVege: ref
-                                            .watch(
-                                                searchRecipesNotifierProvider)
-                                            .recipes[index]
-                                            .vegan,
-                                        isVegan: ref
-                                            .watch(
-                                                searchRecipesNotifierProvider)
-                                            .recipes[index]
-                                            .vegetarian,
-                                        isGlutenFree: ref
-                                            .watch(
-                                                searchRecipesNotifierProvider)
-                                            .recipes[index]
-                                            .glutenFree,
-                                      ),
-                                    ),
-                                  ),
-                                ]),
-                              ),
-                            ),
+                  child: searchRecipesStateListener.isLoading
+                      ? const SearchRecipesLoadingBody()
+                      : ListView.separated(
+                          itemBuilder: (context, index) => RecipeCard(
+                            recipe: searchRecipesStateListener.recipes[index],
                           ),
-                          const SizedBox(
-                            height: Sizes.s8,
+                          separatorBuilder: (context, index) => Divider(
+                            height: Sizes.borderWidth,
+                            indent: Sizes.s100.w,
+                            color: AppColors.lightGrey1,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                ref
-                                    .watch(searchRecipesNotifierProvider)
-                                    .recipes[index]
-                                    .title,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline2!
-                                    .copyWith(color: AppColors.black),
-                              ),
-                              Text(
-                                ref
-                                    .watch(searchRecipesNotifierProvider)
-                                    .recipes[index]
-                                    .readyInMinutes
-                                    .toString(),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: Sizes.s16),
-                    itemCount:
-                        ref.watch(searchRecipesNotifierProvider).recipes.length,
-                  ),
+                          itemCount: searchRecipesStateListener.recipes.length,
+                        ),
                 ),
                 const DrecipeSearchBar(),
               ],
@@ -225,58 +141,125 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
   }
 }
 
-class DrecipeSearchBar extends ConsumerWidget {
-  const DrecipeSearchBar({Key? key}) : super(key: key);
+class SearchRecipesLoadingBody extends StatelessWidget {
+  const SearchRecipesLoadingBody({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final controller = FloatingSearchBarController();
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final searchRecipesNotifier =
-        ref.read(searchRecipesNotifierProvider.notifier);
-    return Padding(
-      padding: const EdgeInsets.only(top: Sizes.s4),
-      child: FloatingSearchBar(
-        controller: controller,
-        onQueryChanged: (query) =>
-            searchRecipesNotifier.autocompleteRecipeSearch(query),
-        onSubmitted: (query) => searchRecipesNotifier.searchRecipes(query),
-        elevation: Sizes.s0,
-        borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
-        border: BorderSide(
-          color: AppColors.black.withOpacity(OpacityConstants.op02),
-          width: Sizes.borderWidth,
-        ),
-        width: 0.8 * screenWidth,
-        openWidth: screenWidth,
-        axisAlignment: -1,
-        hint: 'Search recipes...',
-        scrollPadding: const EdgeInsets.only(top: 16, bottom: 56),
-        transitionDuration: const Duration(milliseconds: 800),
-        transitionCurve: Curves.easeInOut,
-        physics: const BouncingScrollPhysics(),
-        openAxisAlignment: 0.0,
-        debounceDelay: const Duration(seconds: 1),
-        transition: SlideFadeFloatingSearchBarTransition(),
-        clearQueryOnClose: false,
-        actions: [
-          FloatingSearchBarAction.searchToClear(
-            showIfClosed: false,
+  Widget build(BuildContext context) {
+    return FadeMask(
+      child: ListView.separated(
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) => Padding(
+          padding: EdgeInsets.only(
+            left: Sizes.s12.w,
+            right: Sizes.s12.w,
           ),
-        ],
-        builder: (context, transition) {
-          return SearchSuggestionsList(
-            controller: controller,
-            suggestions: ref.watch(searchRecipesNotifierProvider).suggestions,
-            searchQuery: ref.watch(searchRecipesNotifierProvider).searchQuery,
-            isLoading:
-                ref.watch(searchRecipesNotifierProvider).isLoadingSuggestions,
-          );
-        },
+          child: Container(
+            padding: EdgeInsets.symmetric(
+              vertical: Sizes.s12.h,
+              horizontal: Sizes.s2.w,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                Sizes.circularRadius.r,
+              ),
+            ),
+            child: Row(
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: BaseLoadingCard(
+                    height: Sizes.s80.h,
+                    width: Sizes.s100.w,
+                  ),
+                ),
+                SizedBox(
+                  width: Sizes.s16.w,
+                ),
+                Flexible(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: Sizes.s4.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          BaseLoadingCard(
+                            height: Sizes.s20.h,
+                            width: Sizes.s100.w,
+                          ),
+                          BaseLoadingCard(
+                            height: Sizes.s20.h,
+                            width: Sizes.s32.h,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: Sizes.s12.h,
+                      ),
+                      Row(
+                        children: [
+                          BaseLoadingCard(
+                            height: Sizes.s16.h,
+                            width: Sizes.s54.w,
+                          ),
+                          SizedBox(
+                            width: Sizes.s8.w,
+                          ),
+                          BaseLoadingCard(
+                            height: Sizes.s16.h,
+                            width: Sizes.s68.w,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: Sizes.s4.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          BaseLoadingCard(
+                            height: Sizes.s16.h,
+                            width: Sizes.s88.w,
+                          ),
+                          Row(
+                            children: [
+                              BaseLoadingCard(
+                                height: Sizes.s32.h,
+                                width: Sizes.s32.w,
+                              ),
+                              SizedBox(
+                                width: Sizes.s6.w,
+                              ),
+                              BaseLoadingCard(
+                                height: Sizes.s32.h,
+                                width: Sizes.s32.w,
+                              ),
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        separatorBuilder: (context, index) => Divider(
+          height: Sizes.borderWidth,
+          indent: Sizes.s100.w,
+          color: AppColors.lightGrey1,
+        ),
+        itemCount: 6,
       ),
     );
   }
 }
+
 
 // Filters
 // kithcen type, meal type, nutrients, cooking time

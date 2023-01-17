@@ -1,4 +1,5 @@
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
+import 'package:drecipe/features/recipe_details/data/models/responses/ingredient_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'recipe_discover_response.freezed.dart';
 part 'recipe_discover_response.g.dart';
@@ -21,6 +22,7 @@ class RecipeDiscoverResponse with _$RecipeDiscoverResponse {
     required int servings,
     String? image,
     required int readyInMinutes,
+    List<IngredientResponse>? extendedIngredients,
     required bool vegetarian,
     required bool vegan,
     required bool glutenFree,
@@ -43,6 +45,9 @@ extension RecipesExtension on RecipesDiscoverResponse {
             servings: recipe.servings,
             image: recipe.image,
             readyInMinutes: recipe.readyInMinutes,
+            numberOfIngredients: recipe.extendedIngredients != null
+                ? recipe.extendedIngredients!.length
+                : null,
             vegetarian: recipe.vegetarian,
             vegan: recipe.vegan,
             glutenFree: recipe.glutenFree,

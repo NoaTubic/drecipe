@@ -390,10 +390,10 @@ class S {
     );
   }
 
-  /// `Favorite`
+  /// `Favorites`
   String get bottom_nav_bar_favorite {
     return Intl.message(
-      'Favorite',
+      'Favorites',
       name: 'bottom_nav_bar_favorite',
       desc: '',
       args: [],

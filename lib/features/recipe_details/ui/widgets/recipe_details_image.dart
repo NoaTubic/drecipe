@@ -22,7 +22,7 @@ class RecipeDetailsImage extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Hero(
-          tag: recipe.title,
+          tag: recipe.id,
           child: SizedBox(
             height: MediaQuery.of(context).size.height > Sizes.smallScreenHeight
                 ? Sizes.s168.h

@@ -17,7 +17,7 @@ class NutritionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height > Sizes.smallScreenHeight
-          ? Sizes.s88.h
+          ? Sizes.s100.h
           : Sizes.s108.h,
       padding:
           EdgeInsets.symmetric(vertical: Sizes.s6.h, horizontal: Sizes.s12.w),

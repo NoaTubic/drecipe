@@ -22,7 +22,7 @@ class RecipeImageCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Hero(
-      tag: recipe.title,
+      tag: recipe.id,
       child: Column(
         children: [
           Expanded(

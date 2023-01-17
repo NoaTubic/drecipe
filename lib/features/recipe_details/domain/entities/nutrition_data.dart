@@ -59,7 +59,7 @@ extension NutrientsExtension on NutritionResponse {
       nutrientsList.add(Nutrient(
           name: nutrient.name,
           amount:
-              '${nutrient.amount.round() * numberOfServings} ${nutrient.unit}'));
+              '${(nutrient.amount < 1 ? 1 : nutrient.amount.round()) * numberOfServings} ${nutrient.unit}'));
     }
     return nutrientsList;
   }

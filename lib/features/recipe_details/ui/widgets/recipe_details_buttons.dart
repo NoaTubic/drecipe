@@ -51,7 +51,9 @@ class RecipeDetailsButtonsState extends ConsumerState<RecipeDetailsButtons> {
               ),
             ),
             child: Icon(
-              isFavorite ? Icons.favorite : Icons.favorite_border_rounded,
+              isFavorite
+                  ? Icons.favorite_rounded
+                  : Icons.favorite_border_rounded,
               color: isFavorite ? AppColors.primaryRed : AppColors.lightGrey4,
               size: Sizes.iconSize.w,
             ),

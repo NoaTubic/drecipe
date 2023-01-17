@@ -10,6 +10,7 @@ class RecipeDiscover with _$RecipeDiscover {
     required int servings,
     String? image,
     required int readyInMinutes,
+    int? numberOfIngredients,
     required bool vegetarian,
     required bool vegan,
     required bool glutenFree,

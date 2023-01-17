@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DietBadgesRow extends StatelessWidget {
   const DietBadgesRow({
@@ -8,16 +9,18 @@ class DietBadgesRow extends StatelessWidget {
     required this.isVege,
     required this.isVegan,
     required this.isGlutenFree,
+    this.mainAxisAlignment,
   }) : super(key: key);
 
   final bool isVege;
   final bool isVegan;
   final bool isGlutenFree;
+  final MainAxisAlignment? mainAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.end,
       children: [
         if (isVege) ...[
           const DietBadge(
@@ -25,21 +28,21 @@ class DietBadgesRow extends StatelessWidget {
             color: Colors.green,
             icon: ImageAssets.icVege,
           ),
-          const SizedBox(
-            width: Sizes.s6,
-          ),
         ],
         if (isVegan) ...[
+          SizedBox(
+            width: Sizes.s6.w,
+          ),
           const DietBadge(
             text: 'Vegan',
             color: Colors.green,
             icon: ImageAssets.icVegan,
           ),
-          const SizedBox(
-            width: Sizes.s6,
-          ),
         ],
         if (isGlutenFree) ...[
+          SizedBox(
+            width: Sizes.s6.w,
+          ),
           DietBadge(
             text: 'GF',
             color: AppColors.wheat,
@@ -66,8 +69,8 @@ class DietBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Sizes.s32,
-      height: Sizes.s32,
+      width: Sizes.s32.w,
+      height: Sizes.s32.h,
       decoration: BoxDecoration(
         color: AppColors.white,
         shape: BoxShape.circle,
@@ -75,19 +78,21 @@ class DietBadge extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const SizedBox(
-            height: Sizes.s2,
+          SizedBox(
+            height: Sizes.s2.h,
           ),
           Image.asset(
             icon,
-            width: Sizes.s12,
+            width: Sizes.s12.w,
             color: color,
           ),
-          Text(text,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .copyWith(fontSize: FontSizes.s10, color: color)),
+          Text(
+            text,
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1!
+                .copyWith(fontSize: FontSizes.s10.sp, color: color),
+          ),
         ],
       ),
     );

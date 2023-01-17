@@ -29,6 +29,9 @@ _$_RecipeDiscoverResponse _$$_RecipeDiscoverResponseFromJson(
       servings: json['servings'] as int,
       image: json['image'] as String?,
       readyInMinutes: json['readyInMinutes'] as int,
+      extendedIngredients: (json['extendedIngredients'] as List<dynamic>?)
+          ?.map((e) => IngredientResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
       vegetarian: json['vegetarian'] as bool,
       vegan: json['vegan'] as bool,
       glutenFree: json['glutenFree'] as bool,
@@ -44,6 +47,7 @@ Map<String, dynamic> _$$_RecipeDiscoverResponseToJson(
       'servings': instance.servings,
       'image': instance.image,
       'readyInMinutes': instance.readyInMinutes,
+      'extendedIngredients': instance.extendedIngredients,
       'vegetarian': instance.vegetarian,
       'vegan': instance.vegan,
       'glutenFree': instance.glutenFree,
