@@ -8,6 +8,25 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void configureAndRunApp(Env env) async {
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    bool inDebug = false;
+    assert(
+      () {
+        inDebug = true;
+        return true;
+      }(),
+    );
+
+    return inDebug
+        ? ErrorWidget(details.exception)
+        : Container(
+            alignment: Alignment.center,
+            child: Text(
+              'Error\n ${details.exception}',
+              textAlign: TextAlign.center,
+            ),
+          );
+  };
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await configureDatabase();
