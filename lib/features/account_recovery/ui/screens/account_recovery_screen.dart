@@ -8,11 +8,11 @@ import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_butto
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
-import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_linear_progress_indicator.dart';
 import 'package:drecipe/features/common/ui/widgets/text_form_fields/drecipe_text_form_field.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountRecoveryScreen extends ConsumerWidget {
   const AccountRecoveryScreen({Key? key}) : super(key: key);
@@ -48,25 +48,30 @@ class AccountRecoveryScreen extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: Sizes.s32,
+            SizedBox(
+              height: Sizes.s32.h,
             ),
             Text(s.account_recovery_subtitle),
-            const SizedBox(
-              height: Sizes.s40,
+            SizedBox(
+              height: Sizes.s40.h,
             ),
             Hero(
-                tag: HeroConstants.logo,
-                child: Image.asset(ImageAssets.accountRecovery)),
-            const SizedBox(
-              height: Sizes.s40,
+              tag: HeroConstants.logo,
+              child: Image.asset(
+                ImageAssets.accountRecovery,
+                height: Sizes.s230.h,
+                width: Sizes.s200.w,
+              ),
+            ),
+            SizedBox(
+              height: Sizes.s40.h,
             ),
             Text(
               s.account_recovery_helper,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(
-              height: Sizes.s40,
+            SizedBox(
+              height: Sizes.s40.h,
             ),
             Form(
               autovalidateMode: accountRecoveryStateListener.showFailureMessages
@@ -87,10 +92,8 @@ class AccountRecoveryScreen extends ConsumerWidget {
                   DrecipePrimaryButton(
                     onPressed: () => accountRecoveryNotifier.resetPassword(),
                     text: s.account_recovery_reset,
+                    isLoading: accountRecoveryStateListener.isSubmitting,
                   ),
-                  accountRecoveryStateListener.isSubmitting
-                      ? const DrecipeLinearProgressIndicator()
-                      : Container(),
                 ],
               ),
             )

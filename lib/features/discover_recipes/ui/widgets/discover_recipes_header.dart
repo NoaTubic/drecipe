@@ -3,6 +3,7 @@ import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/settings_button.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DiscoverRecipesHeader extends StatelessWidget {
   const DiscoverRecipesHeader({
@@ -13,8 +14,8 @@ class DiscoverRecipesHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = S.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          vertical: Sizes.s16, horizontal: Sizes.bodyHorizontalPadding),
+      padding: EdgeInsets.symmetric(
+          vertical: Sizes.s16.h, horizontal: Sizes.bodyHorizontalPadding.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -24,7 +25,7 @@ class DiscoverRecipesHeader extends StatelessWidget {
             tag: HeroConstants.logo,
             child: Image.asset(
               ImageAssets.drecipeLogoNoText,
-              width: Sizes.s52,
+              width: Sizes.s52.w,
             ),
           ),
           Column(

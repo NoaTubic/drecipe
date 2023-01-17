@@ -2,6 +2,7 @@ import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/base_loading_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeDetailsBodyLoading extends StatelessWidget {
   const RecipeDetailsBodyLoading({Key? key, required this.recipeId})
@@ -14,75 +15,79 @@ class RecipeDetailsBodyLoading extends StatelessWidget {
       children: [
         Hero(
           tag: recipeId,
-          child: const BaseLoadingCard(
-              height: Sizes.s168,
+          child: BaseLoadingCard(
+              height:
+                  MediaQuery.of(context).size.height > Sizes.smallScreenHeight
+                      ? Sizes.s168.h
+                      : Sizes.s188.h,
               width: double.infinity,
               bottomPadding: Sizes.s0),
         ),
-        const SizedBox(
-          height: Sizes.s20,
+        SizedBox(
+          height: Sizes.s20.h,
         ),
-        const BaseLoadingCard(height: Sizes.s28, width: double.infinity),
-        const SizedBox(
-          height: Sizes.s8,
+        BaseLoadingCard(height: Sizes.s28.h, width: double.infinity),
+        SizedBox(
+          height: Sizes.s8.h,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: Sizes.s12),
+          padding: EdgeInsets.symmetric(vertical: Sizes.s12.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              BaseLoadingCard(height: Sizes.s36, width: Sizes.s108),
-              BaseLoadingCard(height: Sizes.s36, width: Sizes.s108),
-              BaseLoadingCard(height: Sizes.s36, width: Sizes.s108),
+            children: [
+              BaseLoadingCard(height: Sizes.s36.h, width: Sizes.s108.w),
+              BaseLoadingCard(height: Sizes.s36.h, width: Sizes.s108.w),
+              BaseLoadingCard(height: Sizes.s36.h, width: Sizes.s108.w),
             ],
           ),
         ),
-        const SizedBox(
-          height: Sizes.s8,
+        SizedBox(
+          height: Sizes.s8.h,
         ),
-        const BaseLoadingCard(height: Sizes.s88, width: double.infinity),
-        const SizedBox(
-          height: Sizes.s20,
+        BaseLoadingCard(height: Sizes.s88.h, width: double.infinity),
+        SizedBox(
+          height: Sizes.s20.h,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            BaseLoadingCard(height: Sizes.s28, width: Sizes.s76),
-            BaseLoadingCard(height: Sizes.s28, width: Sizes.s58),
-            BaseLoadingCard(height: Sizes.s28, width: Sizes.s52),
+          children: [
+            BaseLoadingCard(height: Sizes.s28.h, width: Sizes.s76.w),
+            BaseLoadingCard(height: Sizes.s28.h, width: Sizes.s58.w),
+            BaseLoadingCard(height: Sizes.s28.h, width: Sizes.s52.w),
           ],
         ),
-        const SizedBox(
-          height: Sizes.s16,
+        SizedBox(
+          height: Sizes.s16.h,
         ),
         Expanded(
           child: FadeMask(
             child: ListView.builder(
-              itemBuilder: (context, index) => const BaseLoadingCard(
-                height: Sizes.s60,
+              itemBuilder: (context, index) => BaseLoadingCard(
+                height: Sizes.s60.h,
                 width: double.infinity,
-                bottomPadding: Sizes.s16,
+                bottomPadding: Sizes.s16.h,
               ),
               itemCount: 3,
             ),
           ),
         ),
         Row(
-          children: const [
+          children: [
             Flexible(
-                flex: 1,
-                child: BaseLoadingCard(height: Sizes.s60, width: Sizes.s80)),
+              flex: 1,
+              child: BaseLoadingCard(height: Sizes.s60.h, width: Sizes.s80.w),
+            ),
             SizedBox(
-              width: Sizes.s20,
+              width: Sizes.s20.w,
             ),
             Flexible(
                 flex: 3,
-                child:
-                    BaseLoadingCard(height: Sizes.s60, width: double.infinity)),
+                child: BaseLoadingCard(
+                    height: Sizes.s60.h, width: double.infinity)),
           ],
         ),
-        const SizedBox(
-          height: Sizes.s4,
+        SizedBox(
+          height: Sizes.s4.h,
         ),
       ],
     );

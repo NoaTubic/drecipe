@@ -5,6 +5,7 @@ import 'package:drecipe/features/discover_recipes/ui/widgets/loading_widgets/mea
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MealTimeCard extends ConsumerWidget {
   const MealTimeCard({
@@ -18,15 +19,14 @@ class MealTimeCard extends ConsumerWidget {
     return state.isLoading
         ? const MealTimeCardLoading()
         : Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: Sizes.s20, vertical: Sizes.s12),
-            child: Container(
-              height: Sizes.s60,
+            padding: EdgeInsets.symmetric(
+                horizontal: Sizes.s20.w, vertical: Sizes.s12.h),
+            child: SizedBox(
+              height: Sizes.s60.h,
               width: double.infinity,
-              decoration: BoxDecoration(boxShadow: shadows),
               child: Card(
                 color: AppColors.white,
-                elevation: Sizes.s0,
+                elevation: Sizes.s2,
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
                     color:
@@ -40,7 +40,7 @@ class MealTimeCard extends ConsumerWidget {
                   ),
                   onTap: (() {}),
                   child: Padding(
-                    padding: const EdgeInsets.all(Sizes.s8),
+                    padding: EdgeInsets.all(Sizes.s8.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,12 +50,12 @@ class MealTimeCard extends ConsumerWidget {
                           state.currentTime,
                           style: Theme.of(context).textTheme.headline2,
                         ),
-                        const SizedBox(
-                          width: Sizes.s16,
+                        SizedBox(
+                          width: Sizes.s16.w,
                         ),
                         Image.asset(
                           state.mealTypeIcon,
-                          width: Sizes.s28,
+                          width: Sizes.s28.w,
                         ),
                         const SizedBox(
                           width: Sizes.s12,

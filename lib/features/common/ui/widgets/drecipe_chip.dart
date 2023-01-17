@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DrecipeChip extends StatelessWidget {
   const DrecipeChip({
@@ -17,11 +18,11 @@ class DrecipeChip extends StatelessWidget {
         ? Row(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(
-                    vertical: Sizes.s6, horizontal: Sizes.s12),
+                padding: EdgeInsets.symmetric(
+                    vertical: Sizes.s6.h, horizontal: Sizes.s12.w),
                 decoration: BoxDecoration(
                   color: AppColors.primaryRed,
-                  borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                  borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                 ),
                 child: Row(
                   children: [
@@ -29,8 +30,8 @@ class DrecipeChip extends StatelessWidget {
                       icon,
                       color: AppColors.white,
                     ),
-                    const SizedBox(
-                      width: Sizes.s4,
+                    SizedBox(
+                      width: Sizes.s4.w,
                     ),
                     Text(
                       text!,

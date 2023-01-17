@@ -3,6 +3,7 @@ import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InstructionsHorizontalSlider extends StatelessWidget {
   const InstructionsHorizontalSlider({
@@ -42,7 +43,7 @@ class InstructionsHorizontalSlider extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: AppColors.white,
                     border: Border.all(color: AppColors.lightGrey1),
-                    borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                    borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                     boxShadow: shadowsLight,
                   ),
                   child: Column(
@@ -53,7 +54,7 @@ class InstructionsHorizontalSlider extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: AppColors.white,
                           borderRadius:
-                              BorderRadius.circular(Sizes.circularRadius),
+                              BorderRadius.circular(Sizes.circularRadius.r),
                           image: DecorationImage(
                             fit: BoxFit.fill,
                             image: NetworkImage(

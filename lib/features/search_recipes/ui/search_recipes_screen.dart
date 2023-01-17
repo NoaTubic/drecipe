@@ -8,6 +8,7 @@ import 'package:drecipe/features/search_recipes/ui/widgets/search_suggestions_li
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class SearchRecipesScreen extends ConsumerStatefulWidget {
@@ -98,7 +99,7 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                         setState(
                           () {
                             _borderRadius =
-                                BorderRadius.circular(Sizes.circularRadius);
+                                BorderRadius.circular(Sizes.circularRadius.r);
                           },
                         );
                       },
@@ -120,7 +121,7 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                       width: 380,
                       decoration: BoxDecoration(
                         borderRadius:
-                            BorderRadius.circular(Sizes.circularRadius),
+                            BorderRadius.circular(Sizes.circularRadius.r),
                         // boxShadow: shadowsLight,
                       ),
                       child: Row(
@@ -137,8 +138,8 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                                 .image!,
                             imageBuilder: (context, imageProvider) => Container(
                               decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.circular(Sizes.circularRadius),
+                                borderRadius: BorderRadius.circular(
+                                    Sizes.circularRadius.r),
                                 gradient: recipeCardGradient(),
                                 image: DecorationImage(
                                   fit: BoxFit.fill,
@@ -241,7 +242,7 @@ class DrecipeSearchBar extends ConsumerWidget {
             searchRecipesNotifier.autocompleteRecipeSearch(query),
         onSubmitted: (query) => searchRecipesNotifier.searchRecipes(query),
         elevation: Sizes.s0,
-        borderRadius: BorderRadius.circular(Sizes.circularRadius),
+        borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
         border: BorderSide(
           color: AppColors.black.withOpacity(OpacityConstants.op02),
           width: Sizes.borderWidth,

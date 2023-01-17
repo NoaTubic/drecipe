@@ -7,6 +7,7 @@ import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discove
 import 'package:drecipe/features/common/ui/widgets/recipe_card_content.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FavoriteRecipesScreen extends StatelessWidget {
   const FavoriteRecipesScreen({Key? key}) : super(key: key);
@@ -59,7 +60,7 @@ class RecipeCard extends StatelessWidget {
     return Container(
       height: 120,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(Sizes.circularRadius),
+        borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
         color: AppColors.lightGrey1,
         boxShadow: shadowsLight,
       ),
@@ -75,7 +76,7 @@ class RecipeCard extends StatelessWidget {
                 child: Container(
                   width: 120,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                    borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                     backgroundBlendMode: BlendMode.darken,
                     gradient: recipeCardGradient(),
                     image: DecorationImage(

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeImageCard extends ConsumerWidget {
   const RecipeImageCard({
@@ -25,12 +26,8 @@ class RecipeImageCard extends ConsumerWidget {
       child: Column(
         children: [
           Expanded(
-            child: Container(
-              width: Sizes.s260,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Sizes.circularRadius),
-                boxShadow: shadowsLight,
-              ),
+            child: SizedBox(
+              width: Sizes.s260.w,
               child: CachedNetworkImage(
                 fit: BoxFit.cover,
                 imageUrl: recipe.image!,
@@ -41,7 +38,7 @@ class RecipeImageCard extends ConsumerWidget {
                 ),
                 imageBuilder: (context, imageProvider) => Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                    borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                     gradient: recipeCardGradient(),
                     image: DecorationImage(
                       fit: BoxFit.cover,
@@ -53,10 +50,11 @@ class RecipeImageCard extends ConsumerWidget {
                     ),
                   ),
                   child: Material(
-                    borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                    borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                     color: Colors.transparent,
                     child: InkWell(
-                      borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                      borderRadius:
+                          BorderRadius.circular(Sizes.circularRadius.r),
                       onTap: () {
                         ref
                             .read(recipeDetailsNotifierProvider.notifier)

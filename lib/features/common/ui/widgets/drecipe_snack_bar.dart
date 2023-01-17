@@ -1,6 +1,7 @@
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showDrecipeSnackBar(
     {required BuildContext context,
@@ -36,8 +37,8 @@ class DrecipeSnackBar extends StatelessWidget {
       height: Sizes.s68,
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(Sizes.circularRadius),
+        borderRadius: BorderRadius.all(
+          Radius.circular(Sizes.circularRadius.r),
         ),
         border:
             Border.all(color: AppColors.primaryRed, width: Sizes.borderWidth),

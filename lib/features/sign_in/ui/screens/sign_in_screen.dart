@@ -15,6 +15,7 @@ import 'package:drecipe/features/common/ui/widgets/buttons/settings_button.dart'
 import 'package:drecipe/features/sign_in/ui/widgets/or_row.dart';
 import 'package:drecipe/features/sign_in/ui/widgets/sign_in_form.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignInScreen extends ConsumerWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -40,6 +41,7 @@ class SignInScreen extends ConsumerWidget {
     final signInNotifier = ref.read(signInNotifierProvider.notifier);
     return DrecipeScaffold(
       body: SingleChildScrollView(
+        clipBehavior: Clip.none,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +53,8 @@ class SignInScreen extends ConsumerWidget {
                     tag: HeroConstants.logo,
                     child: Image.asset(
                       ImageAssets.drecipeLogo,
-                      width: Sizes.s228,
+                      width: Sizes.s228.w,
+                      height: Sizes.s228.h,
                     ),
                   ),
                 ),
@@ -61,17 +64,17 @@ class SignInScreen extends ConsumerWidget {
                 )
               ],
             ),
-            const SizedBox(
-              height: Sizes.s2,
+            SizedBox(
+              height: Sizes.s2.h,
             ),
             Text(s.sign_in_helper),
-            const SizedBox(
-              height: Sizes.s20,
+            SizedBox(
+              height: Sizes.s20.h,
             ),
             const SignInForm(),
             const OrRow(),
-            const SizedBox(
-              height: Sizes.s20,
+            SizedBox(
+              height: Sizes.s20.h,
             ),
             Row(
               children: [
@@ -79,29 +82,29 @@ class SignInScreen extends ConsumerWidget {
                   onPressed: () {},
                   color: AppColors.googleButton,
                   iconUrl: ImageAssets.icGoogle,
-                  iconSize: Sizes.s54,
+                  iconSize: Sizes.s54.w,
                 ),
-                const SizedBox(
-                  width: Sizes.s40,
+                SizedBox(
+                  width: Sizes.s40.w,
                 ),
                 OAuthButton(
                   onPressed: () {},
                   color: AppColors.black,
                   iconUrl: ImageAssets.icApple,
-                  iconSize: Sizes.s40,
+                  iconSize: Sizes.s40.w,
                 ),
               ],
             ),
-            const SizedBox(
-              height: Sizes.s24,
+            SizedBox(
+              height: Sizes.s24.h,
             ),
             DrecipeTextButtonPrimary(
               onPressed: () => signInNotifier.signInAnonymously(),
               text: s.sign_in_anonymous,
               textColor: AppColors.black,
             ),
-            const SizedBox(
-              height: Sizes.s16,
+            SizedBox(
+              height: Sizes.s16.h,
             ),
             TextButtonRow(
               text: s.sign_in_register,

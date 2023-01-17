@@ -2,6 +2,7 @@ import 'package:drecipe/features/common/ui/sizes/sizes.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_back_button.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/settings_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DrecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const DrecipeAppBar({
@@ -18,7 +19,7 @@ class DrecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool elevated;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(kToolbarHeight.h);
 
   @override
   Widget build(BuildContext context) {

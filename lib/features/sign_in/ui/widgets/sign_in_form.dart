@@ -4,7 +4,6 @@ import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_button.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_text_button_primary.dart';
-import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_linear_progress_indicator.dart';
 import 'package:drecipe/features/common/ui/widgets/text_form_fields/drecipe_password_text_form_field.dart';
 import 'package:drecipe/features/common/ui/widgets/text_form_fields/drecipe_text_form_field.dart';
 import 'package:drecipe/features/sign_in/di/providers.dart';
@@ -62,12 +61,11 @@ class SignInForm extends ConsumerWidget {
               signInNotifier.signInWithEmailAndPassword();
             },
             text: s.sign_in_label,
+            isLoading: signInStateListener.isSubmitting,
           ),
-          signInStateListener.isSubmitting
-              ? const DrecipeLinearProgressIndicator()
-              : const SizedBox(
-                  height: Sizes.s28,
-                ),
+          const SizedBox(
+            height: Sizes.s28,
+          ),
         ],
       ),
     );

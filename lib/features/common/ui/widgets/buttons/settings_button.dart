@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsButton extends StatelessWidget {
   const SettingsButton({
@@ -35,7 +36,7 @@ class SettingsButton extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(Sizes.s2),
+            padding: EdgeInsets.all(Sizes.s2.w),
             child: InkWell(
               onTap: () => ScreenRouter.pushScreen(
                 context,
@@ -46,7 +47,7 @@ class SettingsButton extends StatelessWidget {
               customBorder: const CircleBorder(),
               child: Icon(
                 Icons.settings_rounded,
-                size: Sizes.iconSizeMedium,
+                size: Sizes.iconSizeMedium.w,
                 color: AppColors.darkGrey1,
               ),
             ),

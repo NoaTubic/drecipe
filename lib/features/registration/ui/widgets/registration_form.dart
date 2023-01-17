@@ -1,7 +1,6 @@
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
-import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_linear_progress_indicator.dart';
 import 'package:drecipe/features/registration/di/providers.dart';
 import 'package:drecipe/features/registration/ui/state/registration_state.dart';
 import 'package:flutter/material.dart';
@@ -91,14 +90,8 @@ class RegistrationForm extends ConsumerWidget {
           DrecipePrimaryButton(
             onPressed: () => registrationNotifier.register(),
             text: s.registration_sign_up_label,
+            isLoading: !registrationStateListener.isSubmitting,
           ),
-          registrationStateListener.isSubmitting
-              ? const DrecipeLinearProgressIndicator(
-                  padding: Sizes.s13,
-                )
-              : const SizedBox(
-                  height: Sizes.s54,
-                ),
         ],
       ),
     );

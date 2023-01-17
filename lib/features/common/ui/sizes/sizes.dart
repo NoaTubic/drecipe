@@ -1,4 +1,9 @@
 abstract class Sizes {
+  static const double designWidth = 393;
+  static const double designHeight = 852;
+  static const double smallScreenHeight = 670;
+  static const double largeScreenHeight = 830;
+
   static const double bodyHorizontalPadding = 24;
   static const double bodyVerticalPadding = 12;
   static const double circularRadiusMax = 100;
@@ -43,13 +48,18 @@ abstract class Sizes {
   static const double s76 = 76;
   static const double s80 = 80;
   static const double s88 = 88;
+  static const double s100 = 100;
   static const double s108 = 108;
+  static const double s120 = 120;
   static const double s160 = 160;
   static const double s168 = 168;
+  static const double s172 = 172;
   static const double s180 = 180;
+  static const double s188 = 188;
   static const double s200 = 200;
   static const double s228 = 228;
   static const double s255 = 255;
+  static const double s230 = 230;
   static const double s260 = 260;
   static const double s300 = 300;
 }

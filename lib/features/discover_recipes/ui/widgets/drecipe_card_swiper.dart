@@ -3,6 +3,7 @@ import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discove
 import 'package:drecipe/features/discover_recipes/ui/widgets/drecipe_custom_scroll_physics.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/recipe_image_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DrecipeCardSwiper extends StatelessWidget {
   const DrecipeCardSwiper({
@@ -17,7 +18,7 @@ class DrecipeCardSwiper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: Sizes.s8),
+      padding: EdgeInsets.symmetric(vertical: Sizes.s8.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -29,8 +30,8 @@ class DrecipeCardSwiper extends StatelessWidget {
               style: Theme.of(context).textTheme.headline2,
             ),
           ),
-          const SizedBox(
-            height: Sizes.s4,
+          SizedBox(
+            height: Sizes.s4.h,
           ),
           DrecipeCarousel(
             itemCount: recipes.length,
@@ -89,7 +90,9 @@ class _DrecipeCarouselState extends State<DrecipeCarousel> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Sizes.s160,
+      height: MediaQuery.of(context).size.height > Sizes.smallScreenHeight
+          ? Sizes.s160.h
+          : Sizes.s180.h,
       child: ListView.separated(
         clipBehavior: Clip.none,
         controller: _controller,

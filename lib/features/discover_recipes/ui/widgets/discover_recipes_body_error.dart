@@ -2,6 +2,7 @@ import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DiscoverRecipesBodyError extends StatelessWidget {
   const DiscoverRecipesBodyError({
@@ -17,16 +18,16 @@ class DiscoverRecipesBodyError extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: Sizes.s160,
+          SizedBox(
+            height: Sizes.s160.h,
           ),
           Icon(
-            Icons.error,
-            size: Sizes.s80,
+            Icons.error_rounded,
+            size: Sizes.s80.w,
             color: AppColors.error,
           ),
-          const SizedBox(
-            height: Sizes.s12,
+          SizedBox(
+            height: Sizes.s12.h,
           ),
           Text(
             'Ops! $error 😔',

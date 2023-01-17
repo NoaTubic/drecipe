@@ -3,6 +3,7 @@ import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/diet_badge.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeCardContent extends StatelessWidget {
   const RecipeCardContent({
@@ -22,7 +23,7 @@ class RecipeCardContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = S.of(context);
     return Padding(
-      padding: const EdgeInsets.all(Sizes.s12),
+      padding: EdgeInsets.all(Sizes.s12.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,16 +46,16 @@ class RecipeCardContent extends StatelessWidget {
             style: Theme.of(context).textTheme.headline5!.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: titleFontSize),
+                fontSize: titleFontSize.sp),
           ),
-          const SizedBox(
-            height: Sizes.s4,
+          SizedBox(
+            height: Sizes.s4.h,
           ),
           Row(
             children: [
               Icon(
                 Icons.access_time_rounded,
-                size: Sizes.s16,
+                size: Sizes.s16.w,
                 color: AppColors.white,
               ),
               const SizedBox(
@@ -67,16 +68,16 @@ class RecipeCardContent extends StatelessWidget {
                     .bodySmall!
                     .copyWith(color: Colors.white),
               ),
-              const SizedBox(
-                width: Sizes.s8,
+              SizedBox(
+                width: Sizes.s8.w,
               ),
               Icon(
                 Icons.person,
-                size: Sizes.s16,
+                size: Sizes.s16.w,
                 color: AppColors.white,
               ),
-              const SizedBox(
-                width: Sizes.s2,
+              SizedBox(
+                width: Sizes.s2.w,
               ),
               Text(
                 '${recipe.servings} ${s.discover_recipes_card_text_servings}',
@@ -88,18 +89,18 @@ class RecipeCardContent extends StatelessWidget {
             ],
           ),
           if (withIngredientNumber) ...[
-            const SizedBox(
-              height: Sizes.s8,
+            SizedBox(
+              height: Sizes.s8.h,
             ),
             Row(
               children: [
                 Icon(
                   Icons.list_alt,
-                  size: Sizes.s16,
+                  size: Sizes.s16.w,
                   color: AppColors.white,
                 ),
-                const SizedBox(
-                  width: Sizes.s2,
+                SizedBox(
+                  width: Sizes.s2.w,
                 ),
                 Text(
                   '${recipe.servings} ${s.discover_recipes_card_text_ingredients}',

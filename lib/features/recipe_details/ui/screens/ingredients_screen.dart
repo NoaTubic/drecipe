@@ -6,6 +6,7 @@ import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/ingredient_card.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IngredientsScreen extends StatelessWidget {
   const IngredientsScreen({
@@ -22,9 +23,9 @@ class IngredientsScreen extends StatelessWidget {
       appBar: DrecipeAppBar(
           title: S.of(context).recipe_details_instructions_ingredients),
       body: Container(
-        // padding: const EdgeInsets.only(top: Sizes.s4),
+        padding: EdgeInsets.only(top: Sizes.s4.h),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Sizes.circularRadius),
+          borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
         ),
         child: FadeMask(
           scrollController: scrollController,
@@ -33,8 +34,8 @@ class IngredientsScreen extends StatelessWidget {
             itemBuilder: (context, index) => IngredientCard(
               ingredient: recipe.ingredients![index],
             ),
-            separatorBuilder: (context, index) => const SizedBox(
-              height: Sizes.s12,
+            separatorBuilder: (context, index) => SizedBox(
+              height: Sizes.s12.h,
             ),
             itemCount: recipe.ingredients!.length,
           ),

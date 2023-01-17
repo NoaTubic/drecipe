@@ -5,6 +5,7 @@ import 'package:drecipe/features/recipe_details/domain/entities/instructions.dar
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeDetailsButtons extends ConsumerStatefulWidget {
   const RecipeDetailsButtons({
@@ -42,7 +43,7 @@ class RecipeDetailsButtonsState extends ConsumerState<RecipeDetailsButtons> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.grey.shade200,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                 side: BorderSide(
                   color: Colors.grey.shade200,
                   width: Sizes.borderWidth,
@@ -52,12 +53,12 @@ class RecipeDetailsButtonsState extends ConsumerState<RecipeDetailsButtons> {
             child: Icon(
               isFavorite ? Icons.favorite : Icons.favorite_border_rounded,
               color: isFavorite ? AppColors.primaryRed : AppColors.lightGrey4,
-              size: Sizes.iconSize,
+              size: Sizes.iconSize.w,
             ),
           ),
         ),
-        const SizedBox(
-          width: Sizes.s20,
+        SizedBox(
+          width: Sizes.s20.w,
         ),
         Flexible(
           flex: 3,

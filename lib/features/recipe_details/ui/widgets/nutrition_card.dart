@@ -3,6 +3,7 @@ import 'package:drecipe/features/recipe_details/domain/entities/nutrition_data.d
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NutritionCard extends StatelessWidget {
   const NutritionCard({
@@ -15,9 +16,11 @@ class NutritionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Sizes.s88,
+      height: MediaQuery.of(context).size.height > Sizes.smallScreenHeight
+          ? Sizes.s88.h
+          : Sizes.s108.h,
       padding:
-          const EdgeInsets.symmetric(vertical: Sizes.s6, horizontal: Sizes.s12),
+          EdgeInsets.symmetric(vertical: Sizes.s6.h, horizontal: Sizes.s12.w),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(Sizes.s12),
@@ -31,9 +34,11 @@ class NutritionCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         textBaseline: TextBaseline.alphabetic,
         children: [
-          NutrientData(
-            nutrient: nutritionData.nutrients[0].name,
-            amount: nutritionData.nutrients[0].amount,
+          Padding(
+            padding: EdgeInsets.only(top: Sizes.s20.h),
+            child: NutrientData(
+              amount: nutritionData.nutrients[0].amount,
+            ),
           ),
           NutrientCircularChart(
             color: Colors.purple,
@@ -76,7 +81,7 @@ class NutrientCircularChart extends StatelessWidget {
       children: [
         AnimatedCircularChart(
           key: chartKey,
-          size: const Size(Sizes.s50, Sizes.s50),
+          size: Size(Sizes.s50.w, Sizes.s50.h),
           initialChartData: <CircularStackEntry>[
             CircularStackEntry(
               <CircularSegmentEntry>[
@@ -98,7 +103,11 @@ class NutrientCircularChart extends StatelessWidget {
           edgeStyle: SegmentEdgeStyle.round,
           percentageValues: true,
         ),
-        Text(nutrient.name.startsWith('Car') ? 'Carbs' : nutrient.name)
+        Text(nutrient.name.startsWith('Car') ? 'Carbs' : nutrient.name),
+        Text(
+          nutrient.amount,
+          style: Theme.of(context).textTheme.caption,
+        ),
       ],
     );
   }
@@ -108,11 +117,11 @@ class NutrientData extends StatelessWidget {
   const NutrientData({
     Key? key,
     required this.amount,
-    required this.nutrient,
+    this.nutrient,
   }) : super(key: key);
 
   final String amount;
-  final String nutrient;
+  final String? nutrient;
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +133,7 @@ class NutrientData extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyText1,
         ),
         Text(
-          nutrient,
+          nutrient ?? '',
         ),
       ],
     );

@@ -4,6 +4,7 @@ import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discove
 import 'package:drecipe/features/discover_recipes/ui/widgets/drecipe_card_swiper.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/loading_widgets/recipe_card_loading.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
 class DrecipeCardSwiperLoading extends StatelessWidget {
@@ -14,7 +15,7 @@ class DrecipeCardSwiperLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: Sizes.s8),
+      padding: EdgeInsets.symmetric(vertical: Sizes.s8.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -23,9 +24,8 @@ class DrecipeCardSwiperLoading extends StatelessWidget {
                 horizontal: Sizes.bodyHorizontalPadding),
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                 color: AppColors.white,
-                boxShadow: shadowsLight,
               ),
               child: Shimmer.fromColors(
                 baseColor:
@@ -33,18 +33,18 @@ class DrecipeCardSwiperLoading extends StatelessWidget {
                 highlightColor:
                     AppColors.lightGrey1.withOpacity(OpacityConstants.op03),
                 child: Container(
-                  height: Sizes.s20,
-                  width: Sizes.s108,
+                  height: Sizes.s20.h,
+                  width: Sizes.s108.w,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                    borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                     color: AppColors.lightGrey1,
                   ),
                 ),
               ),
             ),
           ),
-          const SizedBox(
-            height: Sizes.s12,
+          SizedBox(
+            height: Sizes.s12.h,
           ),
           DrecipeCarousel(
             items: const [loadingRecipe, loadingRecipe, loadingRecipe],

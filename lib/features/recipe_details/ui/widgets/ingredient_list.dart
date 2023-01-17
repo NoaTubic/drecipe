@@ -5,6 +5,7 @@ import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/ingredient_card.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IngredientList extends StatelessWidget {
   const IngredientList({
@@ -39,13 +40,13 @@ class IngredientList extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(
-            height: Sizes.s12,
+          SizedBox(
+            height: Sizes.s12.h,
           ),
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
               ),
               child: FadeMask(
                 scrollController: scrollController,
@@ -55,16 +56,16 @@ class IngredientList extends StatelessWidget {
                   itemBuilder: (context, index) => IngredientCard(
                     ingredient: recipe.ingredients![index],
                   ),
-                  separatorBuilder: (context, index) => const SizedBox(
-                    height: Sizes.s12,
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: Sizes.s12.h,
                   ),
                   itemCount: recipe.ingredients!.length,
                 ),
               ),
             ),
           ),
-          const SizedBox(
-            height: Sizes.s12,
+          SizedBox(
+            height: Sizes.s12.h,
           ),
         ],
       ),

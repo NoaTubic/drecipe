@@ -4,6 +4,7 @@ import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeDetailsImage extends StatelessWidget {
   const RecipeDetailsImage({
@@ -23,12 +24,14 @@ class RecipeDetailsImage extends StatelessWidget {
         Hero(
           tag: recipe.title,
           child: SizedBox(
-            height: Sizes.s168,
+            height: MediaQuery.of(context).size.height > Sizes.smallScreenHeight
+                ? Sizes.s168.h
+                : Sizes.s188.h,
             child: CachedNetworkImage(
               imageUrl: imageUrl,
               imageBuilder: (context, imageProvider) => Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Sizes.circularRadius),
+                  borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                   border: Border.all(
                     color: AppColors.black.withOpacity(OpacityConstants.op01),
                   ),
@@ -41,7 +44,7 @@ class RecipeDetailsImage extends StatelessWidget {
                   boxShadow: shadows,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(Sizes.s12),
+                  padding: EdgeInsets.all(Sizes.s12.w),
                   child: Align(
                     alignment: Alignment.topRight,
                     child: DietBadgesRow(
@@ -59,7 +62,7 @@ class RecipeDetailsImage extends StatelessWidget {
           opacity: 0,
           child: Icon(
             Icons.favorite,
-            color: AppColors.white,
+            color: AppColors.secondaryLightRed1,
             size: Sizes.s88,
           ),
         ),

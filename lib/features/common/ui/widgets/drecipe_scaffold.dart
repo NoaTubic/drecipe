@@ -1,6 +1,7 @@
 import 'package:drecipe/features/common/ui/sizes/sizes.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DrecipeScaffold extends StatelessWidget {
   const DrecipeScaffold({
@@ -9,16 +10,14 @@ class DrecipeScaffold extends StatelessWidget {
     required this.body,
     this.safeAreaTop = true,
     this.safeAreaBottom = true,
-    this.padding = const EdgeInsets.symmetric(
-        vertical: Sizes.bodyVerticalPadding,
-        horizontal: Sizes.bodyHorizontalPadding),
+    this.padding,
   }) : super(key: key);
 
   final DrecipeAppBar? appBar;
   final Widget body;
   final bool safeAreaTop;
   final bool safeAreaBottom;
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,10 @@ class DrecipeScaffold extends StatelessWidget {
         top: safeAreaTop,
         bottom: safeAreaBottom,
         child: Padding(
-          padding: padding,
+          padding: padding ??
+              EdgeInsets.symmetric(
+                  vertical: Sizes.bodyVerticalPadding.h,
+                  horizontal: Sizes.bodyHorizontalPadding.w),
           child: body,
         ),
       ),

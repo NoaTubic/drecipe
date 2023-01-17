@@ -1,6 +1,7 @@
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
 class BaseLoadingCard extends StatelessWidget {
@@ -22,9 +23,8 @@ class BaseLoadingCard extends StatelessWidget {
       padding: EdgeInsets.only(bottom: bottomPadding),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Sizes.circularRadius),
+          borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
           color: AppColors.white,
-          boxShadow: shadowsLight,
         ),
         child: Shimmer.fromColors(
           baseColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op07),
@@ -35,7 +35,7 @@ class BaseLoadingCard extends StatelessWidget {
             width: width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(
-                  circularBorders ? Sizes.circularRadius : Sizes.s0),
+                  circularBorders ? Sizes.circularRadius.r : Sizes.s0),
               color: AppColors.lightGrey1,
             ),
           ),

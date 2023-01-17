@@ -6,6 +6,7 @@ import 'package:drecipe/features/recipe_details/ui/widgets/nutrition_card.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/recipe_details_buttons.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/recipe_details_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeDetailsBody extends StatelessWidget {
   const RecipeDetailsBody({
@@ -25,8 +26,8 @@ class RecipeDetailsBody extends StatelessWidget {
           recipe: recipe,
           imageUrl: imageUrl,
         ),
-        const SizedBox(
-          height: Sizes.s16,
+        SizedBox(
+          height: Sizes.s16.h,
         ),
         Text(
           recipe.title,
@@ -34,7 +35,7 @@ class RecipeDetailsBody extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: Sizes.s12),
+          padding: EdgeInsets.symmetric(vertical: Sizes.s12.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -57,15 +58,15 @@ class RecipeDetailsBody extends StatelessWidget {
         NutritionCard(
           nutritionData: recipe.nutritionData!,
         ),
-        const SizedBox(
-          height: Sizes.s16,
+        SizedBox(
+          height: Sizes.s16.h,
         ),
         IngredientList(recipe: recipe),
         RecipeDetailsButtons(
           instructions: recipe.instructionsDetailed!,
         ),
-        const SizedBox(
-          height: Sizes.s4,
+        SizedBox(
+          height: Sizes.s4.h,
         ),
       ],
     );
