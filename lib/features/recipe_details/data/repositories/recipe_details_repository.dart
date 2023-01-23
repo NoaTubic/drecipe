@@ -25,6 +25,7 @@ class RecipeDetailsRepository implements IRecipeDetailsRepository {
         id: recipeResponse.id,
         title: recipeResponse.title,
         servings: recipeResponse.servings,
+        image: recipeResponse.image,
         readyInMinutes: recipeResponse.readyInMinutes,
         dishTypes: recipeResponse.dishTypes,
         vegetarian: recipeResponse.vegetarian,

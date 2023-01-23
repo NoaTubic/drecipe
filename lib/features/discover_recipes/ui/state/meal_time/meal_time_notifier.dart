@@ -13,7 +13,7 @@ class MealTimeNotifier extends StateNotifier<MealTimeState> {
         dateTime.minute > 9 ? '${dateTime.minute}' : '0${dateTime.minute}';
     String hour = dateTime.hour > 9 ? '${dateTime.hour}' : '0${dateTime.hour}';
     String currentTime = '$hour : $minute';
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       state = state.copyWith(currentTime: currentTime, isLoading: false);
     });
 

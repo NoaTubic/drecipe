@@ -1,3 +1,4 @@
+import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/recipe_details_body.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/recipe_details_body_loading.dart';
@@ -33,7 +34,9 @@ class RecipeDetailsScreen extends ConsumerWidget {
               recipe: recipe,
               imageUrl: imageUrl,
             ),
-            error: (failure) => Container(),
+            error: (failure) => Text(
+              failure.getFailureMessage(),
+            ),
           ),
     );
   }

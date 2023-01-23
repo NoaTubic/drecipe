@@ -15,7 +15,7 @@ class DrecipeChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return text != null
-        ? Row(
+        ? Wrap(
             children: [
               Container(
                 padding: EdgeInsets.symmetric(
@@ -24,7 +24,7 @@ class DrecipeChip extends StatelessWidget {
                   color: AppColors.primaryRed,
                   borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                 ),
-                child: Row(
+                child: Wrap(
                   children: [
                     Icon(
                       icon,

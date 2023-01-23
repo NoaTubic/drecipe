@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/common/ui/widgets/recipe_card_content.dart';
+import 'package:drecipe/features/discover_recipes/ui/widgets/recipe_discover_card_content.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/loading_widgets/recipe_card_loading.dart';
+import 'package:drecipe/features/favorite_recipes/di/providers.dart';
 import 'package:drecipe/features/recipe_details/di/providers.dart';
 import 'package:flutter/material.dart';
 
@@ -57,8 +58,13 @@ class RecipeImageCard extends ConsumerWidget {
                           BorderRadius.circular(Sizes.circularRadius.r),
                       onTap: () {
                         ref
-                            .read(recipeDetailsNotifierProvider.notifier)
-                            .getRecipeDetails(id: recipe.id);
+                            .read(favoriteRecipesNotifierProvider.notifier)
+                            .checkIfFavoriteRecipe(recipeId: recipe.id)
+                            .whenComplete(
+                              () => ref
+                                  .read(recipeDetailsNotifierProvider.notifier)
+                                  .getRecipeDetails(id: recipe.id),
+                            );
 
                         ScreenRouter.pushScreen(
                           context,
@@ -66,7 +72,7 @@ class RecipeImageCard extends ConsumerWidget {
                               recipeId: recipe.id, imageUrl: recipe.image!),
                         );
                       },
-                      child: RecipeCardContent(
+                      child: RecipeDiscoverCardContent(
                         recipe: recipe,
                       ),
                     ),

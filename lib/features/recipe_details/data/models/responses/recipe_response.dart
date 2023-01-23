@@ -51,6 +51,7 @@ extension RecipesExtension on RecipesResponse {
         Recipe(
           id: recipe.id,
           title: recipe.title,
+          image: recipe.image ?? '',
           servings: recipe.servings,
           readyInMinutes: recipe.readyInMinutes,
           dishTypes: recipe.dishTypes,

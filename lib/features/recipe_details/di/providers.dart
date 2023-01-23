@@ -1,4 +1,5 @@
 import 'package:drecipe/core/api/providers.dart';
+import 'package:drecipe/features/favorite_recipes/di/providers.dart';
 import 'package:drecipe/features/recipe_details/data/repositories/recipe_details_repository.dart';
 import 'package:drecipe/features/recipe_details/ui/state/recipe_details/recipe_details_notifier.dart';
 import 'package:drecipe/features/recipe_details/ui/state/recipe_details/recipe_details_state.dart';
@@ -14,8 +15,7 @@ final recipeDetailsRepositoryProvider = Provider<IRecipeDetailsRepository>(
 final recipeDetailsNotifierProvider =
     StateNotifierProvider<RecipeDetailsNotifier, RecipeDetailsState>(
   (ref) => RecipeDetailsNotifier(
-    ref.read(
-      recipeDetailsRepositoryProvider,
-    ),
+    ref.read(recipeDetailsRepositoryProvider),
+    ref.read(favoriteRecipesRepositoryProvider),
   ),
 );

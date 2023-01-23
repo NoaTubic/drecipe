@@ -69,6 +69,7 @@ class DrecipeCarousel extends StatefulWidget {
 class _DrecipeCarouselState extends State<DrecipeCarousel> {
   late List<int> pages;
   final _controller = ScrollController();
+  // ignore: unused_field
   late ScrollPhysics? _scrollPhysics =
       const CustomScrollPhysics(itemDimension: 1);
 
@@ -85,6 +86,12 @@ class _DrecipeCarouselState extends State<DrecipeCarousel> {
       }
     });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override

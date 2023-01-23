@@ -1,5 +1,3 @@
-import 'package:dartz/dartz.dart';
-import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/search_recipes/domain/search_recipes_suggestion.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

@@ -6,13 +6,13 @@ class HeartAnimationWidget extends StatefulWidget {
     Key? key,
     required this.child,
     required this.isAnimating,
-    required this.duration,
+    this.duration = const Duration(milliseconds: DurationConstants.d040),
     this.onEnd,
   }) : super(key: key);
 
   final Widget child;
   final bool isAnimating;
-  final Duration duration;
+  final Duration? duration;
   final VoidCallback? onEnd;
 
   @override
@@ -32,16 +32,16 @@ class _HeartAnimationWidgetState extends State<HeartAnimationWidget>
         vsync: this,
         duration: const Duration(milliseconds: DurationConstants.d040));
 
-    // scale = Tween<double>(begin: 1, end: 1.2).animate(controller);
+    scale = Tween<double>(begin: 1, end: 1.2).animate(controller);
   }
 
-  // @override
-  // void didUpdateWidget(covariant HeartAnimationWidget oldWidget) {
-  //   super.didUpdateWidget(oldWidget);
-  //   if (widget.isAnimating != oldWidget.isAnimating) {
-  //     animate();
-  //   }
-  // }
+  @override
+  void didUpdateWidget(covariant HeartAnimationWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.isAnimating != oldWidget.isAnimating) {
+      animate();
+    }
+  }
 
   Future animate() async {
     await controller.forward();
@@ -58,7 +58,6 @@ class _HeartAnimationWidgetState extends State<HeartAnimationWidget>
   }
 
   @override
-  Widget build(BuildContext context) {
-    return widget;
-  }
+  Widget build(BuildContext context) =>
+      ScaleTransition(scale: scale, child: widget.child);
 }

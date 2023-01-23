@@ -1,12 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
-import 'package:drecipe/features/common/ui/widgets/fade_mask.dart';
-import 'package:drecipe/features/common/ui/widgets/loading_indicators/base_loading_card.dart';
 import 'package:drecipe/features/common/ui/widgets/recipe_card.dart';
 import 'package:drecipe/features/search_recipes/di/providers.dart';
 import 'package:drecipe/features/search_recipes/ui/widgets/drecipe_search_bar.dart';
-import 'package:drecipe/generated/l10n.dart';
+import 'package:drecipe/features/search_recipes/ui/widgets/search_recipes_loading_body.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,7 +14,8 @@ class SearchRecipesScreen extends ConsumerStatefulWidget {
   const SearchRecipesScreen({Key? key}) : super(key: key);
 
   @override
-  _SearchRecipesScreenState createState() => _SearchRecipesScreenState();
+  ConsumerState<SearchRecipesScreen> createState() =>
+      _SearchRecipesScreenState();
 }
 
 class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
@@ -52,7 +51,6 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     final searchRecipesStateListener = ref.watch(searchRecipesNotifierProvider);
 
     return Scaffold(
@@ -120,9 +118,12 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                   child: searchRecipesStateListener.isLoading
                       ? const SearchRecipesLoadingBody()
                       : ListView.separated(
-                          itemBuilder: (context, index) => RecipeCard(
-                            recipe: searchRecipesStateListener.recipes[index],
-                          ),
+                          itemBuilder: (context, index) {
+                            return RecipeCard(
+                              recipe: searchRecipesStateListener.recipes[index],
+                              searchResults: true,
+                            );
+                          },
                           separatorBuilder: (context, index) => Divider(
                             height: Sizes.borderWidth,
                             indent: Sizes.s100.w,
@@ -140,126 +141,3 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
     );
   }
 }
-
-class SearchRecipesLoadingBody extends StatelessWidget {
-  const SearchRecipesLoadingBody({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FadeMask(
-      child: ListView.separated(
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) => Padding(
-          padding: EdgeInsets.only(
-            left: Sizes.s12.w,
-            right: Sizes.s12.w,
-          ),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              vertical: Sizes.s12.h,
-              horizontal: Sizes.s2.w,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(
-                Sizes.circularRadius.r,
-              ),
-            ),
-            child: Row(
-              children: [
-                Flexible(
-                  flex: 1,
-                  child: BaseLoadingCard(
-                    height: Sizes.s80.h,
-                    width: Sizes.s100.w,
-                  ),
-                ),
-                SizedBox(
-                  width: Sizes.s16.w,
-                ),
-                Flexible(
-                  flex: 2,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: Sizes.s4.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          BaseLoadingCard(
-                            height: Sizes.s20.h,
-                            width: Sizes.s100.w,
-                          ),
-                          BaseLoadingCard(
-                            height: Sizes.s20.h,
-                            width: Sizes.s32.h,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: Sizes.s12.h,
-                      ),
-                      Row(
-                        children: [
-                          BaseLoadingCard(
-                            height: Sizes.s16.h,
-                            width: Sizes.s54.w,
-                          ),
-                          SizedBox(
-                            width: Sizes.s8.w,
-                          ),
-                          BaseLoadingCard(
-                            height: Sizes.s16.h,
-                            width: Sizes.s68.w,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: Sizes.s4.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          BaseLoadingCard(
-                            height: Sizes.s16.h,
-                            width: Sizes.s88.w,
-                          ),
-                          Row(
-                            children: [
-                              BaseLoadingCard(
-                                height: Sizes.s32.h,
-                                width: Sizes.s32.w,
-                              ),
-                              SizedBox(
-                                width: Sizes.s6.w,
-                              ),
-                              BaseLoadingCard(
-                                height: Sizes.s32.h,
-                                width: Sizes.s32.w,
-                              ),
-                            ],
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-        separatorBuilder: (context, index) => Divider(
-          height: Sizes.borderWidth,
-          indent: Sizes.s100.w,
-          color: AppColors.lightGrey1,
-        ),
-        itemCount: 6,
-      ),
-    );
-  }
-}
-
-
-// Filters
-// kithcen type, meal type, nutrients, cooking time

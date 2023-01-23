@@ -40,6 +40,7 @@ dependencies:
   retrofit: ^3.0.1+1
   scroll_snap_list: ^0.9.1
   shimmer: ^2.0.0
+  flutter_swipe_action_cell: ^3.0.7
 
 dev_dependencies:
   build_runner: ^2.2.0

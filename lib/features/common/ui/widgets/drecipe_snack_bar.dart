@@ -11,7 +11,8 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showDrecipeSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
-      padding: const EdgeInsets.only(bottom: Sizes.s20),
+      padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).size.height - Sizes.s160.h),
       elevation: Sizes.s0,
       content: DrecipeSnackBar(
         text: text,
@@ -34,62 +35,48 @@ class DrecipeSnackBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Sizes.s68,
+      height: Sizes.s52.h,
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.all(
-          Radius.circular(Sizes.circularRadius.r),
+          Radius.circular(Sizes.s12.r),
         ),
-        border:
-            Border.all(color: AppColors.primaryRed, width: Sizes.borderWidth),
+        border: Border.all(
+            color: AppColors.secondaryLightRed2, width: Sizes.borderWidth),
         boxShadow: [
           BoxShadow(
-            offset: const Offset(Sizes.s0, Sizes.s4),
+            offset: Offset(Sizes.s0, Sizes.s4.h),
             blurRadius: Sizes.s4,
-            color: AppColors.primaryRed.withOpacity(OpacityConstants.op05),
+            color: AppColors.lightGrey1.withOpacity(OpacityConstants.op05),
           ),
           BoxShadow(
-            offset: const Offset(Sizes.s4, Sizes.s0),
+            offset: Offset(Sizes.s4.w, Sizes.s0),
             blurRadius: Sizes.s4,
-            color: AppColors.primaryRed.withOpacity(OpacityConstants.op05),
+            color: AppColors.lightGrey1.withOpacity(OpacityConstants.op05),
           ),
         ],
       ),
-      child: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: Sizes.s20),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Image.asset(
-                ImageAssets.snackBarGraphic,
-                color: AppColors.primaryRed,
-              ),
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            isError
+                ? Icon(
+                    Icons.warning_amber_rounded,
+                    color: AppColors.primaryRed,
+                  )
+                : Icon(
+                    Icons.info_outline_rounded,
+                    color: AppColors.darkGrey2,
+                  ),
+            SizedBox(width: Sizes.s12.w),
+            Text(
+              text,
+              style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                  color: AppColors.darkGrey2, fontSize: FontSizes.s16.sp),
             ),
-          ),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                isError
-                    ? Icon(
-                        Icons.warning_amber_rounded,
-                        color: AppColors.primaryRed,
-                      )
-                    : Icon(
-                        Icons.info_outline_rounded,
-                        color: AppColors.darkGrey2,
-                      ),
-                const SizedBox(width: Sizes.s12),
-                Text(
-                  text,
-                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                      color: AppColors.darkGrey2, fontSize: FontSizes.s16),
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

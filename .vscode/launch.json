@@ -2,17 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "drecipe dev",
-      "program": "lib/main/main_dev.dart",
+      "name": "drecipe Developmen",
       "request": "launch",
       "type": "dart",
+      "program": "lib/main/main_dev.dart",
       "args": [
         "--flavor",
         "dev",
       ]
     },
     {
-      "name": "drecipe staging",
+      "name": "drecipe Staging",
       "request": "launch",
       "type": "dart",
       "program": "lib/main/main_staging.dart",

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:drecipe/features/search_recipes/data/repositories/search_recipes_repository.dart';
 import 'package:drecipe/features/search_recipes/ui/state/search_recipes_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,17 +17,11 @@ class SearchRecipesNotifier extends StateNotifier<SearchRecipesState> {
         searchQuery: query);
 
     suggestions.fold(
-      (failure) {
-        log('failure');
-        return null;
-      },
-      (suggestions) {
-        log('success');
-        return state = state.copyWith(
-          isLoadingSuggestions: false,
-          suggestions: suggestions,
-        );
-      },
+      (failure) => null,
+      (suggestions) => state = state.copyWith(
+        isLoadingSuggestions: false,
+        suggestions: suggestions,
+      ),
     );
   }
 
@@ -51,6 +44,7 @@ class SearchRecipesNotifier extends StateNotifier<SearchRecipesState> {
       state.sortDirection,
     );
     await Future.delayed(const Duration(seconds: 1));
+
     results.fold(
       (failure) => state = state.copyWith(
         isLoading: false,

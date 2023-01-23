@@ -6,9 +6,10 @@ import 'package:drecipe/features/recipe_details/ui/widgets/nutrition_card.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/recipe_details_buttons.dart';
 import 'package:drecipe/features/recipe_details/ui/widgets/recipe_details_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RecipeDetailsBody extends StatelessWidget {
+class RecipeDetailsBody extends ConsumerWidget {
   const RecipeDetailsBody({
     Key? key,
     required this.recipe,
@@ -19,7 +20,7 @@ class RecipeDetailsBody extends StatelessWidget {
   final String imageUrl;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
         RecipeDetailsImage(
@@ -36,23 +37,30 @@ class RecipeDetailsBody extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(vertical: Sizes.s12.h),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              DrecipeChip(
-                icon: Icons.timer,
-                text: '${recipe.readyInMinutes} min',
-              ),
-              DrecipeChip(
-                icon: Icons.person,
-                text: '${recipe.servings} servings',
-              ),
-              DrecipeChip(
-                icon: Icons.food_bank_rounded,
-                text:
-                    recipe.dishTypes!.isNotEmpty ? recipe.dishTypes![0] : null,
-              ),
-            ],
+          child: SizedBox(
+            width: double.infinity,
+            child: Wrap(
+              direction: Axis.horizontal,
+              alignment: WrapAlignment.spaceEvenly,
+              crossAxisAlignment: WrapCrossAlignment.start,
+              runSpacing: Sizes.s12.h,
+              children: [
+                DrecipeChip(
+                  icon: Icons.timer,
+                  text: '${recipe.readyInMinutes} min',
+                ),
+                DrecipeChip(
+                  icon: Icons.person,
+                  text: '${recipe.servings} servings',
+                ),
+                DrecipeChip(
+                  icon: Icons.food_bank_rounded,
+                  text: recipe.dishTypes!.isNotEmpty
+                      ? recipe.dishTypes![0]
+                      : null,
+                ),
+              ],
+            ),
           ),
         ),
         NutritionCard(
@@ -64,6 +72,7 @@ class RecipeDetailsBody extends StatelessWidget {
         IngredientList(recipe: recipe),
         RecipeDetailsButtons(
           instructions: recipe.instructionsDetailed!,
+          recipe: recipe,
         ),
         SizedBox(
           height: Sizes.s4.h,
