@@ -12,16 +12,6 @@
       ]
     },
     {
-      "name": "drecipe Staging",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main/main_staging.dart",
-      "args": [
-        "--flavor",
-        "staging"
-      ]
-    },
-    {
       "name": "drecipe",
       "request": "launch",
       "type": "dart",
