@@ -21,7 +21,7 @@ class AuthInterceptor extends InterceptorsWrapper {
     if (!options.headers.containsKey(ApiConstants.rapidApiKey) &&
         !options.headers.containsKey(ApiConstants.rapidApiHost)) {
       options.headers.addEntries([
-        const MapEntry('X-RapidAPI-Key', ApiConstants.rapidApiKey),
+        MapEntry('X-RapidAPI-Key', ApiConstants.rapidApiKey),
         const MapEntry('X-RapidAPI-Host', ApiConstants.rapidApiHost),
       ]);
     }

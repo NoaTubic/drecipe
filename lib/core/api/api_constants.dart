@@ -1,13 +1,14 @@
+import 'package:drecipe/core/api/env.dart';
+
 abstract class ApiConstants {
-  static const String apiKey = '01088b458fcf49c18da608f3a524d41c';
+  static String apiKey = Env.apiKey;
   static const String recipeImageUrl = 'https://spoonacular.com/recipeImages/';
   static const String ingredientImageUrl =
       'https://spoonacular.com/cdn/ingredients_100x100/';
   static const String equipmentImageUrl =
       'https://spoonacular.com/cdn/equipment_100x100/';
 
-  static const String rapidApiKey =
-      '36e170265fmsh843f49cd3cfd93bp1e54adjsn2bfd170b1db7';
+  static String rapidApiKey = Env.apiKey;
   static const String rapidApiHost =
       'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com';
   static const String rapidApiBaseUrl =
