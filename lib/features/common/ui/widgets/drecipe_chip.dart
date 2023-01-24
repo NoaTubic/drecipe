@@ -25,6 +25,7 @@ class DrecipeChip extends StatelessWidget {
                   borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
                 ),
                 child: Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     Icon(
                       icon,

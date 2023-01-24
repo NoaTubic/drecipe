@@ -27,11 +27,15 @@ final favoriteRecipesRepositoryProvider = Provider<IFavoriteRecipesRepository>(
   ),
 );
 
-final favoriteRecipesNotifierProvider =
-    StateNotifierProvider<FavoriteRecipeNotifier, FavoriteRecipeState>(
-  (ref) => FavoriteRecipeNotifier(
-    ref.read(favoriteRecipesRepositoryProvider),
-  ),
+final favoriteRecipeNotifierProvider = StateNotifierProvider.autoDispose<
+    FavoriteRecipeNotifier, FavoriteRecipeState>(
+  (ref) {
+    ref.maintainState = true;
+    return FavoriteRecipeNotifier(
+      ref.read(favoriteRecipesRepositoryProvider),
+      ref,
+    );
+  },
 );
 
 final favoriteRecipesListNotifierProvider = StateNotifierProvider.autoDispose<

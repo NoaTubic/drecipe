@@ -1,13 +1,18 @@
 import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drecipe/core/routes/app_router.dart';
+import 'package:drecipe/features/common/constants/constants.dart';
+import 'package:drecipe/features/common/di/providers.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/features/common/ui/widgets/bottom_nav_bar/state/bottom_nav_bar_state.dart';
 import 'package:drecipe/features/common/ui/widgets/recipe_card_content.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/favorite_recipes/di/providers.dart';
 import 'package:drecipe/features/favorite_recipes/ui/widgets/heart_icon.dart';
 import 'package:drecipe/features/recipe_details/di/providers.dart';
+import 'package:drecipe/features/recipe_details/ui/widgets/heart_animation_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,42 +45,41 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
 
   Future<void> checkIfFavorite() async {
     isFavorite = await ref
-        .read(favoriteRecipesNotifierProvider.notifier)
+        .read(favoriteRecipeNotifierProvider.notifier)
         .checkIfFavoriteRecipeBool(recipeId: widget.recipe.id);
-    log(isFavorite.toString());
     setState(() {});
   }
 
-  Future<void> addRemoveRecipe(bool isFavorite) async {
-    isFavorite
-        ? null
-        : ref.watch(recipeDetailsNotifierProvider).when(
-            initial: () {
-              return null;
-            },
-            loading: () {
-              return null;
-            },
-            loaded: (recipe) {
-              return ref
-                  .read(favoriteRecipesNotifierProvider.notifier)
-                  .addFavoriteRecipe(recipe: recipe);
-            },
-            error: (error) {
-              return null;
-            },
-          );
+  void addRecipe() {
+    ref.watch(recipeDetailsNotifierProvider).when(
+          initial: () {},
+          loading: () {},
+          loaded: (recipe) async {
+            await ref
+                .read(favoriteRecipeNotifierProvider.notifier)
+                .addFavoriteRecipe(recipe: recipe);
+          },
+          error: (error) {},
+        );
   }
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<BottomNavBarState>(
+      bottomNavBarProvider,
+      ((previous, next) {
+        next.previousIndex == 2
+            ? checkIfFavorite()
+            : log('not checking if favorite');
+      }),
+    );
     return SwipeActionCell(
       key: ObjectKey(widget.recipe),
       trailingActions: [
         SwipeAction(
           performsFirstActionWithFullSwipe: true,
           icon: widget.searchResults
-              ? const HeartIcon(isFavorite: true)
+              ? HeartIcon(isFavorite: isFavorite)
               : Icon(
                   Icons.remove_circle_outline_rounded,
                   color: AppColors.white,
@@ -85,14 +89,16 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
           onTap: (handler) async {
             if (widget.searchResults) {
               await handler(false);
-              addRemoveRecipe(isFavorite).whenComplete(
-                () => setState(() => isFavorite = true),
-              );
+              addRecipe();
+              setState(() {
+                isFavorite = true;
+              });
             } else {
               await handler(true);
               ref
-                  .read(favoriteRecipesNotifierProvider.notifier)
+                  .read(favoriteRecipeNotifierProvider.notifier)
                   .removeFavoriteRecipe(recipeId: widget.recipe.id);
+              setState(() {});
             }
           },
         )
@@ -105,20 +111,22 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
               onTap: () {
                 ref
                     .read(recipeDetailsNotifierProvider.notifier)
-                    .getRecipeDetails(
-                      id: widget.recipe.id,
-                    );
-
-                AutoRouter.of(context)
-                    .push(
-                      RecipeDetailsScreenRoute(
-                        recipeId: widget.recipe.id,
-                        imageUrl: widget.recipe.image!,
-                      ),
-                    )
-                    .then(
-                      (value) => checkIfFavorite(),
-                    );
+                    .getRecipeDetails(id: widget.recipe.id);
+                widget.searchResults
+                    ? AutoRouter.of(context)
+                        .push(
+                          RecipeDetailsScreenRoute(
+                            recipeId: widget.recipe.id,
+                            imageUrl: widget.recipe.image!,
+                          ),
+                        )
+                        .then((value) => checkIfFavorite())
+                    : AutoRouter.of(context).push(
+                        RecipeDetailsScreenRoute(
+                          recipeId: widget.recipe.id,
+                          imageUrl: widget.recipe.image!,
+                        ),
+                      );
               },
               child: Padding(
                 padding: EdgeInsets.only(
@@ -139,25 +147,11 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
                     children: [
                       Flexible(
                         flex: 1,
-                        child: Hero(
-                          tag: widget.recipe.id,
-                          child: CachedNetworkImage(
-                            width: Sizes.s100.w,
-                            height: Sizes.s80.h,
-                            fit: BoxFit.fitHeight,
-                            imageUrl: widget.recipe.image!,
-                            imageBuilder: (context, imageProvider) => Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    Sizes.circularRadius.r),
-                                gradient: recipeCardGradient(),
-                                image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image: imageProvider,
-                                ),
-                              ),
-                            ),
-                          ),
+                        child: RecipeCardImage(
+                          recipeId: widget.recipe.id,
+                          recipeImage: widget.recipe.image!,
+                          isFavorite: isFavorite,
+                          searchResults: widget.searchResults,
                         ),
                       ),
                       SizedBox(
@@ -180,10 +174,14 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
                 alignment: Alignment.topRight,
                 child: GestureDetector(
                   onTap: () {
-                    addRemoveRecipe(isFavorite);
-                    setState(() {
-                      isFavorite = !isFavorite;
-                    });
+                    if (isFavorite) {
+                      ref
+                          .read(favoriteRecipeNotifierProvider.notifier)
+                          .removeFavoriteRecipe(recipeId: widget.recipe.id);
+                    } else {
+                      addRecipe();
+                    }
+                    setState(() => isFavorite = !isFavorite);
                   },
                   child: HeartIcon(isFavorite: isFavorite),
                 ),
@@ -191,6 +189,97 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
             ),
           ]
         ],
+      ),
+    );
+  }
+}
+
+class RecipeCardImage extends ConsumerStatefulWidget {
+  RecipeCardImage({
+    Key? key,
+    required this.recipeImage,
+    required this.recipeId,
+    required this.isFavorite,
+    this.searchResults = false,
+  }) : super(key: key);
+
+  final int recipeId;
+  final String recipeImage;
+  late bool isFavorite;
+  final bool? searchResults;
+
+  @override
+  ConsumerState<RecipeCardImage> createState() => _RecipeCardImageState();
+}
+
+class _RecipeCardImageState extends ConsumerState<RecipeCardImage> {
+  @override
+  Widget build(BuildContext context) {
+    if (widget.isFavorite) {
+      Future.delayed(const Duration(seconds: DurationConstants.d2), () {
+        setState(() => widget.isFavorite = false);
+      });
+    }
+    return Hero(
+      tag: widget.searchResults!
+          ? '${HeroConstants.searchImage}${widget.recipeId}'
+          : '${HeroConstants.favoritesImage}${widget.recipeId}',
+      child: CachedNetworkImage(
+        width: Sizes.s100.w,
+        height: Sizes.s80.h,
+        fit: BoxFit.fitHeight,
+        imageUrl: widget.recipeImage,
+        imageBuilder: (context, imageProvider) => Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
+            gradient: recipeCardGradient(),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: imageProvider,
+            ),
+          ),
+          child: widget.searchResults!
+              ? AnimatedOpacity(
+                  duration: const Duration(seconds: DurationConstants.d1),
+                  opacity: widget.isFavorite ? 1 : 0,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      AnimatedOpacity(
+                        duration: const Duration(
+                            milliseconds: DurationConstants.d040),
+                        opacity: widget.isFavorite ? 1 : 0,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.circular(Sizes.circularRadius.r),
+                            border: Border.all(
+                              color: AppColors.black
+                                  .withOpacity(OpacityConstants.op02),
+                            ),
+                            color: AppColors.black
+                                .withOpacity(OpacityConstants.op05),
+                          ),
+                          width: Sizes.s100.w,
+                          height: MediaQuery.of(context).size.height >
+                                  Sizes.smallScreenHeight
+                              ? Sizes.s80.h
+                              : Sizes.s100.h,
+                        ),
+                      ),
+                      HeartAnimationWidget(
+                        isAnimating: widget.isFavorite,
+                        child: Icon(
+                          Icons.favorite,
+                          color: AppColors.secondaryLightRed1,
+                          size: Sizes.s40.w,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              : null,
+        ),
       ),
     );
   }

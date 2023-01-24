@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:drecipe/features/common/di/providers.dart';
 import 'package:drecipe/features/common/ui/widgets/diet_badge.dart';
 import 'package:drecipe/features/favorite_recipes/di/providers.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
@@ -23,13 +24,24 @@ class RecipeDetailsImage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    String getHeroTag(int currentIndex) {
+      if (currentIndex == 0) {
+        return HeroConstants.discoverImage;
+      } else if (currentIndex == 1) {
+        return HeroConstants.searchImage;
+      } else {
+        return HeroConstants.favoritesImage;
+      }
+    }
+
     return GestureDetector(
       onDoubleTap: () => log('double tapped'),
       child: Stack(
         alignment: Alignment.center,
         children: [
           Hero(
-            tag: recipe.id,
+            tag:
+                '${getHeroTag(ref.read(bottomNavBarProvider).currentIndex)}${recipe.id}',
             child: SizedBox(
               height:
                   MediaQuery.of(context).size.height > Sizes.smallScreenHeight
@@ -68,7 +80,7 @@ class RecipeDetailsImage extends ConsumerWidget {
           ),
           AnimatedOpacity(
             duration: const Duration(milliseconds: DurationConstants.d040),
-            opacity: ref.watch(favoriteRecipesNotifierProvider).isHeartAnimating
+            opacity: ref.watch(favoriteRecipeNotifierProvider).isHeartAnimating
                 ? 1
                 : 0,
             child: Container(
@@ -88,20 +100,20 @@ class RecipeDetailsImage extends ConsumerWidget {
           AnimatedOpacity(
             duration: const Duration(seconds: DurationConstants.d1),
             opacity:
-                ref.watch(favoriteRecipesNotifierProvider).isHeartAnimating &&
-                        ref.watch(favoriteRecipesNotifierProvider).isFavorite
+                ref.watch(favoriteRecipeNotifierProvider).isHeartAnimating &&
+                        ref.watch(favoriteRecipeNotifierProvider).isFavorite
                     ? 1
                     : 0,
             child: Column(
               children: [
                 HeartAnimationWidget(
                   isAnimating: ref
-                      .watch(favoriteRecipesNotifierProvider)
+                      .watch(favoriteRecipeNotifierProvider)
                       .isHeartAnimating,
                   child: Icon(
                     Icons.favorite,
                     color: AppColors.secondaryLightRed1,
-                    size: Sizes.s88,
+                    size: Sizes.s88.w,
                   ),
                 ),
               ],
@@ -109,16 +121,16 @@ class RecipeDetailsImage extends ConsumerWidget {
           ),
           AnimatedOpacity(
             duration: const Duration(seconds: DurationConstants.d1),
-            opacity: ref.watch(favoriteRecipesNotifierProvider).isHeartAnimating
+            opacity: ref.watch(favoriteRecipeNotifierProvider).isHeartAnimating
                 ? 1
                 : 0,
             child: Padding(
               padding: EdgeInsets.only(
-                  top: ref.watch(favoriteRecipesNotifierProvider).isFavorite
+                  top: ref.watch(favoriteRecipeNotifierProvider).isFavorite
                       ? Sizes.s100.h
                       : Sizes.s0),
               child: Text(
-                ref.watch(favoriteRecipesNotifierProvider).isFavorite
+                ref.watch(favoriteRecipeNotifierProvider).isFavorite
                     ? 'Recipe added to favorites!'
                     : 'Recipe removed from favorites!',
                 style: Theme.of(context)

@@ -9,7 +9,7 @@ import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RecipeDetailsButtons extends ConsumerWidget {
+class RecipeDetailsButtons extends ConsumerStatefulWidget {
   const RecipeDetailsButtons({
     Key? key,
     required this.instructions,
@@ -20,10 +20,26 @@ class RecipeDetailsButtons extends ConsumerWidget {
   final Recipe recipe;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final isFavorite = ref.watch(favoriteRecipesNotifierProvider).isFavorite;
+  ConsumerState<RecipeDetailsButtons> createState() =>
+      _RecipeDetailsButtonsState();
+}
+
+class _RecipeDetailsButtonsState extends ConsumerState<RecipeDetailsButtons> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      await ref
+          .read(favoriteRecipeNotifierProvider.notifier)
+          .checkIfFavoriteRecipe(recipeId: widget.recipe.id);
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isFavorite = ref.watch(favoriteRecipeNotifierProvider).isFavorite;
     final favoriteRecipesNotifier =
-        ref.watch(favoriteRecipesNotifierProvider.notifier);
+        ref.read(favoriteRecipeNotifierProvider.notifier);
     return Row(
       children: [
         Flexible(
@@ -32,11 +48,9 @@ class RecipeDetailsButtons extends ConsumerWidget {
             onPressed: () {
               isFavorite
                   ? favoriteRecipesNotifier.removeFavoriteRecipe(
-                      recipeId: recipe.id)
-                  : favoriteRecipesNotifier.addFavoriteRecipe(recipe: recipe);
-              ref
-                  .read(favoriteRecipesListNotifierProvider.notifier)
-                  .getFavoriteRecipes();
+                      recipeId: widget.recipe.id)
+                  : favoriteRecipesNotifier.addFavoriteRecipe(
+                      recipe: widget.recipe);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.grey.shade200,
@@ -60,7 +74,8 @@ class RecipeDetailsButtons extends ConsumerWidget {
             text: 'Step by Step Instructions',
             onPressed: () => ScreenRouter.pushScreen(
               context,
-              DetailedInstructionsScreenRoute(instructions: instructions),
+              DetailedInstructionsScreenRoute(
+                  instructions: widget.instructions),
             ),
           ),
         ),

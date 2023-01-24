@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/features/account_recovery/ui/screens/account_recovery_screen.dart';
 import 'package:drecipe/features/account_recovery/ui/screens/account_recovery_reset_email_screen.dart';
-import 'package:drecipe/features/common/ui/widgets/drecipe_bottom_nav_bar.dart';
+import 'package:drecipe/features/common/ui/widgets/bottom_nav_bar/drecipe_bottom_nav_bar.dart';
 import 'package:drecipe/features/discover_recipes/ui/screens/discover_recipes_screen.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';

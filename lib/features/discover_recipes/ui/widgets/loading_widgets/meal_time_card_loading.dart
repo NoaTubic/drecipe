@@ -20,7 +20,7 @@ class MealTimeCardLoading extends StatelessWidget {
             color: AppColors.white,
             borderRadius: BorderRadius.circular(Sizes.s12),
             border: Border.all(
-              width: 1,
+              width: Sizes.s1,
               color: AppColors.lightGrey1.withOpacity(OpacityConstants.op05),
             ),
             boxShadow: shadows),

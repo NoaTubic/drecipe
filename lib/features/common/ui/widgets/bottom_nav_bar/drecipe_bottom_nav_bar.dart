@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/constants/constants.dart';
+import 'package:drecipe/features/common/di/providers.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/discover_recipes/ui/screens/discover_recipes_screen.dart';
 import 'package:drecipe/features/favorite_recipes/ui/screens/favorite_recipes_screen.dart';
@@ -6,17 +7,42 @@ import 'package:drecipe/features/profile/ui/screens/profile_screen.dart';
 import 'package:drecipe/features/search_recipes/ui/search_recipes_screen.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
-class DrecipeBottomNavBar extends StatelessWidget {
+class DrecipeBottomNavBar extends ConsumerStatefulWidget {
   const DrecipeBottomNavBar({Key? key}) : super(key: key);
+
+  @override
+  ConsumerState<DrecipeBottomNavBar> createState() =>
+      _DrecipeBottomNavBarState();
+}
+
+class _DrecipeBottomNavBarState extends ConsumerState<DrecipeBottomNavBar> {
+  late PersistentTabController _controller;
+  @override
+  void initState() {
+    _controller = ref.refresh(bottomNavBarProvider).controller;
+    _controller.addListener((() => ref
+        .read(bottomNavBarProvider.notifier)
+        .onTabSelected(_controller.index)));
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(() {});
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
     return PersistentTabView(
       context,
+      controller: _controller,
       screens: _buildScreens(),
       items: _navBarItems(
         discoverRecipesLabel: s.bottom_nav_bar_discover,

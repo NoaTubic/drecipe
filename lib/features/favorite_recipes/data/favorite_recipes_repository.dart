@@ -14,7 +14,6 @@ abstract class IFavoriteRecipesRepository {
   Future<Either<Failure, Recipe>> getFavoriteRecipe({required int recipeId});
   Future<Either<Failure, List<Recipe>>> getFavoriteRecipes();
   Future<Either<Failure, bool>> checkIfFavoriteRecipe({required int recipeId});
-  Stream<Either<Failure, List<Recipe>>> getFavoritesStream();
 }
 
 class FavoriteRecipesRepository implements IFavoriteRecipesRepository {
@@ -91,17 +90,6 @@ class FavoriteRecipesRepository implements IFavoriteRecipesRepository {
       return left(exception.handleFailure());
     } catch (exception) {
       return left(const Failure.unexpectedError());
-    }
-  }
-
-  @override
-  Stream<Either<Failure, List<Recipe>>> getFavoritesStream() async* {
-    try {
-      await for (final event in _localDataSource.getFavoritesStream()) {
-        yield right(event);
-      }
-    } catch (exception) {
-      yield left(const Failure.serverErrorGeneral());
     }
   }
 }

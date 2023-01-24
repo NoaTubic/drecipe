@@ -14,9 +14,3 @@ abstract class ApiConstants {
   static const String rapidApiBaseUrl =
       'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com';
 }
-
-
-
-
-// 01088b458fcf49c18da608f3a524d41c
-// f45087d34aad4ed28ed6b1170b88ddc9

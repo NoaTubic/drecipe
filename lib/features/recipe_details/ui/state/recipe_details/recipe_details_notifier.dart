@@ -16,9 +16,10 @@ class RecipeDetailsNotifier extends StateNotifier<RecipeDetailsState> {
     final isFavoriteResult =
         await _favoriteRecipesRepository.checkIfFavoriteRecipe(recipeId: id);
 
-    isFavoriteResult
-        .fold((failure) => state = RecipeDetailsState.error(failure: failure),
-            (isFavorite) async {
+    isFavoriteResult.fold(
+        (failure) => state = RecipeDetailsState.error(
+              failure: failure,
+            ), (isFavorite) async {
       if (isFavorite) {
         final recipe =
             await _favoriteRecipesRepository.getFavoriteRecipe(recipeId: id);

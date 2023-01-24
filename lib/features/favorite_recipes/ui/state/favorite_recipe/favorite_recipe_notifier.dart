@@ -1,14 +1,19 @@
+import 'package:drecipe/features/favorite_recipes/di/providers.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/favorite_recipes/data/favorite_recipes_repository.dart';
 import 'package:drecipe/features/favorite_recipes/ui/state/favorite_recipe/favorite_recipe_state.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
   final IFavoriteRecipesRepository _favoriteRecipesRepository;
+  AutoDisposeStateNotifierProviderRef<FavoriteRecipeNotifier,
+      FavoriteRecipeState> ref;
 
   FavoriteRecipeNotifier(
     this._favoriteRecipesRepository,
+    this.ref,
   ) : super(FavoriteRecipeState.initial());
 
   Future<void> addFavoriteRecipe({
@@ -24,8 +29,14 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
         isHeartAnimating: true,
       ),
     );
-    await Future.delayed(const Duration(seconds: DurationConstants.d2),
-        () => state = state.copyWith(isHeartAnimating: false));
+    ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
+
+    await Future.delayed(
+      const Duration(seconds: DurationConstants.d2),
+      () {
+        state = state.copyWith(isHeartAnimating: false);
+      },
+    );
   }
 
   Future<void> removeFavoriteRecipe({required int recipeId}) async {
@@ -39,9 +50,14 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
         isHeartAnimating: true,
       ),
     );
+    ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
 
-    await Future.delayed(const Duration(seconds: DurationConstants.d2),
-        () => state = state.copyWith(isHeartAnimating: false));
+    await Future.delayed(
+      const Duration(seconds: DurationConstants.d2),
+      () {
+        state = state.copyWith(isHeartAnimating: false);
+      },
+    );
   }
 
   Future<void> checkIfFavoriteRecipe({required int recipeId}) async {

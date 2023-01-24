@@ -26,9 +26,6 @@ class FavoriteRecipesScreen extends ConsumerWidget {
             initial: () => const SearchRecipesLoadingBody(),
             loading: () => const SearchRecipesLoadingBody(),
             loaded: (favoriteRecipes) {
-              // ref
-              //     .watch(recipesListProvider.notifier)
-              //     .getFavoriteRecipes(favoriteRecipes);
               return FavoriteRecipesBody(
                 favoriteRecipes: favoriteRecipes,
               );

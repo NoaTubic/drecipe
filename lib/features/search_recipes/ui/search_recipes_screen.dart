@@ -117,20 +117,40 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                   ),
                   child: searchRecipesStateListener.isLoading
                       ? const SearchRecipesLoadingBody()
-                      : ListView.separated(
-                          itemBuilder: (context, index) {
-                            return RecipeCard(
-                              recipe: searchRecipesStateListener.recipes[index],
-                              searchResults: true,
-                            );
-                          },
-                          separatorBuilder: (context, index) => Divider(
-                            height: Sizes.borderWidth,
-                            indent: Sizes.s100.w,
-                            color: AppColors.lightGrey1,
-                          ),
-                          itemCount: searchRecipesStateListener.recipes.length,
-                        ),
+                      : searchRecipesStateListener.recipes.isEmpty
+                          ? Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.search_off_rounded,
+                                    size: Sizes.iconSizeBig.w,
+                                    color: AppColors.secondaryLightRed1,
+                                  ),
+                                  const Text('No results found.'),
+                                  const Text(
+                                      'We couldn\'t find what you searched for.'),
+                                  const Text('Try again.'),
+                                ],
+                              ),
+                            )
+                          : ListView.separated(
+                              itemBuilder: (context, index) {
+                                return RecipeCard(
+                                  recipe:
+                                      searchRecipesStateListener.recipes[index],
+                                  searchResults: true,
+                                );
+                              },
+                              separatorBuilder: (context, index) => Divider(
+                                height: Sizes.borderWidth,
+                                indent: Sizes.s100.w,
+                                color: AppColors.lightGrey1,
+                              ),
+                              itemCount:
+                                  searchRecipesStateListener.recipes.length,
+                            ),
                 ),
                 const DrecipeSearchBar(),
               ],

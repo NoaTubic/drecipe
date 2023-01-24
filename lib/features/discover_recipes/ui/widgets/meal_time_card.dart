@@ -32,11 +32,11 @@ class MealTimeCard extends ConsumerWidget {
                     color:
                         AppColors.lightGrey1.withOpacity(OpacityConstants.op05),
                   ),
-                  borderRadius: BorderRadius.circular(Sizes.s12),
+                  borderRadius: BorderRadius.circular(Sizes.s12.r),
                 ),
                 child: InkWell(
                   customBorder: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(Sizes.s12),
+                    borderRadius: BorderRadius.circular(Sizes.s12.r),
                   ),
                   onTap: (() {}),
                   child: Padding(
@@ -57,8 +57,8 @@ class MealTimeCard extends ConsumerWidget {
                           state.mealTypeIcon,
                           width: Sizes.s28.w,
                         ),
-                        const SizedBox(
-                          width: Sizes.s12,
+                        SizedBox(
+                          width: Sizes.s12.w,
                         ),
                         Text(
                           '${s.discover_recipes_meal_card_time_a} ${state.mealType} ${s.discover_recipes_meal_card_time_b}',

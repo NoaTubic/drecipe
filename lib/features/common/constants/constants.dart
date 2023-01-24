@@ -12,6 +12,9 @@ abstract class Constants {
 
 abstract class HeroConstants {
   static const String logo = 'logo';
+  static const String discoverImage = 'hero';
+  static const String favoritesImage = 'favorites';
+  static const String searchImage = 'search';
 }
 
 abstract class DurationConstants {

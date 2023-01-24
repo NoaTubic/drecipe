@@ -3,7 +3,6 @@ import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/recipe_discover_card_content.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/loading_widgets/recipe_card_loading.dart';
-import 'package:drecipe/features/favorite_recipes/di/providers.dart';
 import 'package:drecipe/features/recipe_details/di/providers.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +22,7 @@ class RecipeImageCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Hero(
-      tag: recipe.id,
+      tag: '${HeroConstants.discoverImage}${recipe.id}',
       child: Column(
         children: [
           Expanded(
@@ -58,13 +57,8 @@ class RecipeImageCard extends ConsumerWidget {
                           BorderRadius.circular(Sizes.circularRadius.r),
                       onTap: () {
                         ref
-                            .read(favoriteRecipesNotifierProvider.notifier)
-                            .checkIfFavoriteRecipe(recipeId: recipe.id)
-                            .whenComplete(
-                              () => ref
-                                  .read(recipeDetailsNotifierProvider.notifier)
-                                  .getRecipeDetails(id: recipe.id),
-                            );
+                            .read(recipeDetailsNotifierProvider.notifier)
+                            .getRecipeDetails(id: recipe.id);
 
                         ScreenRouter.pushScreen(
                           context,
