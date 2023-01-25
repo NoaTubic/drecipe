@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/features/common/ui/widgets/drecipe_list_divider.dart';
 import 'package:drecipe/features/common/ui/widgets/recipe_card.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
@@ -46,11 +47,7 @@ class FavoriteRecipesBody extends StatelessWidget {
                 veryHealthy: favoriteRecipes[index].veryHealthy,
               ),
             ),
-            separatorBuilder: (context, index) => Divider(
-              height: Sizes.borderWidth,
-              indent: Sizes.s100.w,
-              color: AppColors.lightGrey1,
-            ),
+            separatorBuilder: (context, index) => const DrecipeListDivider(),
             itemCount: favoriteRecipes.length,
           );
   }

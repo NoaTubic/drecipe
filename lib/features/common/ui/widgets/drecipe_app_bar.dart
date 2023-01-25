@@ -11,12 +11,14 @@ class DrecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title,
     this.leftAction,
     this.elevated = true,
+    this.appBarContent,
   }) : super(key: key);
 
   final bool backButton;
   final String? title;
   final void Function()? leftAction;
   final bool elevated;
+  final Widget? appBarContent;
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight.h);
@@ -24,7 +26,9 @@ class DrecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title ?? ''),
+      title: Center(
+        child: appBarContent ?? Text(title ?? ''),
+      ),
       automaticallyImplyLeading: false,
       leading: backButton
           ? DrecipeBackButton(

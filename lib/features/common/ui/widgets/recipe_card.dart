@@ -50,16 +50,28 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
     setState(() {});
   }
 
-  void addRecipe() {
-    ref.watch(recipeDetailsNotifierProvider).when(
-          initial: () {},
-          loading: () {},
+  Future<void> addRecipe() async {
+    ref
+        .read(recipeDetailsNotifierProvider.notifier)
+        .getRecipeDetails(id: widget.recipe.id);
+    await Future.delayed(const Duration(seconds: 1));
+
+    if (!mounted) {
+      return;
+    }
+    ref.watch(recipeDetailsNotifierProvider).maybeWhen(
+          orElse: () {},
           loaded: (recipe) async {
             await ref
                 .read(favoriteRecipeNotifierProvider.notifier)
                 .addFavoriteRecipe(recipe: recipe);
+            if (!mounted) {
+              return;
+            }
+            setState(() {
+              isFavorite = true;
+            });
           },
-          error: (error) {},
         );
   }
 
@@ -90,9 +102,6 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
             if (widget.searchResults) {
               await handler(false);
               addRecipe();
-              setState(() {
-                isFavorite = true;
-              });
             } else {
               await handler(true);
               ref
@@ -179,6 +188,8 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
                           .read(favoriteRecipeNotifierProvider.notifier)
                           .removeFavoriteRecipe(recipeId: widget.recipe.id);
                     } else {
+                      log('adding');
+
                       addRecipe();
                     }
                     setState(() => isFavorite = !isFavorite);

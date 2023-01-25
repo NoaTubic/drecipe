@@ -1,3 +1,4 @@
+import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/discover_recipes/di/providers.dart';
@@ -38,7 +39,10 @@ class MealTimeCard extends ConsumerWidget {
                   customBorder: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(Sizes.s12.r),
                   ),
-                  onTap: (() {}),
+                  onTap: () => ScreenRouter.pushScreen(
+                    context,
+                    MealTimeScreenRoute(),
+                  ),
                   child: Padding(
                     padding: EdgeInsets.all(Sizes.s8.w),
                     child: Row(

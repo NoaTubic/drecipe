@@ -125,7 +125,15 @@ class _$AppRouter extends RootStackRouter {
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
-    }
+    },
+    MealTimeScreenRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const MealTimeScreen(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
   };
 
   @override
@@ -149,7 +157,8 @@ class _$AppRouter extends RootStackRouter {
             path: '/recipe-details-screen'),
         RouteConfig(DetailedInstructionsScreenRoute.name,
             path: '/detailed-instructions-screen'),
-        RouteConfig(IngredientsScreenRoute.name, path: '/ingredients-screen')
+        RouteConfig(IngredientsScreenRoute.name, path: '/ingredients-screen'),
+        RouteConfig(MealTimeScreenRoute.name, path: '/meal-time-screen')
       ];
 }
 
@@ -327,4 +336,13 @@ class IngredientsScreenRouteArgs {
   String toString() {
     return 'IngredientsScreenRouteArgs{key: $key, recipe: $recipe}';
   }
+}
+
+/// generated route for
+/// [MealTimeScreen]
+class MealTimeScreenRoute extends PageRouteInfo<void> {
+  MealTimeScreenRoute()
+      : super(MealTimeScreenRoute.name, path: '/meal-time-screen');
+
+  static const String name = 'MealTimeScreenRoute';
 }

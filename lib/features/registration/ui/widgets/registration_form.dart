@@ -90,7 +90,7 @@ class RegistrationForm extends ConsumerWidget {
           DrecipePrimaryButton(
             onPressed: () => registrationNotifier.register(),
             text: s.registration_sign_up_label,
-            isLoading: !registrationStateListener.isSubmitting,
+            isLoading: registrationStateListener.isSubmitting,
           ),
         ],
       ),

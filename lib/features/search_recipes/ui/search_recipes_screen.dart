@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/features/common/ui/widgets/drecipe_list_divider.dart';
 import 'package:drecipe/features/common/ui/widgets/recipe_card.dart';
 import 'package:drecipe/features/search_recipes/di/providers.dart';
 import 'package:drecipe/features/search_recipes/ui/widgets/drecipe_search_bar.dart';
@@ -143,11 +144,8 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                                   searchResults: true,
                                 );
                               },
-                              separatorBuilder: (context, index) => Divider(
-                                height: Sizes.borderWidth,
-                                indent: Sizes.s100.w,
-                                color: AppColors.lightGrey1,
-                              ),
+                              separatorBuilder: (context, index) =>
+                                  const DrecipeListDivider(),
                               itemCount:
                                   searchRecipesStateListener.recipes.length,
                             ),

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:drecipe/core/api/api_client.dart';
@@ -10,6 +12,9 @@ import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discove
 
 abstract class IDiscoverRecipesRepository {
   Future<Either<Failure, DiscoverRecipes>> getRecipes();
+  Future<Either<Failure, List<RecipeDiscover>>> getMealTimeRecipes({
+    required String mealType,
+  });
 }
 
 class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
@@ -30,13 +35,13 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
 
       randomRecipes = randomRecipesResponse.convertRecipesDiscover();
 
-      final popularRecipesResponse =
-          await _apiClient.getRandomRecipes(sort: Constants.popularRecipes);
+      final popularRecipesResponse = await _apiClient.getRandomRecipes(
+          sort: Constants.popularRecipes, offset: Random().nextInt(900));
 
       popularRecipes = popularRecipesResponse.convertRecipesDiscover();
 
-      final healthyRecipesResponse =
-          await _apiClient.getRandomRecipes(sort: Constants.healthyRecipes);
+      final healthyRecipesResponse = await _apiClient.getRandomRecipes(
+          sort: Constants.healthyRecipes, offset: Random().nextInt(900));
 
       healthyRecipes = healthyRecipesResponse.convertRecipesDiscover();
 
@@ -47,6 +52,26 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
       );
 
       return right(recipes);
+    } on DioError catch (exception) {
+      return left(exception.handleFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<RecipeDiscover>>> getMealTimeRecipes(
+      {required String mealType}) async {
+    try {
+      List<RecipeDiscover> mealTimeRecipes = [];
+
+      final mealTimeRecipesResponse = await _apiClient.getRandomRecipes(
+        sort: Constants.randomRecipes,
+        offset: Random().nextInt(900),
+        type: mealType,
+      );
+
+      mealTimeRecipes = mealTimeRecipesResponse.convertRecipesDiscover();
+
+      return right(mealTimeRecipes);
     } on DioError catch (exception) {
       return left(exception.handleFailure());
     }

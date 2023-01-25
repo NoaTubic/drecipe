@@ -23,13 +23,18 @@ class _ApiClient implements ApiClient {
     required sort,
     addRecipeInformation = 'true',
     number = Constants.numberOfRecipes,
+    offset,
+    type,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'sort': sort,
       r'addRecipeInformation': addRecipeInformation,
       r'number': number,
+      r'offset': offset,
+      r'type': type,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -112,7 +117,7 @@ class _ApiClient implements ApiClient {
   @override
   Future<RecipesDiscoverResponse> searchRecipes({
     required cuisine,
-    required mealType,
+    required type,
     required diet,
     required intolerances,
     required maxReadyTime,
@@ -128,7 +133,7 @@ class _ApiClient implements ApiClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'query': cuisine,
-      r'query': mealType,
+      r'query': type,
       r'query': diet,
       r'query': intolerances,
       r'query': maxReadyTime,

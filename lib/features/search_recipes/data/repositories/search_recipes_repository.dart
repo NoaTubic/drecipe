@@ -67,7 +67,7 @@ class SearchRecipesRepository implements ISearchRecipesRepository {
       final searchRecipesResponse = await _apiClient.searchRecipes(
         query: searchQuery,
         cuisine: cuisine,
-        mealType: mealType,
+        type: mealType,
         diet: diet,
         intolerances: intolerances,
         maxReadyTime: maxReadyTime,

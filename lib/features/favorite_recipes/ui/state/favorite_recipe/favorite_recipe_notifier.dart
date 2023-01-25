@@ -1,6 +1,5 @@
 import 'package:drecipe/features/favorite_recipes/di/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/favorite_recipes/data/favorite_recipes_repository.dart';
 import 'package:drecipe/features/favorite_recipes/ui/state/favorite_recipe/favorite_recipe_state.dart';
@@ -33,10 +32,12 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
 
     await Future.delayed(
       const Duration(seconds: DurationConstants.d2),
-      () {
-        state = state.copyWith(isHeartAnimating: false);
-      },
+      () {},
     );
+    if (!mounted) {
+      return;
+    }
+    state = state.copyWith(isHeartAnimating: false);
   }
 
   Future<void> removeFavoriteRecipe({required int recipeId}) async {
@@ -54,10 +55,12 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
 
     await Future.delayed(
       const Duration(seconds: DurationConstants.d2),
-      () {
-        state = state.copyWith(isHeartAnimating: false);
-      },
+      () {},
     );
+    if (!mounted) {
+      return;
+    }
+    state = state.copyWith(isHeartAnimating: false);
   }
 
   Future<void> checkIfFavoriteRecipe({required int recipeId}) async {

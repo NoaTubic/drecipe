@@ -11,6 +11,7 @@ class SearchRecipesLoadingBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return FadeMask(
       child: ListView.separated(
+        shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) => Padding(
           padding: EdgeInsets.only(

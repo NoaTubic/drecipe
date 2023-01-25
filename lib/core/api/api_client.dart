@@ -22,6 +22,8 @@ abstract class ApiClient {
     @Query('sort') required String sort,
     @Query('addRecipeInformation') String addRecipeInformation = 'true',
     @Query('number') int number = Constants.numberOfRecipes,
+    @Query('offset') int? offset,
+    @Query('type') String? type,
   });
 
   @GET('/recipes/{id}/information')
@@ -39,7 +41,7 @@ abstract class ApiClient {
   @GET('/recipes/complexSearch')
   Future<RecipesDiscoverResponse> searchRecipes({
     @Query('query') required String cuisine,
-    @Query('query') required String mealType,
+    @Query('query') required String type,
     @Query('query') required String diet,
     @Query('query') required String intolerances,
     @Query('query') required String maxReadyTime,

@@ -3,6 +3,7 @@ import 'package:drecipe/features/account_recovery/ui/screens/account_recovery_sc
 import 'package:drecipe/features/account_recovery/ui/screens/account_recovery_reset_email_screen.dart';
 import 'package:drecipe/features/common/ui/widgets/bottom_nav_bar/drecipe_bottom_nav_bar.dart';
 import 'package:drecipe/features/discover_recipes/ui/screens/discover_recipes_screen.dart';
+import 'package:drecipe/features/discover_recipes/ui/screens/meal_time_screen.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:drecipe/features/recipe_details/ui/screens/detailed_instructions_screen.dart';
@@ -71,6 +72,10 @@ part 'app_router.gr.dart';
     ),
     CustomRoute(
       page: IngredientsScreen,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
+    CustomRoute(
+      page: MealTimeScreen,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
   ],

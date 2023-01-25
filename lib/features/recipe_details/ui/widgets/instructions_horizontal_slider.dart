@@ -29,7 +29,7 @@ class InstructionsHorizontalSlider extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyText1,
         ),
         SizedBox(
-          height: 104,
+          height: Sizes.s108.h,
           child: FadeMask(
             enabled: equipmentAndIngredients!.length > 3 ? true : false,
             begin: Alignment.centerLeft,
