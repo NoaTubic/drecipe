@@ -18,6 +18,11 @@ class DiscoverRecipesBody extends StatelessWidget {
     return Column(
       children: [
         DrecipeCardSwiper(
+          title: s.discover_recipes_recommended,
+          recipes: recipes.recommendedRecipes,
+          recommendedRecipes: true,
+        ),
+        DrecipeCardSwiper(
           title: s.discover_recipes_random,
           recipes: recipes.randomRecipes,
         ),
@@ -27,7 +32,7 @@ class DiscoverRecipesBody extends StatelessWidget {
         ),
         DrecipeCardSwiper(
           title: s.discover_recipes_healthy,
-          recipes: recipes.healthyRecipe,
+          recipes: recipes.healthyRecipes,
         ),
       ],
     );

@@ -6,11 +6,13 @@ import 'package:drecipe/features/discover_recipes/ui/state/meal_time/meal_time_r
 import 'package:drecipe/features/discover_recipes/ui/state/meal_time/meal_time_state.dart';
 import 'package:drecipe/features/discover_recipes/ui/state/recipes/recipes_notifier.dart';
 import 'package:drecipe/features/discover_recipes/ui/state/recipes/recipes_state.dart';
+import 'package:drecipe/features/favorite_recipes/di/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final recipesRepositoryProvider = Provider<IDiscoverRecipesRepository>(
   (ref) => DiscoverRecipesRepository(
     ref.read(apiClientProvider),
+    ref.read(favoriteRecipesRepositoryProvider),
   ),
 );
 

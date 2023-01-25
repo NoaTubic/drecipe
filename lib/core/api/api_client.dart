@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipe_discover_response.dart';
+import 'package:drecipe/features/discover_recipes/data/models/recipe_recommended_response.dart';
 import 'package:drecipe/features/recipe_details/data/models/responses/recipe_response.dart';
 import 'package:drecipe/features/search_recipes/data/models/search_recipes_suggestions_response.dart';
 import 'package:retrofit/retrofit.dart';
@@ -30,6 +31,12 @@ abstract class ApiClient {
   Future<RecipeResponse> getRecipeDetails({
     @Path() required int id,
     @Query('includeNutrition') bool includeNutrition = true,
+  });
+
+  @GET('/recipes/{id}/similar')
+  Future<List<RecipeRecommendedResponse>> getRecommendedRecipes({
+    @Path() required int id,
+    @Query('number') int number = Constants.numberOfRecipes,
   });
 
   @GET('/recipes/autocomplete')

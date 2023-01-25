@@ -460,6 +460,16 @@ class S {
     );
   }
 
+  /// `Recommended`
+  String get discover_recipes_recommended {
+    return Intl.message(
+      'Recommended',
+      name: 'discover_recipes_recommended',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `min`
   String get discover_recipes_card_text_time {
     return Intl.message(

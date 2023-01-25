@@ -83,6 +83,35 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<List<RecipeRecommendedResponse>> getRecommendedRecipes({
+    required id,
+    number = Constants.numberOfRecipes,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'number': number};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<RecipeRecommendedResponse>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/recipes/${id}/similar',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            RecipeRecommendedResponse.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
   Future<List<SearchRecipesSuggestionResponse>> autocompleteRecipeSearch({
     required searchQuery,
     numberOfRecipes = Constants.numberOfRecipes,

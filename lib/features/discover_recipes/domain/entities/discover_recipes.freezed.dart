@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DiscoverRecipes {
   List<RecipeDiscover> get randomRecipes => throw _privateConstructorUsedError;
   List<RecipeDiscover> get popularRecipes => throw _privateConstructorUsedError;
-  List<RecipeDiscover> get healthyRecipe => throw _privateConstructorUsedError;
+  List<RecipeDiscover> get healthyRecipes => throw _privateConstructorUsedError;
+  List<RecipeRecommended> get recommendedRecipes =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DiscoverRecipesCopyWith<DiscoverRecipes> get copyWith =>
@@ -34,7 +36,8 @@ abstract class $DiscoverRecipesCopyWith<$Res> {
   $Res call(
       {List<RecipeDiscover> randomRecipes,
       List<RecipeDiscover> popularRecipes,
-      List<RecipeDiscover> healthyRecipe});
+      List<RecipeDiscover> healthyRecipes,
+      List<RecipeRecommended> recommendedRecipes});
 }
 
 /// @nodoc
@@ -52,7 +55,8 @@ class _$DiscoverRecipesCopyWithImpl<$Res, $Val extends DiscoverRecipes>
   $Res call({
     Object? randomRecipes = null,
     Object? popularRecipes = null,
-    Object? healthyRecipe = null,
+    Object? healthyRecipes = null,
+    Object? recommendedRecipes = null,
   }) {
     return _then(_value.copyWith(
       randomRecipes: null == randomRecipes
@@ -63,10 +67,14 @@ class _$DiscoverRecipesCopyWithImpl<$Res, $Val extends DiscoverRecipes>
           ? _value.popularRecipes
           : popularRecipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
-      healthyRecipe: null == healthyRecipe
-          ? _value.healthyRecipe
-          : healthyRecipe // ignore: cast_nullable_to_non_nullable
+      healthyRecipes: null == healthyRecipes
+          ? _value.healthyRecipes
+          : healthyRecipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
+      recommendedRecipes: null == recommendedRecipes
+          ? _value.recommendedRecipes
+          : recommendedRecipes // ignore: cast_nullable_to_non_nullable
+              as List<RecipeRecommended>,
     ) as $Val);
   }
 }
@@ -82,7 +90,8 @@ abstract class _$$_DiscoverRecipesCopyWith<$Res>
   $Res call(
       {List<RecipeDiscover> randomRecipes,
       List<RecipeDiscover> popularRecipes,
-      List<RecipeDiscover> healthyRecipe});
+      List<RecipeDiscover> healthyRecipes,
+      List<RecipeRecommended> recommendedRecipes});
 }
 
 /// @nodoc
@@ -98,7 +107,8 @@ class __$$_DiscoverRecipesCopyWithImpl<$Res>
   $Res call({
     Object? randomRecipes = null,
     Object? popularRecipes = null,
-    Object? healthyRecipe = null,
+    Object? healthyRecipes = null,
+    Object? recommendedRecipes = null,
   }) {
     return _then(_$_DiscoverRecipes(
       randomRecipes: null == randomRecipes
@@ -109,10 +119,14 @@ class __$$_DiscoverRecipesCopyWithImpl<$Res>
           ? _value._popularRecipes
           : popularRecipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
-      healthyRecipe: null == healthyRecipe
-          ? _value._healthyRecipe
-          : healthyRecipe // ignore: cast_nullable_to_non_nullable
+      healthyRecipes: null == healthyRecipes
+          ? _value._healthyRecipes
+          : healthyRecipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeDiscover>,
+      recommendedRecipes: null == recommendedRecipes
+          ? _value._recommendedRecipes
+          : recommendedRecipes // ignore: cast_nullable_to_non_nullable
+              as List<RecipeRecommended>,
     ));
   }
 }
@@ -123,10 +137,12 @@ class _$_DiscoverRecipes implements _DiscoverRecipes {
   const _$_DiscoverRecipes(
       {required final List<RecipeDiscover> randomRecipes,
       required final List<RecipeDiscover> popularRecipes,
-      required final List<RecipeDiscover> healthyRecipe})
+      required final List<RecipeDiscover> healthyRecipes,
+      required final List<RecipeRecommended> recommendedRecipes})
       : _randomRecipes = randomRecipes,
         _popularRecipes = popularRecipes,
-        _healthyRecipe = healthyRecipe;
+        _healthyRecipes = healthyRecipes,
+        _recommendedRecipes = recommendedRecipes;
 
   final List<RecipeDiscover> _randomRecipes;
   @override
@@ -142,16 +158,23 @@ class _$_DiscoverRecipes implements _DiscoverRecipes {
     return EqualUnmodifiableListView(_popularRecipes);
   }
 
-  final List<RecipeDiscover> _healthyRecipe;
+  final List<RecipeDiscover> _healthyRecipes;
   @override
-  List<RecipeDiscover> get healthyRecipe {
+  List<RecipeDiscover> get healthyRecipes {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_healthyRecipe);
+    return EqualUnmodifiableListView(_healthyRecipes);
+  }
+
+  final List<RecipeRecommended> _recommendedRecipes;
+  @override
+  List<RecipeRecommended> get recommendedRecipes {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_recommendedRecipes);
   }
 
   @override
   String toString() {
-    return 'DiscoverRecipes(randomRecipes: $randomRecipes, popularRecipes: $popularRecipes, healthyRecipe: $healthyRecipe)';
+    return 'DiscoverRecipes(randomRecipes: $randomRecipes, popularRecipes: $popularRecipes, healthyRecipes: $healthyRecipes, recommendedRecipes: $recommendedRecipes)';
   }
 
   @override
@@ -164,7 +187,9 @@ class _$_DiscoverRecipes implements _DiscoverRecipes {
             const DeepCollectionEquality()
                 .equals(other._popularRecipes, _popularRecipes) &&
             const DeepCollectionEquality()
-                .equals(other._healthyRecipe, _healthyRecipe));
+                .equals(other._healthyRecipes, _healthyRecipes) &&
+            const DeepCollectionEquality()
+                .equals(other._recommendedRecipes, _recommendedRecipes));
   }
 
   @override
@@ -172,7 +197,8 @@ class _$_DiscoverRecipes implements _DiscoverRecipes {
       runtimeType,
       const DeepCollectionEquality().hash(_randomRecipes),
       const DeepCollectionEquality().hash(_popularRecipes),
-      const DeepCollectionEquality().hash(_healthyRecipe));
+      const DeepCollectionEquality().hash(_healthyRecipes),
+      const DeepCollectionEquality().hash(_recommendedRecipes));
 
   @JsonKey(ignore: true)
   @override
@@ -183,16 +209,20 @@ class _$_DiscoverRecipes implements _DiscoverRecipes {
 
 abstract class _DiscoverRecipes implements DiscoverRecipes {
   const factory _DiscoverRecipes(
-      {required final List<RecipeDiscover> randomRecipes,
-      required final List<RecipeDiscover> popularRecipes,
-      required final List<RecipeDiscover> healthyRecipe}) = _$_DiscoverRecipes;
+          {required final List<RecipeDiscover> randomRecipes,
+          required final List<RecipeDiscover> popularRecipes,
+          required final List<RecipeDiscover> healthyRecipes,
+          required final List<RecipeRecommended> recommendedRecipes}) =
+      _$_DiscoverRecipes;
 
   @override
   List<RecipeDiscover> get randomRecipes;
   @override
   List<RecipeDiscover> get popularRecipes;
   @override
-  List<RecipeDiscover> get healthyRecipe;
+  List<RecipeDiscover> get healthyRecipes;
+  @override
+  List<RecipeRecommended> get recommendedRecipes;
   @override
   @JsonKey(ignore: true)
   _$$_DiscoverRecipesCopyWith<_$_DiscoverRecipes> get copyWith =>

@@ -41,6 +41,7 @@
   "discover_recipes_random": "Random",
   "discover_recipes_popular": "Popular",
   "discover_recipes_healthy": "Healthy",
+  "discover_recipes_recommended": "Recommended",
   "discover_recipes_card_text_time": "min",
   "discover_recipes_card_text_servings": "servings",
   "discover_recipes_card_text_ingredients": "ingredients",

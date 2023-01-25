@@ -10,7 +10,12 @@ import 'package:shimmer/shimmer.dart';
 class DrecipeCardSwiperLoading extends StatelessWidget {
   const DrecipeCardSwiperLoading({
     Key? key,
+    this.height,
+    this.width,
   }) : super(key: key);
+
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +54,10 @@ class DrecipeCardSwiperLoading extends StatelessWidget {
           DrecipeCarousel(
             items: const [loadingRecipe, loadingRecipe, loadingRecipe],
             itemCount: 3,
-            builder: (context, item) => const RecipeCardLoading(),
+            builder: (context, item) => RecipeCardLoading(
+              height: height,
+              width: width,
+            ),
             isScrollable: false,
           ),
         ],

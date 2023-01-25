@@ -1,3 +1,4 @@
+import 'dart:developer' as dev;
 import 'dart:math';
 
 import 'package:dartz/dartz.dart';
@@ -7,8 +8,11 @@ import 'package:drecipe/core/api/api_helpers.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipe_discover_response.dart';
+import 'package:drecipe/features/discover_recipes/data/models/recipe_recommended_response.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/discover_recipes.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
+import 'package:drecipe/features/discover_recipes/domain/entities/recipe_recommended.dart';
+import 'package:drecipe/features/favorite_recipes/data/favorite_recipes_repository.dart';
 
 abstract class IDiscoverRecipesRepository {
   Future<Either<Failure, DiscoverRecipes>> getRecipes();
@@ -19,8 +23,9 @@ abstract class IDiscoverRecipesRepository {
 
 class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
   final ApiClient _apiClient;
+  final IFavoriteRecipesRepository _favoriteRecipesRepository;
 
-  DiscoverRecipesRepository(this._apiClient);
+  DiscoverRecipesRepository(this._apiClient, this._favoriteRecipesRepository);
 
   @override
   Future<Either<Failure, DiscoverRecipes>> getRecipes() async {
@@ -28,7 +33,7 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
       List<RecipeDiscover> randomRecipes = [];
       List<RecipeDiscover> popularRecipes = [];
       List<RecipeDiscover> healthyRecipes = [];
-      // List<Recipe> recommendedRecipes = [];
+      List<RecipeRecommended> recommendedRecipes = [];
 
       final randomRecipesResponse =
           await _apiClient.getRandomRecipes(sort: Constants.randomRecipes);
@@ -45,16 +50,45 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
 
       healthyRecipes = healthyRecipesResponse.convertRecipesDiscover();
 
+      final recommendedRecipeID = await getRecommendedId();
+
+      if (recommendedRecipeID != null) {
+        final recommendedRecipesResponse =
+            await _apiClient.getRecommendedRecipes(id: recommendedRecipeID);
+        recommendedRecipes =
+            convertRecommendedRecipes(results: recommendedRecipesResponse);
+      }
+
       final recipes = DiscoverRecipes(
         randomRecipes: randomRecipes,
         popularRecipes: popularRecipes,
-        healthyRecipe: healthyRecipes,
+        healthyRecipes: healthyRecipes,
+        recommendedRecipes: recommendedRecipes,
       );
 
       return right(recipes);
-    } on DioError catch (exception) {
+    } on DioError catch (exception, st) {
+      dev.log(exception.message);
+      dev.log(st.toString());
       return left(exception.handleFailure());
     }
+  }
+
+  Future<int?> getRecommendedId() async {
+    int? recommendedId;
+
+    final favoriteRecipes =
+        await _favoriteRecipesRepository.getFavoriteRecipes();
+
+    favoriteRecipes.fold(
+      (failure) => recommendedId,
+      (favoriteRecipes) {
+        recommendedId = favoriteRecipes.isEmpty
+            ? null
+            : favoriteRecipes[Random().nextInt(favoriteRecipes.length)].id;
+      },
+    );
+    return recommendedId;
   }
 
   @override
