@@ -1,4 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:drecipe/core/connectivity/state/connectivity_notifier.dart';
+import 'package:drecipe/core/connectivity/state/connectivity_state.dart';
 import 'package:drecipe/core/firebase/firebase_auth_facade.dart';
 import 'package:drecipe/core/language/data/locale_repository.dart';
 import 'package:drecipe/core/language/locale_notifier.dart';
@@ -57,4 +60,15 @@ final authFacadeProvider = Provider<IFirebaseAuthFacade>(
 
 final hiveInitProvider = FutureProvider(
   (ref) => Hive.initFlutter,
+);
+
+final connectivityProvider = Provider<Connectivity>(
+  (ref) => Connectivity(),
+);
+
+final connectivityNotifierProvider =
+    StateNotifierProvider.autoDispose<ConnectivityNotifier, ConnectivityState>(
+  (ref) => ConnectivityNotifier(
+    ref.read(connectivityProvider),
+  ),
 );

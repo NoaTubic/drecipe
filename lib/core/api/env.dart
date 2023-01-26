@@ -1,6 +1,6 @@
 import 'package:envied/envied.dart';
 
-part 'env.g.dart';
+part 'env.generated.dart';
 
 @Envied(path: '.env')
 abstract class Env {
