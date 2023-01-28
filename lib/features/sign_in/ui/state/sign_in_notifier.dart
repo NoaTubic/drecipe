@@ -59,5 +59,11 @@ class SignInNotifier extends StateNotifier<SignInState> {
       showErrorMessages: true,
       signInFailureOrSuccess: optionOf(signInResult),
     );
+
+    state = state.copyWith(
+      isSubmitting: false,
+      showErrorMessages: true,
+      signInFailureOrSuccess: none(),
+    );
   }
 }

@@ -31,19 +31,19 @@ class AppTheme {
           color: AppColors.primaryRed, fontSize: FontSizes.s24.sp),
     ),
     textTheme: TextTheme(
-        headline1: TextStyles.bold(
+        displayLarge: TextStyles.bold(
             color: AppColors.primaryRed, fontSize: FontSizes.s24.sp),
-        headline2: TextStyles.bold(
+        displayMedium: TextStyles.bold(
             color: AppColors.primaryRed, fontSize: FontSizes.s22.sp),
-        headline3:
+        displaySmall:
             TextStyles.bold(color: AppColors.black, fontSize: FontSizes.s22.sp),
-        bodyText1:
+        bodyLarge:
             TextStyles.bold(color: AppColors.black, fontSize: FontSizes.s16.sp),
-        bodyText2: TextStyles.semiBold(
+        bodyMedium: TextStyles.semiBold(
             color: AppColors.black, fontSize: FontSizes.s16.sp),
-        button:
+        labelLarge:
             TextStyles.bold(color: AppColors.white, fontSize: FontSizes.s18.sp),
-        caption: TextStyles.bold(
+        bodySmall: TextStyles.bold(
             color: AppColors.black, fontSize: FontSizes.s12.sp)),
     scrollbarTheme: ScrollbarThemeData(
       thumbColor: MaterialStateProperty.all(

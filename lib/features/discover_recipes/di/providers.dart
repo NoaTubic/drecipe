@@ -17,11 +17,12 @@ final recipesRepositoryProvider = Provider<IDiscoverRecipesRepository>(
 );
 
 final recipesNotifierProvider =
-    StateNotifierProvider<RecipesNotifier, RecipesState>(
+    StateNotifierProvider.autoDispose<RecipesNotifier, RecipesState>(
   (ref) => RecipesNotifier(
     ref.read(
       recipesRepositoryProvider,
     ),
+    ref,
   )..getRecipes(),
 );
 

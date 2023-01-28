@@ -6,23 +6,41 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class FavoriteRecipesListNotifier
     extends StateNotifier<FavoriteRecipesListState> {
   final IFavoriteRecipesRepository _favoriteRecipesRepository;
+  late StreamSubscription _streamSubscription;
+  AutoDisposeStateNotifierProviderRef<FavoriteRecipesListNotifier,
+      FavoriteRecipesListState> ref;
 
   FavoriteRecipesListNotifier(
     this._favoriteRecipesRepository,
+    this.ref,
   ) : super(const FavoriteRecipesListState.initial());
 
   Future<void> getFavoriteRecipes() async {
     state = const FavoriteRecipesListState.loading();
-    final favoriteRecipes =
-        await _favoriteRecipesRepository.getFavoriteRecipes();
 
-    favoriteRecipes.fold(
-      (failure) => state = FavoriteRecipesListState.error(
-        failure: failure,
-      ),
-      (favoriteRecipes) => state = FavoriteRecipesListState.loaded(
-        recipes: favoriteRecipes,
-      ),
-    );
+    if (true) {
+      _streamSubscription = _favoriteRecipesRepository
+          .getFavoriteRecipesRemote()
+          .listen((result) {
+        state = result.fold(
+          (failure) => FavoriteRecipesListState.error(failure: failure),
+          (favoriteRecipes) {
+            return FavoriteRecipesListState.loaded(recipes: favoriteRecipes);
+          },
+        );
+      });
+    } else {
+      final favoriteRecipes =
+          await _favoriteRecipesRepository.getFavoriteRecipesLocal();
+
+      favoriteRecipes.fold(
+        (failure) => state = FavoriteRecipesListState.error(
+          failure: failure,
+        ),
+        (favoriteRecipes) => state = FavoriteRecipesListState.loaded(
+          recipes: favoriteRecipes,
+        ),
+      );
+    }
   }
 }

@@ -12,7 +12,7 @@ class DrecipeUser with _$DrecipeUser {
   }) = _DrecipeUser;
 }
 
-extension FirebaseUserDomainX on firebase.User {
+extension FirebaseUserExtension on firebase.User {
   DrecipeUser toDomain() {
     return DrecipeUser(
       id: uid,

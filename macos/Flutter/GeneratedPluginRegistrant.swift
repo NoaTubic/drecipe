@@ -10,7 +10,7 @@ import connectivity_plus
 import firebase_auth
 import firebase_core
 import flutter_secure_storage_macos
-import path_provider_macos
+import path_provider_foundation
 import sqflite
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {

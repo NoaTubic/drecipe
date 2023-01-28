@@ -18,8 +18,13 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
   Future<void> addFavoriteRecipe({
     required Recipe recipe,
   }) async {
+    if (!mounted) {
+      return;
+    }
     final addToFavoritesResult =
-        await _favoriteRecipesRepository.addFavoriteRecipe(recipe: recipe);
+        await _favoriteRecipesRepository.addFavoriteRecipe(
+      recipe: recipe,
+    );
 
     addToFavoritesResult.fold(
       (failure) => state = state.copyWith(showErrorMessages: true),
@@ -40,27 +45,32 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
     state = state.copyWith(isHeartAnimating: false);
   }
 
-  Future<void> removeFavoriteRecipe({required int recipeId}) async {
-    final removeFromFavoritesResult = await _favoriteRecipesRepository
-        .removeFavoriteRecipe(recipeId: recipeId);
+  Future<void> removeFavoriteRecipe(
+      {required int recipeId, bool withAnimation = true}) async {
+    final removeFromFavoritesResult =
+        await _favoriteRecipesRepository.removeFavoriteRecipe(
+      recipeId: recipeId,
+    );
 
     removeFromFavoritesResult.fold(
       (failure) => state = state.copyWith(showErrorMessages: true),
       (success) => state = state.copyWith(
         isFavorite: false,
-        isHeartAnimating: true,
+        isHeartAnimating: withAnimation,
       ),
     );
-    ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
+    // ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
 
-    await Future.delayed(
-      const Duration(seconds: DurationConstants.d2),
-      () {},
-    );
-    if (!mounted) {
-      return;
+    if (withAnimation) {
+      await Future.delayed(
+        const Duration(seconds: DurationConstants.d2),
+        () {},
+      );
+      if (!mounted) {
+        return;
+      }
+      state = state.copyWith(isHeartAnimating: false);
     }
-    state = state.copyWith(isHeartAnimating: false);
   }
 
   Future<void> checkIfFavoriteRecipe({required int recipeId}) async {

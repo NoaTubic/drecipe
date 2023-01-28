@@ -1,6 +1,9 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:drecipe/core/di/providers.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_refresh_indicator.dart';
+import 'package:drecipe/features/common/ui/widgets/no_internet_connection_body.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/discover_recipes_body.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/discover_recipes_body_error.dart';
 import 'package:drecipe/features/discover_recipes/ui/widgets/meal_time_card.dart';
@@ -45,6 +48,7 @@ class DiscoverRecipesScreen extends ConsumerWidget {
                           error: (error) => DiscoverRecipesBodyError(
                             error: error.getFailureMessage(),
                           ),
+                          offline: () => const NoInternetConnectionBody(),
                         ),
                   ],
                 ),

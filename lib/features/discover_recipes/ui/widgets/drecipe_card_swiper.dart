@@ -29,14 +29,14 @@ class DrecipeCardSwiper extends StatelessWidget {
                 EdgeInsets.symmetric(horizontal: Sizes.bodyHorizontalPadding.w),
             child: Text(
               title,
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
           SizedBox(
             height: Sizes.s4.h,
           ),
           recommendedRecipes && recipes.isEmpty
-              ? const NoRecommendedRecipesContent()
+              ? const NotRecommendedRecipesContent()
               : DrecipeCarousel(
                   itemCount: recipes.length,
                   items: recipes,
@@ -57,8 +57,8 @@ class DrecipeCardSwiper extends StatelessWidget {
   }
 }
 
-class NoRecommendedRecipesContent extends StatelessWidget {
-  const NoRecommendedRecipesContent({
+class NotRecommendedRecipesContent extends StatelessWidget {
+  const NotRecommendedRecipesContent({
     Key? key,
   }) : super(key: key);
 

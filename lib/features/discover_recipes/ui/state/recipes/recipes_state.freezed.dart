@@ -22,6 +22,7 @@ mixin _$RecipesState {
     required TResult Function() loading,
     required TResult Function(DiscoverRecipes recipes) loaded,
     required TResult Function(Failure failure) error,
+    required TResult Function() offline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$RecipesState {
     TResult? Function()? loading,
     TResult? Function(DiscoverRecipes recipes)? loaded,
     TResult? Function(Failure failure)? error,
+    TResult? Function()? offline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$RecipesState {
     TResult Function()? loading,
     TResult Function(DiscoverRecipes recipes)? loaded,
     TResult Function(Failure failure)? error,
+    TResult Function()? offline,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$RecipesState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Offline value) offline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$RecipesState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Offline value)? offline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$RecipesState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +133,7 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
     required TResult Function(DiscoverRecipes recipes) loaded,
     required TResult Function(Failure failure) error,
+    required TResult Function() offline,
   }) {
     return initial();
   }
@@ -138,6 +145,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? loading,
     TResult? Function(DiscoverRecipes recipes)? loaded,
     TResult? Function(Failure failure)? error,
+    TResult? Function()? offline,
   }) {
     return initial?.call();
   }
@@ -149,6 +157,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(DiscoverRecipes recipes)? loaded,
     TResult Function(Failure failure)? error,
+    TResult Function()? offline,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -164,6 +173,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Offline value) offline,
   }) {
     return initial(this);
   }
@@ -175,6 +185,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Offline value)? offline,
   }) {
     return initial?.call(this);
   }
@@ -186,6 +197,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -240,6 +252,7 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
     required TResult Function(DiscoverRecipes recipes) loaded,
     required TResult Function(Failure failure) error,
+    required TResult Function() offline,
   }) {
     return loading();
   }
@@ -251,6 +264,7 @@ class _$_Loading implements _Loading {
     TResult? Function()? loading,
     TResult? Function(DiscoverRecipes recipes)? loaded,
     TResult? Function(Failure failure)? error,
+    TResult? Function()? offline,
   }) {
     return loading?.call();
   }
@@ -262,6 +276,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(DiscoverRecipes recipes)? loaded,
     TResult Function(Failure failure)? error,
+    TResult Function()? offline,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -277,6 +292,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Offline value) offline,
   }) {
     return loading(this);
   }
@@ -288,6 +304,7 @@ class _$_Loading implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Offline value)? offline,
   }) {
     return loading?.call(this);
   }
@@ -299,6 +316,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -388,6 +406,7 @@ class _$_Loaded implements _Loaded {
     required TResult Function() loading,
     required TResult Function(DiscoverRecipes recipes) loaded,
     required TResult Function(Failure failure) error,
+    required TResult Function() offline,
   }) {
     return loaded(recipes);
   }
@@ -399,6 +418,7 @@ class _$_Loaded implements _Loaded {
     TResult? Function()? loading,
     TResult? Function(DiscoverRecipes recipes)? loaded,
     TResult? Function(Failure failure)? error,
+    TResult? Function()? offline,
   }) {
     return loaded?.call(recipes);
   }
@@ -410,6 +430,7 @@ class _$_Loaded implements _Loaded {
     TResult Function()? loading,
     TResult Function(DiscoverRecipes recipes)? loaded,
     TResult Function(Failure failure)? error,
+    TResult Function()? offline,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -425,6 +446,7 @@ class _$_Loaded implements _Loaded {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Offline value) offline,
   }) {
     return loaded(this);
   }
@@ -436,6 +458,7 @@ class _$_Loaded implements _Loaded {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Offline value)? offline,
   }) {
     return loaded?.call(this);
   }
@@ -447,6 +470,7 @@ class _$_Loaded implements _Loaded {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -541,6 +565,7 @@ class _$_Error implements _Error {
     required TResult Function() loading,
     required TResult Function(DiscoverRecipes recipes) loaded,
     required TResult Function(Failure failure) error,
+    required TResult Function() offline,
   }) {
     return error(failure);
   }
@@ -552,6 +577,7 @@ class _$_Error implements _Error {
     TResult? Function()? loading,
     TResult? Function(DiscoverRecipes recipes)? loaded,
     TResult? Function(Failure failure)? error,
+    TResult? Function()? offline,
   }) {
     return error?.call(failure);
   }
@@ -563,6 +589,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(DiscoverRecipes recipes)? loaded,
     TResult Function(Failure failure)? error,
+    TResult Function()? offline,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -578,6 +605,7 @@ class _$_Error implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Offline value) offline,
   }) {
     return error(this);
   }
@@ -589,6 +617,7 @@ class _$_Error implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Offline value)? offline,
   }) {
     return error?.call(this);
   }
@@ -600,6 +629,7 @@ class _$_Error implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Offline value)? offline,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -616,4 +646,123 @@ abstract class _Error implements RecipesState {
   @JsonKey(ignore: true)
   _$$_ErrorCopyWith<_$_Error> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_OfflineCopyWith<$Res> {
+  factory _$$_OfflineCopyWith(
+          _$_Offline value, $Res Function(_$_Offline) then) =
+      __$$_OfflineCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OfflineCopyWithImpl<$Res>
+    extends _$RecipesStateCopyWithImpl<$Res, _$_Offline>
+    implements _$$_OfflineCopyWith<$Res> {
+  __$$_OfflineCopyWithImpl(_$_Offline _value, $Res Function(_$_Offline) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Offline implements _Offline {
+  const _$_Offline();
+
+  @override
+  String toString() {
+    return 'RecipesState.offline()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Offline);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(DiscoverRecipes recipes) loaded,
+    required TResult Function(Failure failure) error,
+    required TResult Function() offline,
+  }) {
+    return offline();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(DiscoverRecipes recipes)? loaded,
+    TResult? Function(Failure failure)? error,
+    TResult? Function()? offline,
+  }) {
+    return offline?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(DiscoverRecipes recipes)? loaded,
+    TResult Function(Failure failure)? error,
+    TResult Function()? offline,
+    required TResult orElse(),
+  }) {
+    if (offline != null) {
+      return offline();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Offline value) offline,
+  }) {
+    return offline(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Offline value)? offline,
+  }) {
+    return offline?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Offline value)? offline,
+    required TResult orElse(),
+  }) {
+    if (offline != null) {
+      return offline(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Offline implements RecipesState {
+  const factory _Offline() = _$_Offline;
 }

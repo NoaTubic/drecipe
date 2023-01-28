@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  static Color primaryRed = HexColor.fromHex('#EE192D');
+  static Color primaryRed = HexColor.fromHex('#F14757');
   static Color secondaryLightRed1 = HexColor.fromHex('#F14757');
   static Color secondaryLightRed2 = HexColor.fromHex('#F57581');
   static Color secondaryLightRed3 = HexColor.fromHex('#F8A3AB');

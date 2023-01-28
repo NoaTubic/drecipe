@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_recommended.dart';
+import 'package:shimmer/shimmer.dart';
 
 class RecipeRecommendedCard extends ConsumerWidget {
   const RecipeRecommendedCard({
@@ -47,7 +48,8 @@ class RecipeRecommendedCard extends ConsumerWidget {
                 width: Sizes.s156.w,
                 child: CachedNetworkImage(
                   imageUrl: recipe.image!,
-                  placeholder: (context, url) => Container(),
+                  placeholder: (context, url) =>
+                      const ReccomendedCardImageLoading(),
                   errorWidget: (context, url, error) => Container(
                     color: AppColors.lightGrey1,
                     child: const Icon(Icons.error),
@@ -132,7 +134,7 @@ class RecipeRecommendedCard extends ConsumerWidget {
                 ),
               ),
               Container(
-                height: Sizes.s46.h,
+                height: Sizes.s48.h,
                 width: Sizes.s156.w,
                 decoration: BoxDecoration(
                   color:
@@ -151,6 +153,37 @@ class RecipeRecommendedCard extends ConsumerWidget {
                 ),
               )
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ReccomendedCardImageLoading extends StatelessWidget {
+  const ReccomendedCardImageLoading({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
+        color: AppColors.white,
+      ),
+      child: Shimmer.fromColors(
+        baseColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op07),
+        highlightColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op03),
+        child: Container(
+          height: Sizes.s98.h,
+          width: Sizes.s156.w,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(Sizes.circularRadius.r),
+              topRight: Radius.circular(Sizes.circularRadius.r),
+            ),
+            color: AppColors.lightGrey1,
           ),
         ),
       ),

@@ -25,6 +25,7 @@ class _ApiClient implements ApiClient {
     number = Constants.numberOfRecipes,
     offset,
     type,
+    fillIngredients = 'true',
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -33,6 +34,7 @@ class _ApiClient implements ApiClient {
       r'number': number,
       r'offset': offset,
       r'type': type,
+      r'fillIngredients': fillIngredients,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

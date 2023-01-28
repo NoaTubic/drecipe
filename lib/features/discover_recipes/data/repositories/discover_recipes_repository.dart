@@ -78,7 +78,7 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
     int? recommendedId;
 
     final favoriteRecipes =
-        await _favoriteRecipesRepository.getFavoriteRecipes();
+        await _favoriteRecipesRepository.getFavoriteRecipesLocal();
 
     favoriteRecipes.fold(
       (failure) => recommendedId,

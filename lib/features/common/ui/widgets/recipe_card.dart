@@ -101,12 +101,14 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
           onTap: (handler) async {
             if (widget.searchResults) {
               await handler(false);
+              log('adding');
               addRecipe();
             } else {
               await handler(true);
               ref
                   .read(favoriteRecipeNotifierProvider.notifier)
-                  .removeFavoriteRecipe(recipeId: widget.recipe.id);
+                  .removeFavoriteRecipe(
+                      recipeId: widget.recipe.id, withAnimation: false);
               setState(() {});
             }
           },
@@ -189,7 +191,6 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
                           .removeFavoriteRecipe(recipeId: widget.recipe.id);
                     } else {
                       log('adding');
-
                       addRecipe();
                     }
                     setState(() => isFavorite = !isFavorite);
@@ -224,12 +225,17 @@ class RecipeCardImage extends ConsumerStatefulWidget {
 }
 
 class _RecipeCardImageState extends ConsumerState<RecipeCardImage> {
+  Future<void> reverseAnimation() async {
+    await Future.delayed(const Duration(seconds: DurationConstants.d2), () {});
+    setState(() => widget.isFavorite = false);
+  }
+
   @override
   Widget build(BuildContext context) {
     if (widget.isFavorite) {
-      Future.delayed(const Duration(seconds: DurationConstants.d2), () {
-        setState(() => widget.isFavorite = false);
-      });
+      if (mounted) {
+        reverseAnimation();
+      }
     }
     return Hero(
       tag: widget.searchResults!

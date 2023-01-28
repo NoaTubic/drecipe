@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class RecipeDetailsNotifier extends StateNotifier<RecipeDetailsState> {
   final IRecipeDetailsRepository _recipeDetailsRepository;
   final IFavoriteRecipesRepository _favoriteRecipesRepository;
+
   RecipeDetailsNotifier(
       this._recipeDetailsRepository, this._favoriteRecipesRepository)
       : super(const RecipeDetailsState.initial());

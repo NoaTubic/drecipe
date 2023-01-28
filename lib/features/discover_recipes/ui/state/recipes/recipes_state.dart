@@ -14,4 +14,5 @@ class RecipesState with _$RecipesState {
   const factory RecipesState.error({
     required Failure failure,
   }) = _Error;
+  const factory RecipesState.offline() = _Offline;
 }

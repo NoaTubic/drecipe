@@ -25,6 +25,7 @@ abstract class ApiClient {
     @Query('number') int number = Constants.numberOfRecipes,
     @Query('offset') int? offset,
     @Query('type') String? type,
+    @Query('fillIngredients') String fillIngredients = 'true',
   });
 
   @GET('/recipes/{id}/information')

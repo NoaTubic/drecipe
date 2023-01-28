@@ -13,12 +13,12 @@ dependencies:
   awesome_circular_chart: ^1.0.0
   carousel_slider: ^4.1.1
   cached_network_image: ^3.2.2
-  cloud_firestore: ^3.4.5
+  cloud_firestore: ^4.3.1
   connectivity_plus: ^3.0.2
   dartz: ^0.10.1
   dio: ^4.0.6
-  firebase_auth: ^3.6.3
-  firebase_core: ^1.20.0
+  firebase_auth: ^4.2.5
+  firebase_core: ^2.4.1
   flutter:
     sdk: flutter
   flutter_html: 3.0.0-alpha.5
