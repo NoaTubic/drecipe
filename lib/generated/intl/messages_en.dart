@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottom_nav_bar_search": MessageLookupByLibrary.simpleMessage("Search"),
         "bottom_nav_bar_search_by_ingredients":
             MessageLookupByLibrary.simpleMessage("Search by ingredients"),
+        "croatian_language": MessageLookupByLibrary.simpleMessage("Croatian"),
         "discover_recipes_card_text_ingredients":
             MessageLookupByLibrary.simpleMessage("ingredients"),
         "discover_recipes_card_text_servings":
@@ -77,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Almost ready to start enjoying "),
         "email_verification_title":
             MessageLookupByLibrary.simpleMessage("Verify Email"),
+        "english_language": MessageLookupByLibrary.simpleMessage("English"),
         "failure_cancelled_by_user":
             MessageLookupByLibrary.simpleMessage("Cancelled"),
         "failure_email_already_in_user":
@@ -124,6 +126,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "label_or": MessageLookupByLibrary.simpleMessage("or"),
         "label_try_again":
             MessageLookupByLibrary.simpleMessage("Please try again later"),
+        "profile_screen_change_language":
+            MessageLookupByLibrary.simpleMessage("Language"),
+        "profile_screen_change_password":
+            MessageLookupByLibrary.simpleMessage("Change password"),
+        "profile_screen_change_privacy_policy":
+            MessageLookupByLibrary.simpleMessage("Privacy policy"),
+        "profile_screen_delete_account":
+            MessageLookupByLibrary.simpleMessage("Delete account"),
+        "profile_screen_email": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "profile_screen_sign_out":
+            MessageLookupByLibrary.simpleMessage("Sign out"),
+        "profile_screen_theme_mode":
+            MessageLookupByLibrary.simpleMessage("Theme mode"),
+        "profile_screen_title": MessageLookupByLibrary.simpleMessage("Profile"),
         "recipe_details_instructions_equipment":
             MessageLookupByLibrary.simpleMessage("Equipment"),
         "recipe_details_instructions_ingredients":

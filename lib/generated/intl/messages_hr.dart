@@ -22,7 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "croatian_language": MessageLookupByLibrary.simpleMessage("Hrvatski"),
+        "english_language": MessageLookupByLibrary.simpleMessage("Engleski"),
         "label_or": MessageLookupByLibrary.simpleMessage("ili"),
+        "profile_screen_change_language":
+            MessageLookupByLibrary.simpleMessage("Jezik"),
+        "profile_screen_change_password":
+            MessageLookupByLibrary.simpleMessage("Promjena lozinke"),
+        "profile_screen_change_privacy_policy":
+            MessageLookupByLibrary.simpleMessage(
+                "Pravila o zaštiti privatnosti"),
+        "profile_screen_delete_account":
+            MessageLookupByLibrary.simpleMessage("Izbriši korisnički račun"),
+        "profile_screen_email": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "profile_screen_sign_out":
+            MessageLookupByLibrary.simpleMessage("Odjava"),
+        "profile_screen_theme_mode":
+            MessageLookupByLibrary.simpleMessage("Izgled zaslona"),
+        "profile_screen_title": MessageLookupByLibrary.simpleMessage("Profil"),
         "sign_in_anonymous":
             MessageLookupByLibrary.simpleMessage("Nastavak bez prijave"),
         "sign_in_email_hint":

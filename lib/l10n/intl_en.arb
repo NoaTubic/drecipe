@@ -1,5 +1,7 @@
 {
   "@@locale": "en",
+  "english_language": "English",
+  "croatian_language": "Croatian",
   "test": "English Page",
   "label_or": "or",
   "label_try_again": "Please try again later",
@@ -72,5 +74,13 @@
   "failure_passwords_dont_match": "Passwords don't match.",
   "failure_empty_username_field": "Please pick an username.",
   "failure_invalid_username": "Invalid username format.",
-  "failure_long_username": "Username must have less than 20 characters."
+  "failure_long_username": "Username must have less than 20 characters.",
+  "profile_screen_title": "Profile",
+  "profile_screen_email": "E-mail",
+  "profile_screen_theme_mode": "Theme mode",
+  "profile_screen_change_language": "Language",
+  "profile_screen_change_password": "Change password",
+  "profile_screen_change_privacy_policy": "Privacy policy",
+  "profile_screen_sign_out": "Sign out",
+  "profile_screen_delete_account": "Delete account"
 }

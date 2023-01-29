@@ -4,7 +4,7 @@ import 'package:drecipe/features/account_recovery/ui/state/account_recovery_stat
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
-import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_button.dart';
+import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_button.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
@@ -89,7 +89,7 @@ class AccountRecoveryScreen extends ConsumerWidget {
                     textInputType: TextInputType.emailAddress,
                     hintText: s.registration_email_hint,
                   ),
-                  DrecipePrimaryButton(
+                  DrecipeButton(
                     onPressed: () => accountRecoveryNotifier.resetPassword(),
                     text: s.account_recovery_reset,
                     isLoading: accountRecoveryStateListener.isSubmitting,

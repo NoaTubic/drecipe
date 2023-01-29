@@ -5,7 +5,7 @@ import 'package:drecipe/features/registration/di/providers.dart';
 import 'package:drecipe/features/registration/ui/state/registration_state.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
-import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_button.dart';
+import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_button.dart';
 import 'package:drecipe/features/common/ui/widgets/text_form_fields/drecipe_password_text_form_field.dart';
 import 'package:drecipe/features/common/ui/widgets/text_form_fields/drecipe_text_form_field.dart';
 import 'package:drecipe/generated/l10n.dart';
@@ -87,7 +87,7 @@ class RegistrationForm extends ConsumerWidget {
           const SizedBox(
             height: Sizes.s20,
           ),
-          DrecipePrimaryButton(
+          DrecipeButton(
             onPressed: () => registrationNotifier.register(),
             text: s.registration_sign_up_label,
             isLoading: registrationStateListener.isSubmitting,

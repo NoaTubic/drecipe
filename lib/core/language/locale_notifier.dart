@@ -9,7 +9,9 @@ class LocaleNotifier extends StateNotifier<Locale> {
   LocaleNotifier(this._languageRepository)
       : super(
           const Locale(LocaleConstants.defaultLanguage),
-        );
+        ) {
+    loadLanguage();
+  }
 
   Future<void> changeLanguage(Locale language) async {
     await _languageRepository.changeLanguage(language);

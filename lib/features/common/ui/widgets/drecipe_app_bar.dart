@@ -12,11 +12,13 @@ class DrecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leftAction,
     this.elevated = true,
     this.appBarContent,
+    this.settings = true,
   }) : super(key: key);
 
   final bool backButton;
   final String? title;
   final void Function()? leftAction;
+  final bool settings;
   final bool elevated;
   final Widget? appBarContent;
 
@@ -35,8 +37,10 @@ class DrecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
               onTap: leftAction,
             )
           : null,
-      actions: const [
-        SettingsButton(),
+      actions: [
+        if (settings) ...[
+          const SettingsButton(),
+        ]
       ],
       elevation: elevated ? Sizes.elevationMain : Sizes.s0,
     );

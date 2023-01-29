@@ -50,6 +50,26 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `English`
+  String get english_language {
+    return Intl.message(
+      'English',
+      name: 'english_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Croatian`
+  String get croatian_language {
+    return Intl.message(
+      'Croatian',
+      name: 'croatian_language',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `English Page`
   String get test {
     return Intl.message(
@@ -775,6 +795,86 @@ class S {
     return Intl.message(
       'Username must have less than 20 characters.',
       name: 'failure_long_username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile_screen_title {
+    return Intl.message(
+      'Profile',
+      name: 'profile_screen_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `E-mail`
+  String get profile_screen_email {
+    return Intl.message(
+      'E-mail',
+      name: 'profile_screen_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme mode`
+  String get profile_screen_theme_mode {
+    return Intl.message(
+      'Theme mode',
+      name: 'profile_screen_theme_mode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get profile_screen_change_language {
+    return Intl.message(
+      'Language',
+      name: 'profile_screen_change_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change password`
+  String get profile_screen_change_password {
+    return Intl.message(
+      'Change password',
+      name: 'profile_screen_change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy policy`
+  String get profile_screen_change_privacy_policy {
+    return Intl.message(
+      'Privacy policy',
+      name: 'profile_screen_change_privacy_policy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign out`
+  String get profile_screen_sign_out {
+    return Intl.message(
+      'Sign out',
+      name: 'profile_screen_sign_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete account`
+  String get profile_screen_delete_account {
+    return Intl.message(
+      'Delete account',
+      name: 'profile_screen_delete_account',
       desc: '',
       args: [],
     );

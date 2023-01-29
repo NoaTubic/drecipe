@@ -1,5 +1,7 @@
 {
   "@@locale": "hr",
+  "english_language": "Engleski",
+  "croatian_language": "Hrvatski",
   "test": "Hrvatska Stranica",
   "label_or": "ili",
   "sign_in_helper": "Prijavite se s vašim korisničkim računom",
@@ -9,5 +11,13 @@
   "sign_in_label": "Prijava",
   "sign_in_anonymous": "Nastavak bez prijave",
   "sign_in_register": "Još nemate korisnički račun?  ",
-  "sign_in_register_label": "Prijava"
+  "sign_in_register_label": "Prijava",
+  "profile_screen_title": "Profil",
+  "profile_screen_email": "E-mail",
+  "profile_screen_theme_mode": "Izgled zaslona",
+  "profile_screen_change_language": "Jezik",
+  "profile_screen_change_password": "Promjena lozinke",
+  "profile_screen_change_privacy_policy": "Pravila o zaštiti privatnosti",
+  "profile_screen_sign_out": "Odjava",
+  "profile_screen_delete_account": "Izbriši korisnički račun"
 }

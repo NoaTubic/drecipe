@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
-import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_button.dart';
+import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_button.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_text_button_primary.dart';
 import 'package:drecipe/features/common/ui/widgets/text_form_fields/drecipe_password_text_form_field.dart';
 import 'package:drecipe/features/common/ui/widgets/text_form_fields/drecipe_text_form_field.dart';
@@ -56,7 +56,7 @@ class SignInForm extends ConsumerWidget {
           const SizedBox(
             height: Sizes.s20,
           ),
-          DrecipePrimaryButton(
+          DrecipeButton(
             onPressed: () {
               signInNotifier.signInWithEmailAndPassword();
             },

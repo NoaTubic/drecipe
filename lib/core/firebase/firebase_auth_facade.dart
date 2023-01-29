@@ -17,7 +17,10 @@ abstract class IFirebaseAuthFacade {
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required String email, required String password});
   Future<Either<AuthFailure, Unit>> resetPassword({required String email});
+  Future<Either<AuthFailure, Unit>> changePassword(
+      {required String currentPassword, required String newPassword});
   Future<void> signOut();
+  Future<void> deleteUser();
 }
 
 class FirebaseAuthFacade implements IFirebaseAuthFacade {
@@ -136,7 +139,32 @@ class FirebaseAuthFacade implements IFirebaseAuthFacade {
   }
 
   @override
+  Future<Either<AuthFailure, Unit>> changePassword(
+      {required String currentPassword, required String newPassword}) async {
+    try {
+      User? user = _firebaseAuth.currentUser;
+      final reauthenticateResult = await signInWithEmailAndPassword(
+          email: user!.email!, password: currentPassword);
+      return reauthenticateResult.fold(
+        (failure) => left(failure),
+        (success) async => await user.updatePassword(newPassword).then(
+              (_) => right(unit),
+            ),
+      );
+    } on FirebaseAuthException {
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  @override
   Future<void> signOut() => Future.wait([
         _firebaseAuth.signOut(),
       ]);
+
+  @override
+  Future<void> deleteUser() async {
+    User? user = _firebaseAuth.currentUser;
+
+    await user!.delete();
+  }
 }

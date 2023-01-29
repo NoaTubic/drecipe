@@ -1,5 +1,5 @@
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_primary_button.dart';
+import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_button.dart';
 import 'package:drecipe/features/favorite_recipes/di/providers.dart';
 import 'package:drecipe/features/favorite_recipes/ui/widgets/heart_icon.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
@@ -70,7 +70,7 @@ class _RecipeDetailsButtonsState extends ConsumerState<RecipeDetailsButtons> {
         ),
         Flexible(
           flex: 3,
-          child: DrecipePrimaryButton(
+          child: DrecipeButton(
             text: 'Step by Step Instructions',
             onPressed: () => ScreenRouter.pushScreen(
               context,

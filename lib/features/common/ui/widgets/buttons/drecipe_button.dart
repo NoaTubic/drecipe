@@ -3,19 +3,21 @@ import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_ci
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DrecipePrimaryButton extends ConsumerWidget {
-  const DrecipePrimaryButton({
-    Key? key,
-    this.onPressed,
-    required this.text,
-    this.isEnabled = true,
-    this.isLoading = false,
-  }) : super(key: key);
+class DrecipeButton extends ConsumerWidget {
+  const DrecipeButton(
+      {Key? key,
+      this.onPressed,
+      required this.text,
+      this.isEnabled = true,
+      this.isLoading = false,
+      this.secondary = false})
+      : super(key: key);
 
   final void Function()? onPressed;
   final String text;
   final bool isEnabled;
   final bool isLoading;
+  final bool secondary;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +30,13 @@ class DrecipePrimaryButton extends ConsumerWidget {
                 : onPressed
             : null,
         style: isEnabled
-            ? null
+            ? secondary
+                ? ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.white,
+                    foregroundColor: AppColors.primaryRed,
+                    side: BorderSide(color: AppColors.primaryRed),
+                  )
+                : null
             : ElevatedButton.styleFrom(
                 backgroundColor: AppColors.lightGrey1,
                 side: BorderSide(color: AppColors.lightGrey2),

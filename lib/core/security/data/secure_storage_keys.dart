@@ -1,3 +1,4 @@
 abstract class SecureStorageKeys {
-  static const language = 'language';
+  static const String language = 'language';
+  static const String themeMode = 'themeMode';
 }

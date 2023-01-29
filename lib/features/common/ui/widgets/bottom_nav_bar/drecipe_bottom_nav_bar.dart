@@ -24,6 +24,7 @@ class _DrecipeBottomNavBarState extends ConsumerState<DrecipeBottomNavBar> {
   @override
   void initState() {
     _controller = ref.refresh(bottomNavBarProvider).controller;
+
     _controller.addListener((() => ref
         .read(bottomNavBarProvider.notifier)
         .onTabSelected(_controller.index)));
@@ -135,7 +136,7 @@ PersistentBottomNavBarItem _navBarItem({
       title: label,
       textStyle: Theme.of(context)
           .textTheme
-          .bodyText1!
+          .bodyLarge!
           .copyWith(fontSize: FontSizes.s14.sp),
       activeColorPrimary: AppColors.primaryRed,
       inactiveColorPrimary: AppColors.lightGrey1);
