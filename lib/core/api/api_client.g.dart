@@ -147,15 +147,17 @@ class _ApiClient implements ApiClient {
 
   @override
   Future<RecipesDiscoverResponse> searchRecipes({
-    required cuisine,
-    required type,
-    required diet,
-    required intolerances,
-    required maxReadyTime,
-    required sort,
-    required sortDirection,
-    required minCalories,
-    required maxCalories,
+    includeIngredients,
+    excludeIngredients,
+    cuisine,
+    type,
+    diet,
+    intolerances,
+    maxReadyTime,
+    sort,
+    sortDirection,
+    minCalories,
+    maxCalories,
     required query,
     addRecipeInformation = 'true',
     fillIngredients = 'true',
@@ -163,20 +165,23 @@ class _ApiClient implements ApiClient {
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'query': cuisine,
-      r'query': type,
-      r'query': diet,
-      r'query': intolerances,
-      r'query': maxReadyTime,
-      r'query': sort,
-      r'query': sortDirection,
-      r'query': minCalories,
-      r'query': maxCalories,
+      r'includeIngredients': includeIngredients,
+      r'excludeIngredients': excludeIngredients,
+      r'cuisine': cuisine,
+      r'type': type,
+      r'diet': diet,
+      r'intolerances': intolerances,
+      r'maxReadyTime': maxReadyTime,
+      r'sort': sort,
+      r'sortDirection': sortDirection,
+      r'minCalories': minCalories,
+      r'maxCalories': maxCalories,
       r'query': query,
       r'addRecipeInformation': addRecipeInformation,
       r'fillIngredients': fillIngredients,
       r'number': number,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(

@@ -14,6 +14,7 @@ class DrecipeSearchBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = FloatingSearchBarController();
     final double screenWidth = MediaQuery.of(context).size.width;
+    final state = ref.watch(searchRecipesNotifierProvider);
     final searchRecipesNotifier =
         ref.read(searchRecipesNotifierProvider.notifier);
     return Padding(
@@ -25,7 +26,7 @@ class DrecipeSearchBar extends ConsumerWidget {
         controller: controller,
         onQueryChanged: (query) =>
             searchRecipesNotifier.autocompleteRecipeSearch(query),
-        onSubmitted: (query) => searchRecipesNotifier.searchRecipes(query),
+        onSubmitted: (query) => searchRecipesNotifier.searchRecipes(),
         elevation: Sizes.s0,
         borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
         border: BorderSide(
@@ -54,10 +55,9 @@ class DrecipeSearchBar extends ConsumerWidget {
         builder: (context, transition) {
           return SearchSuggestionsList(
             controller: controller,
-            suggestions: ref.watch(searchRecipesNotifierProvider).suggestions,
-            searchQuery: ref.watch(searchRecipesNotifierProvider).searchQuery,
-            isLoading:
-                ref.watch(searchRecipesNotifierProvider).isLoadingSuggestions,
+            suggestions: state.suggestions,
+            searchQuery: state.searchQuery,
+            isLoading: state.isLoadingSuggestions,
           );
         },
       ),

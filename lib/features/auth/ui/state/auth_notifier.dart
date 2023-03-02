@@ -8,11 +8,15 @@ class AuthNotifier extends StateNotifier<AuthState> {
   AuthNotifier(this._authFacade) : super(const AuthState.initial());
 
   Future<void> requestAuthCheck() async {
-    final userOption = await _authFacade.getSignedInUser();
-    userOption.fold(
-      () => state = const AuthState.unauthenticated(),
-      (user) => state = const AuthState.authenticated(),
-    );
+    try {
+      final userOption = await _authFacade.getSignedInUser();
+      userOption.fold(
+        () => state = const AuthState.unauthenticated(),
+        (user) => state = const AuthState.authenticated(),
+      );
+    } catch (_) {
+      state = const AuthState.unauthenticated();
+    }
   }
 
   Future<void> signOut() async {

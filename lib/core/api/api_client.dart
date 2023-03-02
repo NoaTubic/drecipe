@@ -12,12 +12,6 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   factory ApiClient.createDefault(Dio dio) = _ApiClient;
 
-  // @GET('/recipes/random')
-  // Future<RecipesResponse> getRandomRecipes(
-  //   // @Query('tags') String tags = '',
-  //   @Query('number') int number,
-  // );
-
   @GET('/recipes/complexSearch')
   Future<RecipesDiscoverResponse> getRandomRecipes({
     @Query('sort') required String sort,
@@ -48,15 +42,17 @@ abstract class ApiClient {
 
   @GET('/recipes/complexSearch')
   Future<RecipesDiscoverResponse> searchRecipes({
-    @Query('query') required String cuisine,
-    @Query('query') required String type,
-    @Query('query') required String diet,
-    @Query('query') required String intolerances,
-    @Query('query') required String maxReadyTime,
-    @Query('query') required String sort,
-    @Query('query') required String sortDirection,
-    @Query('query') required String minCalories,
-    @Query('query') required String maxCalories,
+    @Query('includeIngredients') String? includeIngredients,
+    @Query('excludeIngredients') String? excludeIngredients,
+    @Query('cuisine') String? cuisine,
+    @Query('type') String? type,
+    @Query('diet') String? diet,
+    @Query('intolerances') String? intolerances,
+    @Query('maxReadyTime') String? maxReadyTime,
+    @Query('sort') String? sort,
+    @Query('sortDirection') String? sortDirection,
+    @Query('minCalories') String? minCalories,
+    @Query('maxCalories') String? maxCalories,
     @Query('query') required String query,
     @Query('addRecipeInformation') String addRecipeInformation = 'true',
     @Query('fillIngredients') String fillIngredients = 'true',

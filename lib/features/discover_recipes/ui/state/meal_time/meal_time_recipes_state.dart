@@ -3,18 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'meal_time_recipes_state.freezed.dart';
 
-// @freezed
-// class MealTimeRecipesState with _$MealTimeRecipesState {
-//   const factory MealTimeRecipesState.initial() = _Initial;
-//   const factory MealTimeRecipesState.loading() = _Loading;
-//   const factory MealTimeRecipesState.loaded({
-//     required List<RecipeDiscover> recipes,
-//   }) = _Loaded;
-//   const factory MealTimeRecipesState.error({
-//     required Failure failure,
-//   }) = _Error;
-// }
-
 @freezed
 class MealTimeRecipesState with _$MealTimeRecipesState {
   const factory MealTimeRecipesState({

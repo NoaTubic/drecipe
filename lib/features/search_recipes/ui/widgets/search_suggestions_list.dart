@@ -2,10 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_circular_progress_indicator.dart';
 import 'package:drecipe/features/search_recipes/di/providers.dart';
 import 'package:flutter/material.dart';
-
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/base_loading_card.dart';
-import 'package:drecipe/features/search_recipes/domain/search_recipes_suggestion.dart';
+import 'package:drecipe/features/search_recipes/domain/entities/search_recipes_suggestion.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
@@ -55,7 +54,10 @@ class SearchSuggestionsList extends ConsumerWidget {
                         controller.query = suggestions[index].title;
                         ref
                             .read(searchRecipesNotifierProvider.notifier)
-                            .searchRecipes(suggestions[index].title);
+                            .autocompleteRecipeSearch(suggestions[index].title);
+                        ref
+                            .read(searchRecipesNotifierProvider.notifier)
+                            .searchRecipes();
                         controller.close();
                       },
                       child: Padding(

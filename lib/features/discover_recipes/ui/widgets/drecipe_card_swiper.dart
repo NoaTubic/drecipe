@@ -110,6 +110,7 @@ class DrecipeCarousel extends StatefulWidget {
     required this.builder,
     this.isScrollable = true,
     this.height,
+    this.separatorWidth,
   }) : super(key: key);
 
   final List<Object> items;
@@ -117,6 +118,7 @@ class DrecipeCarousel extends StatefulWidget {
   final Function(BuildContext context, dynamic item) builder;
   final bool isScrollable;
   final double? height;
+  final double? separatorWidth;
 
   @override
   State<DrecipeCarousel> createState() => _DrecipeCarouselState();
@@ -163,8 +165,8 @@ class _DrecipeCarouselState extends State<DrecipeCarousel> {
         physics: widget.isScrollable
             ? const BouncingScrollPhysics()
             : const NeverScrollableScrollPhysics(),
-        separatorBuilder: (context, index) => const Divider(
-          indent: Sizes.s24,
+        separatorBuilder: (context, index) => Divider(
+          indent: widget.separatorWidth ?? Sizes.s24.w,
         ),
         scrollDirection: Axis.horizontal,
         itemCount: widget.itemCount,

@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
-import 'package:drecipe/features/common/ui/widgets/drecipe_list_divider.dart';
-import 'package:drecipe/features/common/ui/widgets/recipe_card.dart';
 import 'package:drecipe/features/search_recipes/di/providers.dart';
 import 'package:drecipe/features/search_recipes/ui/widgets/drecipe_search_bar.dart';
+import 'package:drecipe/features/filter/ui/widgets/filters_section.dart';
+import 'package:drecipe/features/search_recipes/ui/widgets/search_recipes_body.dart';
+import 'package:drecipe/features/search_recipes/ui/widgets/search_recipes_empty_body.dart';
 import 'package:drecipe/features/search_recipes/ui/widgets/search_recipes_loading_body.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -78,22 +79,17 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                           context: context,
                           builder: (_) {
                             return CupertinoPopupSurface(
-                              child: Container(
-                                color: AppColors.white,
-                                width: double.infinity,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.95,
-                                child: CupertinoButton(
-                                  child: const Text('x'),
-                                  onPressed: () {
-                                    animationController.reverse();
-                                    setState(() {
+                              child: FiltersSection(
+                                onClose: () {
+                                  animationController.reverse();
+                                  setState(
+                                    () {
                                       _borderRadius =
                                           BorderRadius.circular(Sizes.s0);
-                                    });
-                                    AutoRouter.of(context).pop();
-                                  },
-                                ),
+                                    },
+                                  );
+                                  AutoRouter.of(context).pop();
+                                },
                               ),
                             );
                           },
@@ -119,36 +115,12 @@ class _SearchRecipesScreenState extends ConsumerState<SearchRecipesScreen>
                   child: searchRecipesStateListener.isLoading
                       ? const SearchRecipesLoadingBody()
                       : searchRecipesStateListener.recipes.isEmpty
-                          ? Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.search_off_rounded,
-                                    size: Sizes.iconSizeBig.w,
-                                    color: AppColors.secondaryLightRed1,
-                                  ),
-                                  const Text('No results found.'),
-                                  const Text(
-                                      'We couldn\'t find what you searched for.'),
-                                  const Text('Try again.'),
-                                ],
-                              ),
-                            )
-                          : ListView.separated(
-                              itemBuilder: (context, index) {
-                                return RecipeCard(
-                                  recipe:
-                                      searchRecipesStateListener.recipes[index],
-                                  searchResults: true,
-                                );
-                              },
-                              separatorBuilder: (context, index) =>
-                                  const DrecipeListDivider(),
-                              itemCount:
-                                  searchRecipesStateListener.recipes.length,
-                            ),
+                          ? searchRecipesStateListener.searchQuery.isEmpty
+                              ? const Center(
+                                  child: Icon(Icons.search_off_rounded),
+                                )
+                              : const SearchRecipesEmptyBody()
+                          : const SearchRecipesBody(),
                 ),
                 const DrecipeSearchBar(),
               ],

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:drecipe/core/api/api_client.dart';
@@ -7,24 +6,27 @@ import 'package:drecipe/core/api/api_helpers.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipe_discover_response.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
+import 'dart:developer';
 import 'package:drecipe/features/search_recipes/data/models/search_recipes_suggestions_response.dart';
-import 'package:drecipe/features/search_recipes/domain/search_recipes_suggestion.dart';
+import 'package:drecipe/features/search_recipes/domain/entities/search_recipes_suggestion.dart';
 
 abstract class ISearchRecipesRepository {
   Future<Either<Failure, List<SearchRecipesSuggestion>>>
       autocompleteRecipeSearch({
     required String searchQuery,
   });
-  Future<Either<Failure, List<RecipeDiscover>>> searchRecipes(
-    String cuisine,
-    String mealType,
-    String diet,
-    String intolerances,
-    String minCalories,
-    String maxCalories,
-    String maxReadyTime,
-    String sort,
-    String sortDirection, {
+  Future<Either<Failure, List<RecipeDiscover>>> searchRecipes({
+    String? includedIngredients,
+    String? excludeIngredients,
+    String? cuisine,
+    String? mealType,
+    String? diet,
+    String? intolerances,
+    String? minCalories,
+    String? maxCalories,
+    String? maxReadyTime,
+    String? sort,
+    String? sortDirection,
     required String searchQuery,
   });
 }
@@ -51,20 +53,24 @@ class SearchRecipesRepository implements ISearchRecipesRepository {
   }
 
   @override
-  Future<Either<Failure, List<RecipeDiscover>>> searchRecipes(
-    String cuisine,
-    String mealType,
-    String diet,
-    String intolerances,
-    String minCalories,
-    String maxCalories,
-    String maxReadyTime,
-    String sort,
-    String sortDirection, {
+  Future<Either<Failure, List<RecipeDiscover>>> searchRecipes({
+    String? includedIngredients,
+    String? excludeIngredients,
+    String? cuisine,
+    String? mealType,
+    String? diet,
+    String? intolerances,
+    String? minCalories,
+    String? maxCalories,
+    String? maxReadyTime,
+    String? sort,
+    String? sortDirection,
     required String searchQuery,
   }) async {
     try {
       final searchRecipesResponse = await _apiClient.searchRecipes(
+        includeIngredients: includedIngredients,
+        excludeIngredients: excludeIngredients,
         query: searchQuery,
         cuisine: cuisine,
         type: mealType,
@@ -98,12 +104,4 @@ List<SearchRecipesSuggestion> convertResults(
     ));
   }
   return suggestionsList;
-}
-
-String formatQuery(List<String> strings) {
-  String formattedQuery = '';
-  for (var string in strings) {
-    formattedQuery = '$formattedQuery,$string';
-  }
-  return formattedQuery.substring(1, formattedQuery.length);
 }
