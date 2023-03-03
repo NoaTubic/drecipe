@@ -1,6 +1,5 @@
-
-import 'package:drecipe/core/security/data/secure_storage.dart';
-import 'package:drecipe/core/security/data/secure_storage_keys.dart';
+import 'package:drecipe/features/common/data/storage/secure_storage.dart';
+import 'package:drecipe/features/common/data/storage/secure_storage_keys.dart';
 
 abstract class IThemeModeRepository {
   Future<String> loadThemeMode();
@@ -8,7 +7,7 @@ abstract class IThemeModeRepository {
 }
 
 class ThemeModeRepository implements IThemeModeRepository {
-  final ISecureStorage _secureStorage;
+  final SecureStorage _secureStorage;
 
   ThemeModeRepository(this._secureStorage);
 

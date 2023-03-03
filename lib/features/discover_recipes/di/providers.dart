@@ -1,4 +1,4 @@
-import 'package:drecipe/core/api/providers.dart';
+import 'package:drecipe/features/common/data/api/providers.dart';
 import 'package:drecipe/features/discover_recipes/data/repositories/discover_recipes_repository.dart';
 import 'package:drecipe/features/discover_recipes/ui/state/meal_time/meal_time_notifier.dart';
 import 'package:drecipe/features/discover_recipes/ui/state/meal_time/meal_time_recipes_notifier.dart';

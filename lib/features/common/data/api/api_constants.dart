@@ -1,4 +1,4 @@
-import 'package:drecipe/core/api/env.dart';
+import 'package:drecipe/features/common/data/api/env.dart';
 
 abstract class ApiConstants {
   static String apiKey = Env.apiKey;

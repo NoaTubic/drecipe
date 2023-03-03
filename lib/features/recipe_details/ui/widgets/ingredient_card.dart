@@ -1,4 +1,4 @@
-import 'package:drecipe/core/api/api_constants.dart';
+import 'package:drecipe/features/common/data/api/api_constants.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_circular_progress_indicator.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/ingredient.dart';
 import 'package:flutter/material.dart';

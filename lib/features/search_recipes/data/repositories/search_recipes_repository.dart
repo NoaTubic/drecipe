@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:drecipe/core/api/api_client.dart';
-import 'package:drecipe/core/api/api_constants.dart';
-import 'package:drecipe/core/api/api_helpers.dart';
+import 'package:drecipe/features/common/data/api/api_client.dart';
+import 'package:drecipe/features/common/data/api/api_constants.dart';
+import 'package:drecipe/features/common/data/api/api_helpers.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipe_discover_response.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';

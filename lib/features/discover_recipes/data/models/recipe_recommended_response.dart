@@ -1,4 +1,4 @@
-import 'package:drecipe/core/api/api_constants.dart';
+import 'package:drecipe/features/common/data/api/api_constants.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_recommended.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

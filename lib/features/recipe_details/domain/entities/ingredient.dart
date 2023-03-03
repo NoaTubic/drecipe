@@ -1,4 +1,4 @@
-import 'package:drecipe/core/database/database_constants.dart';
+import 'package:drecipe/features/common/data/storage/hive_constants.dart';
 import 'package:drecipe/features/recipe_details/data/models/responses/recipe_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
@@ -8,7 +8,9 @@ part 'ingredient.g.dart';
 
 @freezed
 @HiveType(
-    typeId: DatabaseConstants.ingredient, adapterName: 'IngredientAdapter')
+  typeId: HiveConstants.ingredientId,
+  adapterName: HiveConstants.ingredientAdapter,
+)
 class Ingredient with _$Ingredient {
   @JsonSerializable(explicitToJson: true)
   const factory Ingredient({

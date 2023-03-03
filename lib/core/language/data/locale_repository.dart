@@ -1,6 +1,6 @@
 import 'package:drecipe/core/language/data/locale_constants.dart';
-import 'package:drecipe/core/security/data/secure_storage.dart';
-import 'package:drecipe/core/security/data/secure_storage_keys.dart';
+import 'package:drecipe/features/common/data/storage/secure_storage.dart';
+import 'package:drecipe/features/common/data/storage/secure_storage_keys.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +10,7 @@ abstract class ILanguageRepository {
 }
 
 class LanguageRepository implements ILanguageRepository {
-  final ISecureStorage _secureStorage;
+  final SecureStorage _secureStorage;
 
   LanguageRepository(this._secureStorage);
 

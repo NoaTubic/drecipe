@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:drecipe/core/api/api_client.dart';
-import 'package:drecipe/core/api/api_constants.dart';
-import 'package:drecipe/core/api/auth_interceptor.dart';
+import 'package:drecipe/features/common/data/api/api_client.dart';
+import 'package:drecipe/features/common/data/api/api_constants.dart';
+import 'package:drecipe/features/common/data/api/auth_interceptor.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 

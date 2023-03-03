@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:drecipe/core/api/api_constants.dart';
+import 'package:drecipe/features/common/data/api/api_constants.dart';
 
 //SPOONACULAR API
 // class AuthInterceptor extends InterceptorsWrapper {

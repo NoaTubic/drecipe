@@ -1,4 +1,4 @@
-import 'package:drecipe/core/database/database_constants.dart';
+import 'package:drecipe/features/common/data/storage/hive_constants.dart';
 import 'package:drecipe/features/recipe_details/data/models/responses/instructions_response.dart';
 import 'package:drecipe/features/recipe_details/data/models/responses/recipe_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,7 +9,9 @@ part 'instructions.g.dart';
 
 @freezed
 @HiveType(
-    typeId: DatabaseConstants.instructions, adapterName: 'InstructionsAdapter')
+  typeId: HiveConstants.instructionsId,
+  adapterName: HiveConstants.instructionsAdapter,
+)
 class Instructions with _$Instructions {
   @JsonSerializable(explicitToJson: true)
   const factory Instructions({
@@ -23,8 +25,9 @@ class Instructions with _$Instructions {
 
 @freezed
 @HiveType(
-    typeId: DatabaseConstants.instructionStep,
-    adapterName: 'InstructionStepAdapter')
+  typeId: HiveConstants.instructionStepId,
+  adapterName: HiveConstants.instructionsStepAdapter,
+)
 class InstructionStep with _$InstructionStep {
   @JsonSerializable(explicitToJson: true)
   const factory InstructionStep({
@@ -41,8 +44,9 @@ class InstructionStep with _$InstructionStep {
 
 @freezed
 @HiveType(
-    typeId: DatabaseConstants.equipmentAndIngredients,
-    adapterName: 'EquipmentAndIngredientsAdapter')
+  typeId: HiveConstants.equipmentAndIngredientsId,
+  adapterName: HiveConstants.equipmentAndIngredientsAdapter,
+)
 class EquipmentAndIngredients with _$EquipmentAndIngredients {
   @JsonSerializable(explicitToJson: true)
   const factory EquipmentAndIngredients({

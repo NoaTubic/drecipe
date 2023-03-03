@@ -1,4 +1,4 @@
-import 'package:drecipe/core/api/providers.dart';
+import 'package:drecipe/features/common/data/api/providers.dart';
 import 'package:drecipe/features/favorite_recipes/di/providers.dart';
 import 'package:drecipe/features/recipe_details/data/repositories/recipe_details_repository.dart';
 import 'package:drecipe/features/recipe_details/ui/state/recipe_details/recipe_details_notifier.dart';

@@ -1,4 +1,4 @@
-import 'package:drecipe/core/database/database_constants.dart';
+import 'package:drecipe/features/common/data/storage/hive_constants.dart';
 import 'package:drecipe/features/recipe_details/data/models/responses/nutrition_response.dart';
 import 'package:drecipe/features/recipe_details/data/models/responses/recipe_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,8 +9,9 @@ part 'nutrition_data.g.dart';
 
 @freezed
 @HiveType(
-    typeId: DatabaseConstants.nutritionData,
-    adapterName: 'NutritionDataAdapter')
+  typeId: HiveConstants.nutritionDataId,
+  adapterName: HiveConstants.nutritionDataAdapter,
+)
 class NutritionData with _$NutritionData {
   @JsonSerializable(explicitToJson: true)
   const factory NutritionData({
@@ -26,7 +27,10 @@ class NutritionData with _$NutritionData {
 }
 
 @freezed
-@HiveType(typeId: DatabaseConstants.nutrient, adapterName: 'NutrientAdapter')
+@HiveType(
+  typeId: HiveConstants.nutrientId,
+  adapterName: HiveConstants.nutrientAdapter,
+)
 class Nutrient with _$Nutrient {
   @JsonSerializable(explicitToJson: true)
   const factory Nutrient({

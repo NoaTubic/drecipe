@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:drecipe/features/auth/domain/entities/drecipe_user.dart';
-import 'package:drecipe/features/common/constants/firebase_constants.dart';
+import 'package:drecipe/features/common/data/firestore/firebase_constants.dart';
 
 class FirestoreCollections {
   static final usersCollection = FirebaseFirestore.instance

@@ -1,11 +1,10 @@
 import 'dart:developer' as dev;
 import 'dart:math';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:drecipe/core/api/api_client.dart';
-import 'package:drecipe/core/api/api_helpers.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
+import 'package:drecipe/features/common/data/api/api_client.dart';
+import 'package:drecipe/features/common/data/api/api_helpers.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipe_discover_response.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipe_recommended_response.dart';

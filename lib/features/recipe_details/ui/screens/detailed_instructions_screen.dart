@@ -1,5 +1,5 @@
-import 'package:drecipe/core/api/api_constants.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
+import 'package:drecipe/features/common/data/api/api_constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
@@ -106,7 +106,7 @@ class DetailedInstructionsScreen extends StatelessWidget {
                                                         .stepDuration!,
                                                     style: Theme.of(context)
                                                         .textTheme
-                                                        .bodyText1,
+                                                        .bodyLarge,
                                                   ),
                                                 ],
                                               )
@@ -182,7 +182,7 @@ class DetailedInstructionsScreen extends StatelessWidget {
                                           .toUpperCase(),
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyText1!
+                                          .bodyLarge!
                                           .copyWith(color: AppColors.white),
                                     ),
                                   ],

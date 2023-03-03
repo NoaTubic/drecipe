@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:drecipe/core/database/database_constants.dart';
+import 'package:drecipe/features/common/data/storage/hive_constants.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

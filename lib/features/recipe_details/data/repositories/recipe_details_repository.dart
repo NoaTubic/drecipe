@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:drecipe/core/api/api_client.dart';
-import 'package:drecipe/core/api/api_helpers.dart';
+import 'package:drecipe/features/common/data/api/api_client.dart';
+import 'package:drecipe/features/common/data/api/api_helpers.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/ingredient.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';

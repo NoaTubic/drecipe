@@ -90,7 +90,7 @@ class DietBadge extends StatelessWidget {
             text,
             style: Theme.of(context)
                 .textTheme
-                .bodyText1!
+                .bodyLarge!
                 .copyWith(fontSize: FontSizes.s10.sp, color: color),
           ),
         ],
