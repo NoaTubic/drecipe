@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drecipe/core/routes/app_router.dart';
@@ -9,10 +8,10 @@ import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/bottom_nav_bar/state/bottom_nav_bar_state.dart';
 import 'package:drecipe/features/common/ui/widgets/recipe_card_content.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
-import 'package:drecipe/features/favorite_recipes/di/providers.dart';
-import 'package:drecipe/features/favorite_recipes/ui/widgets/heart_icon.dart';
-import 'package:drecipe/features/recipe_details/di/providers.dart';
-import 'package:drecipe/features/recipe_details/ui/widgets/heart_animation_widget.dart';
+import 'package:drecipe/features/favorite_recipes/domain/notifiers/favorite_recipe/favorite_recipe_notifier.dart';
+import 'package:drecipe/features/favorite_recipes/presentation/widgets/heart_icon.dart';
+import 'package:drecipe/features/recipe_details/domain/state/recipe_details/recipe_details_notifier.dart';
+import 'package:drecipe/features/recipe_details/presentation/widgets/heart_animation_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -126,14 +125,14 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
                 widget.searchResults
                     ? AutoRouter.of(context)
                         .push(
-                          RecipeDetailsScreenRoute(
+                          RecipeDetailsPageRoute(
                             recipeId: widget.recipe.id,
                             imageUrl: widget.recipe.image!,
                           ),
                         )
                         .then((value) => checkIfFavorite())
                     : AutoRouter.of(context).push(
-                        RecipeDetailsScreenRoute(
+                        RecipeDetailsPageRoute(
                           recipeId: widget.recipe.id,
                           imageUrl: widget.recipe.image!,
                         ),

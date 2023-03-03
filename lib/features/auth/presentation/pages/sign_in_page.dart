@@ -1,11 +1,11 @@
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/auth/domain/notifiers/sign_in_notifier.dart';
+import 'package:drecipe/features/auth/domain/notifiers/sign_in/sign_in_notifier.dart';
 import 'package:drecipe/features/auth/presentation/widgets/or_row.dart';
 import 'package:drecipe/features/auth/presentation/widgets/sign_in_form.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_scaffold.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/text_button_row.dart';
-import 'package:drecipe/features/auth/domain/state/sign_in_state.dart';
+import 'package:drecipe/features/auth/domain/notifiers/sign_in/sign_in_state.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/constants/constants.dart';

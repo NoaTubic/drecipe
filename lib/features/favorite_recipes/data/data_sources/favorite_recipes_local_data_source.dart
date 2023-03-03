@@ -1,9 +1,15 @@
 import 'dart:async';
 import 'package:drecipe/features/common/data/storage/hive_constants.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-abstract class IFavoriteRecipesLocalDataSource {
+final favoriteRecipesLocalDataSourceProvider =
+    Provider<FavoriteRecipesLocalDataSource>(
+  (ref) => FavoriteRecipesLocalDataSourceImpl(),
+);
+
+abstract class FavoriteRecipesLocalDataSource {
   Future<void> addFavoriteRecipe({required Recipe recipe});
   Future<void> removeFavoriteRecipe({required int recipeId});
   Future<Recipe> getFavoriteRecipe({required int recipeId});
@@ -11,8 +17,8 @@ abstract class IFavoriteRecipesLocalDataSource {
   Future<bool> checkIfFavorite({required int recipeId});
 }
 
-class FavoriteRecipesLocalDataSource
-    implements IFavoriteRecipesLocalDataSource {
+class FavoriteRecipesLocalDataSourceImpl
+    implements FavoriteRecipesLocalDataSource {
   @override
   Future<void> addFavoriteRecipe({required Recipe recipe}) async {
     var favoriteRecipesBox =

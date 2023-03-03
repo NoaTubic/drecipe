@@ -1,4 +1,4 @@
-import 'package:drecipe/features/auth/domain/notifiers/registration_notifier.dart';
+import 'package:drecipe/features/auth/domain/notifiers/registration/registration_notifier.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_logo_label.dart';

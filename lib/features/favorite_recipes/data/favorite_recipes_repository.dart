@@ -2,31 +2,40 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:drecipe/features/common/data/api/api_helpers.dart';
-import 'package:drecipe/features/common/domain/failures/failure.dart';
+import 'package:drecipe/features/common/domain/entities/failure.dart';
+import 'package:drecipe/features/common/domain/utils/either_failure_or.dart';
 import 'package:drecipe/features/favorite_recipes/data/data_sources/favorite_recipes_local_data_source.dart';
 import 'package:drecipe/features/favorite_recipes/data/data_sources/favorite_recipes_remote_data_source.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-abstract class IFavoriteRecipesRepository {
-  Future<Either<Failure, Unit>> addFavoriteRecipe({required Recipe recipe});
-  Future<Either<Failure, Unit>> removeFavoriteRecipe({required int recipeId});
-  Future<Either<Failure, Recipe>> getFavoriteRecipe({required int recipeId});
-  Future<Either<Failure, List<Recipe>>> getFavoriteRecipesLocal();
-  Stream<Either<Failure, List<Recipe>>> getFavoriteRecipesRemote();
-  Future<Either<Failure, bool>> checkIfFavoriteRecipe({required int recipeId});
+final favoriteRecipesRepositoryProvider = Provider<FavoriteRecipesRepository>(
+  (ref) => FavoriteRecipesRepositoryImpl(
+    ref.read(favoriteRecipesRemoteDataSourceProvider),
+    ref.read(favoriteRecipesLocalDataSourceProvider),
+  ),
+);
+
+abstract class FavoriteRecipesRepository {
+  EitherFailureOr<Unit> addFavoriteRecipe({required Recipe recipe});
+  EitherFailureOr<Unit> removeFavoriteRecipe({required int recipeId});
+  EitherFailureOr<Recipe> getFavoriteRecipe({required int recipeId});
+  EitherFailureOr<List<Recipe>> getFavoriteRecipesLocal();
+  StreamFailureOr<List<Recipe>> getFavoriteRecipesRemote();
+  EitherFailureOr<bool> checkIfFavoriteRecipe({required int recipeId});
 }
 
-class FavoriteRecipesRepository implements IFavoriteRecipesRepository {
-  final IFavoriteRecipesRemoteDataSource _remoteDataSource;
-  final IFavoriteRecipesLocalDataSource _localDataSource;
+class FavoriteRecipesRepositoryImpl implements FavoriteRecipesRepository {
+  final FavoriteRecipesRemoteDataSource _remoteDataSource;
+  final FavoriteRecipesLocalDataSource _localDataSource;
 
-  FavoriteRecipesRepository(
+  FavoriteRecipesRepositoryImpl(
     this._remoteDataSource,
     this._localDataSource,
   );
 
   @override
-  Future<Either<Failure, Unit>> addFavoriteRecipe({
+  EitherFailureOr<Unit> addFavoriteRecipe({
     required Recipe recipe,
   }) async {
     try {
@@ -37,12 +46,12 @@ class FavoriteRecipesRepository implements IFavoriteRecipesRepository {
     } on DioError catch (exception) {
       return left(exception.handleFailure());
     } catch (exception) {
-      return left(const Failure.unexpectedError());
+      return left(Failure.generic());
     }
   }
 
   @override
-  Future<Either<Failure, Unit>> removeFavoriteRecipe({
+  EitherFailureOr<Unit> removeFavoriteRecipe({
     required int recipeId,
   }) async {
     try {
@@ -54,13 +63,12 @@ class FavoriteRecipesRepository implements IFavoriteRecipesRepository {
     } on DioError catch (exception) {
       return left(exception.handleFailure());
     } catch (exception) {
-      return left(const Failure.unexpectedError());
+      return left(Failure.generic());
     }
   }
 
   @override
-  Future<Either<Failure, Recipe>> getFavoriteRecipe(
-      {required int recipeId}) async {
+  EitherFailureOr<Recipe> getFavoriteRecipe({required int recipeId}) async {
     try {
       final favoriteRecipe =
           await _localDataSource.getFavoriteRecipe(recipeId: recipeId);
@@ -69,12 +77,12 @@ class FavoriteRecipesRepository implements IFavoriteRecipesRepository {
     } on DioError catch (exception) {
       return left(exception.handleFailure());
     } catch (exception) {
-      return left(const Failure.unexpectedError());
+      return left(Failure.generic());
     }
   }
 
   @override
-  Future<Either<Failure, List<Recipe>>> getFavoriteRecipesLocal() async {
+  EitherFailureOr<List<Recipe>> getFavoriteRecipesLocal() async {
     try {
       final favoriteRecipes = await _localDataSource.getFavoriteRecipes();
       log(favoriteRecipes.length.toString());
@@ -82,12 +90,12 @@ class FavoriteRecipesRepository implements IFavoriteRecipesRepository {
     } on DioError catch (exception) {
       return left(exception.handleFailure());
     } catch (exception) {
-      return left(const Failure.unexpectedError());
+      return left(Failure.generic());
     }
   }
 
   @override
-  Stream<Either<Failure, List<Recipe>>> getFavoriteRecipesRemote() async* {
+  StreamFailureOr<List<Recipe>> getFavoriteRecipesRemote() async* {
     try {
       await for (final event in _remoteDataSource.getFavoriteRecipes()) {
         yield right(event);
@@ -95,13 +103,12 @@ class FavoriteRecipesRepository implements IFavoriteRecipesRepository {
     } on DioError catch (exception) {
       yield left(exception.handleFailure());
     } catch (exception) {
-      yield left(const Failure.unexpectedError());
+      yield left(Failure.generic());
     }
   }
 
   @override
-  Future<Either<Failure, bool>> checkIfFavoriteRecipe(
-      {required int recipeId}) async {
+  EitherFailureOr<bool> checkIfFavoriteRecipe({required int recipeId}) async {
     try {
       final isFavorite =
           await _localDataSource.checkIfFavorite(recipeId: recipeId);
@@ -116,7 +123,7 @@ class FavoriteRecipesRepository implements IFavoriteRecipesRepository {
     } on DioError catch (exception) {
       return left(exception.handleFailure());
     } catch (exception) {
-      return left(const Failure.unexpectedError());
+      return left(Failure.generic());
     }
   }
 }

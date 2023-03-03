@@ -1,6 +1,6 @@
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/auth/domain/notifiers/account_recovery_notifier.dart';
-import 'package:drecipe/features/auth/domain/state/account_recovery_state.dart';
+import 'package:drecipe/features/auth/domain/notifiers/account_recovery/account_recovery_notifier.dart';
+import 'package:drecipe/features/auth/domain/notifiers/account_recovery/account_recovery_state.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/styles.dart';

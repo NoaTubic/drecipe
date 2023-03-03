@@ -1,7 +1,7 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
-import 'package:drecipe/features/common/domain/failures/failure.dart';
+import 'package:drecipe/features/common/domain/entities/failure.dart';
+import 'package:drecipe/generated/l10n.dart';
 
 extension DioErrorExtension on DioError {
   bool isNoInternetConnectionError() {
@@ -16,19 +16,19 @@ extension NetworkHandler on DioError {
     if (error is SocketException ||
         type == DioErrorType.connectTimeout ||
         type == DioErrorType.other) {
-      return const Failure.offline();
+      return Failure.generic(title: S.current.failure_offline);
     }
 
     switch (response!.statusCode) {
       case 500:
-        return const Failure.serverErrorGeneral();
+        return Failure.generic();
       case 403:
-        return const Failure.forbidden();
+        return Failure.generic(title: S.current.failure_forbidden);
       case 401:
-        return const Failure.unauthorizedAccess();
+        return Failure.generic(title: S.current.failure_unauthorized_access);
       //TODO: handle 402
       default:
-        return const Failure.unexpectedDataError();
+        return Failure.generic(title: S.current.failure_unexpected_data_error);
     }
   }
 }

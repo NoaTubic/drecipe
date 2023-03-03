@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/auth/domain/notifiers/sign_in_notifier.dart';
+import 'package:drecipe/features/auth/domain/notifiers/sign_in/sign_in_notifier.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_button.dart';

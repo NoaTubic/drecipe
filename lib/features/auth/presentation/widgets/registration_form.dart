@@ -1,6 +1,6 @@
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/auth/domain/notifiers/registration_notifier.dart';
-import 'package:drecipe/features/auth/domain/state/registration_state.dart';
+import 'package:drecipe/features/auth/domain/notifiers/registration/registration_notifier.dart';
+import 'package:drecipe/features/auth/domain/notifiers/registration/registration_state.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
 

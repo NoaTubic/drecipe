@@ -3,19 +3,26 @@ import 'package:dio/dio.dart';
 import 'package:drecipe/features/common/data/api/api_client.dart';
 import 'package:drecipe/features/common/data/api/api_constants.dart';
 import 'package:drecipe/features/common/data/api/api_helpers.dart';
+import 'package:drecipe/features/common/data/api/providers.dart';
+import 'package:drecipe/features/common/domain/utils/either_failure_or.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipe_discover_response.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
-import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'dart:developer';
 import 'package:drecipe/features/search_recipes/data/models/search_recipes_suggestions_response.dart';
 import 'package:drecipe/features/search_recipes/domain/entities/search_recipes_suggestion.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-abstract class ISearchRecipesRepository {
-  Future<Either<Failure, List<SearchRecipesSuggestion>>>
-      autocompleteRecipeSearch({
+final searchRepositoryProvider = Provider<SearchRecipesRepository>(
+  (ref) => SearchRecipesRepositoryImpl(
+    ref.read(apiClientProvider),
+  ),
+);
+
+abstract class SearchRecipesRepository {
+  EitherFailureOr<List<SearchRecipesSuggestion>> autocompleteRecipeSearch({
     required String searchQuery,
   });
-  Future<Either<Failure, List<RecipeDiscover>>> searchRecipes({
+  EitherFailureOr<List<RecipeDiscover>> searchRecipes({
     String? includedIngredients,
     String? excludeIngredients,
     String? cuisine,
@@ -31,14 +38,14 @@ abstract class ISearchRecipesRepository {
   });
 }
 
-class SearchRecipesRepository implements ISearchRecipesRepository {
+class SearchRecipesRepositoryImpl implements SearchRecipesRepository {
   final ApiClient _apiClient;
 
-  SearchRecipesRepository(this._apiClient);
+  SearchRecipesRepositoryImpl(this._apiClient);
 
   @override
-  Future<Either<Failure, List<SearchRecipesSuggestion>>>
-      autocompleteRecipeSearch({required String searchQuery}) async {
+  EitherFailureOr<List<SearchRecipesSuggestion>> autocompleteRecipeSearch(
+      {required String searchQuery}) async {
     try {
       final autocompleteSearchResponse =
           await _apiClient.autocompleteRecipeSearch(
@@ -53,7 +60,7 @@ class SearchRecipesRepository implements ISearchRecipesRepository {
   }
 
   @override
-  Future<Either<Failure, List<RecipeDiscover>>> searchRecipes({
+  EitherFailureOr<List<RecipeDiscover>> searchRecipes({
     String? includedIngredients,
     String? excludeIngredients,
     String? cuisine,

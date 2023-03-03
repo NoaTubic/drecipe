@@ -8,7 +8,6 @@ import 'package:drecipe/firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 final themeProvider = Provider<AppTheme>((ref) => AppTheme());
 
@@ -27,10 +26,6 @@ final firebaseAuthProvider = Provider<FirebaseAuth>(
 final firestoreProvider = Provider<FirebaseFirestore>((ref) {
   return FirebaseFirestore.instance;
 });
-
-final hiveInitProvider = FutureProvider(
-  (ref) => Hive.initFlutter,
-);
 
 final connectivityProvider = Provider<Connectivity>(
   (ref) => Connectivity(),

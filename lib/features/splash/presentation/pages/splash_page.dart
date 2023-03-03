@@ -1,6 +1,6 @@
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/auth/domain/notifiers/auth_notifier.dart';
-import 'package:drecipe/features/auth/domain/state/auth_state.dart';
+import 'package:drecipe/features/auth/domain/notifiers/auth/auth_notifier.dart';
+import 'package:drecipe/features/auth/domain/notifiers/auth/auth_state.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_animated_loading_indicator.dart';

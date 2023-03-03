@@ -5,29 +5,40 @@ import 'package:dio/dio.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/data/api/api_client.dart';
 import 'package:drecipe/features/common/data/api/api_helpers.dart';
-import 'package:drecipe/features/common/domain/failures/failure.dart';
+import 'package:drecipe/features/common/data/api/providers.dart';
+import 'package:drecipe/features/common/domain/utils/either_failure_or.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipe_discover_response.dart';
 import 'package:drecipe/features/discover_recipes/data/models/recipe_recommended_response.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/discover_recipes.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_recommended.dart';
 import 'package:drecipe/features/favorite_recipes/data/favorite_recipes_repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-abstract class IDiscoverRecipesRepository {
-  Future<Either<Failure, DiscoverRecipes>> getRecipes();
-  Future<Either<Failure, List<RecipeDiscover>>> getMealTimeRecipes({
+final recipesRepositoryProvider = Provider<DiscoverRecipesRepository>(
+  (ref) => DiscoverRecipesRepositoryImpl(
+    ref.read(apiClientProvider),
+    ref.read(favoriteRecipesRepositoryProvider),
+  ),
+);
+
+abstract class DiscoverRecipesRepository {
+  EitherFailureOr<DiscoverRecipes> getRecipes();
+
+  EitherFailureOr<List<RecipeDiscover>> getMealTimeRecipes({
     required String mealType,
   });
 }
 
-class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
-  final ApiClient _apiClient;
-  final IFavoriteRecipesRepository _favoriteRecipesRepository;
+class DiscoverRecipesRepositoryImpl implements DiscoverRecipesRepository {
+  DiscoverRecipesRepositoryImpl(
+      this._apiClient, this._favoriteRecipesRepository);
 
-  DiscoverRecipesRepository(this._apiClient, this._favoriteRecipesRepository);
+  final ApiClient _apiClient;
+  final FavoriteRecipesRepository _favoriteRecipesRepository;
 
   @override
-  Future<Either<Failure, DiscoverRecipes>> getRecipes() async {
+  EitherFailureOr<DiscoverRecipes> getRecipes() async {
     try {
       List<RecipeDiscover> randomRecipes = [];
       List<RecipeDiscover> popularRecipes = [];
@@ -73,25 +84,8 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
     }
   }
 
-  Future<int?> getRecommendedId() async {
-    int? recommendedId;
-
-    final favoriteRecipes =
-        await _favoriteRecipesRepository.getFavoriteRecipesLocal();
-
-    favoriteRecipes.fold(
-      (failure) => recommendedId,
-      (favoriteRecipes) {
-        recommendedId = favoriteRecipes.isEmpty
-            ? null
-            : favoriteRecipes[Random().nextInt(favoriteRecipes.length)].id;
-      },
-    );
-    return recommendedId;
-  }
-
   @override
-  Future<Either<Failure, List<RecipeDiscover>>> getMealTimeRecipes(
+  EitherFailureOr<List<RecipeDiscover>> getMealTimeRecipes(
       {required String mealType}) async {
     try {
       List<RecipeDiscover> mealTimeRecipes = [];
@@ -108,5 +102,22 @@ class DiscoverRecipesRepository implements IDiscoverRecipesRepository {
     } on DioError catch (exception) {
       return left(exception.handleFailure());
     }
+  }
+
+  Future<int?> getRecommendedId() async {
+    int? recommendedId;
+
+    final favoriteRecipes =
+        await _favoriteRecipesRepository.getFavoriteRecipesLocal();
+
+    favoriteRecipes.fold(
+      (failure) => recommendedId,
+      (favoriteRecipes) {
+        recommendedId = favoriteRecipes.isEmpty
+            ? null
+            : favoriteRecipes[Random().nextInt(favoriteRecipes.length)].id;
+      },
+    );
+    return recommendedId;
   }
 }

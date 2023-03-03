@@ -2,23 +2,31 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:drecipe/features/common/data/api/api_client.dart';
 import 'package:drecipe/features/common/data/api/api_helpers.dart';
-import 'package:drecipe/features/common/domain/failures/failure.dart';
+import 'package:drecipe/features/common/data/api/providers.dart';
+import 'package:drecipe/features/common/domain/utils/either_failure_or.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/ingredient.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/nutrition_data.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-abstract class IRecipeDetailsRepository {
-  Future<Either<Failure, Recipe>> getRecipeDetails({required int id});
+final recipeDetailsRepositoryProvider = Provider<RecipeDetailsRepository>(
+  (ref) => RecipeDetailsRepositoryImpl(
+    ref.read(apiClientProvider),
+  ),
+);
+
+abstract class RecipeDetailsRepository {
+  EitherFailureOr<Recipe> getRecipeDetails({required int id});
 }
 
-class RecipeDetailsRepository implements IRecipeDetailsRepository {
+class RecipeDetailsRepositoryImpl implements RecipeDetailsRepository {
   final ApiClient _apiClient;
 
-  RecipeDetailsRepository(this._apiClient);
+  RecipeDetailsRepositoryImpl(this._apiClient);
 
   @override
-  Future<Either<Failure, Recipe>> getRecipeDetails({required int id}) async {
+  EitherFailureOr<Recipe> getRecipeDetails({required int id}) async {
     try {
       final recipeResponse = await _apiClient.getRecipeDetails(id: id);
       final recipe = Recipe(

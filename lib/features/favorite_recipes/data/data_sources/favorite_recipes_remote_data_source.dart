@@ -1,11 +1,21 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:drecipe/core/di/providers.dart';
 import 'package:drecipe/features/common/data/firestore/firebase_constants.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-abstract class IFavoriteRecipesRemoteDataSource {
+final favoriteRecipesRemoteDataSourceProvider =
+    Provider<FavoriteRecipesRemoteDataSource>(
+  (ref) => FavoriteRecipesRemoteDataSourceImpl(
+    ref.read(firebaseAuthProvider),
+    ref.read(firestoreProvider),
+  ),
+);
+
+abstract class FavoriteRecipesRemoteDataSource {
   Future<void> addFavoriteRecipe({required Recipe recipe});
   Future<void> removeFavoriteRecipe({required int recipeId});
   Future<Recipe> getFavoriteRecipe({required int recipeId});
@@ -13,12 +23,13 @@ abstract class IFavoriteRecipesRemoteDataSource {
   Future<bool> checkIfFavorite({required int recipeId});
 }
 
-class FavoriteRecipesRemoteDataSource
-    implements IFavoriteRecipesRemoteDataSource {
+class FavoriteRecipesRemoteDataSourceImpl
+    implements FavoriteRecipesRemoteDataSource {
   final FirebaseAuth _firebaseAuth;
   final FirebaseFirestore _firebaseFirestore;
 
-  FavoriteRecipesRemoteDataSource(this._firebaseAuth, this._firebaseFirestore);
+  FavoriteRecipesRemoteDataSourceImpl(
+      this._firebaseAuth, this._firebaseFirestore);
 
   @override
   Future<void> addFavoriteRecipe({required Recipe recipe}) async {

@@ -3,13 +3,13 @@ import 'package:drecipe/features/auth/presentation/pages/account_recovery_page.d
 import 'package:drecipe/features/auth/presentation/pages/reset_password_page.dart';
 import 'package:drecipe/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:drecipe/features/common/ui/widgets/bottom_nav_bar/drecipe_bottom_nav_bar.dart';
-import 'package:drecipe/features/discover_recipes/ui/screens/discover_recipes_screen.dart';
-import 'package:drecipe/features/discover_recipes/ui/screens/meal_time_screen.dart';
+import 'package:drecipe/features/discover_recipes/presentation/pages/discover_recipes_screen.dart';
+import 'package:drecipe/features/discover_recipes/presentation/pages/meal_time_page.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
-import 'package:drecipe/features/recipe_details/ui/screens/detailed_instructions_screen.dart';
-import 'package:drecipe/features/recipe_details/ui/screens/ingredients_screen.dart';
-import 'package:drecipe/features/recipe_details/ui/screens/recipe_details_screen.dart';
+import 'package:drecipe/features/recipe_details/presentation/pages/detailed_instructions_page.dart';
+import 'package:drecipe/features/recipe_details/presentation/pages/ingredients_page.dart';
+import 'package:drecipe/features/recipe_details/presentation/pages/recipe_details_page.dart';
 import 'package:drecipe/features/auth/presentation/pages/email_verification_page.dart';
 import 'package:drecipe/features/auth/presentation/pages/registration_page.dart';
 import 'package:drecipe/features/settings/ui/settings_screen.dart';
@@ -56,7 +56,7 @@ part 'app_router.gr.dart';
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: DiscoverRecipesScreen,
+      page: DiscoverRecipesPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
@@ -64,19 +64,19 @@ part 'app_router.gr.dart';
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: RecipeDetailsScreen,
+      page: RecipeDetailsPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: DetailedInstructionsScreen,
+      page: DetailedInstructionsPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: IngredientsScreen,
+      page: IngredientsPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: MealTimeScreen,
+      page: MealTimePage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
   ],
