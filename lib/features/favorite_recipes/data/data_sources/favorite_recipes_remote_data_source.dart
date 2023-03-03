@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:drecipe/core/firebase/firebase_constants.dart';
+import 'package:drecipe/features/common/constants/firebase_constants.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -24,9 +24,9 @@ class FavoriteRecipesRemoteDataSource
   Future<void> addFavoriteRecipe({required Recipe recipe}) async {
     final user = _firebaseAuth.currentUser;
     await _firebaseFirestore
-        .collection(Collections.users)
+        .collection(FirebaseConstants.users)
         .doc(user!.uid)
-        .collection(Collections.favoriteRecipes)
+        .collection(FirebaseConstants.favoriteRecipes)
         .add(recipe.toJson());
   }
 
@@ -34,9 +34,9 @@ class FavoriteRecipesRemoteDataSource
   Future<void> removeFavoriteRecipe({required int recipeId}) async {
     final user = _firebaseAuth.currentUser;
     final recipe = await _firebaseFirestore
-        .collection(Collections.users)
+        .collection(FirebaseConstants.users)
         .doc(user!.uid)
-        .collection(Collections.favoriteRecipes)
+        .collection(FirebaseConstants.favoriteRecipes)
         .where('id', isEqualTo: recipeId)
         .get();
 
@@ -49,9 +49,9 @@ class FavoriteRecipesRemoteDataSource
   }) async {
     final user = _firebaseAuth.currentUser;
     final recipeRef = await _firebaseFirestore
-        .collection(Collections.users)
+        .collection(FirebaseConstants.users)
         .doc(user!.uid)
-        .collection(Collections.favoriteRecipes)
+        .collection(FirebaseConstants.favoriteRecipes)
         .where('id', isEqualTo: recipeId)
         .get();
 
@@ -64,9 +64,9 @@ class FavoriteRecipesRemoteDataSource
   Stream<List<Recipe>> getFavoriteRecipes() async* {
     final user = _firebaseAuth.currentUser;
     yield* _firebaseFirestore
-        .collection(Collections.users)
+        .collection(FirebaseConstants.users)
         .doc(user!.uid)
-        .collection(Collections.favoriteRecipes)
+        .collection(FirebaseConstants.favoriteRecipes)
         .snapshots()
         .transform(StreamTransformer.fromHandlers(
           handleData: (json, sink) => sink.add(
@@ -80,9 +80,9 @@ class FavoriteRecipesRemoteDataSource
     final user = _firebaseAuth.currentUser;
     bool isFavorite = false;
     final recipe = await _firebaseFirestore
-        .collection(Collections.users)
+        .collection(FirebaseConstants.users)
         .doc(user!.uid)
-        .collection(Collections.favoriteRecipes)
+        .collection(FirebaseConstants.favoriteRecipes)
         .where('id', isEqualTo: recipeId)
         .get();
     if (recipe.docs.isNotEmpty) {

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/core/di/providers.dart';
 import 'package:drecipe/core/routes/app_router.dart';
-import 'package:drecipe/features/auth/di/providers.dart';
+import 'package:drecipe/features/auth/domain/notifiers/auth_notifier.dart';
 import 'package:drecipe/features/profile/ui/widgets/change_language_dropdown_button.dart';
 import 'package:drecipe/features/profile/ui/widgets/change_password_dialog.dart';
 import 'package:drecipe/features/profile/ui/widgets/privacy_policy_dialog.dart';
@@ -76,7 +76,7 @@ class ProfileScreen extends ConsumerWidget {
               onPressed: () =>
                   ref.read(authNotifierProvider.notifier).signOut().then(
                         (_) => AutoRouter.of(context).replace(
-                          const SignInScreenRoute(),
+                          const SignInPageRoute(),
                         ),
                       ),
               text: s.profile_screen_sign_out,

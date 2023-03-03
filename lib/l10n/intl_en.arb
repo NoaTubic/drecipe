@@ -54,6 +54,7 @@
   "recipe_details_instructions_ingredients": "Ingredients",
   "recipe_details_instructions_equipment": "Equipment",
   "favorite_recipes_title": "Favorites",
+  "failure_unknown_error_occurred": "Unknown error occurred",
   "failure_offline": "Offline",
   "failure_unexpected_error": "Unexpected error",
   "failure_unauthorized_access": "Unauthorized access",

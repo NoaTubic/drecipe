@@ -17,18 +17,18 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    FirebaseInitScreenRoute.name: (routeData) {
+    FirebaseInitPageRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const FirebaseInitScreen(),
+          child: const FirebaseInitPage(),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
     },
-    SplashScreenRoute.name: (routeData) {
+    SplashPageRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const SplashScreen(),
+          child: const SplashPage(),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -41,42 +41,42 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
-    SignInScreenRoute.name: (routeData) {
+    SignInPageRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const SignInScreen(),
+          child: const SignInPage(),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
     },
-    RegistrationScreenRoute.name: (routeData) {
+    RegistrationPageRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const RegistrationScreen(),
+          child: const RegistrationPage(),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
     },
-    EmailVerificationScreenRoute.name: (routeData) {
+    EmailVerificationPageRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const EmailVerificationScreen(),
+          child: const EmailVerificationPage(),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
     },
-    AccountRecoveryScreenRoute.name: (routeData) {
+    AccountRecoveryPageRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const AccountRecoveryScreen(),
+          child: const AccountRecoveryPage(),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
     },
-    AccountRecoveryResetEmailScreenRoute.name: (routeData) {
+    AccountRecoveryResetPasswordPageRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const AccountRecoveryResetEmailScreen(),
+          child: const ResetPasswordPage(),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -138,16 +138,16 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   List<RouteConfig> get routes => [
-        RouteConfig(FirebaseInitScreenRoute.name, path: '/'),
-        RouteConfig(SplashScreenRoute.name, path: '/splash-screen'),
+        RouteConfig(FirebaseInitPageRoute.name, path: '/'),
+        RouteConfig(SplashPageRoute.name, path: '/splash-screen'),
         RouteConfig(SettingsScreenRoute.name, path: '/settings-screen'),
-        RouteConfig(SignInScreenRoute.name, path: '/sign-in-screen'),
-        RouteConfig(RegistrationScreenRoute.name, path: '/registration-screen'),
-        RouteConfig(EmailVerificationScreenRoute.name,
+        RouteConfig(SignInPageRoute.name, path: '/sign-in-screen'),
+        RouteConfig(RegistrationPageRoute.name, path: '/registration-screen'),
+        RouteConfig(EmailVerificationPageRoute.name,
             path: '/email-verification-screen'),
-        RouteConfig(AccountRecoveryScreenRoute.name,
+        RouteConfig(AccountRecoveryPageRoute.name,
             path: '/account-recovery-screen'),
-        RouteConfig(AccountRecoveryResetEmailScreenRoute.name,
+        RouteConfig(AccountRecoveryResetPasswordPageRoute.name,
             path: '/account-recovery-reset-email-screen'),
         RouteConfig(DiscoverRecipesScreenRoute.name,
             path: '/discover-recipes-screen'),
@@ -163,21 +163,19 @@ class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [FirebaseInitScreen]
-class FirebaseInitScreenRoute extends PageRouteInfo<void> {
-  const FirebaseInitScreenRoute()
-      : super(FirebaseInitScreenRoute.name, path: '/');
+/// [FirebaseInitPage]
+class FirebaseInitPageRoute extends PageRouteInfo<void> {
+  const FirebaseInitPageRoute() : super(FirebaseInitPageRoute.name, path: '/');
 
-  static const String name = 'FirebaseInitScreenRoute';
+  static const String name = 'FirebaseInitPageRoute';
 }
 
 /// generated route for
-/// [SplashScreen]
-class SplashScreenRoute extends PageRouteInfo<void> {
-  const SplashScreenRoute()
-      : super(SplashScreenRoute.name, path: '/splash-screen');
+/// [SplashPage]
+class SplashPageRoute extends PageRouteInfo<void> {
+  const SplashPageRoute() : super(SplashPageRoute.name, path: '/splash-screen');
 
-  static const String name = 'SplashScreenRoute';
+  static const String name = 'SplashPageRoute';
 }
 
 /// generated route for
@@ -190,51 +188,50 @@ class SettingsScreenRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SignInScreen]
-class SignInScreenRoute extends PageRouteInfo<void> {
-  const SignInScreenRoute()
-      : super(SignInScreenRoute.name, path: '/sign-in-screen');
+/// [SignInPage]
+class SignInPageRoute extends PageRouteInfo<void> {
+  const SignInPageRoute()
+      : super(SignInPageRoute.name, path: '/sign-in-screen');
 
-  static const String name = 'SignInScreenRoute';
+  static const String name = 'SignInPageRoute';
 }
 
 /// generated route for
-/// [RegistrationScreen]
-class RegistrationScreenRoute extends PageRouteInfo<void> {
-  const RegistrationScreenRoute()
-      : super(RegistrationScreenRoute.name, path: '/registration-screen');
+/// [RegistrationPage]
+class RegistrationPageRoute extends PageRouteInfo<void> {
+  const RegistrationPageRoute()
+      : super(RegistrationPageRoute.name, path: '/registration-screen');
 
-  static const String name = 'RegistrationScreenRoute';
+  static const String name = 'RegistrationPageRoute';
 }
 
 /// generated route for
-/// [EmailVerificationScreen]
-class EmailVerificationScreenRoute extends PageRouteInfo<void> {
-  const EmailVerificationScreenRoute()
-      : super(EmailVerificationScreenRoute.name,
+/// [EmailVerificationPage]
+class EmailVerificationPageRoute extends PageRouteInfo<void> {
+  const EmailVerificationPageRoute()
+      : super(EmailVerificationPageRoute.name,
             path: '/email-verification-screen');
 
-  static const String name = 'EmailVerificationScreenRoute';
+  static const String name = 'EmailVerificationPageRoute';
 }
 
 /// generated route for
-/// [AccountRecoveryScreen]
-class AccountRecoveryScreenRoute extends PageRouteInfo<void> {
-  const AccountRecoveryScreenRoute()
-      : super(AccountRecoveryScreenRoute.name,
-            path: '/account-recovery-screen');
+/// [AccountRecoveryPage]
+class AccountRecoveryPageRoute extends PageRouteInfo<void> {
+  const AccountRecoveryPageRoute()
+      : super(AccountRecoveryPageRoute.name, path: '/account-recovery-screen');
 
-  static const String name = 'AccountRecoveryScreenRoute';
+  static const String name = 'AccountRecoveryPageRoute';
 }
 
 /// generated route for
-/// [AccountRecoveryResetEmailScreen]
-class AccountRecoveryResetEmailScreenRoute extends PageRouteInfo<void> {
-  const AccountRecoveryResetEmailScreenRoute()
-      : super(AccountRecoveryResetEmailScreenRoute.name,
+/// [AccountRecoveryResetPasswordPage]
+class AccountRecoveryResetPasswordPageRoute extends PageRouteInfo<void> {
+  const AccountRecoveryResetPasswordPageRoute()
+      : super(AccountRecoveryResetPasswordPageRoute.name,
             path: '/account-recovery-reset-email-screen');
 
-  static const String name = 'AccountRecoveryResetEmailScreenRoute';
+  static const String name = 'AccountRecoveryResetPasswordPageRoute';
 }
 
 /// generated route for

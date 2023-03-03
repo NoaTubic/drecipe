@@ -32,7 +32,7 @@ class ChangePasswordDialog extends ConsumerWidget {
           (either) => either.fold(
             (failure) => showDrecipeSnackBar(
               context: context,
-              text: failure.getAuthFailureMessage(),
+              text: failure.title,
               isError: true,
             ),
             (success) => AutoRouter.of(context).pop().whenComplete(

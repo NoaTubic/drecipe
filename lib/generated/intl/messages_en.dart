@@ -121,6 +121,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Unexpected data error"),
         "failure_unexpected_error":
             MessageLookupByLibrary.simpleMessage("Unexpected error"),
+        "failure_unknown_error_occurred":
+            MessageLookupByLibrary.simpleMessage("Unknown error occurred"),
         "favorite_recipes_title":
             MessageLookupByLibrary.simpleMessage("Favorites"),
         "label_or": MessageLookupByLibrary.simpleMessage("or"),

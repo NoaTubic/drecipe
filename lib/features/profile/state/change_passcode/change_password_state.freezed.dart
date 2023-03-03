@@ -20,7 +20,7 @@ mixin _$ChangePasswordState {
   PasswordValueObject get newPassword => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
-  Option<Either<AuthFailure, Unit>> get changePasswordSuccessOrFailure =>
+  Option<Either<Failure, Unit>> get changePasswordSuccessOrFailure =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -39,7 +39,7 @@ abstract class $ChangePasswordStateCopyWith<$Res> {
       PasswordValueObject newPassword,
       bool isSubmitting,
       bool showErrorMessages,
-      Option<Either<AuthFailure, Unit>> changePasswordSuccessOrFailure});
+      Option<Either<Failure, Unit>> changePasswordSuccessOrFailure});
 }
 
 /// @nodoc
@@ -81,7 +81,7 @@ class _$ChangePasswordStateCopyWithImpl<$Res, $Val extends ChangePasswordState>
       changePasswordSuccessOrFailure: null == changePasswordSuccessOrFailure
           ? _value.changePasswordSuccessOrFailure
           : changePasswordSuccessOrFailure // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, Unit>>,
+              as Option<Either<Failure, Unit>>,
     ) as $Val);
   }
 }
@@ -99,7 +99,7 @@ abstract class _$$_ChangePasswordStateCopyWith<$Res>
       PasswordValueObject newPassword,
       bool isSubmitting,
       bool showErrorMessages,
-      Option<Either<AuthFailure, Unit>> changePasswordSuccessOrFailure});
+      Option<Either<Failure, Unit>> changePasswordSuccessOrFailure});
 }
 
 /// @nodoc
@@ -139,7 +139,7 @@ class __$$_ChangePasswordStateCopyWithImpl<$Res>
       changePasswordSuccessOrFailure: null == changePasswordSuccessOrFailure
           ? _value.changePasswordSuccessOrFailure
           : changePasswordSuccessOrFailure // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AuthFailure, Unit>>,
+              as Option<Either<Failure, Unit>>,
     ));
   }
 }
@@ -163,7 +163,7 @@ class _$_ChangePasswordState implements _ChangePasswordState {
   @override
   final bool showErrorMessages;
   @override
-  final Option<Either<AuthFailure, Unit>> changePasswordSuccessOrFailure;
+  final Option<Either<Failure, Unit>> changePasswordSuccessOrFailure;
 
   @override
   String toString() {
@@ -207,7 +207,7 @@ abstract class _ChangePasswordState implements ChangePasswordState {
       required final PasswordValueObject newPassword,
       required final bool isSubmitting,
       required final bool showErrorMessages,
-      required final Option<Either<AuthFailure, Unit>>
+      required final Option<Either<Failure, Unit>>
           changePasswordSuccessOrFailure}) = _$_ChangePasswordState;
 
   @override
@@ -219,7 +219,7 @@ abstract class _ChangePasswordState implements ChangePasswordState {
   @override
   bool get showErrorMessages;
   @override
-  Option<Either<AuthFailure, Unit>> get changePasswordSuccessOrFailure;
+  Option<Either<Failure, Unit>> get changePasswordSuccessOrFailure;
   @override
   @JsonKey(ignore: true)
   _$$_ChangePasswordStateCopyWith<_$_ChangePasswordState> get copyWith =>

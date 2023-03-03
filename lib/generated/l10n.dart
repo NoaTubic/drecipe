@@ -590,6 +590,16 @@ class S {
     );
   }
 
+  /// `Unknown error occurred`
+  String get failure_unknown_error_occurred {
+    return Intl.message(
+      'Unknown error occurred',
+      name: 'failure_unknown_error_occurred',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Offline`
   String get failure_offline {
     return Intl.message(

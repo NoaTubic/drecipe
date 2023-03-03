@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:drecipe/features/account_recovery/ui/screens/account_recovery_screen.dart';
-import 'package:drecipe/features/account_recovery/ui/screens/account_recovery_reset_email_screen.dart';
+import 'package:drecipe/features/auth/presentation/pages/account_recovery_page.dart';
+import 'package:drecipe/features/auth/presentation/pages/reset_password_page.dart';
+import 'package:drecipe/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:drecipe/features/common/ui/widgets/bottom_nav_bar/drecipe_bottom_nav_bar.dart';
 import 'package:drecipe/features/discover_recipes/ui/screens/discover_recipes_screen.dart';
 import 'package:drecipe/features/discover_recipes/ui/screens/meal_time_screen.dart';
@@ -9,12 +10,12 @@ import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:drecipe/features/recipe_details/ui/screens/detailed_instructions_screen.dart';
 import 'package:drecipe/features/recipe_details/ui/screens/ingredients_screen.dart';
 import 'package:drecipe/features/recipe_details/ui/screens/recipe_details_screen.dart';
-import 'package:drecipe/features/registration/ui/email_verification_screen.dart';
-import 'package:drecipe/features/registration/ui/registration_screen.dart';
+import 'package:drecipe/features/auth/presentation/pages/email_verification_page.dart';
+import 'package:drecipe/features/auth/presentation/pages/registration_page.dart';
 import 'package:drecipe/features/settings/ui/settings_screen.dart';
-import 'package:drecipe/features/sign_in/ui/screens/sign_in_screen.dart';
-import 'package:drecipe/features/splash/ui/screens/firebase_init_screen.dart';
-import 'package:drecipe/features/splash/ui/screens/splash_screen.dart';
+
+import 'package:drecipe/features/splash/presentation/pages/firebase_init_page.dart';
+import 'package:drecipe/features/splash/presentation/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
 part 'app_router.gr.dart';
@@ -22,12 +23,12 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   routes: <AutoRoute>[
     CustomRoute(
-      page: FirebaseInitScreen,
+      page: FirebaseInitPage,
       initial: true,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: SplashScreen,
+      page: SplashPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
@@ -35,23 +36,23 @@ part 'app_router.gr.dart';
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: SignInScreen,
+      page: SignInPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: RegistrationScreen,
+      page: RegistrationPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: EmailVerificationScreen,
+      page: EmailVerificationPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: AccountRecoveryScreen,
+      page: AccountRecoveryPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(
-      page: AccountRecoveryResetEmailScreen,
+      page: ResetPasswordPage,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(

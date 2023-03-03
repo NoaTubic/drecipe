@@ -1,12 +1,13 @@
 import 'package:dartz/dartz.dart';
-import 'package:drecipe/core/firebase/firebase_auth_facade.dart';
-import 'package:drecipe/features/common/domain/failures/failure.dart';
+import 'package:drecipe/features/auth/data/repositories/auth_repository.dart';
+import 'package:drecipe/features/common/domain/entities/failure.dart';
+
 import 'package:drecipe/features/profile/state/change_passcode/change_password_state.dart';
-import 'package:drecipe/features/registration/domain/validation/registration_value_objects.dart';
+import 'package:drecipe/features/auth/domain/validation/registration_value_objects.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ChangePasswordNotifier extends StateNotifier<ChangePasswordState> {
-  final IFirebaseAuthFacade _authFacade;
+  final AuthRepository _authFacade;
 
   ChangePasswordNotifier(this._authFacade)
       : super(ChangePasswordState.initial());
@@ -24,7 +25,7 @@ class ChangePasswordNotifier extends StateNotifier<ChangePasswordState> {
   }
 
   Future<void> changePassword() async {
-    Either<AuthFailure, Unit>? changePasswordResult;
+    Either<Failure, Unit>? changePasswordResult;
     final isCurrentPasswordValid = state.currentPassword.isValid();
     final isNewPasswordValid = state.newPassword.isValid();
 
