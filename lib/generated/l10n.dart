@@ -430,10 +430,10 @@ class S {
     );
   }
 
-  /// `Hello, chef!`
+  /// `Hello, `
   String get discover_recipes_welcome_a {
     return Intl.message(
-      'Hello, chef!',
+      'Hello, ',
       name: 'discover_recipes_welcome_a',
       desc: '',
       args: [],

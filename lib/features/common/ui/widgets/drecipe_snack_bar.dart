@@ -1,4 +1,3 @@
-import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,10 +8,9 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showDrecipeSnackBar(
     bool isError = true}) {
   return ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      behavior: SnackBarBehavior.floating,
-      backgroundColor: Colors.transparent,
-      padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height - Sizes.s160.h),
+      behavior: SnackBarBehavior.fixed,
+      backgroundColor: AppColors.primaryRed,
+      padding: EdgeInsets.only(top: Sizes.s16.h),
       elevation: Sizes.s0,
       content: DrecipeSnackBar(
         text: text,
@@ -34,28 +32,8 @@ class DrecipeSnackBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: Sizes.s52.h,
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(Sizes.s12.r),
-        ),
-        border: Border.all(
-            color: AppColors.secondaryLightRed2, width: Sizes.borderWidth),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(Sizes.s0, Sizes.s4.h),
-            blurRadius: Sizes.s4,
-            color: AppColors.lightGrey1.withOpacity(OpacityConstants.op05),
-          ),
-          BoxShadow(
-            offset: Offset(Sizes.s4.w, Sizes.s0),
-            blurRadius: Sizes.s4,
-            color: AppColors.lightGrey1.withOpacity(OpacityConstants.op05),
-          ),
-        ],
-      ),
+    return Padding(
+      padding: EdgeInsets.only(top: Sizes.s12.h),
       child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -63,17 +41,19 @@ class DrecipeSnackBar extends StatelessWidget {
             isError
                 ? Icon(
                     Icons.warning_amber_rounded,
-                    color: AppColors.primaryRed,
+                    color: AppColors.white,
                   )
                 : Icon(
                     Icons.info_outline_rounded,
-                    color: AppColors.darkGrey2,
+                    color: AppColors.white,
                   ),
             SizedBox(width: Sizes.s12.w),
             Text(
               text,
-              style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                  color: AppColors.darkGrey2, fontSize: FontSizes.s16.sp),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: AppColors.white, fontSize: FontSizes.s16.sp),
             ),
           ],
         ),

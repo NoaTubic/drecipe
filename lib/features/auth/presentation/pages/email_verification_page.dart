@@ -8,6 +8,7 @@ import 'package:drecipe/features/common/ui/widgets/text_button_row.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EmailVerificationPage extends ConsumerWidget {
   const EmailVerificationPage({Key? key}) : super(key: key);
@@ -21,10 +22,8 @@ class EmailVerificationPage extends ConsumerWidget {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: Sizes.s40,
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -38,6 +37,8 @@ class EmailVerificationPage extends ConsumerWidget {
           ),
           Image.asset(
             ImageAssets.verifyEmail,
+            width: Sizes.s140.w,
+            height: Sizes.s140.h,
           ),
           const SizedBox(
             height: Sizes.s40,

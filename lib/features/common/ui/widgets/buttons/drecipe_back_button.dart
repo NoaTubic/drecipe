@@ -27,18 +27,6 @@ class DrecipeBackButton extends StatelessWidget {
       child: Align(
         alignment: alignment,
         child: Ink(
-          decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.circular(Sizes.s8.r),
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                AppColors.secondaryLightRed1.withOpacity(OpacityConstants.op04),
-                AppColors.lightGrey1.withOpacity(OpacityConstants.op04)
-              ],
-            ),
-          ),
           child: InkWell(
             onTap: onTap ?? () => AutoRouter.of(context).pop(),
             splashColor:

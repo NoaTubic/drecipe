@@ -62,7 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "discover_recipes_recommended":
             MessageLookupByLibrary.simpleMessage("Recommended"),
         "discover_recipes_welcome_a":
-            MessageLookupByLibrary.simpleMessage("Hello, chef!"),
+            MessageLookupByLibrary.simpleMessage("Hello, "),
         "discover_recipes_welcome_b":
             MessageLookupByLibrary.simpleMessage("What are we cooking today?"),
         "email_verification_helper": MessageLookupByLibrary.simpleMessage(

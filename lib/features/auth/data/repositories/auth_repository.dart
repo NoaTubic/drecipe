@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:drecipe/features/auth/data/repositories/user_repository.dart';
 import 'package:drecipe/features/common/domain/entities/failure.dart';
 import 'package:drecipe/features/common/domain/utils/either_failure_or.dart';
 import 'package:drecipe/generated/l10n.dart';
@@ -6,7 +7,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final authRepositoryProvider = Provider<AuthRepository>(
-  (ref) => AuthRepositoryImpl(),
+  (ref) => AuthRepositoryImpl(
+    ref.read(userRepositoryProvider),
+  ),
 );
 
 abstract class AuthRepository {
@@ -34,6 +37,9 @@ abstract class AuthRepository {
 
 class AuthRepositoryImpl implements AuthRepository {
   final _firebaseAuth = FirebaseAuth.instance;
+  final UserRepository _userRepository;
+
+  AuthRepositoryImpl(this._userRepository);
 
   @override
   EitherFailureOr<Unit> register(
@@ -96,7 +102,7 @@ class AuthRepositoryImpl implements AuthRepository {
         return left(
             Failure.generic(title: S.current.failure_email_not_verified));
       }
-
+      _userRepository.initializeUser();
       return right(unit);
     } on FirebaseException catch (exception) {
       if (exception.code == 'wrong-password' ||

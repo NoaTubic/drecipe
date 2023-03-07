@@ -1,5 +1,6 @@
-import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter/material.dart';
+
+import 'package:drecipe/features/common/ui/styles.dart';
 
 class DrecipeTextFormField extends StatelessWidget {
   const DrecipeTextFormField({
@@ -9,6 +10,7 @@ class DrecipeTextFormField extends StatelessWidget {
     required this.textInputType,
     this.textInputAction = TextInputAction.next,
     required this.hintText,
+    this.onEditingComplete,
   }) : super(key: key);
 
   final void Function(String)? onChanged;
@@ -17,6 +19,8 @@ class DrecipeTextFormField extends StatelessWidget {
   final TextInputAction textInputAction;
   final String hintText;
 
+  final void Function()? onEditingComplete;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,6 +28,7 @@ class DrecipeTextFormField extends StatelessWidget {
       child: TextFormField(
         onChanged: onChanged,
         validator: validator,
+        onEditingComplete: onEditingComplete,
         decoration: InputDecoration(
           hintText: hintText,
         ),

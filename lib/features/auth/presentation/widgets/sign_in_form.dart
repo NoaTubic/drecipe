@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/auth/domain/notifiers/sign_in/sign_in_notifier.dart';
+import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_button.dart';
@@ -18,6 +19,7 @@ class SignInForm extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final FocusNode passwordFocus = FocusNode();
     final s = S.of(context);
     final signInNotifier = ref.read(signInNotifierProvider.notifier);
     final signInState = ref.read(signInNotifierProvider);
@@ -38,11 +40,19 @@ class SignInForm extends ConsumerWidget {
             textInputType: TextInputType.emailAddress,
           ),
           DrecipePasswordTextFormField(
-            onChanged: (password) => signInNotifier.onPasswordChanged(password),
+            onChanged: (password) {
+              signInNotifier.onPasswordChanged(password);
+            },
             validator: (password) => signInState.password.value.fold(
               (failure) => failure.getValueFailureMessage(),
               (_) => null,
             ),
+            onEditingComplete: (_) async {
+              FocusManager.instance.primaryFocus?.unfocus();
+              await Future.delayed(
+                  const Duration(milliseconds: DurationConstants.d040));
+              signInNotifier.signInWithEmailAndPassword();
+            },
             hintText: s.sign_in_password_hint,
             textInputAction: TextInputAction.done,
           ),
@@ -57,9 +67,7 @@ class SignInForm extends ConsumerWidget {
             height: Sizes.s20,
           ),
           DrecipeButton(
-            onPressed: () {
-              signInNotifier.signInWithEmailAndPassword();
-            },
+            onPressed: () => signInNotifier.signInWithEmailAndPassword(),
             text: s.sign_in_label,
             isLoading: signInStateListener.isSubmitting,
           ),

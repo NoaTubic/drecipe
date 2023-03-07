@@ -1,6 +1,5 @@
 import 'package:drecipe/features/common/ui/sizes/sizes.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_back_button.dart';
-import 'package:drecipe/features/common/ui/widgets/buttons/settings_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,20 +27,15 @@ class DrecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Center(
-        child: appBarContent ?? Text(title ?? ''),
-      ),
+      title: appBarContent != null
+          ? Center(child: appBarContent)
+          : Text(title ?? ''),
       automaticallyImplyLeading: false,
       leading: backButton
           ? DrecipeBackButton(
               onTap: leftAction,
             )
           : null,
-      actions: [
-        if (settings) ...[
-          const SettingsButton(),
-        ]
-      ],
       elevation: elevated ? Sizes.elevationMain : Sizes.s0,
     );
   }

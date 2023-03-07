@@ -1,4 +1,3 @@
-import 'package:drecipe/features/favorite_recipes/domain/notifiers/favorite_recipes_list/favorite_recipes_list_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/favorite_recipes/data/favorite_recipes_repository.dart';
@@ -44,7 +43,7 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
         isHeartAnimating: true,
       ),
     );
-    ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
+    // ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
 
     await Future.delayed(
       const Duration(seconds: DurationConstants.d2),

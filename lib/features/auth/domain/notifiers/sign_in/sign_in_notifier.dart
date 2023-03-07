@@ -14,9 +14,9 @@ final signInNotifierProvider =
 );
 
 class SignInNotifier extends StateNotifier<SignInState> {
-  SignInNotifier(this._authFacade) : super(SignInState.initial());
+  SignInNotifier(this._authRepository) : super(SignInState.initial());
 
-  final AuthRepository _authFacade;
+  final AuthRepository _authRepository;
 
   void onEmailChanged(String email) {
     state = state.copyWith(
@@ -37,7 +37,7 @@ class SignInNotifier extends StateNotifier<SignInState> {
       signInFailureOrSuccess: none(),
     );
 
-    signInResult = await _authFacade.signInAnonymously();
+    signInResult = await _authRepository.signInAnonymously();
 
     state = state.copyWith(
       isSubmitting: false,
@@ -57,7 +57,7 @@ class SignInNotifier extends StateNotifier<SignInState> {
         signInFailureOrSuccess: none(),
       );
 
-      signInResult = await _authFacade.signInWithEmailAndPassword(
+      signInResult = await _authRepository.signInWithEmailAndPassword(
         email: state.email.getOrCrash(),
         password: state.password.getOrCrash(),
       );

@@ -1,5 +1,5 @@
-import 'package:drecipe/core/env/env.dart';
-import 'package:drecipe/core/env/env_constants.dart';
+import 'package:drecipe/main/env/env.dart';
+import 'package:drecipe/main/env/env_constants.dart';
 
 class EnvDev implements Env {
   @override

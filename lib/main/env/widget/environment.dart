@@ -1,4 +1,4 @@
-import 'package:drecipe/core/env/env.dart';
+import 'package:drecipe/main/env/env.dart';
 import 'package:flutter/material.dart';
 
 typedef E = Environment;

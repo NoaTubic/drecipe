@@ -14,15 +14,12 @@ class DrecipeLogoLabel extends StatelessWidget {
           'd',
           style: Theme.of(context)
               .textTheme
-              .button!
+              .displaySmall!
               .copyWith(color: AppColors.primaryRed),
         ),
         Text(
           'recipe',
-          style: Theme.of(context)
-              .textTheme
-              .button!
-              .copyWith(color: AppColors.black),
+          style: Theme.of(context).textTheme.displaySmall,
         ),
       ],
     );

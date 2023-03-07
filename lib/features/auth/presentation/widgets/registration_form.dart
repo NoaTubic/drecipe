@@ -1,6 +1,7 @@
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/auth/domain/notifiers/registration/registration_notifier.dart';
 import 'package:drecipe/features/auth/domain/notifiers/registration/registration_state.dart';
+import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
 
@@ -82,6 +83,12 @@ class RegistrationForm extends ConsumerWidget {
               (failure) => failure.getValueFailureMessage(),
               (_) => null,
             ),
+            onEditingComplete: (_) async {
+              FocusManager.instance.primaryFocus?.unfocus();
+              await Future.delayed(
+                  const Duration(milliseconds: DurationConstants.d040));
+              registrationNotifier.register();
+            },
             hintText: s.registration_password_confirm_hint,
             hasShowPasswordButton: false,
           ),

@@ -10,6 +10,7 @@ class DrecipePasswordTextFormField extends StatefulWidget {
     this.hasShowPasswordButton = true,
     this.textInputAction = TextInputAction.done,
     required this.hintText,
+    this.onEditingComplete,
   }) : super(key: key);
 
   final void Function(String)? onChanged;
@@ -18,6 +19,8 @@ class DrecipePasswordTextFormField extends StatefulWidget {
   final String hintText;
   final bool hasShowPasswordButton;
   final TextInputAction textInputAction;
+
+  final void Function(String)? onEditingComplete;
 
   @override
   State<DrecipePasswordTextFormField> createState() =>
@@ -35,6 +38,7 @@ class _DrecipePasswordTextFormFieldState
       child: TextFormField(
         onChanged: widget.onChanged,
         validator: widget.validator,
+        onFieldSubmitted: widget.onEditingComplete,
         obscureText: !isVisible,
         decoration: InputDecoration(
             hintText: widget.hintText,
