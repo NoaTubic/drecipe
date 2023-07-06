@@ -52,7 +52,7 @@ class AuthRepositoryImpl implements AuthRepository {
         password: password,
       );
       await _firebaseAuth.currentUser!.updateDisplayName(username);
-
+      // await _firebaseAuth.signOut();
       return right(unit);
     } on FirebaseAuthException catch (exception) {
       if (exception.code == 'email-already-in-use') {
@@ -149,7 +149,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<void> signOut() => Future.wait([
-        _firebaseAuth.signOut(),
-      ]);
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
+  }
 }

@@ -13,9 +13,10 @@ final registrationNotifierProvider =
 );
 
 class RegistrationNotifier extends StateNotifier<RegistrationState> {
-  final AuthRepository _authFacade;
+  final AuthRepository _authRepository;
 
-  RegistrationNotifier(this._authFacade) : super(RegistrationState.initial());
+  RegistrationNotifier(this._authRepository)
+      : super(RegistrationState.initial());
 
   void onUsernameChanged(String username) {
     state = state.copyWith(
@@ -58,22 +59,26 @@ class RegistrationNotifier extends StateNotifier<RegistrationState> {
         registrationFailureOrSuccess: none(),
       );
 
-      registrationResult = await _authFacade.register(
+      registrationResult = await _authRepository.register(
         email: state.email.getOrCrash(),
         password: state.password.getOrCrash(),
         username: state.username.getOrCrash(),
       );
 
-      await _authFacade.verifyEmail();
+      await verifyEmail();
     }
 
     state = state.copyWith(
         isSubmitting: false,
         showErrorMessages: true,
         registrationFailureOrSuccess: optionOf(registrationResult));
+
+    state = state.copyWith(
+      registrationFailureOrSuccess: none(),
+    );
   }
 
   Future<void> verifyEmail() async {
-    await _authFacade.verifyEmail();
+    await _authRepository.verifyEmail();
   }
 }

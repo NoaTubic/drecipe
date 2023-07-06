@@ -26,7 +26,7 @@ class SignInNotifier extends StateNotifier<SignInState> {
 
   void onPasswordChanged(String password) {
     state = state.copyWith(
-      password: PasswordValueObject(password),
+      password: PasswordValueObject.signIn(password),
     );
   }
 
@@ -59,7 +59,7 @@ class SignInNotifier extends StateNotifier<SignInState> {
 
       signInResult = await _authRepository.signInWithEmailAndPassword(
         email: state.email.getOrCrash(),
-        password: state.password.getOrCrash(),
+        password: state.password.getValue(defaultValue: ''),
       );
     }
     state = state.copyWith(
@@ -73,5 +73,9 @@ class SignInNotifier extends StateNotifier<SignInState> {
       showErrorMessages: true,
       signInFailureOrSuccess: none(),
     );
+  }
+
+  void reset() {
+    state = SignInState.initial();
   }
 }

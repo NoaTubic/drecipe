@@ -93,7 +93,7 @@ class RegistrationForm extends ConsumerWidget {
             hasShowPasswordButton: false,
           ),
           const SizedBox(
-            height: Sizes.s20,
+            height: Sizes.s30,
           ),
           DrecipeButton(
             onPressed: () => registrationNotifier.register(),

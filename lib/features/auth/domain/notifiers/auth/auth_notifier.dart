@@ -16,7 +16,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
   Future<void> listenAuthChanges() async {
     _authRepository.subscribeToAuthChanges().listen(
       (user) {
-        if (user != null) {
+        if (user != null && user.emailVerified) {
           state = const AuthState.authenticated();
         }
       },

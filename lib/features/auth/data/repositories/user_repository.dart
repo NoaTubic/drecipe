@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:drecipe/core/di/providers.dart';
+import 'package:drecipe/core/providers/providers.dart';
 import 'package:drecipe/features/auth/domain/entities/drecipe_user.dart';
 import 'package:drecipe/features/common/data/firestore/firestore_collections.dart';
 import 'package:drecipe/features/common/domain/entities/failure.dart';

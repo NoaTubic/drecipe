@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTheme {
   final ThemeData lightTheme = ThemeData(
-    // brightness: Brightness.light,
     primaryColor: AppColors.primaryRed,
     colorScheme: ColorScheme.fromSwatch(
       accentColor:
@@ -20,7 +19,8 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.white,
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      systemOverlayStyle: SystemUiOverlayStyle.light,
+      systemOverlayStyle: SystemUiOverlayStyle.dark
+          .copyWith(systemNavigationBarColor: Colors.black),
       backgroundColor: AppColors.white,
       elevation: Sizes.elevationMain,
       shadowColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op04),
@@ -71,6 +71,7 @@ class AppTheme {
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(AppColors.primaryRed),
         padding: MaterialStateProperty.all(EdgeInsets.all(Sizes.s4.w)),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: MaterialStateProperty.all(Size.zero),

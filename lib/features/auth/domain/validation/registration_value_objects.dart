@@ -41,6 +41,10 @@ class PasswordValueObject extends ValueObject<String> {
     return PasswordValueObject._(validatePasswordMatch(input, check));
   }
 
+  factory PasswordValueObject.signIn(String input) {
+    return PasswordValueObject._(validatePasswordSignIn(input));
+  }
+
   const PasswordValueObject._(this.value);
 }
 
@@ -61,6 +65,14 @@ Either<ValueFailure, String> validatePasswordMatch(String input, String check) {
     return left(const ValueFailure.emptyPasswordField());
   } else {
     return left(const ValueFailure.passwordsDontMatch());
+  }
+}
+
+Either<ValueFailure, String> validatePasswordSignIn(String input) {
+  if (input.isNotEmpty) {
+    return right(input);
+  } else {
+    return left(const ValueFailure.emptyPasswordField());
   }
 }
 

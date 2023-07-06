@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/auth/domain/notifiers/account_recovery/account_recovery_notifier.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
@@ -15,7 +17,11 @@ class ResetPasswordPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final s = S.of(context);
     return DrecipeScaffold(
-      appBar: DrecipeAppBar(title: s.account_recovery_title),
+      appBar: DrecipeAppBar(
+        title: s.account_recovery_title,
+        leftAction: () =>
+            AutoRouter.of(context).replace(const SignInPageRoute()),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -56,6 +62,14 @@ class ResetPasswordPage extends ConsumerWidget {
                           isError: false),
                     );
               },
+            ),
+            const SizedBox(
+              height: Sizes.s32,
+            ),
+            TextButton(
+              onPressed: () =>
+                  AutoRouter.of(context).replace(const SignInPageRoute()),
+              child: Text(s.sign_in_label),
             ),
           ],
         ),

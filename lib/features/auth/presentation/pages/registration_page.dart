@@ -49,7 +49,7 @@ class RegistrationPage extends StatelessWidget {
             ),
             const RegistrationForm(),
             SizedBox(
-              height: Sizes.s24.h,
+              height: Sizes.s46.h,
             ),
             TextButtonRow(
               text: s.registration_have_an_account,

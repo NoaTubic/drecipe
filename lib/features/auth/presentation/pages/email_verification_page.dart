@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/auth/domain/notifiers/registration/registration_notifier.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_app_bar.dart';
@@ -18,12 +20,17 @@ class EmailVerificationPage extends ConsumerWidget {
     final s = S.of(context);
     return DrecipeScaffold(
       appBar: DrecipeAppBar(
+        leftAction: () =>
+            AutoRouter.of(context).replace(const SignInPageRoute()),
         title: s.email_verification_title,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          SizedBox(
+            height: Sizes.s46.h,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -65,7 +72,15 @@ class EmailVerificationPage extends ConsumerWidget {
                         )),
                   );
             },
-          )
+          ),
+          SizedBox(
+            height: Sizes.s32.h,
+          ),
+          TextButton(
+            onPressed: () =>
+                AutoRouter.of(context).replace(const SignInPageRoute()),
+            child: Text(s.sign_in_label),
+          ),
         ],
       ),
     );

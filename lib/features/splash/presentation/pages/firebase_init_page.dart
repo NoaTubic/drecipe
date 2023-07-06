@@ -1,4 +1,4 @@
-import 'package:drecipe/core/di/providers.dart';
+import 'package:drecipe/core/providers/providers.dart';
 import 'package:drecipe/features/splash/presentation/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

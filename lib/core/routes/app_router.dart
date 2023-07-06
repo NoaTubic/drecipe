@@ -12,7 +12,6 @@ import 'package:drecipe/features/recipe_details/presentation/pages/ingredients_p
 import 'package:drecipe/features/recipe_details/presentation/pages/recipe_details_page.dart';
 import 'package:drecipe/features/auth/presentation/pages/email_verification_page.dart';
 import 'package:drecipe/features/auth/presentation/pages/registration_page.dart';
-import 'package:drecipe/features/settings/ui/settings_screen.dart';
 
 import 'package:drecipe/features/splash/presentation/pages/firebase_init_page.dart';
 import 'package:drecipe/features/splash/presentation/pages/splash_page.dart';
@@ -29,10 +28,6 @@ part 'app_router.gr.dart';
     ),
     CustomRoute(
       page: SplashPage,
-      transitionsBuilder: TransitionsBuilders.fadeIn,
-    ),
-    CustomRoute(
-      page: SettingsScreen,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
     CustomRoute(

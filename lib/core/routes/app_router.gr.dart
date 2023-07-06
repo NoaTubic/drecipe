@@ -33,14 +33,6 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
-    SettingsScreenRoute.name: (routeData) {
-      return CustomPage<dynamic>(
-          routeData: routeData,
-          child: const SettingsScreen(),
-          transitionsBuilder: TransitionsBuilders.fadeIn,
-          opaque: true,
-          barrierDismissible: false);
-    },
     SignInPageRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,

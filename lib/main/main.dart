@@ -5,7 +5,7 @@ import 'package:drecipe/features/common/data/storage/hive_setup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:drecipe/core/di/providers.dart';
+import 'package:drecipe/core/providers/providers.dart';
 import 'package:drecipe/features/common/ui/sizes/sizes.dart';
 import 'package:drecipe/features/profile/di/providers.dart';
 import 'package:drecipe/generated/l10n.dart';

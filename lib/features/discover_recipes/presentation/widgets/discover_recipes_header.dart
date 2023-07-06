@@ -1,4 +1,4 @@
-import 'package:drecipe/core/di/providers.dart';
+import 'package:drecipe/core/providers/providers.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/buttons/settings_button.dart';

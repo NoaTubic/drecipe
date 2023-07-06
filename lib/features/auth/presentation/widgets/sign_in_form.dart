@@ -64,7 +64,7 @@ class SignInForm extends ConsumerWidget {
             alignment: Alignment.centerRight,
           ),
           const SizedBox(
-            height: Sizes.s20,
+            height: Sizes.s40,
           ),
           DrecipeButton(
             onPressed: () => signInNotifier.signInWithEmailAndPassword(),

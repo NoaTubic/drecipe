@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:drecipe/core/di/providers.dart';
+import 'package:drecipe/core/providers/providers.dart';
 import 'package:drecipe/features/common/data/firestore/firebase_constants.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
 import 'package:firebase_auth/firebase_auth.dart';
