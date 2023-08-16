@@ -27,6 +27,7 @@ class SortingDirection extends ConsumerWidget {
           height: Sizes.s40.h,
           width: Sizes.s255.w,
           decoration: BoxDecoration(
+            color: AppColors.white,
             border: Border.all(color: AppColors.lightGrey1),
             borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
           ),

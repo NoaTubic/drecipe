@@ -7,7 +7,8 @@ import 'package:drecipe/features/common/ui/widgets/loading_indicators/base_loadi
 import 'package:drecipe/features/search_recipes/domain/entities/search_recipes_suggestion.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+
+import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 
 class SearchSuggestionsList extends ConsumerWidget {
   const SearchSuggestionsList({

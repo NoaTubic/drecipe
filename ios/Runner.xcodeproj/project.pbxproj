@@ -254,6 +254,7 @@
 			files = (
 			);
 			inputPaths = (
+				"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}",
 			);
 			name = "Thin Binary";
 			outputPaths = (
@@ -910,7 +911,7 @@
 			baseConfigurationReference = 0389B756BF197244D1444B96 /* Pods-Runner.profile-prod.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 6429LG2X77;
-				FLUTTER_TARGET = "lib//main/main_prod.dart";
+				FLUTTER_TARGET = lib//main/main_prod.dart;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-prod";
@@ -920,7 +921,7 @@
 			baseConfigurationReference = CA821B9F5DE01F8DDD966604 /* Pods-Runner.release-prod.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 6429LG2X77;
-				FLUTTER_TARGET = "lib//main/main_prod.dart";
+				FLUTTER_TARGET = lib//main/main_prod.dart;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-prod";

@@ -52,7 +52,13 @@ class _ChangeLanguageDropdownButtonState
             );
             localeNotifier.loadLanguage();
           },
-          hint: Text(getCurrentLanguage()),
+          hint: Text(
+            getCurrentLanguage(),
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(color: AppColors.black),
+          ),
           items: languages
               .map(
                 (language) => DropdownMenuItem<String>(
@@ -66,6 +72,7 @@ class _ChangeLanguageDropdownButtonState
           ),
           dropdownElevation: 1,
           buttonWidth: Sizes.s98.w,
+          iconEnabledColor: AppColors.black,
         ),
       ),
     );

@@ -5,7 +5,8 @@ import 'package:drecipe/features/search_recipes/presentation/widgets/search_sugg
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+
+import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 
 class DrecipeSearchBar extends ConsumerWidget {
   const DrecipeSearchBar({Key? key}) : super(key: key);

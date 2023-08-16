@@ -52,7 +52,6 @@ class AuthRepositoryImpl implements AuthRepository {
         password: password,
       );
       await _firebaseAuth.currentUser!.updateDisplayName(username);
-      // await _firebaseAuth.signOut();
       return right(unit);
     } on FirebaseAuthException catch (exception) {
       if (exception.code == 'email-already-in-use') {

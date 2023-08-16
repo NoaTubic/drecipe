@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:drecipe/core/providers/providers.dart';
 import 'package:drecipe/features/favorite_recipes/data/favorite_recipes_repository.dart';
 import 'package:drecipe/features/favorite_recipes/domain/notifiers/favorite_recipes_list/favorite_recipes_list_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,8 +27,11 @@ class FavoriteRecipesListNotifier
 
   Future<void> getFavoriteRecipes() async {
     state = const FavoriteRecipesListState.loading();
+    final bool isConnectionAvailable =
+        ref.read(connectivityNotifierProvider).connectivityResult !=
+            ConnectivityResult.none;
 
-    if (true) {
+    if (isConnectionAvailable) {
       _streamSubscription = _favoriteRecipesRepository
           .getFavoriteRecipesRemote()
           .listen((result) {
