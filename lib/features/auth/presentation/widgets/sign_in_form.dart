@@ -19,7 +19,6 @@ class SignInForm extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final FocusNode passwordFocus = FocusNode();
     final s = S.of(context);
     final signInNotifier = ref.read(signInNotifierProvider.notifier);
     final signInState = ref.read(signInNotifierProvider);

@@ -205,6 +205,7 @@ class _RecipeCardState extends ConsumerState<RecipeCard> {
   }
 }
 
+// ignore: must_be_immutable
 class RecipeCardImage extends ConsumerStatefulWidget {
   RecipeCardImage({
     Key? key,

@@ -30,12 +30,12 @@ class DiscoverRecipesBodyError extends StatelessWidget {
             height: Sizes.s12.h,
           ),
           Text(
-            'Ops! $error 😔',
-            style: Theme.of(context).textTheme.headline3,
+            'Whoops! $error 😔',
+            style: Theme.of(context).textTheme.displaySmall,
           ),
           Text(
             S.of(context).label_try_again,
-            style: Theme.of(context).textTheme.headline3,
+            style: Theme.of(context).textTheme.displaySmall,
           ),
         ],
       ),

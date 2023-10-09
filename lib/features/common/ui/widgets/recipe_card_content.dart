@@ -27,7 +27,7 @@ class RecipeCardContent extends StatelessWidget {
                 recipe.title,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
-                style: Theme.of(context).textTheme.headline3!.copyWith(
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
                       color: AppColors.black,
                       fontSize: FontSizes.s16.sp,
                     ),

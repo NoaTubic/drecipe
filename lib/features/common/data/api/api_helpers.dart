@@ -26,7 +26,7 @@ extension NetworkHandler on DioError {
         return Failure.generic(title: S.current.failure_forbidden);
       case 401:
         return Failure.generic(title: S.current.failure_unauthorized_access);
-      //TODO: handle 402
+      case 402:
       default:
         return Failure.generic(title: S.current.failure_unexpected_data_error);
     }

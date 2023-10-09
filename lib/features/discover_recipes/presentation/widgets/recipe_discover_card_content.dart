@@ -49,7 +49,7 @@ class RecipeDiscoverCardContent extends StatelessWidget {
             recipe.title,
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
-            style: Theme.of(context).textTheme.headline2!.copyWith(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
                 color: fontColor,
                 fontWeight: FontWeight.bold,
                 fontSize: titleFontSize.sp),

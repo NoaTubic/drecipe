@@ -24,7 +24,7 @@ class DrecipeTextButtonPrimary extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: Theme.of(context).textTheme.button!.copyWith(
+          style: Theme.of(context).textTheme.labelLarge!.copyWith(
                 color: textColor,
                 fontSize: FontSizes.s16,
               ),

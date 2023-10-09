@@ -16,6 +16,7 @@ final favoriteRecipesListNotifierProvider = StateNotifierProvider.autoDispose<
 class FavoriteRecipesListNotifier
     extends StateNotifier<FavoriteRecipesListState> {
   final FavoriteRecipesRepository _favoriteRecipesRepository;
+  // ignore: unused_field
   late StreamSubscription _streamSubscription;
   AutoDisposeStateNotifierProviderRef<FavoriteRecipesListNotifier,
       FavoriteRecipesListState> ref;
@@ -36,9 +37,13 @@ class FavoriteRecipesListNotifier
           .getFavoriteRecipesRemote()
           .listen((result) {
         state = result.fold(
-          (failure) => FavoriteRecipesListState.error(error: failure.title),
+          (failure) => FavoriteRecipesListState.error(
+            error: failure.title,
+          ),
           (favoriteRecipes) {
-            return FavoriteRecipesListState.loaded(recipes: favoriteRecipes);
+            return FavoriteRecipesListState.loaded(
+              recipes: favoriteRecipes,
+            );
           },
         );
       });

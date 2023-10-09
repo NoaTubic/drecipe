@@ -26,7 +26,7 @@ class InstructionsHorizontalSlider extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         SizedBox(
           height: Sizes.s108.h,

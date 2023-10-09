@@ -60,7 +60,6 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<void> deleteSignedInUser() {
-    // TODO: implement deleteSignedInUser
     throw UnimplementedError();
   }
 }

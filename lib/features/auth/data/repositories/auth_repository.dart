@@ -42,10 +42,11 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._userRepository);
 
   @override
-  EitherFailureOr<Unit> register(
-      {required String email,
-      required String password,
-      required String username}) async {
+  EitherFailureOr<Unit> register({
+    required String email,
+    required String password,
+    required String username,
+  }) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
@@ -56,9 +57,12 @@ class AuthRepositoryImpl implements AuthRepository {
     } on FirebaseAuthException catch (exception) {
       if (exception.code == 'email-already-in-use') {
         return left(
-            Failure.generic(title: S.current.failure_email_already_in_user));
+          Failure.generic(title: S.current.failure_email_already_in_user),
+        );
       } else {
-        return left(Failure.generic());
+        return left(
+          Failure.generic(),
+        );
       }
     }
   }
@@ -92,24 +96,34 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  EitherFailureOr<Unit> signInWithEmailAndPassword(
-      {required String email, required String password}) async {
+  EitherFailureOr<Unit> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
       if (!_firebaseAuth.currentUser!.emailVerified) {
         return left(
-            Failure.generic(title: S.current.failure_email_not_verified));
+          Failure.generic(
+            title: S.current.failure_email_not_verified,
+          ),
+        );
       }
       _userRepository.initializeUser();
       return right(unit);
     } on FirebaseException catch (exception) {
       if (exception.code == 'wrong-password' ||
           exception.code == 'user-not-found') {
-        return left(Failure.generic(
-            title: S.current.failure_invalid_email_and_password_combination));
+        return left(
+          Failure.generic(
+            title: S.current.failure_invalid_email_and_password_combination,
+          ),
+        );
       } else {
-        return left(Failure.generic());
+        return left(
+          Failure.generic(),
+        );
       }
     }
   }

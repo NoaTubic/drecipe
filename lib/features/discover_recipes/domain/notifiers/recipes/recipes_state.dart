@@ -1,4 +1,3 @@
-import 'package:drecipe/features/common/domain/failures/failure.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/discover_recipes.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

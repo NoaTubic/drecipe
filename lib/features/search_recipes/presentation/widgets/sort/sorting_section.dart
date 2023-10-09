@@ -11,10 +11,10 @@ class SortingSection extends StatelessWidget {
   Widget build(
     BuildContext context,
   ) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: const [
+      children: [
         Flexible(
           flex: 4,
           child: SortingDropdownButton(),

@@ -25,7 +25,7 @@ class RecommendedRecipeCardContent extends StatelessWidget {
               recipe.title,
               style: Theme.of(context)
                   .textTheme
-                  .bodyText1!
+                  .bodyLarge!
                   .copyWith(fontSize: FontSizes.s14.sp),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

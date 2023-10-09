@@ -104,7 +104,7 @@ class NutrientCircularChart extends StatelessWidget {
         Text(nutrient.name.startsWith('Car') ? 'Carbs' : nutrient.name),
         Text(
           nutrient.amount,
-          style: Theme.of(context).textTheme.caption,
+          style: Theme.of(context).textTheme.bodySmall,
         ),
       ],
     );
@@ -128,7 +128,7 @@ class NutrientData extends StatelessWidget {
       children: [
         Text(
           amount,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         Text(
           nutrient ?? '',

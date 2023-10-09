@@ -4,7 +4,6 @@ import 'package:drecipe/features/search_recipes/domain/state/search/search_recip
 import 'package:drecipe/features/search_recipes/presentation/widgets/ingredients_section.dart';
 import 'package:drecipe/features/search_recipes/presentation/widgets/search_results_list.dart';
 import 'package:drecipe/features/search_recipes/presentation/widgets/sort/sorting_section.dart';
-import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +15,6 @@ class SearchRecipesBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final s = S.of(context);
     final filterState = ref.watch(filterRecipesNotifierProvider);
     final searchState = ref.watch(searchRecipesNotifierProvider);
     return Column(
