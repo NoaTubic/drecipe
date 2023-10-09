@@ -7,6 +7,7 @@ import 'package:drecipe/features/search_recipes/presentation/widgets/filter/filt
 import 'package:drecipe/features/search_recipes/presentation/widgets/search_recipes_body.dart';
 import 'package:drecipe/features/search_recipes/presentation/widgets/search_recipes_empty_body.dart';
 import 'package:drecipe/features/search_recipes/presentation/widgets/search_recipes_loading_body.dart';
+import 'package:drecipe/features/search_recipes/presentation/widgets/start_searching_body.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -115,9 +116,7 @@ class _SearchRecipesPageState extends ConsumerState<SearchRecipesPage>
                       ? const SearchRecipesLoadingBody()
                       : searchRecipesStateListener.recipes.isEmpty
                           ? searchRecipesStateListener.searchQuery.isEmpty
-                              ? const Center(
-                                  child: Icon(Icons.search_off_rounded),
-                                )
+                              ? const StartSearchingBody()
                               : const SearchRecipesEmptyBody()
                           : const SearchRecipesBody(),
                 ),
