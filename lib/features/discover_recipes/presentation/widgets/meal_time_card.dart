@@ -68,9 +68,7 @@ class MealTimeCard extends ConsumerWidget {
                           '${s.discover_recipes_meal_card_time_a} ${state.mealType} ${s.discover_recipes_meal_card_time_b}',
                           style: Theme.of(context).textTheme.displaySmall,
                         ),
-                        Expanded(
-                          child: Container(),
-                        ),
+                        const Spacer(),
                         Icon(
                           Icons.arrow_forward_ios_outlined,
                           color: AppColors.secondaryLightRed1,

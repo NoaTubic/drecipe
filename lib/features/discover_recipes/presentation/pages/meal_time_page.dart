@@ -49,8 +49,11 @@ class MealTimePage extends ConsumerWidget {
               emptyBuilder: (context) => const SearchRecipesLoadingBody(),
               loadingBuilder: (context) => mealTimeRecipes.isEmpty
                   ? const SearchRecipesLoadingBody()
-                  : CircularProgressIndicator.adaptive(
-                      backgroundColor: AppColors.primaryRed,
+                  : Center(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: Sizes.s8.h),
+                        child: const CircularProgressIndicator.adaptive(),
+                      ),
                     ),
               errorBuilder: (context) => Center(
                 child: Text(ref.read(mealTimeRecipesProvider).error),

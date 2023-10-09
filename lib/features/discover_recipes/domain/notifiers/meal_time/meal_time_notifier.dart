@@ -11,6 +11,7 @@ final mealTimeNotifierProvider =
 
 class MealTimeNotifier extends StateNotifier<MealTimeState> {
   MealTimeNotifier() : super(MealTimeState.initial());
+  // ignore: unused_field
   late final Timer _timer;
 
   Future<void> getMealTypeAndTime() async {
