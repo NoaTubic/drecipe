@@ -24,6 +24,7 @@ final recipesRepositoryProvider = Provider<DiscoverRecipesRepository>(
 
 abstract class DiscoverRecipesRepository {
   EitherFailureOr<DiscoverRecipes> getRecipes();
+  EitherFailureOr<List<RecipeRecommended>> getRecommendedRecipes();
 
   EitherFailureOr<List<RecipeDiscover>> getMealTimeRecipes({
     required String mealType,
@@ -60,14 +61,12 @@ class DiscoverRecipesRepositoryImpl implements DiscoverRecipesRepository {
 
       healthyRecipes = healthyRecipesResponse.convertRecipesDiscover();
 
-      final recommendedRecipeID = await getRecommendedId();
+      final result = await getRecommendedRecipes();
 
-      if (recommendedRecipeID != null) {
-        final recommendedRecipesResponse =
-            await _apiClient.getRecommendedRecipes(id: recommendedRecipeID);
-        recommendedRecipes =
-            convertRecommendedRecipes(results: recommendedRecipesResponse);
-      }
+      recommendedRecipes = result.fold(
+        (failure) => recommendedRecipes,
+        (recommendedRecipes) => recommendedRecipes,
+      );
 
       final recipes = DiscoverRecipes(
         randomRecipes: randomRecipes,
@@ -80,6 +79,24 @@ class DiscoverRecipesRepositoryImpl implements DiscoverRecipesRepository {
     } on DioError catch (exception, st) {
       dev.log(exception.message);
       dev.log(st.toString());
+      return left(exception.handleFailure());
+    }
+  }
+
+  @override
+  EitherFailureOr<List<RecipeRecommended>> getRecommendedRecipes() async {
+    List<RecipeRecommended> recommendedRecipes = [];
+    final recommendedRecipeID = await getRecommendedId();
+
+    try {
+      if (recommendedRecipeID != null) {
+        final recommendedRecipesResponse =
+            await _apiClient.getRecommendedRecipes(id: recommendedRecipeID);
+        recommendedRecipes =
+            convertRecommendedRecipes(results: recommendedRecipesResponse);
+      }
+      return Right(recommendedRecipes);
+    } on DioError catch (exception) {
       return left(exception.handleFailure());
     }
   }

@@ -2,13 +2,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "drecipe Developmen",
+      "name": "drecipe Development",
       "request": "launch",
       "type": "dart",
       "program": "lib/main/main_dev.dart",
       "args": [
         "--flavor",
         "dev",
+        "release"
       ]
     },
     {

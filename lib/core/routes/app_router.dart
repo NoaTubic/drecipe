@@ -3,7 +3,7 @@ import 'package:drecipe/features/auth/presentation/pages/account_recovery_page.d
 import 'package:drecipe/features/auth/presentation/pages/reset_password_page.dart';
 import 'package:drecipe/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:drecipe/features/common/ui/widgets/bottom_nav_bar/drecipe_bottom_nav_bar.dart';
-import 'package:drecipe/features/discover_recipes/presentation/pages/discover_recipes_screen.dart';
+import 'package:drecipe/features/discover_recipes/presentation/pages/discover_recipes_page.dart';
 import 'package:drecipe/features/discover_recipes/presentation/pages/meal_time_page.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';

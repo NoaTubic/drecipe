@@ -29,6 +29,7 @@ dependencies:
   flutter_screenutil: ^5.6.0
   flutter_secure_storage: ^5.1.0
   flutter_swipe_action_cell: ^3.0.7
+  freezed: ^2.1.0+1
   freezed_annotation: ^2.1.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
@@ -54,7 +55,6 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   flutter_launcher_icons: ^0.11.0
-  freezed: ^2.1.0+1
   hive_generator: ^1.1.3
   retrofit_generator: ^4.0.3+1
   flutter_flavorizr: ^2.1.5

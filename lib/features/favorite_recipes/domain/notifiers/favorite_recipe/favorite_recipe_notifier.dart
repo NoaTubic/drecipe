@@ -1,3 +1,4 @@
+import 'package:drecipe/features/discover_recipes/domain/notifiers/recipes/recommended_recipes_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/favorite_recipes/data/favorite_recipes_repository.dart';
@@ -38,10 +39,14 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
 
     addToFavoritesResult.fold(
       (failure) => state = state.copyWith(showErrorMessages: true),
-      (success) => state = state.copyWith(
-        isFavorite: true,
-        isHeartAnimating: true,
-      ),
+      (success) {
+        ref.read(recommendedRecipesNotifierProvider.notifier).getRecipes();
+
+        return state = state.copyWith(
+          isFavorite: true,
+          isHeartAnimating: true,
+        );
+      },
     );
     // ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
 
