@@ -1,19 +1,24 @@
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/search_recipes/domain/state/filter/filter_constants.dart';
+import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_notifier.dart';
+import 'package:drecipe/features/search_recipes/domain/state/search/search_recipes_notifier.dart';
 
 import 'package:drecipe/features/search_recipes/presentation/widgets/sort/dropdown_helpers.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/cli_commands.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SortingDropdownButton extends StatefulWidget {
+class SortingDropdownButton extends ConsumerStatefulWidget {
   const SortingDropdownButton({super.key});
 
   @override
-  State<SortingDropdownButton> createState() => _SortingDropdownButtonState();
+  ConsumerState<SortingDropdownButton> createState() =>
+      _SortingDropdownButtonState();
 }
 
-class _SortingDropdownButtonState extends State<SortingDropdownButton> {
+class _SortingDropdownButtonState extends ConsumerState<SortingDropdownButton> {
   @override
   Widget build(BuildContext context) {
     String? selectedValue;
@@ -36,7 +41,7 @@ class _SortingDropdownButtonState extends State<SortingDropdownButton> {
             child: DropdownButton2(
               isExpanded: true,
               hint: Text(
-                'Popularity',
+                ref.watch(filterRecipesNotifierProvider).sort!.capitalize(),
                 style: TextStyle(
                   fontSize: 14,
                   color: Theme.of(context).hintColor,
@@ -46,10 +51,22 @@ class _SortingDropdownButtonState extends State<SortingDropdownButton> {
               customItemsHeights:
                   getCustomItemsHeights(FilterConstants.sortingOptions),
               value: selectedValue,
-              onChanged: (value) {
-                setState(() {
-                  selectedValue = value as String;
-                });
+              onChanged: (value) async {
+                await ref
+                    .read(searchRecipesNotifierProvider.notifier)
+                    .onSortChanged(value as String)
+                    .whenComplete(
+                  () {
+                    ref
+                        .read(searchRecipesNotifierProvider.notifier)
+                        .searchRecipes();
+                  },
+                );
+                setState(
+                  () {
+                    selectedValue = value;
+                  },
+                );
               },
               alignment: AlignmentDirectional.center,
               buttonHeight: Sizes.s40.h,

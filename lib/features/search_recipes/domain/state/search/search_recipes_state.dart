@@ -33,7 +33,7 @@ class SearchRecipesState with _$SearchRecipesState {
         intolerances: '',
         maxReadyTime: '',
         sort: Constants.randomRecipes,
-        sortDirection: '',
+        sortDirection: 'ascending',
         maxCalories: '',
         minCalories: '',
         isLoadingSuggestions: false,

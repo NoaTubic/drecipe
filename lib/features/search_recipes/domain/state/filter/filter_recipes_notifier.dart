@@ -144,11 +144,4 @@ class FilterRecipesNotifier extends StateNotifier<FilterRecipesState> {
   void onMaxCaloriesChanged(String maxCalories) {
     state = state.copyWith(maxCalories: maxCalories);
   }
-
-  void changeSortDirection() {
-    state = state.copyWith(
-        sortDirection: getSortDirection ? 'Ascending' : 'Descending');
-  }
-
-  get getSortDirection => state.sortDirection == 'Asc.' ? false : true;
 }

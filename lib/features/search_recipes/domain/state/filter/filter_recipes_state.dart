@@ -30,7 +30,7 @@ class FilterRecipesState with _$FilterRecipesState {
         cuisine: [],
         diet: [],
         intolerances: [],
-        sort: 'Popularity',
-        sortDirection: 'Asc.',
+        sort: 'random',
+        sortDirection: 'ascending',
       );
 }

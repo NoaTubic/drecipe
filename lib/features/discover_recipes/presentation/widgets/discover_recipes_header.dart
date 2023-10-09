@@ -19,7 +19,7 @@ class DiscoverRecipesHeader extends ConsumerWidget {
       padding: EdgeInsets.symmetric(
           vertical: Sizes.s16.h, horizontal: Sizes.bodyHorizontalPadding.w),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         textBaseline: TextBaseline.alphabetic,
         children: [
@@ -29,6 +29,9 @@ class DiscoverRecipesHeader extends ConsumerWidget {
               ImageAssets.drecipeLogoNoText,
               width: Sizes.s52.w,
             ),
+          ),
+          const SizedBox(
+            width: Sizes.s24,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,9 +45,6 @@ class DiscoverRecipesHeader extends ConsumerWidget {
               ),
               Text(s.discover_recipes_welcome_b),
             ],
-          ),
-          const SettingsButton(
-            withPadding: false,
           ),
         ],
       ),

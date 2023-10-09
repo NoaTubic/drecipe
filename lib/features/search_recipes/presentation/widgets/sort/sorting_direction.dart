@@ -2,6 +2,7 @@ import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_notifier.dart';
 import 'package:drecipe/features/search_recipes/domain/state/search/search_recipes_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/cli_commands.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,15 +13,13 @@ class SortingDirection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(filterRecipesNotifierProvider);
-    final filterNotifier = ref.read(filterRecipesNotifierProvider.notifier);
+    final state = ref.watch(searchRecipesNotifierProvider);
     final searchNotifier = ref.read(searchRecipesNotifierProvider.notifier);
     return Material(
       borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
       child: InkWell(
-        onTap: () {
-          filterNotifier.changeSortDirection();
-          searchNotifier.searchRecipes();
+        onTap: () async {
+          searchNotifier.changeSortDirection();
         },
         borderRadius: BorderRadius.circular(Sizes.circularRadius.r),
         child: Container(
@@ -37,9 +36,9 @@ class SortingDirection extends ConsumerWidget {
               SizedBox(
                 width: Sizes.s4.w,
               ),
-              Text(state.sortDirection!),
+              Text(state.sortDirection.capitalize()),
               Icon(
-                filterNotifier.getSortDirection
+                state.sortDirection == 'ascending'
                     ? Icons.expand_less_rounded
                     : Icons.expand_more_rounded,
               ),

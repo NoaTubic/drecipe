@@ -43,7 +43,6 @@ class SearchRecipesNotifier extends StateNotifier<SearchRecipesState> {
       isLoading: true,
       showErrorMessages: false,
     );
-
     final filters = ref.watch(filterRecipesNotifierProvider);
 
     final results = await _searchRecipesRepository.searchRecipes(
@@ -57,7 +56,7 @@ class SearchRecipesNotifier extends StateNotifier<SearchRecipesState> {
       minCalories: filters.minCalories,
       maxCalories: filters.maxCalories,
       maxReadyTime: filters.maxReadyTime,
-      sort: state.sort,
+      sort: filters.sort,
       sortDirection: state.sortDirection,
     );
     await Future.delayed(const Duration(seconds: 1));
@@ -87,4 +86,16 @@ class SearchRecipesNotifier extends StateNotifier<SearchRecipesState> {
         .substring(1, formattedFilterValues.length)
         .toLowerCase();
   }
+
+  Future<void> onSortChanged(String sort) async {
+    state = state.copyWith(sort: sort);
+  }
+
+  Future<void> changeSortDirection() async {
+    state = state.copyWith(sortDirection: isAsc);
+    searchRecipes();
+  }
+
+  String get isAsc =>
+      state.sortDirection == 'ascending' ? 'descending' : 'ascending';
 }
