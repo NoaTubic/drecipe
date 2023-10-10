@@ -3,17 +3,21 @@ import 'package:drecipe/features/discover_recipes/presentation/widgets/drecipe_c
 import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_notifier.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SearchByIngredientsSection extends ConsumerWidget {
+class SearchByIngredientsSection extends HookConsumerWidget {
   const SearchByIngredientsSection({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final filterNotifier = ref.read(filterRecipesNotifierProvider.notifier);
     final state = ref.watch(filterRecipesNotifierProvider);
+    final controllerInclude = useTextEditingController();
+    final controllerExclude = useTextEditingController();
 
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -22,27 +26,33 @@ class SearchByIngredientsSection extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SearchByIngredientsRow(
+            controller: controllerInclude,
             text: S.current.search_by_ingredients_include,
             icon: Icons.add_box_rounded,
             hint: S.current.search_by_ingredients_include_hint,
             ingredients: state.includeIngredients,
             onChanged: (ingredient) =>
                 filterNotifier.onIngredientToIncludeChanged(ingredient),
-            onPressed: () =>
-                filterNotifier.addIncludedIngredient(state.ingredientToInclude),
+            onPressed: () {
+              filterNotifier.addIncludedIngredient(state.ingredientToInclude);
+              controllerInclude.clear();
+            },
           ),
           SizedBox(
             height: Sizes.s12.h,
           ),
           SearchByIngredientsRow(
+            controller: controllerExclude,
             text: S.current.search_by_ingredients_exclude,
             icon: Icons.indeterminate_check_box_rounded,
             hint: S.current.search_by_ingredients_exclude_hint,
             ingredients: state.excludeIngredients,
             onChanged: (ingredient) =>
                 filterNotifier.onIngredientToExcludeChanged(ingredient),
-            onPressed: () =>
-                filterNotifier.addExcludedIngredient(state.ingredientToExclude),
+            onPressed: () {
+              filterNotifier.addExcludedIngredient(state.ingredientToExclude);
+              controllerExclude.clear();
+            },
           ),
         ],
       ),
@@ -59,6 +69,7 @@ class SearchByIngredientsRow extends ConsumerStatefulWidget {
     required this.onPressed,
     required this.onChanged,
     required this.ingredients,
+    required this.controller,
   }) : super(key: key);
 
   final String text;
@@ -67,6 +78,7 @@ class SearchByIngredientsRow extends ConsumerStatefulWidget {
   final void Function()? onPressed;
   final void Function(String)? onChanged;
   final List<String> ingredients;
+  final TextEditingController controller;
 
   @override
   ConsumerState<SearchByIngredientsRow> createState() =>
@@ -110,6 +122,7 @@ class _SearchByIngredientsRowState
                   decoration: InputDecoration(
                     hintText: widget.hint,
                   ),
+                  controller: widget.controller,
                 ),
               ),
               SizedBox(

@@ -32,6 +32,7 @@ class FilterRecipesState with _$FilterRecipesState {
         cuisine: [],
         diet: [],
         intolerances: [],
+        maxReadyTime: '0',
         sort: Constants.randomRecipes,
         sortDirection: FilterConstants.sortAsc,
       );

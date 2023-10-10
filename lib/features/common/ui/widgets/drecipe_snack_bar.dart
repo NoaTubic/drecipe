@@ -10,7 +10,7 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showDrecipeSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.fixed,
       backgroundColor: AppColors.primaryRed,
-      padding: EdgeInsets.only(top: Sizes.s16.h),
+      padding: EdgeInsets.only(top: Sizes.s16.h, bottom: Sizes.s16.h),
       elevation: Sizes.s0,
       content: DrecipeSnackBar(
         text: text,

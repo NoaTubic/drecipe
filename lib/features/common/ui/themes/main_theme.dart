@@ -31,6 +31,11 @@ class AppTheme {
       titleTextStyle: TextStyles.bold(
           color: AppColors.primaryRed, fontSize: FontSizes.s24.sp),
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: AppColors.primaryRed,
+      selectionHandleColor: AppColors.secondaryLightRed3,
+      selectionColor: AppColors.secondaryLightRed3,
+    ),
     textTheme: TextTheme(
         displayLarge: TextStyles.bold(
             color: AppColors.primaryRed, fontSize: FontSizes.s24.sp),
@@ -160,6 +165,11 @@ class AppTheme {
       ),
       titleTextStyle: TextStyles.bold(
           color: AppColors.secondaryLightRed1, fontSize: FontSizes.s24.sp),
+    ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: AppColors.primaryRed,
+      selectionHandleColor: AppColors.secondaryLightRed3,
+      selectionColor: AppColors.secondaryLightRed3,
     ),
     textTheme: TextTheme(
         displayLarge: TextStyles.bold(
