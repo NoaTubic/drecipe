@@ -7,7 +7,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:drecipe/core/providers/providers.dart';
 import 'package:drecipe/features/common/ui/sizes/sizes.dart';
-import 'package:drecipe/features/profile/di/providers.dart';
+import 'package:drecipe/features/profile/domain/providers/providers.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

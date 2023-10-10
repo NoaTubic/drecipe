@@ -1,4 +1,7 @@
+import 'package:drecipe/features/auth/domain/notifiers/auth/auth_notifier.dart';
+import 'package:drecipe/features/common/ui/widgets/primary_toast.dart';
 import 'package:drecipe/features/discover_recipes/domain/notifiers/recipes/recommended_recipes_notifier.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/favorite_recipes/data/favorite_recipes_repository.dart';
@@ -32,51 +35,28 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
     if (!mounted) {
       return;
     }
-    final addToFavoritesResult =
-        await _favoriteRecipesRepository.addFavoriteRecipe(
-      recipe: recipe,
-    );
+    if (ref.watch(isUserAnonymous)) {
+      showPrimaryToast(S.current.favorite_recipes_sign_in);
+      state = state.copyWith(showErrorMessages: true);
+    } else {
+      final addToFavoritesResult =
+          await _favoriteRecipesRepository.addFavoriteRecipe(
+        recipe: recipe,
+      );
 
-    addToFavoritesResult.fold(
-      (failure) => state = state.copyWith(showErrorMessages: true),
-      (success) {
-        ref.read(recommendedRecipesNotifierProvider.notifier).getRecipes();
+      addToFavoritesResult.fold(
+        (failure) => state = state.copyWith(showErrorMessages: true),
+        (success) {
+          ref.read(recommendedRecipesNotifierProvider.notifier).getRecipes();
 
-        return state = state.copyWith(
-          isFavorite: true,
-          isHeartAnimating: true,
-        );
-      },
-    );
-    // ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
+          return state = state.copyWith(
+            isFavorite: true,
+            isHeartAnimating: true,
+          );
+        },
+      );
+      // ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
 
-    await Future.delayed(
-      const Duration(seconds: DurationConstants.d2),
-      () {},
-    );
-    if (!mounted) {
-      return;
-    }
-    state = state.copyWith(isHeartAnimating: false);
-  }
-
-  Future<void> removeFavoriteRecipe(
-      {required int recipeId, bool withAnimation = true}) async {
-    final removeFromFavoritesResult =
-        await _favoriteRecipesRepository.removeFavoriteRecipe(
-      recipeId: recipeId,
-    );
-
-    removeFromFavoritesResult.fold(
-      (failure) => state = state.copyWith(showErrorMessages: true),
-      (success) => state = state.copyWith(
-        isFavorite: false,
-        isHeartAnimating: withAnimation,
-      ),
-    );
-    // ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
-
-    if (withAnimation) {
       await Future.delayed(
         const Duration(seconds: DurationConstants.d2),
         () {},
@@ -85,6 +65,38 @@ class FavoriteRecipeNotifier extends StateNotifier<FavoriteRecipeState> {
         return;
       }
       state = state.copyWith(isHeartAnimating: false);
+    }
+  }
+
+  Future<void> removeFavoriteRecipe(
+      {required int recipeId, bool withAnimation = true}) async {
+    if (ref.watch(isUserAnonymous)) {
+      state = state.copyWith(showErrorMessages: true);
+    } else {
+      final removeFromFavoritesResult =
+          await _favoriteRecipesRepository.removeFavoriteRecipe(
+        recipeId: recipeId,
+      );
+
+      removeFromFavoritesResult.fold(
+        (failure) => state = state.copyWith(showErrorMessages: true),
+        (success) => state = state.copyWith(
+          isFavorite: false,
+          isHeartAnimating: withAnimation,
+        ),
+      );
+      // ref.read(favoriteRecipesListNotifierProvider.notifier).getFavoriteRecipes();
+
+      if (withAnimation) {
+        await Future.delayed(
+          const Duration(seconds: DurationConstants.d2),
+          () {},
+        );
+        if (!mounted) {
+          return;
+        }
+        state = state.copyWith(isHeartAnimating: false);
+      }
     }
   }
 

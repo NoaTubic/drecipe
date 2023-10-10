@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `Cancel`
+  String get label_cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'label_cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please sign in to your account`
   String get sign_in_helper {
     return Intl.message(
@@ -540,11 +550,61 @@ class S {
     );
   }
 
+  /// `Vege`
+  String get diet_badge_vege {
+    return Intl.message(
+      'Vege',
+      name: 'diet_badge_vege',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vegan`
+  String get diet_badge_vegan {
+    return Intl.message(
+      'Vegan',
+      name: 'diet_badge_vegan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GF`
+  String get diet_badge_gf {
+    return Intl.message(
+      'GF',
+      name: 'diet_badge_gf',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Instructions`
   String get recipe_details_instructions_title {
     return Intl.message(
       'Instructions',
       name: 'recipe_details_instructions_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Step by Step instructions`
+  String get recipe_details_instructions_step_by_step {
+    return Intl.message(
+      'Step by Step instructions',
+      name: 'recipe_details_instructions_step_by_step',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No instructions for this recipe at this moment. :('`
+  String get recipe_details_instructions_detailed_error {
+    return Intl.message(
+      'No instructions for this recipe at this moment. :(\'',
+      name: 'recipe_details_instructions_detailed_error',
       desc: '',
       args: [],
     );
@@ -585,6 +645,26 @@ class S {
     return Intl.message(
       'Favorites',
       name: 'favorite_recipes_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add recipes to favorites to get recommendations`
+  String get favorite_recipes_add_for_recommendations {
+    return Intl.message(
+      'Add recipes to favorites to get recommendations',
+      name: 'favorite_recipes_add_for_recommendations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in to add recipes to favorites`
+  String get favorite_recipes_sign_in {
+    return Intl.message(
+      'Sign in to add recipes to favorites',
+      name: 'favorite_recipes_sign_in',
       desc: '',
       args: [],
     );
@@ -860,11 +940,51 @@ class S {
     );
   }
 
+  /// `New password`
+  String get profile_screen_change_password_new {
+    return Intl.message(
+      'New password',
+      name: 'profile_screen_change_password_new',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password changed successfully`
+  String get profile_screen_change_password_success {
+    return Intl.message(
+      'Password changed successfully',
+      name: 'profile_screen_change_password_success',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Privacy policy`
-  String get profile_screen_change_privacy_policy {
+  String get profile_screen_privacy_policy {
     return Intl.message(
       'Privacy policy',
-      name: 'profile_screen_change_privacy_policy',
+      name: 'profile_screen_privacy_policy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This is the privacy policy`
+  String get profile_screen_privacy_policy_desc {
+    return Intl.message(
+      'This is the privacy policy',
+      name: 'profile_screen_privacy_policy_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get profile_screen_privacy_policy_close {
+    return Intl.message(
+      'Close',
+      name: 'profile_screen_privacy_policy_close',
       desc: '',
       args: [],
     );
@@ -881,10 +1001,330 @@ class S {
   }
 
   /// `Delete account`
-  String get profile_screen_delete_account {
+  String get profile_screen_delete_account_title {
     return Intl.message(
       'Delete account',
-      name: 'profile_screen_delete_account',
+      name: 'profile_screen_delete_account_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete your account?`
+  String get profile_screen_delete_account_helper {
+    return Intl.message(
+      'Are you sure you want to delete your account?',
+      name: 'profile_screen_delete_account_helper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get profile_screen_delete_account_delete {
+    return Intl.message(
+      'Delete',
+      name: 'profile_screen_delete_account_delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oops... No internet connection`
+  String get no_connection_title {
+    return Intl.message(
+      'Oops... No internet connection',
+      name: 'no_connection_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your internet connection and try again`
+  String get no_connection_helper {
+    return Intl.message(
+      'Please check your internet connection and try again',
+      name: 'no_connection_helper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filters`
+  String get filters_title {
+    return Intl.message(
+      'Filters',
+      name: 'filters_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply`
+  String get filters_apply {
+    return Intl.message(
+      'Apply',
+      name: 'filters_apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cuisine`
+  String get filters_cuisine {
+    return Intl.message(
+      'Cuisine',
+      name: 'filters_cuisine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Meal type`
+  String get filters_meal_type {
+    return Intl.message(
+      'Meal type',
+      name: 'filters_meal_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Diets`
+  String get filters_diets {
+    return Intl.message(
+      'Diets',
+      name: 'filters_diets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Intolerances`
+  String get filters_intolerances {
+    return Intl.message(
+      'Intolerances',
+      name: 'filters_intolerances',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max ready time`
+  String get filters_max_ready_time {
+    return Intl.message(
+      'Max ready time',
+      name: 'filters_max_ready_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Min ready time`
+  String get filters_min_ready_time {
+    return Intl.message(
+      'Min ready time',
+      name: 'filters_min_ready_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `minutes`
+  String get filters_minutes {
+    return Intl.message(
+      'minutes',
+      name: 'filters_minutes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Min calories`
+  String get filter_min_calories {
+    return Intl.message(
+      'Min calories',
+      name: 'filter_min_calories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max calories`
+  String get filter_max_calories {
+    return Intl.message(
+      'Max calories',
+      name: 'filter_max_calories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sort by`
+  String get filters_sort_by {
+    return Intl.message(
+      'Sort by',
+      name: 'filters_sort_by',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search recipes...`
+  String get search_recipes_hint {
+    return Intl.message(
+      'Search recipes...',
+      name: 'search_recipes_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Include ingredients`
+  String get search_by_ingredients_include {
+    return Intl.message(
+      'Include ingredients',
+      name: 'search_by_ingredients_include',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Included ingredients`
+  String get search_included_ingredients {
+    return Intl.message(
+      'Included ingredients',
+      name: 'search_included_ingredients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Excluded ingredients`
+  String get search_excluded_ingredients {
+    return Intl.message(
+      'Excluded ingredients',
+      name: 'search_excluded_ingredients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No results found`
+  String get search_no_results {
+    return Intl.message(
+      'No results found',
+      name: 'search_no_results',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We couldn't find any recipes matching your search.`
+  String get search_no_results_helper {
+    return Intl.message(
+      'We couldn\'t find any recipes matching your search.',
+      name: 'search_no_results_helper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please try again with different keywords.`
+  String get search_no_results_try_again {
+    return Intl.message(
+      'Please try again with different keywords.',
+      name: 'search_no_results_try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No matching results`
+  String get search_no_matching_results {
+    return Intl.message(
+      'No matching results',
+      name: 'search_no_matching_results',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start searching!`
+  String get search_start_searching {
+    return Intl.message(
+      'Start searching!',
+      name: 'search_start_searching',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add some ingredients to your search and we'll find you some recipes.`
+  String get search_start_searching_helper {
+    return Intl.message(
+      'Add some ingredients to your search and we\'ll find you some recipes.',
+      name: 'search_start_searching_helper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingredients you have`
+  String get search_by_ingredients_include_hint {
+    return Intl.message(
+      'Ingredients you have',
+      name: 'search_by_ingredients_include_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exclude ingredients`
+  String get search_by_ingredients_exclude {
+    return Intl.message(
+      'Exclude ingredients',
+      name: 'search_by_ingredients_exclude',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingredients you don't have`
+  String get search_by_ingredients_exclude_hint {
+    return Intl.message(
+      'Ingredients you don\'t have',
+      name: 'search_by_ingredients_exclude_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get search_by_ingredients_add {
+    return Intl.message(
+      'Add',
+      name: 'search_by_ingredients_add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hey there! Wanna save your fave recipes?\n Just sign in and you'll be all set to add to your favorites!`
+  String get anonymous_user_favorites {
+    return Intl.message(
+      'Hey there! Wanna save your fave recipes?\n Just sign in and you\'ll be all set to add to your favorites!',
+      name: 'anonymous_user_favorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Anonymous user`
+  String get anonymous_user {
+    return Intl.message(
+      'Anonymous user',
+      name: 'anonymous_user',
       desc: '',
       args: [],
     );

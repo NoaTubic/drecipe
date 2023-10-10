@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/constants/constants.dart';
-import 'package:drecipe/features/common/di/providers.dart';
+import 'package:drecipe/features/common/domain/providers/providers.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/bottom_nav_bar/state/bottom_nav_bar_state.dart';
 import 'package:drecipe/features/common/ui/widgets/recipe_card_content.dart';

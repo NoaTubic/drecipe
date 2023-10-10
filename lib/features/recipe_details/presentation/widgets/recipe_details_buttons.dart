@@ -4,6 +4,7 @@ import 'package:drecipe/features/favorite_recipes/domain/notifiers/favorite_reci
 import 'package:drecipe/features/favorite_recipes/presentation/widgets/heart_icon.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/instructions.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -71,7 +72,7 @@ class _RecipeDetailsButtonsState extends ConsumerState<RecipeDetailsButtons> {
         Flexible(
           flex: 3,
           child: DrecipeButton(
-            text: 'Step by Step Instructions',
+            text: S.current.recipe_details_instructions_step_by_step,
             onPressed: () => ScreenRouter.pushScreen(
               context,
               DetailedInstructionsPageRoute(instructions: widget.instructions),

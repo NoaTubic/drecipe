@@ -1,11 +1,16 @@
+import 'package:drecipe/features/auth/domain/notifiers/auth/auth_notifier.dart';
 import 'package:drecipe/features/discover_recipes/presentation/widgets/recipe_recommended_card.dart';
+import 'package:drecipe/features/favorite_recipes/presentation/pages/favorite_recipes_page.dart';
+import 'package:drecipe/features/favorite_recipes/presentation/widgets/add_to_favorite_graphic.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/discover_recipes/presentation/widgets/drecipe_custom_scroll_physics.dart';
 import 'package:drecipe/features/discover_recipes/presentation/widgets/recipe_image_card.dart';
 
-class DrecipeCardSwiper extends StatelessWidget {
+class DrecipeCardSwiper extends ConsumerWidget {
   const DrecipeCardSwiper({
     Key? key,
     required this.title,
@@ -18,7 +23,7 @@ class DrecipeCardSwiper extends StatelessWidget {
   final bool recommendedRecipes;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: Sizes.s8.h),
       child: Column(
@@ -35,22 +40,24 @@ class DrecipeCardSwiper extends StatelessWidget {
           SizedBox(
             height: Sizes.s4.h,
           ),
-          recommendedRecipes && recipes.isEmpty
-              ? const NotRecommendedRecipesContent()
-              : DrecipeCarousel(
-                  itemCount: recipes.length,
-                  items: recipes,
-                  height: recommendedRecipes ? Sizes.s146.h : null,
-                  builder: (context, recipe) {
-                    return recommendedRecipes
-                        ? RecipeRecommendedCard(
-                            recipe: recipe,
-                          )
-                        : RecipeImageCard(
-                            recipe: recipe,
-                          );
-                  },
-                ),
+          ref.watch(isUserAnonymous) && recommendedRecipes
+              ? const AnonymousFavoritesInfo()
+              : recommendedRecipes && recipes.isEmpty
+                  ? const NotRecommendedRecipesContent()
+                  : DrecipeCarousel(
+                      itemCount: recipes.length,
+                      items: recipes,
+                      height: recommendedRecipes ? Sizes.s146.h : null,
+                      builder: (context, recipe) {
+                        return recommendedRecipes
+                            ? RecipeRecommendedCard(
+                                recipe: recipe,
+                              )
+                            : RecipeImageCard(
+                                recipe: recipe,
+                              );
+                      },
+                    ),
         ],
       ),
     );
@@ -70,32 +77,12 @@ class NotRecommendedRecipesContent extends StatelessWidget {
         children: [
           SizedBox(
             width: Sizes.s200.w,
-            child:
-                const Text('Add recipes to favorites to get recommendations.'),
+            child: Text(S.current.favorite_recipes_add_for_recommendations),
           ),
           SizedBox(
             width: Sizes.s28.w,
           ),
-          Icon(
-            Icons.favorite_rounded,
-            size: Sizes.iconSize.w,
-            color: AppColors.lightGrey1,
-          ),
-          SizedBox(
-            width: Sizes.s4.w,
-          ),
-          Icon(
-            Icons.arrow_forward_rounded,
-            size: Sizes.iconSizeSmall.w,
-          ),
-          SizedBox(
-            width: Sizes.s4.w,
-          ),
-          Icon(
-            Icons.favorite_rounded,
-            size: Sizes.iconSize.w,
-            color: AppColors.primaryRed,
-          ),
+          const AddToFavoritesGraphic(),
         ],
       ),
     );

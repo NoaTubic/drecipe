@@ -33,6 +33,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot your password?"),
         "account_recovery_title":
             MessageLookupByLibrary.simpleMessage("Reset password"),
+        "anonymous_user":
+            MessageLookupByLibrary.simpleMessage("Anonymous user"),
+        "anonymous_user_favorites": MessageLookupByLibrary.simpleMessage(
+            "Hey there! Wanna save your fave recipes?\n Just sign in and you\'ll be all set to add to your favorites!"),
         "bottom_nav_bar_discover":
             MessageLookupByLibrary.simpleMessage("Discover"),
         "bottom_nav_bar_favorite":
@@ -43,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottom_nav_bar_search_by_ingredients":
             MessageLookupByLibrary.simpleMessage("Search by ingredients"),
         "croatian_language": MessageLookupByLibrary.simpleMessage("Croatian"),
+        "diet_badge_gf": MessageLookupByLibrary.simpleMessage("GF"),
+        "diet_badge_vegan": MessageLookupByLibrary.simpleMessage("Vegan"),
+        "diet_badge_vege": MessageLookupByLibrary.simpleMessage("Vege"),
         "discover_recipes_card_text_ingredients":
             MessageLookupByLibrary.simpleMessage("ingredients"),
         "discover_recipes_card_text_servings":
@@ -123,31 +130,77 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Unexpected error"),
         "failure_unknown_error_occurred":
             MessageLookupByLibrary.simpleMessage("Unknown error occurred"),
+        "favorite_recipes_add_for_recommendations":
+            MessageLookupByLibrary.simpleMessage(
+                "Add recipes to favorites to get recommendations"),
+        "favorite_recipes_sign_in": MessageLookupByLibrary.simpleMessage(
+            "Sign in to add recipes to favorites"),
         "favorite_recipes_title":
             MessageLookupByLibrary.simpleMessage("Favorites"),
+        "filter_max_calories":
+            MessageLookupByLibrary.simpleMessage("Max calories"),
+        "filter_min_calories":
+            MessageLookupByLibrary.simpleMessage("Min calories"),
+        "filters_apply": MessageLookupByLibrary.simpleMessage("Apply"),
+        "filters_cuisine": MessageLookupByLibrary.simpleMessage("Cuisine"),
+        "filters_diets": MessageLookupByLibrary.simpleMessage("Diets"),
+        "filters_intolerances":
+            MessageLookupByLibrary.simpleMessage("Intolerances"),
+        "filters_max_ready_time":
+            MessageLookupByLibrary.simpleMessage("Max ready time"),
+        "filters_meal_type": MessageLookupByLibrary.simpleMessage("Meal type"),
+        "filters_min_ready_time":
+            MessageLookupByLibrary.simpleMessage("Min ready time"),
+        "filters_minutes": MessageLookupByLibrary.simpleMessage("minutes"),
+        "filters_sort_by": MessageLookupByLibrary.simpleMessage("Sort by"),
+        "filters_title": MessageLookupByLibrary.simpleMessage("Filters"),
+        "label_cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "label_or": MessageLookupByLibrary.simpleMessage("or"),
         "label_try_again":
             MessageLookupByLibrary.simpleMessage("Please try again later"),
+        "no_connection_helper": MessageLookupByLibrary.simpleMessage(
+            "Please check your internet connection and try again"),
+        "no_connection_title": MessageLookupByLibrary.simpleMessage(
+            "Oops... No internet connection"),
         "profile_screen_change_language":
             MessageLookupByLibrary.simpleMessage("Language"),
         "profile_screen_change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
-        "profile_screen_change_privacy_policy":
-            MessageLookupByLibrary.simpleMessage("Privacy policy"),
-        "profile_screen_delete_account":
+        "profile_screen_change_password_new":
+            MessageLookupByLibrary.simpleMessage("New password"),
+        "profile_screen_change_password_success":
+            MessageLookupByLibrary.simpleMessage(
+                "Password changed successfully"),
+        "profile_screen_delete_account_delete":
+            MessageLookupByLibrary.simpleMessage("Delete"),
+        "profile_screen_delete_account_helper":
+            MessageLookupByLibrary.simpleMessage(
+                "Are you sure you want to delete your account?"),
+        "profile_screen_delete_account_title":
             MessageLookupByLibrary.simpleMessage("Delete account"),
         "profile_screen_email": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "profile_screen_privacy_policy":
+            MessageLookupByLibrary.simpleMessage("Privacy policy"),
+        "profile_screen_privacy_policy_close":
+            MessageLookupByLibrary.simpleMessage("Close"),
+        "profile_screen_privacy_policy_desc":
+            MessageLookupByLibrary.simpleMessage("This is the privacy policy"),
         "profile_screen_sign_out":
             MessageLookupByLibrary.simpleMessage("Sign out"),
         "profile_screen_theme_mode":
             MessageLookupByLibrary.simpleMessage("Theme mode"),
         "profile_screen_title": MessageLookupByLibrary.simpleMessage("Profile"),
+        "recipe_details_instructions_detailed_error":
+            MessageLookupByLibrary.simpleMessage(
+                "No instructions for this recipe at this moment. :(\'"),
         "recipe_details_instructions_equipment":
             MessageLookupByLibrary.simpleMessage("Equipment"),
         "recipe_details_instructions_ingredients":
             MessageLookupByLibrary.simpleMessage("Ingredients"),
         "recipe_details_instructions_step":
             MessageLookupByLibrary.simpleMessage("Step"),
+        "recipe_details_instructions_step_by_step":
+            MessageLookupByLibrary.simpleMessage("Step by Step instructions"),
         "recipe_details_instructions_title":
             MessageLookupByLibrary.simpleMessage("Instructions"),
         "registration_email_hint":
@@ -167,6 +220,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "registration_title": MessageLookupByLibrary.simpleMessage("Register"),
         "registration_username_hint":
             MessageLookupByLibrary.simpleMessage("Username"),
+        "search_by_ingredients_add":
+            MessageLookupByLibrary.simpleMessage("Add"),
+        "search_by_ingredients_exclude":
+            MessageLookupByLibrary.simpleMessage("Exclude ingredients"),
+        "search_by_ingredients_exclude_hint":
+            MessageLookupByLibrary.simpleMessage("Ingredients you don\'t have"),
+        "search_by_ingredients_include":
+            MessageLookupByLibrary.simpleMessage("Include ingredients"),
+        "search_by_ingredients_include_hint":
+            MessageLookupByLibrary.simpleMessage("Ingredients you have"),
+        "search_excluded_ingredients":
+            MessageLookupByLibrary.simpleMessage("Excluded ingredients"),
+        "search_included_ingredients":
+            MessageLookupByLibrary.simpleMessage("Included ingredients"),
+        "search_no_matching_results":
+            MessageLookupByLibrary.simpleMessage("No matching results"),
+        "search_no_results":
+            MessageLookupByLibrary.simpleMessage("No results found"),
+        "search_no_results_helper": MessageLookupByLibrary.simpleMessage(
+            "We couldn\'t find any recipes matching your search."),
+        "search_no_results_try_again": MessageLookupByLibrary.simpleMessage(
+            "Please try again with different keywords."),
+        "search_recipes_hint":
+            MessageLookupByLibrary.simpleMessage("Search recipes..."),
+        "search_start_searching":
+            MessageLookupByLibrary.simpleMessage("Start searching!"),
+        "search_start_searching_helper": MessageLookupByLibrary.simpleMessage(
+            "Add some ingredients to your search and we\'ll find you some recipes."),
         "sign_in_anonymous":
             MessageLookupByLibrary.simpleMessage("Continue without signing in"),
         "sign_in_email_hint": MessageLookupByLibrary.simpleMessage("Email"),

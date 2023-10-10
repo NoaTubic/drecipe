@@ -1,3 +1,4 @@
+import 'package:drecipe/features/search_recipes/domain/state/filter/filter_constants.dart';
 import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,13 +12,13 @@ class FilterRecipesNotifier extends StateNotifier<FilterRecipesState> {
 
   void addFilter(String value, String filter) {
     switch (filter) {
-      case 'Cuisine':
+      case FilterConstants.cuisine:
         return addCuisine(value);
-      case 'Meal type':
+      case FilterConstants.mealType:
         return addMealType(value);
-      case 'Diet':
+      case FilterConstants.diet:
         return addDiet(value);
-      case 'Intolerances':
+      case FilterConstants.intolerance:
         return addIntolerance(value);
       default:
     }
@@ -25,13 +26,13 @@ class FilterRecipesNotifier extends StateNotifier<FilterRecipesState> {
 
   void removeFilter(String value, String filter) {
     switch (filter) {
-      case 'Cuisine':
+      case FilterConstants.cuisine:
         return removeCuisine(value);
-      case 'Meal type':
+      case FilterConstants.mealType:
         return removeMealType(value);
-      case 'Diet':
+      case FilterConstants.diet:
         return removeDiet(value);
-      case 'Intolerances':
+      case FilterConstants.intolerance:
         return removeIntolerance(value);
       default:
     }

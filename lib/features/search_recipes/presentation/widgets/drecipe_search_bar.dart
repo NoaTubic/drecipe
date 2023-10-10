@@ -2,6 +2,7 @@ import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/search_recipes/domain/state/search/search_recipes_notifier.dart';
 import 'package:drecipe/features/search_recipes/presentation/widgets/search_suggestions_list.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,7 +40,7 @@ class DrecipeSearchBar extends ConsumerWidget {
         width: 0.8 * screenWidth,
         openWidth: screenWidth,
         axisAlignment: -1,
-        hint: 'Search recipes...',
+        hint: S.current.search_recipes_hint,
         scrollPadding: EdgeInsets.only(top: Sizes.s16.h, bottom: Sizes.s56.h),
         transitionDuration: const Duration(milliseconds: 800),
         transitionCurve: Curves.easeInOut,

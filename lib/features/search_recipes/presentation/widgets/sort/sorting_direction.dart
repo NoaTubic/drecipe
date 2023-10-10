@@ -1,5 +1,5 @@
 import 'package:drecipe/features/common/ui/styles.dart';
-import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_notifier.dart';
+import 'package:drecipe/features/search_recipes/domain/state/filter/filter_constants.dart';
 import 'package:drecipe/features/search_recipes/domain/state/search/search_recipes_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/cli_commands.dart';
@@ -38,7 +38,7 @@ class SortingDirection extends ConsumerWidget {
               ),
               Text(state.sortDirection.capitalize()),
               Icon(
-                state.sortDirection == 'ascending'
+                state.sortDirection == FilterConstants.sortAsc
                     ? Icons.expand_less_rounded
                     : Icons.expand_more_rounded,
               ),

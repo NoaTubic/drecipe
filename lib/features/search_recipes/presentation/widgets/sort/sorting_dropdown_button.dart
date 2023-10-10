@@ -2,6 +2,7 @@ import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/search_recipes/domain/state/filter/filter_constants.dart';
 import 'package:drecipe/features/search_recipes/domain/state/search/search_recipes_notifier.dart';
 import 'package:drecipe/features/search_recipes/presentation/widgets/sort/dropdown_helpers.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/cli_commands.dart';
@@ -31,7 +32,7 @@ class _SortingDropdownButtonState extends ConsumerState<SortingDropdownButton> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Sort by:'),
+          Text(S.current.filters_sort_by),
           SizedBox(
             width: Sizes.s4.w,
           ),

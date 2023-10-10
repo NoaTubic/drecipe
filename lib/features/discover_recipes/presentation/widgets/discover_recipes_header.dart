@@ -40,7 +40,8 @@ class DiscoverRecipesHeader extends ConsumerWidget {
                 children: [
                   Text(s.discover_recipes_welcome_a),
                   Text(
-                      '${ref.read(firebaseAuthProvider).currentUser!.displayName}!'),
+                      ref.read(firebaseAuthProvider).currentUser?.displayName ??
+                          S.current.anonymous_user),
                 ],
               ),
               Text(s.discover_recipes_welcome_b),

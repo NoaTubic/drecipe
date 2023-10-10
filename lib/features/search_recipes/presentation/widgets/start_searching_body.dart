@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,9 +20,14 @@ class StartSearchingBody extends StatelessWidget {
             size: Sizes.iconSizeBig.w,
             color: AppColors.secondaryLightRed1,
           ),
-          const Text('Start searching!'),
-          const Text('Add some ingredients to your search.'),
-          const Text('Or exclude some ingredients.'),
+          Text(S.current.search_start_searching),
+          SizedBox(
+            width: Sizes.s260,
+            child: Text(
+              S.current.search_start_searching_helper,
+              textAlign: TextAlign.center,
+            ),
+          ),
         ],
       ),
     );

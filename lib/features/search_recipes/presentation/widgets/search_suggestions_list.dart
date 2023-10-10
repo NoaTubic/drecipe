@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/drecipe_circular_progress_indicator.dart';
 import 'package:drecipe/features/search_recipes/domain/state/search/search_recipes_notifier.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/common/ui/widgets/loading_indicators/base_loading_card.dart';
@@ -44,8 +45,8 @@ class SearchSuggestionsList extends ConsumerWidget {
                 ? Container(
                     height: Sizes.s46.h,
                     padding: EdgeInsets.all(Sizes.s12.w),
-                    child: const Text(
-                      'No matching results.',
+                    child: Text(
+                      S.current.search_no_matching_results,
                       textAlign: TextAlign.left,
                     ),
                   )

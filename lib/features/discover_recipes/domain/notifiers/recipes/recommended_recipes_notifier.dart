@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:drecipe/features/discover_recipes/data/repositories/discover_recipes_repository.dart';
-import 'package:drecipe/features/discover_recipes/domain/notifiers/recipes/recipes_state.dart';
 import 'package:drecipe/features/discover_recipes/domain/notifiers/recipes/recommended_recipes_state.dart';
 import 'package:drecipe/features/favorite_recipes/data/favorite_recipes_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -32,7 +30,6 @@ class RecommendedRecipesNotifier
   Future<void> getRecipes() async {
     state = const RecommendedRecipesState.loading();
 
-    bool shouldRefresh = false;
     _streamSubscription = _favoriteRecipesRepository
         .getFavoriteRecipesRemote()
         .listen((result) async {
@@ -43,13 +40,6 @@ class RecommendedRecipesNotifier
       }, (recipes) {
         return state = RecommendedRecipesState.loaded(recipes: recipes);
       });
-
-      // result.fold(
-      //   (failure) {
-      //     state = const RecommendedRecipesState.loaded(recipes: []);
-      //   },
-      //   (favoriteRecipes) {},
-      // );
     });
   }
 }

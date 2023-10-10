@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:drecipe/features/auth/data/repositories/auth_repository.dart';
 import 'package:drecipe/features/common/domain/entities/failure.dart';
 
-import 'package:drecipe/features/profile/state/change_passcode/change_password_state.dart';
+import 'package:drecipe/features/profile/domain/notifiers/change_passcode/change_password_state.dart';
 import 'package:drecipe/features/auth/domain/validation/registration_value_objects.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

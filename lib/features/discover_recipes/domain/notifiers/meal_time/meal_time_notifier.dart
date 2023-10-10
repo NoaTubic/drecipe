@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/common/ui/assets/image_assets.dart';
 import 'package:drecipe/features/discover_recipes/domain/notifiers/meal_time/meal_time_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,31 +32,31 @@ class MealTimeNotifier extends StateNotifier<MealTimeState> {
       if (dateTime.hour >= 6 && dateTime.hour < 12) {
         state = state.copyWith(
           currentTime: currentTime,
-          mealType: 'breakfast',
+          mealType: Constants.mealTimeBreakfast,
           mealTypeIcon: ImageAssets.icBreakfast,
         );
       } else if (dateTime.hour >= 12 && dateTime.hour < 16) {
         state = state.copyWith(
           currentTime: currentTime,
-          mealType: 'lunch',
+          mealType: Constants.mealTimeLunch,
           mealTypeIcon: ImageAssets.icLunch,
         );
       } else if (dateTime.hour >= 16 && dateTime.hour < 18) {
         state = state.copyWith(
           currentTime: currentTime,
-          mealType: 'snack',
+          mealType: Constants.mealTimeSnack,
           mealTypeIcon: ImageAssets.icSnack,
         );
       } else if (dateTime.hour >= 18 && dateTime.hour < 23) {
         state = state.copyWith(
           currentTime: currentTime,
-          mealType: 'dinner',
+          mealType: Constants.mealTimeDinner,
           mealTypeIcon: ImageAssets.icDinner,
         );
       } else {
         state = state.copyWith(
           currentTime: currentTime,
-          mealType: 'bed',
+          mealType: Constants.mealTimeBed,
           mealTypeIcon: ImageAssets.icBed,
         );
       }

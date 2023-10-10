@@ -24,7 +24,7 @@ class PrivacyPolicyDialog extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              s.profile_screen_change_privacy_policy,
+              s.profile_screen_privacy_policy,
               style: Theme.of(context).textTheme.displayMedium,
             ),
             Row(
@@ -37,11 +37,11 @@ class PrivacyPolicyDialog extends StatelessWidget {
                 SizedBox(
                   width: Sizes.s4.w,
                 ),
-                const Text('This is a privacy policy.'),
+                Text(S.current.profile_screen_privacy_policy_desc),
               ],
             ),
             DrecipeTextButtonPrimary(
-              text: 'Close',
+              text: S.current.profile_screen_privacy_policy_close,
               onPressed: () => AutoRouter.of(context).pop(),
             ),
           ],

@@ -123,7 +123,3 @@ class SearchRecipesLoadingBody extends StatelessWidget {
     );
   }
 }
-
-
-// Filters
-// kithcen type, meal type, nutrients, cooking time

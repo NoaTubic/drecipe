@@ -42,8 +42,8 @@ class DetailedInstructionsPage extends StatelessWidget {
                   ),
                   SizedBox(
                     width: Sizes.s180.w,
-                    child: const Text(
-                      'No instructions for this recipe at this moment. :(',
+                    child: Text(
+                      S.current.recipe_details_instructions_detailed_error,
                       textAlign: TextAlign.center,
                     ),
                   ),

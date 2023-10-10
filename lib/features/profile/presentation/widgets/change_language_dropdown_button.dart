@@ -1,7 +1,7 @@
 import 'package:drecipe/core/language/data/locale_constants.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
-import 'package:drecipe/features/profile/di/providers.dart';
-import 'package:drecipe/features/profile/ui/widgets/profile_tile.dart';
+import 'package:drecipe/features/profile/domain/providers/providers.dart';
+import 'package:drecipe/features/profile/presentation/widgets/profile_tile.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';

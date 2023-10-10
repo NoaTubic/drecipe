@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:drecipe/features/search_recipes/data/repositories/search_recipes_repository.dart';
+import 'package:drecipe/features/search_recipes/domain/state/filter/filter_constants.dart';
 import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_notifier.dart';
 import 'package:drecipe/features/search_recipes/domain/state/search/search_recipes_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -96,6 +97,7 @@ class SearchRecipesNotifier extends StateNotifier<SearchRecipesState> {
     searchRecipes();
   }
 
-  String get isAsc =>
-      state.sortDirection == 'ascending' ? 'descending' : 'ascending';
+  String get isAsc => state.sortDirection == FilterConstants.sortAsc
+      ? FilterConstants.sortDesc
+      : FilterConstants.sortAsc;
 }

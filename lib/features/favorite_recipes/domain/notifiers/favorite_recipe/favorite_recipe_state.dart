@@ -5,18 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'favorite_recipe_state.freezed.dart';
 
-// @freezed
-// class FavoriteRecipeState with _$FavoriteRecipeState {
-//   const factory FavoriteRecipeState.initial() = _Initial;
-//   const factory FavoriteRecipeState.loading() = _Loading;
-//   const factory FavoriteRecipeState.loaded({
-//     bool? isFavorite,
-//   }) = _Loaded;
-//   const factory FavoriteRecipeState.error({
-//     required Failure error,
-//   }) = _Error;
-// }
-
 @freezed
 class FavoriteRecipeState with _$FavoriteRecipeState {
   const factory FavoriteRecipeState({

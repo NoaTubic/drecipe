@@ -4,8 +4,8 @@ import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_text_button_p
 import 'package:drecipe/features/common/ui/widgets/drecipe_dialog.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_snack_bar.dart';
 import 'package:drecipe/features/common/ui/widgets/text_form_fields/drecipe_password_text_form_field.dart';
-import 'package:drecipe/features/profile/di/providers.dart';
-import 'package:drecipe/features/profile/state/change_passcode/change_password_state.dart';
+import 'package:drecipe/features/profile/domain/providers/providers.dart';
+import 'package:drecipe/features/profile/domain/notifiers/change_passcode/change_password_state.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,7 +38,7 @@ class ChangePasswordDialog extends ConsumerWidget {
             (success) => AutoRouter.of(context).pop().whenComplete(
                   () => showDrecipeSnackBar(
                     context: context,
-                    text: 'Password successfully changed',
+                    text: S.current.profile_screen_change_password_success,
                   ),
                 ),
           ),
@@ -76,7 +76,7 @@ class ChangePasswordDialog extends ConsumerWidget {
                   (failure) => failure.getValueFailureMessage(),
                   (_) => null,
                 ),
-                hintText: 'Current password',
+                hintText: S.current.profile_screen_change_password,
               ),
               DrecipePasswordTextFormField(
                 onChanged: (newPassword) =>
@@ -85,7 +85,7 @@ class ChangePasswordDialog extends ConsumerWidget {
                   (failure) => failure.getValueFailureMessage(),
                   (_) => null,
                 ),
-                hintText: 'New Password',
+                hintText: S.current.profile_screen_change_password_new,
               ),
               const Spacer(),
               DrecipeButton(
@@ -97,7 +97,7 @@ class ChangePasswordDialog extends ConsumerWidget {
                 height: Sizes.s20.h,
               ),
               DrecipeTextButtonPrimary(
-                text: 'Cancel',
+                text: S.current.label_cancel,
                 onPressed: () => AutoRouter.of(context).pop(),
               )
             ],

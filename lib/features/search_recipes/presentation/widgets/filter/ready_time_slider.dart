@@ -1,4 +1,5 @@
 import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_notifier.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,11 +37,11 @@ class _ReadyTimeSliderState extends ConsumerState<ReadyTimeSlider> {
                   ),
                 ),
                 Text(
-                  'Max ready time',
+                  S.current.filters_max_ready_time,
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
                 const Spacer(),
-                Text('${state.maxReadyTime} minutes')
+                Text('${state.maxReadyTime} ${S.current.filters_minutes}')
               ],
             ),
           ),
@@ -58,7 +59,7 @@ class _ReadyTimeSliderState extends ConsumerState<ReadyTimeSlider> {
                 activeTickMarkColor: AppColors.primaryRed,
               ),
               child: Slider(
-                label: '${state.maxReadyTime} minutes',
+                label: '${state.maxReadyTime} ${S.current.filters_minutes}',
                 value: double.parse(state.maxReadyTime ?? '0'),
                 onChanged: (newValue) => filterNotifier
                     .onMaxReadyTimeChanged(newValue.round().toString()),

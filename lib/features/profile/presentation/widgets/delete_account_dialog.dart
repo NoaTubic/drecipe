@@ -3,6 +3,7 @@ import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/auth/domain/notifiers/auth/auth_notifier.dart';
 import 'package:drecipe/features/auth/domain/notifiers/sign_in/sign_in_notifier.dart';
 import 'package:drecipe/features/common/ui/widgets/drecipe_dialog.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,15 +25,15 @@ class DeleteAccountDialog extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Are you sure you want to delete your account?',
+            Text(
+              S.current.profile_screen_delete_account_helper,
               textAlign: TextAlign.center,
             ),
             SizedBox(
               height: Sizes.s40.h,
             ),
             DrecipeButton(
-              text: 'Delete',
+              text: S.current.profile_screen_delete_account_delete,
               onPressed: () {
                 ref.read(authNotifierProvider.notifier).deleteAccount().then(
                   (_) {
@@ -49,7 +50,7 @@ class DeleteAccountDialog extends ConsumerWidget {
             ),
             DrecipeButton(
                 secondary: true,
-                text: 'Cancel',
+                text: S.current.label_cancel,
                 onPressed: () => Navigator.pop(context))
           ],
         ),

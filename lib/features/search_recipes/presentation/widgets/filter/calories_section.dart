@@ -1,4 +1,5 @@
 import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_notifier.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +25,7 @@ class CaloriesSection extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Min calories',
+                  S.current.filter_min_calories,
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
                 SizedBox(
@@ -46,7 +47,7 @@ class CaloriesSection extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Max calories',
+                  S.current.filter_max_calories,
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
                 SizedBox(

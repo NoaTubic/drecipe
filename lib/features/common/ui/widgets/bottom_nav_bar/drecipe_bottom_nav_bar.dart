@@ -1,9 +1,9 @@
 import 'package:drecipe/features/common/constants/constants.dart';
-import 'package:drecipe/features/common/di/providers.dart';
+import 'package:drecipe/features/common/domain/providers/providers.dart';
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/discover_recipes/presentation/pages/discover_recipes_page.dart';
 import 'package:drecipe/features/favorite_recipes/presentation/pages/favorite_recipes_page.dart';
-import 'package:drecipe/features/profile/ui/screens/profile_screen.dart';
+import 'package:drecipe/features/profile/presentation/pages/profile_page.dart';
 import 'package:drecipe/features/search_recipes/presentation/pages/search_recipes_page.dart';
 import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +82,7 @@ List<Widget> _buildScreens() {
     const DiscoverRecipesPage(),
     const SearchRecipesPage(),
     const FavoriteRecipesPage(),
-    const ProfileScreen(),
+    const ProfilePage(),
   ];
 }
 

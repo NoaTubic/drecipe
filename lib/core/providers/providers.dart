@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:drecipe/core/connectivity/state/connectivity_notifier.dart';
-import 'package:drecipe/core/connectivity/state/connectivity_state.dart';
+import 'package:drecipe/core/connectivity/notifiers/connectivity_notifier.dart';
+import 'package:drecipe/core/connectivity/notifiers/connectivity_state.dart';
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/common/ui/themes/main_theme.dart';
 import 'package:drecipe/firebase_options.dart';

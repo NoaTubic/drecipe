@@ -1,6 +1,7 @@
 import 'package:drecipe/features/common/constants/constants.dart';
 import 'package:drecipe/features/discover_recipes/domain/entities/recipe_discover.dart';
 import 'package:drecipe/features/search_recipes/domain/entities/search_recipes_suggestion.dart';
+import 'package:drecipe/features/search_recipes/domain/state/filter/filter_constants.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'search_recipes_state.freezed.dart';
@@ -33,7 +34,7 @@ class SearchRecipesState with _$SearchRecipesState {
         intolerances: '',
         maxReadyTime: '',
         sort: Constants.randomRecipes,
-        sortDirection: 'ascending',
+        sortDirection: FilterConstants.sortAsc,
         maxCalories: '',
         minCalories: '',
         isLoadingSuggestions: false,

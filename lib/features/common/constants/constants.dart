@@ -8,6 +8,11 @@ abstract class Constants {
   static const String randomRecipes = 'random';
   static const String popularRecipes = 'popularity';
   static const String healthyRecipes = 'healthiness';
+  static const String mealTimeBreakfast = 'breakfast';
+  static const String mealTimeLunch = 'lunch';
+  static const String mealTimeSnack = 'snack';
+  static const String mealTimeDinner = 'dinner';
+  static const String mealTimeBed = 'bed';
 }
 
 abstract class HeroConstants {

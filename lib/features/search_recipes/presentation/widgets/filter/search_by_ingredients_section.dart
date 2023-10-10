@@ -1,12 +1,11 @@
 import 'package:drecipe/features/common/ui/widgets/buttons/drecipe_button.dart';
 import 'package:drecipe/features/discover_recipes/presentation/widgets/drecipe_card_swiper.dart';
+import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_notifier.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:drecipe/features/common/ui/styles.dart';
-
-import '../../../domain/state/filter/filter_recipes_notifier.dart';
 
 class SearchByIngredientsSection extends ConsumerWidget {
   const SearchByIngredientsSection({super.key});
@@ -23,9 +22,9 @@ class SearchByIngredientsSection extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SearchByIngredientsRow(
-            text: 'Include ingredients',
+            text: S.current.search_by_ingredients_include,
             icon: Icons.add_box_rounded,
-            hint: 'Ingredients you have',
+            hint: S.current.search_by_ingredients_include_hint,
             ingredients: state.includeIngredients,
             onChanged: (ingredient) =>
                 filterNotifier.onIngredientToIncludeChanged(ingredient),
@@ -36,9 +35,9 @@ class SearchByIngredientsSection extends ConsumerWidget {
             height: Sizes.s12.h,
           ),
           SearchByIngredientsRow(
-            text: 'Exclude ingredients',
+            text: S.current.search_by_ingredients_exclude,
             icon: Icons.indeterminate_check_box_rounded,
-            hint: 'Ingredients you don\'t have',
+            hint: S.current.search_by_ingredients_exclude_hint,
             ingredients: state.excludeIngredients,
             onChanged: (ingredient) =>
                 filterNotifier.onIngredientToExcludeChanged(ingredient),
@@ -120,7 +119,7 @@ class _SearchByIngredientsRowState
                 flex: 1,
                 child: DrecipeButton(
                   onPressed: widget.onPressed,
-                  text: 'Add',
+                  text: S.current.search_by_ingredients_add,
                   icon: const Icon(Icons.add),
                 ),
               ),
@@ -135,7 +134,7 @@ class _SearchByIngredientsRowState
               builder: (context, index) => Chip(
                 label: Text(index),
                 onDeleted: () => setState(() =>
-                    widget.text == 'Include ingredients'
+                    widget.text == S.current.search_by_ingredients_include
                         ? filterNotifier.removeIncludedIngredient(index)
                         : filterNotifier.removeExcludedIngredient(index)),
               ),

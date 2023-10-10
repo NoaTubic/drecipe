@@ -5,6 +5,7 @@ import 'package:drecipe/features/search_recipes/presentation/widgets/filter/calo
 import 'package:drecipe/features/search_recipes/presentation/widgets/filter/filter_list.dart';
 import 'package:drecipe/features/search_recipes/presentation/widgets/filter/ready_time_slider.dart';
 import 'package:drecipe/features/search_recipes/presentation/widgets/filter/search_by_ingredients_section.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,7 +53,7 @@ class _FiltersSectionState extends ConsumerState<FiltersSection> {
             ),
             Center(
               child: Text(
-                'Filters',
+                S.current.filters_title,
                 style: Theme.of(context).textTheme.displayMedium,
               ),
             ),
@@ -63,20 +64,20 @@ class _FiltersSectionState extends ConsumerState<FiltersSection> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SearchByIngredientsSection(),
-                    const FilterList(
-                      text: 'Cuisine',
+                    FilterList(
+                      text: S.current.filters_cuisine,
                       items: FilterConstants.cuisines,
                     ),
-                    const FilterList(
-                      text: 'Meal type',
+                    FilterList(
+                      text: S.current.filters_meal_type,
                       items: FilterConstants.mealTypes,
                     ),
-                    const FilterList(
-                      text: 'Diet',
-                      items: FilterConstants.diet,
+                    FilterList(
+                      text: S.current.filters_diets,
+                      items: FilterConstants.diets,
                     ),
-                    const FilterList(
-                      text: 'Intolerances',
+                    FilterList(
+                      text: S.current.filters_intolerances,
                       items: FilterConstants.intolerances,
                     ),
                     const ReadyTimeSlider(),
@@ -86,7 +87,7 @@ class _FiltersSectionState extends ConsumerState<FiltersSection> {
                           horizontal: Sizes.bodyHorizontalPadding.w,
                           vertical: Sizes.s20.h),
                       child: DrecipeButton(
-                        text: 'Apply',
+                        text: S.current.filters_apply,
                         icon: const Icon(
                           Icons.search_rounded,
                         ),

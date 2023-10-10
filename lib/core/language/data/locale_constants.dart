@@ -15,14 +15,3 @@ class LanguageItem {
   final String language;
   final Locale locale;
 }
-
-// List<LanguageItem> languages = [
-//   LanguageItem(
-//     locale: const Locale(LocaleConstants.englishLanguage),
-//     language: S.current.english_language,
-//   ),
-//   LanguageItem(
-//     locale: const Locale(LocaleConstants.croatianLanguage),
-//     language: S.current.croatian_language,
-//   ),
-// ];

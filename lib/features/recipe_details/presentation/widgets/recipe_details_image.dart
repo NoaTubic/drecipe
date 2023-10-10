@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:drecipe/features/common/di/providers.dart';
+import 'package:drecipe/features/common/domain/providers/providers.dart';
 import 'package:drecipe/features/common/ui/widgets/diet_badge.dart';
 import 'package:drecipe/features/favorite_recipes/domain/notifiers/favorite_recipe/favorite_recipe_notifier.dart';
 import 'package:drecipe/features/recipe_details/domain/entities/recipe.dart';

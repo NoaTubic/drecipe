@@ -1,5 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:drecipe/core/connectivity/state/connectivity_state.dart';
+import 'package:drecipe/core/connectivity/notifiers/connectivity_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ConnectivityNotifier extends StateNotifier<ConnectivityState> {

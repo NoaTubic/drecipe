@@ -1,3 +1,5 @@
+import 'package:drecipe/features/common/constants/constants.dart';
+import 'package:drecipe/features/search_recipes/domain/state/filter/filter_constants.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'filter_recipes_state.freezed.dart';
@@ -30,7 +32,7 @@ class FilterRecipesState with _$FilterRecipesState {
         cuisine: [],
         diet: [],
         intolerances: [],
-        sort: 'random',
-        sortDirection: 'ascending',
+        sort: Constants.randomRecipes,
+        sortDirection: FilterConstants.sortAsc,
       );
 }

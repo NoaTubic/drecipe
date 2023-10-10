@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,9 +20,9 @@ class SearchRecipesEmptyBody extends StatelessWidget {
             size: Sizes.iconSizeBig.w,
             color: AppColors.secondaryLightRed1,
           ),
-          const Text('No results found.'),
-          const Text('We couldn\'t find what you searched for.'),
-          const Text('Try again.'),
+          Text(S.current.search_no_results),
+          Text(S.current.search_no_results_helper),
+          Text(S.current.search_no_results_try_again),
         ],
       ),
     );

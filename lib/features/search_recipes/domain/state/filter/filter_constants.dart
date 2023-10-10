@@ -1,4 +1,12 @@
 abstract class FilterConstants {
+  static const String cuisine = 'Cuisine';
+  static const String mealType = 'Meal type';
+  static const String diet = 'Diet';
+  static const String intolerance = 'Intolerances';
+
+  static const String sortAsc = 'ascending';
+  static const String sortDesc = 'descending';
+
   static const List<String> cuisines = [
     'African',
     'American',
@@ -28,7 +36,7 @@ abstract class FilterConstants {
     'Vietnamese',
   ];
 
-  static const List<String> diet = [
+  static const List<String> diets = [
     'Gluten Free',
     'Ketogenic',
     'Vegetarian',

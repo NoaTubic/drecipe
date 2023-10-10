@@ -1,5 +1,5 @@
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
-
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,8 +23,8 @@ class DietBadgesRow extends StatelessWidget {
       mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.end,
       children: [
         if (isVege) ...[
-          const DietBadge(
-            text: 'Vege',
+          DietBadge(
+            text: S.current.diet_badge_vege,
             color: Colors.green,
             icon: ImageAssets.icVege,
           ),
@@ -33,8 +33,8 @@ class DietBadgesRow extends StatelessWidget {
           SizedBox(
             width: Sizes.s6.w,
           ),
-          const DietBadge(
-            text: 'Vegan',
+          DietBadge(
+            text: S.current.diet_badge_vegan,
             color: Colors.green,
             icon: ImageAssets.icVegan,
           ),
@@ -44,7 +44,7 @@ class DietBadgesRow extends StatelessWidget {
             width: Sizes.s6.w,
           ),
           DietBadge(
-            text: 'GF',
+            text: S.current.diet_badge_gf,
             color: AppColors.wheat,
             icon: ImageAssets.icGlutenFree,
           ),

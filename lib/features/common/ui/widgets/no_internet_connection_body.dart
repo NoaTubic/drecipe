@@ -1,4 +1,5 @@
 import 'package:drecipe/features/common/ui/styles.dart';
+import 'package:drecipe/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +18,7 @@ class NoInternetConnectionBody extends StatelessWidget {
             size: Sizes.s120.w,
           ),
           Text(
-            'Oops... No internet connection',
+            S.current.no_connection_title,
             // ignore: deprecated_member_use
             style: Theme.of(context).textTheme.headline3,
           ),
@@ -25,7 +26,7 @@ class NoInternetConnectionBody extends StatelessWidget {
             height: Sizes.s8.h,
           ),
           Text(
-            'Please check your internet connection and try again',
+            S.current.no_connection_helper,
             // ignore: deprecated_member_use
             style: Theme.of(context).textTheme.bodyText2,
           ),
