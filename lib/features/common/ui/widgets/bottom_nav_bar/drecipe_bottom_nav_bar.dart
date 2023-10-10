@@ -53,7 +53,7 @@ class _DrecipeBottomNavBarState extends ConsumerState<DrecipeBottomNavBar> {
         context: context,
       ),
       navBarStyle: NavBarStyle.style6,
-      backgroundColor: AppColors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       itemAnimationProperties: const ItemAnimationProperties(
         duration: Duration(milliseconds: DurationConstants.d040),
         curve: Curves.ease,

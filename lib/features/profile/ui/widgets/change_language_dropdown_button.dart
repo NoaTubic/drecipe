@@ -54,10 +54,7 @@ class _ChangeLanguageDropdownButtonState
           },
           hint: Text(
             getCurrentLanguage(),
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium!
-                .copyWith(color: AppColors.black),
+            style: Theme.of(context).textTheme.bodyMedium!,
           ),
           items: languages
               .map(
@@ -72,7 +69,10 @@ class _ChangeLanguageDropdownButtonState
           ),
           dropdownElevation: 1,
           buttonWidth: Sizes.s98.w,
-          iconEnabledColor: AppColors.black,
+          iconEnabledColor:
+              Theme.of(context).colorScheme.brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
         ),
       ),
     );

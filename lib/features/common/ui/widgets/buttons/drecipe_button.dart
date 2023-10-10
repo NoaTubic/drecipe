@@ -35,9 +35,12 @@ class DrecipeButton extends ConsumerWidget {
         style: isEnabled
             ? secondary
                 ? ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.white,
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     foregroundColor: AppColors.primaryRed,
-                    side: BorderSide(color: AppColors.primaryRed),
+                    side: BorderSide(
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? AppColors.lightGrey2
+                            : AppColors.white),
                   )
                 : null
             : ElevatedButton.styleFrom(
@@ -52,10 +55,20 @@ class DrecipeButton extends ConsumerWidget {
                     children: [
                       icon!,
                       SizedBox(width: Sizes.s4.w),
-                      Text(text),
+                      Text(
+                        text,
+                      ),
                     ],
                   )
-                : Text(text),
+                : Text(
+                    text,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? secondary
+                                ? AppColors.primaryRed
+                                : AppColors.white
+                            : AppColors.white),
+                  ),
       ),
     );
   }
