@@ -18,6 +18,7 @@ abstract class AppColors {
   static Color lightGrey4 = HexColor.fromHex('#A7A8AA');
   static Color darkGrey1 = HexColor.fromHex('#888B8D');
   static Color darkGrey2 = HexColor.fromHex('#63666A');
+  static Color darkGrey3 = HexColor.fromHex('#444444');
 
   static Color error = HexColor.fromHex("#E61f34");
 

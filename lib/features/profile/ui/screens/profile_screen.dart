@@ -3,8 +3,10 @@ import 'package:drecipe/core/providers/providers.dart';
 import 'package:drecipe/core/routes/app_router.dart';
 import 'package:drecipe/features/auth/domain/notifiers/auth/auth_notifier.dart';
 import 'package:drecipe/features/auth/domain/notifiers/sign_in/sign_in_notifier.dart';
+import 'package:drecipe/features/common/ui/widgets/drecipe_dialog.dart';
 import 'package:drecipe/features/profile/ui/widgets/change_language_dropdown_button.dart';
 import 'package:drecipe/features/profile/ui/widgets/change_password_dialog.dart';
+import 'package:drecipe/features/profile/ui/widgets/delete_account_dialog.dart';
 import 'package:drecipe/features/profile/ui/widgets/privacy_policy_dialog.dart';
 import 'package:drecipe/features/profile/ui/widgets/profile_tile.dart';
 import 'package:drecipe/features/profile/ui/widgets/theme_mode_switch.dart';
@@ -93,7 +95,10 @@ class ProfileScreen extends ConsumerWidget {
             padding:
                 EdgeInsets.symmetric(horizontal: Sizes.bodyHorizontalPadding.w),
             child: DrecipeButton(
-              onPressed: () {},
+              onPressed: () => showDialog(
+                context: context,
+                builder: (context) => const DeleteAccountDialog(),
+              ),
               text: s.profile_screen_delete_account,
               secondary: true,
             ),

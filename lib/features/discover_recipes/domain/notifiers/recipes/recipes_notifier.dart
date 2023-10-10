@@ -20,16 +20,16 @@ class RecipesNotifier extends StateNotifier<RecipesState> {
       : super(const RecipesState.initial());
 
   Future<void> getRecipes() async {
-    state = const RecipesState.loading();
+    // state = const RecipesState.loading();
 
-    final recipes = await _recipesRepository.getRecipes();
-    recipes.fold(
-      (failure) {
-        return state = RecipesState.error(failure: failure.title);
-      },
-      (recipes) {
-        return state = RecipesState.loaded(recipes: recipes);
-      },
-    );
+    // final recipes = await _recipesRepository.getRecipes();
+    // recipes.fold(
+    //   (failure) {
+    //     return state = RecipesState.error(failure: failure.title);
+    //   },
+    //   (recipes) {
+    //     return state = RecipesState.loaded(recipes: recipes);
+    //   },
+    // );
   }
 }

@@ -56,7 +56,7 @@ class SearchRecipesNotifier extends StateNotifier<SearchRecipesState> {
       minCalories: filters.minCalories,
       maxCalories: filters.maxCalories,
       maxReadyTime: filters.maxReadyTime,
-      sort: filters.sort,
+      sort: state.sort,
       sortDirection: state.sortDirection,
     );
     await Future.delayed(const Duration(seconds: 1));

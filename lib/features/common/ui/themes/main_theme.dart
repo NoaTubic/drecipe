@@ -88,7 +88,7 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: EdgeInsets.all(Sizes.s18.w),
-      hintStyle: TextStyles.regular(color: AppColors.darkGrey2),
+      hintStyle: TextStyles.regular(color: AppColors.darkGrey3),
       filled: true,
       fillColor: AppColors.lightGrey1.withOpacity(OpacityConstants.op02),
       isDense: true,
@@ -146,14 +146,14 @@ class AppTheme {
     highlightColor:
         AppColors.secondaryLightRed2.withOpacity(OpacityConstants.op02),
     fontFamily: FontConstants.fontFamily,
-    scaffoldBackgroundColor: AppColors.darkGrey2,
+    scaffoldBackgroundColor: AppColors.darkGrey3,
     appBarTheme: AppBarTheme(
       centerTitle: true,
       systemOverlayStyle: SystemUiOverlayStyle.light
-          .copyWith(systemNavigationBarColor: AppColors.darkGrey2),
-      backgroundColor: AppColors.darkGrey2,
+          .copyWith(systemNavigationBarColor: AppColors.darkGrey3),
+      backgroundColor: AppColors.darkGrey3,
       elevation: Sizes.elevationMain,
-      shadowColor: AppColors.darkGrey2.withOpacity(OpacityConstants.op04),
+      shadowColor: AppColors.darkGrey3.withOpacity(OpacityConstants.op04),
       iconTheme: IconThemeData(
         color: AppColors.lightGrey1,
         size: Sizes.iconSizeSmall.w,

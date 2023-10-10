@@ -1,8 +1,6 @@
 import 'package:drecipe/features/common/ui/styles.dart';
 import 'package:drecipe/features/search_recipes/domain/state/filter/filter_constants.dart';
-import 'package:drecipe/features/search_recipes/domain/state/filter/filter_recipes_notifier.dart';
 import 'package:drecipe/features/search_recipes/domain/state/search/search_recipes_notifier.dart';
-
 import 'package:drecipe/features/search_recipes/presentation/widgets/sort/dropdown_helpers.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +39,7 @@ class _SortingDropdownButtonState extends ConsumerState<SortingDropdownButton> {
             child: DropdownButton2(
               isExpanded: true,
               hint: Text(
-                ref.watch(filterRecipesNotifierProvider).sort!.capitalize(),
+                ref.watch(searchRecipesNotifierProvider).sort.capitalize(),
                 style: TextStyle(
                   fontSize: 14,
                   color: Theme.of(context).hintColor,
@@ -70,7 +68,7 @@ class _SortingDropdownButtonState extends ConsumerState<SortingDropdownButton> {
               },
               alignment: AlignmentDirectional.center,
               buttonHeight: Sizes.s40.h,
-              dropdownMaxHeight: 380.h,
+              dropdownMaxHeight: Sizes.s380.h,
               buttonWidth: Sizes.s120.w,
               itemPadding: const EdgeInsets.symmetric(horizontal: 8.0),
             ),

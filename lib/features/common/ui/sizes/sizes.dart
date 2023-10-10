@@ -71,4 +71,5 @@ abstract class Sizes {
   static const double s260 = 260;
   static const double s284 = 284;
   static const double s300 = 300;
+  static const double s380 = 380;
 }

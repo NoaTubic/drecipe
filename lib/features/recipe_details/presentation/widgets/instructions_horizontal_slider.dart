@@ -50,7 +50,7 @@ class InstructionsHorizontalSlider extends StatelessWidget {
                     children: [
                       Container(
                         width: Sizes.s68,
-                        height: Sizes.s48,
+                        height: Sizes.s46,
                         decoration: BoxDecoration(
                           color: AppColors.white,
                           borderRadius:
