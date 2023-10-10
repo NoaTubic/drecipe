@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "account_recovery_confirm_helper": MessageLookupByLibrary.simpleMessage(
             "Molimo provjerite svoj ulazni spremnik i resetirajte svoju lozinku."),
         "account_recovery_confirm_subtitle":
-            MessageLookupByLibrary.simpleMessage("Poslan link za resetiranje!"),
+            MessageLookupByLibrary.simpleMessage("Link za resetiranje poslan!"),
         "account_recovery_helper": MessageLookupByLibrary.simpleMessage(
             "Molimo unesite svoju adresu e-pošte kako biste resetirali lozinku."),
         "account_recovery_reset":
@@ -34,6 +34,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Zaboravili ste lozinku?"),
         "account_recovery_title":
             MessageLookupByLibrary.simpleMessage("Resetiranje lozinke"),
+        "anonymous_user":
+            MessageLookupByLibrary.simpleMessage("Anonimni korisnik"),
+        "anonymous_user_favorites": MessageLookupByLibrary.simpleMessage(
+            "Bok! Želiš spremiti svoje omiljene recepte? Samo se prijavi i sve će biti spremno za dodavanje u omiljene!"),
         "bottom_nav_bar_discover":
             MessageLookupByLibrary.simpleMessage("Otkrij"),
         "bottom_nav_bar_favorite":
@@ -43,10 +47,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottom_nav_bar_search":
             MessageLookupByLibrary.simpleMessage("Pretraži"),
         "bottom_nav_bar_search_by_ingredients":
-            MessageLookupByLibrary.simpleMessage("Pretraživanje po sastojcima"),
+            MessageLookupByLibrary.simpleMessage("Pretraži po sastojcima"),
         "croatian_language": MessageLookupByLibrary.simpleMessage("Hrvatski"),
         "diet_badge_gf": MessageLookupByLibrary.simpleMessage("Bez glutena"),
-        "diet_badge_vegan": MessageLookupByLibrary.simpleMessage("Vegan"),
+        "diet_badge_vegan": MessageLookupByLibrary.simpleMessage("Vegansko"),
         "diet_badge_vege": MessageLookupByLibrary.simpleMessage("Vege"),
         "discover_recipes_card_text_ingredients":
             MessageLookupByLibrary.simpleMessage("sastojci"),
@@ -59,7 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "discover_recipes_meal_card_time_a":
             MessageLookupByLibrary.simpleMessage("Vrijeme je za"),
         "discover_recipes_meal_card_time_b":
-            MessageLookupByLibrary.simpleMessage("obrok"),
+            MessageLookupByLibrary.simpleMessage("jelo"),
         "discover_recipes_popular":
             MessageLookupByLibrary.simpleMessage("Popularno"),
         "discover_recipes_random":
@@ -78,11 +82,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ponovno pošalji e-poštu"),
         "email_verification_resent_email_info":
             MessageLookupByLibrary.simpleMessage(
-                "E-pošta je ponovno poslana! Molimo provjerite svoj ulazni spremnik."),
+                "E-pošta ponovno poslana! Molimo provjerite svoj ulazni spremnik."),
         "email_verification_subtitle": MessageLookupByLibrary.simpleMessage(
-            "Gotovo spremni za početak uživanja u"),
+            "Gotovo spremni za uživanje u "),
         "email_verification_title":
-            MessageLookupByLibrary.simpleMessage("Potvrdite e-poštu"),
+            MessageLookupByLibrary.simpleMessage("Potvrdi e-poštu"),
         "english_language": MessageLookupByLibrary.simpleMessage("Engleski"),
         "failure_cancelled_by_user":
             MessageLookupByLibrary.simpleMessage("Otkazano"),
@@ -115,9 +119,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "failure_passwords_dont_match":
             MessageLookupByLibrary.simpleMessage("Lozinke se ne podudaraju."),
         "failure_server_error":
-            MessageLookupByLibrary.simpleMessage("Pogreška poslužitelja"),
+            MessageLookupByLibrary.simpleMessage("Pogreška servera"),
         "failure_server_error_general": MessageLookupByLibrary.simpleMessage(
-            "Došlo je do pogreške na poslužitelju"),
+            "Došlo je do pogreške na serveru"),
         "failure_short_password": MessageLookupByLibrary.simpleMessage(
             "Lozinka mora imati najmanje 6 znakova."),
         "failure_unauthorized_access":
@@ -128,6 +132,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Neočekivana pogreška"),
         "failure_unknown_error_occurred": MessageLookupByLibrary.simpleMessage(
             "Došlo je do nepoznate pogreške"),
+        "favorite_recipes_add_for_recommendations":
+            MessageLookupByLibrary.simpleMessage(
+                "Dodajte recepte u omiljene kako biste dobili preporuke"),
+        "favorite_recipes_sign_in": MessageLookupByLibrary.simpleMessage(
+            "Prijavite se kako biste dodali recepte u omiljene"),
         "favorite_recipes_title":
             MessageLookupByLibrary.simpleMessage("Omiljeno"),
         "filter_max_calories":
@@ -164,7 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nova lozinka"),
         "profile_screen_change_password_success":
             MessageLookupByLibrary.simpleMessage(
-                "Lozinka je uspješno promijenjena"),
+                "Lozinka uspješno promijenjena"),
         "profile_screen_delete_account_delete":
             MessageLookupByLibrary.simpleMessage("Izbriši"),
         "profile_screen_delete_account_helper":
@@ -180,16 +189,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile_screen_privacy_policy_desc":
             MessageLookupByLibrary.simpleMessage("Ovo su pravila privatnosti"),
         "profile_screen_sign_out":
-            MessageLookupByLibrary.simpleMessage("Odjava"),
+            MessageLookupByLibrary.simpleMessage("Odjavi se"),
         "profile_screen_theme_mode":
             MessageLookupByLibrary.simpleMessage("Način teme"),
         "profile_screen_title": MessageLookupByLibrary.simpleMessage("Profil"),
+        "recipe_details_instructions_detailed_error":
+            MessageLookupByLibrary.simpleMessage(
+                "Trenutno nema uputa za ovaj recept. :(\'"),
         "recipe_details_instructions_equipment":
             MessageLookupByLibrary.simpleMessage("Oprema"),
         "recipe_details_instructions_ingredients":
             MessageLookupByLibrary.simpleMessage("Sastojci"),
         "recipe_details_instructions_step":
             MessageLookupByLibrary.simpleMessage("Korak"),
+        "recipe_details_instructions_step_by_step":
+            MessageLookupByLibrary.simpleMessage("Korak po korak upute"),
         "recipe_details_instructions_title":
             MessageLookupByLibrary.simpleMessage("Upute"),
         "registration_email_hint":
@@ -199,13 +213,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "registration_helper": MessageLookupByLibrary.simpleMessage(
             "Molimo kreirajte račun kako biste nastavili."),
         "registration_password_confirm_hint":
-            MessageLookupByLibrary.simpleMessage("Potvrdite lozinku"),
+            MessageLookupByLibrary.simpleMessage("Potvrdi lozinku"),
         "registration_password_hint":
             MessageLookupByLibrary.simpleMessage("Lozinka"),
         "registration_sign_up_label":
             MessageLookupByLibrary.simpleMessage("Registriraj se"),
         "registration_subtitle":
-            MessageLookupByLibrary.simpleMessage("Dobrodošli u"),
+            MessageLookupByLibrary.simpleMessage("Dobrodošli u "),
         "registration_title":
             MessageLookupByLibrary.simpleMessage("Registracija"),
         "registration_username_hint":
@@ -237,9 +251,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "search_start_searching":
             MessageLookupByLibrary.simpleMessage("Počnite pretraživati!"),
         "search_start_searching_helper": MessageLookupByLibrary.simpleMessage(
-            "Dodajte neke sastojke u svoju pretragu i pronaći ćemo vam neke recepte."),
+            "Dodajte neke sastojke u vašu pretragu i pronaći ćemo vam neke recepte."),
         "sign_in_anonymous":
-            MessageLookupByLibrary.simpleMessage("Nastavite bez prijave"),
+            MessageLookupByLibrary.simpleMessage("Nastavi bez prijave"),
         "sign_in_email_hint": MessageLookupByLibrary.simpleMessage("E-pošta"),
         "sign_in_forgot_password":
             MessageLookupByLibrary.simpleMessage("Zaboravili ste lozinku?"),
