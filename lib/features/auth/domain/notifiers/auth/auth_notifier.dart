@@ -13,7 +13,7 @@ final isUserAnonymous = StateProvider<bool>((ref) {
   final authState = ref.watch(authNotifierProvider);
   return authState.maybeWhen(
     authenticated: () => false,
-    orElse: () => true,
+    orElse: () => false,
   );
 });
 
@@ -28,7 +28,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     _authRepository.subscribeToAuthChanges().listen(
       (user) {
         if (user != null && user.emailVerified) {
-          if (user.isAnonymous) {
+          if (!user.emailVerified) {
             ref.read(isUserAnonymous.notifier).state = true;
           }
           state = const AuthState.authenticated();

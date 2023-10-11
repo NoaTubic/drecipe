@@ -26,10 +26,12 @@ class SignInPage extends ConsumerWidget {
             context: context,
             text: failure.title,
           ),
-          (success) => ScreenRouter.pushScreen(
-            context,
-            const DrecipeBottomNavBarRoute(),
-          ),
+          (success) {
+            ScreenRouter.pushScreen(
+              context,
+              const DrecipeBottomNavBarRoute(),
+            );
+          },
         ),
       );
     });
