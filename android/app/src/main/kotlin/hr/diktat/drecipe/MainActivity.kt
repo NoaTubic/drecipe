@@ -1,4 +1,4 @@
-package com.drecipe.drecipe
+package hr.diktat.drecipe
 
 import io.flutter.embedding.android.FlutterActivity
 
